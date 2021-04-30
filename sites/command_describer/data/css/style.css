@@ -332,16 +332,16 @@ h3 {
     font-family: MCFont;
 }
 .always p.btn-mo:after {
-    content:"[常時実行]";
+    content:"[常時実行 / 常にアクティブ]";
 }
 .redstone-required-toggle p.btn-mo:after {
-    content:"[レッドストーンが必要：レバー]";
+    content:"[動力が必要 / レッドストーンが必要：レバー]";
 }
 .redstone-required-button p.btn-mo:after {
-    content:"[レッドストーンが必要：ボタン]"
+    content:"[動力が必要 / レッドストーンが必要：ボタン]"
 }
 .redstone-required-block p.btn-mo:after {
-    content:"[レッドストーンが必要：レッドストーンブロック]"
+    content:"[動力が必要 / レッドストーンが必要：レッドストーンブロック]"
 }
 .i-cmb p.btn-mo:after {
     color: #bd774b;

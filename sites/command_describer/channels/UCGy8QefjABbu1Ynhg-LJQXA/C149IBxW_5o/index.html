@@ -254,6 +254,77 @@
                             <p>execute @a[scores={timer1=0},tag=timer] ~ ~ ~ random.click @s ~ ~ ~ 1 0.3</p>
                         </div>
                     </div>
+                    <h3>タイマーを開始&停止するコマンド(必須)</h3>
+                    <div class="moc r-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/repeating_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ detect ~ ~-0.1 ~ iron_block 0 scoreboard players set @s timer1 0</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ detect ~ ~-0.1 ~ iron_block 0 scoreboard players set @s timer2 0</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ detect ~ ~-0.1 ~ iron_block 0 scoreboard players set @s timer3 0</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ detect ~ ~-0.1 ~ iron_block 0 tag @s add timer</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a[tag=timer] ~ ~ ~ detect ~ ~-0.1 ~ obsidian 0 playsound random.levelup @s ~ ~ ~ 0.5 0.7</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ detect ~ ~-0.1 ~ obsidian 0 tellraw @s[tag=timer]{"rawtext":[{"text":"§l§f【計測結果】"},{"score":{"name":"@s","objective":"timer3"}},{"text":"分　"},{"score":{"name":"@s","objective":"timer2"}},{"text":"."},{"score":{"name":"@s","objective":"timer1"}},{"text":"秒　でした"}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ detect ~ ~-0.1 ~ obsidian 0 tag @s remove timer</p>
+                        </div>
+                    </div>
 
                 </div>
             </li>
