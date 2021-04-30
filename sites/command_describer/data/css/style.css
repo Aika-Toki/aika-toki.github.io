@@ -271,9 +271,16 @@ a.access-command span {
 .update-date {
     color: #ffffff;
 }
+.command_detail li {
+    list-style: none;
+}
+.update-date:before {
+    content:"updated at ";
+}
 .thumbnail {
     position: relative;
     display: inline-flex;
+    background-color: #00ff00;
 }
 .btn-mo {
     margin: 0;
@@ -368,6 +375,8 @@ h3 {
     width: 32px;
     height: 32px;
     display: inline-flex;
+    background-size: 32px;
+    background-repeat: no-repeat;
 }
 .cmb img{
     display: none;
@@ -375,10 +384,29 @@ h3 {
 .c-cmb img.cmb {
     display: none;
 }
+.i-cmb .cmb {
+    background-image: url("/sites/command_describer/data/img/command_block.png");
+    background-color: #bd774b;
+}
+.c-i-cmb .cmb {
+    background-image: url("/sites/command_describer/data/img/command_block_conditional.png");
+    background-color: #bd774b;
+}
 .c-cmb .cmb {
     background-image: url("/sites/command_describer/data/img/chain_command_block.png");
-    background-repeat: no-repeat;
-    background-size: 32px;
+    background-color: #71ab91;
+}
+.c-c-cmb .cmb {
+    background-image: url("/sites/command_describer/data/img/chain_command_block_conditional.png");
+    background-color: #71ab91;
+}
+.r-cmb .cmb {
+    background-image: url("/sites/command_describer/data/img/repeating_command_block.png");
+    background-color: #7965c1;
+}
+.c-r-cmb .cmb {
+    background-image: url("/sites/command_describer/data/img/repeating_command_block_conditional.png");
+    background-color: #7965c1;
 }
 
 /* v Content Config with tag v */
