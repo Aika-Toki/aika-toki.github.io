@@ -408,9 +408,7 @@ h3 {
     background-image: url("/sites/command_describer/data/img/repeating_command_block_conditional.png");
     background-color: #7965c1;
 }
-.thumbnails {
-    display: unset;
-}
+
 .command li {
     list-style: "▶︎ ";
     color: #ffffff;
