@@ -371,6 +371,9 @@ h3 {
 .cmb img{
     display: none;
 }
+.c-cmb img.cmb {
+    display: none;
+}
 .c-cmb .cmb {
     background-image: url("/sites/command_describer/data/img/chain_command_block.png");
     background-repeat: no-repeat;
