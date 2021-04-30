@@ -367,6 +367,9 @@ h3 {
     padding-right: 10px;
     font-family: MCFont;
 }
+.c-cmb .cmb:before {
+    background-image: url("/sites/command_describer/data/img/chain_command_block.png");
+}
 
 /* v Content Config with tag v */
 h1#Welcome {
