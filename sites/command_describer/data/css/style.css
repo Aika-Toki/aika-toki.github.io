@@ -275,9 +275,6 @@ a.access-command span {
     position: relative;
     display: inline-flex;
 }
-.cmb {
-    width: 32px;
-}
 .btn-mo {
     margin: 0;
 }
@@ -367,8 +364,12 @@ h3 {
     padding-right: 10px;
     font-family: MCFont;
 }
-.c-cmb .cmb:before {
+.cmb {
+    width: 64px;
+}
+.c-cmb .cmb {
     background-image: url("/sites/command_describer/data/img/chain_command_block.png");
+    background-repeat: no-repeat;
 }
 
 /* v Content Config with tag v */
