@@ -365,7 +365,7 @@ h3 {
     font-family: MCFont;
 }
 .cmb {
-    width: 64px;
+    width: 48px;
 }
 .c-cmb .cmb {
     background-image: url("/sites/command_describer/data/img/chain_command_block.png");
