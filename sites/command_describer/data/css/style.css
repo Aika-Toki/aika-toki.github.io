@@ -362,11 +362,12 @@ h3 {
     background-color: #3338;
     padding-left: 10px;
     padding-right: 10px;
-    font-family: MCFont;
+    font-family: MCFont,PixelMplus-Regular;
 }
 .cmb {
     width: 32px;
     height: 32px;
+    display: inline-flex;
 }
 .cmb img{
     display: none;
