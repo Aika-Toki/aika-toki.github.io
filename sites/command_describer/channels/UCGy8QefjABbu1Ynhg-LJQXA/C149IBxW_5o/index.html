@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Channels | Command Describer for Minecrafters</title>
+    <link href="/sites/command_describer/data/css/style.css" rel="stylesheet">
+    <link href="../../../data/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/sites/command_describer/data/img/command_block.png">
+</head>
+<body>
+<header>
+    <div class="logobg">
+        <a href="https://minecraft.net" target="_blank">
+            <img src="/sites/command_describer/data/img/minecraft.png" class="logo" alt="">
+        </a>
+        <ul class="menu pc">
+            <li>
+                <a href="/sites/command_describer/" class="btn">
+                    <span>Top</span>
+                </a>
+            </li>
+            <li>
+                <a href="/sites/command_describer/channels/" class="btn">
+                    <span>Command Creator Channels</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="cp_navi sp">
+    <div id="cp_sidenav" class="sidenav">
+        <a href="/sites/command_describer/" id="menu00">Top</a>
+        <a href="/sites/command_describer/channels/" id="menu01">Command Creator Channels</a>
+    </div>
+</div>
+<main>
+    <div class="content">
+        <img src="https://i.ytimg.com/vi/C149IBxW_5o/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDp53m-OniwIpa_2cKtTJvBr4d_Sw" alt="" class="thumbnail">
+        <h2>
+            【コマンド】計測開始！時間をカウントするタイマーのコマンド【マイクラBE】
+        </h2>
+        <a href="https://www.youtube.com/watch?v=C149IBxW_5o" class="youtube-link" target="_blank">
+        <span>▶︎YouTube Video</span>
+        </a>
+        <ul class="command_detail">
+            <li>
+                <h4 class="update-date">2021/04/24</h4>
+                <h4 class="Edition">Bedrock Edition</h4>
+                <div class="command_content">
+                    <!-- Command Template
+                    <div class="moc -cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p></p>
+                        </div>
+                    </div>
+                    -->
+                    <h3>準備機構</h3>
+                    <div class="moc i-cmb redstone-required-button">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard objectives add timer1 dummy</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard objectives add timer2 dummy</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard objectives add timer3 dummy</p>
+                        </div>
+                    </div>
+                    <h3>タイマー用のスコアボードをいじるコマンド</h3>
+                    <div class="moc r-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/repeating_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard players add @a[tag=timer] timer1 5</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard players add @a[scores={timer1=100..}] timer2 1</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard players set @a[scores={timer1=100..}] timer1 0</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard players add @a[scores={timer2=60..}] timer3 1</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>scoreboard players set @a[scores={timer2=60..}] timer2 0</p>
+                        </div>
+                    </div>
+                    <h3>簡単なタイマーを表示するコマンド(選択その1)</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/repeating_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"score":{"name":"@s","objective":"timer3"}},{"text":":"},{"score":{"name":"@s","objective":"timer2"}},{"text":":"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <h3>難しいコマンドを表示するコマンド(選択その2)</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/repeating_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=..9}] ~ ~ ~ execute @s[scores={timer2=10..}] ~ ~ ~ execute @s[scores={timer3=10..}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"score":{"name":"@s","objective":"timer3"}},{"text":":"},{"score":{"name":"@s","objective":"timer2"}},{"text":":0"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=10..}] ~ ~ ~ execute @s[scores={timer2=..9}] ~ ~ ~ execute @s[scores={timer3=10..}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"score":{"name":"@s","objective":"timer3"}},{"text":":0"},{"score":{"name":"@s","objective":"timer2"}},{"text":":"},{"score"{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                      <p class="btn-mo btn-cmb">
+                        <a>
+                          <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                        </a>
+                      </p>
+                      <div class="mob">
+                          <p>execute @a ~ ~ ~ execute @s[scores={timer1=10..}] ~ ~ ~ execute @s[scores={timer2=10..}] ~ ~ ~ execute @s[scores={timer3=..9}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"text":"0"},{"score":{"name":"@s","objective":"timer3"}},{"text":":"},{"score":{"name":"@s","objective":"timer2"}},{"text":":"},{"score":{"name":"@s","objective":"timer1"}}]}execute @a ~ ~ ~ execute @s[scores={timer1=10..}] ~ ~ ~ execute @s[scores={timer2=10..}] ~ ~ ~ execute @s[scores={timer3=..9}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"text":"0"},{"score":{"name":"@s","objective":"timer3"}},{"text":":"},{"score":{"name":"@s","objective":"timer2"}},{"text":":"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                      </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=..9}] ~ ~ ~ execute @s[scores={timer2=..9}] ~ ~ ~ execute @s[scores={timer3=10..}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"score":{"name":"@s","objective":"timer3"}},{"text":":0"},{"score":{"name":"@s","objective":"timer2"}},{"text":".0"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=10..}] ~ ~ ~ execute @s[scores={timer2=..9}] ~ ~ ~ execute @s[scores={timer3=..9}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"text":"0"},{"score":{"name":"@s","objective":"timer3"}},{"text":":0"},{"score":{"name":"@s","objective":"timer2"}},{"text":":"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=..9}] ~ ~ ~ execute @s[scores={timer2=10..}] ~ ~ ~ execute @s[scores={timer3=..9}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"text":"0"},{"score":{"name":"@s","objective":"timer3"}},{"text":":"},{"score":{"name":"@s","objective":"timer2"}},{"text":":0"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=..9}] ~ ~ ~ execute @s[scores={timer2=..9}] ~ ~ ~ execute @s[scores={timer3=..9}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"text":"0"},{"score":{"name":"@s","objective":"timer3"}},{"text":":0"},{"score":{"name":"@s","objective":"timer2"}},{"text":":0"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=..9}] ~ ~ ~ execute @s[scores={timer2=..9}] ~ ~ ~ execute @s[scores={timer3=..9}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"text":"0"},{"score":{"name":"@s","objective":"timer3"}},{"text":":0"},{"score":{"name":"@s","objective":"timer2"}},{"text":":0"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/chain_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p>execute @a ~ ~ ~ execute @s[scores={timer1=10..}] ~ ~ ~ execute @s[scores={timer2=10..}] ~ ~ ~ execute @s[scores={timer3=10..}] ~ ~ ~ titleraw @s[tag=timer] actionbar{"rawtext":[{"score":{"name":"@s","objective":"timer3"}},{"text":":"},{"score":{"name":"@s","objective":"timer2"}},{"text":":"},{"score":{"name":"@s","objective":"timer1"}}]}</p>
+                        </div>
+                    </div>
+                    <h3>秒を刻む音(自由)</h3>
+                    <div class="moc r-cmb redstone_required_toggle">
+                        <p class="btn-mo btn-cmb">
+                            <a>
+                                <img src="/sites/command_describer/data/img/repeating_command_block.png" alt="" class="cmb">
+                            </a>
+                        </p>
+                        <div class="mob">
+                            <p></p>
+                        </div>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</main>
+</body>
+</html>
