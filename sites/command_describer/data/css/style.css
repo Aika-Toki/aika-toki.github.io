@@ -328,34 +328,34 @@ h3 {
     padding: 10px;
     font-family: MCFont;
 }
-.always p.btn-mo:after {
+.always div.btn-mo:after {
     content:"[常時実行 / 常にアクティブ]";
 }
-.redstone-required-toggle p.btn-mo:after {
+.redstone-required-toggle div.btn-mo:after {
     content:"[動力が必要 / レッドストーンが必要：レバー]";
 }
-.redstone-required-button p.btn-mo:after {
+.redstone-required-button div.btn-mo:after {
     content:"[動力が必要 / レッドストーンが必要：ボタン]"
 }
-.redstone-required-block p.btn-mo:after {
+.redstone-required-block div.btn-mo:after {
     content:"[動力が必要 / レッドストーンが必要：レッドストーンブロック]"
 }
-.i-cmb p.btn-mo:after {
+.i-cmb div.btn-mo:after {
     color: #bd774b;
 }
-.c-i-cmb p.btn-mo:after {
+.c-i-cmb div.btn-mo:after {
     color: #bd774b;
 }
-.c-cmb p.btn-mo:after {
+.c-cmb div.btn-mo:after {
     color: #71ab91;
 }
-.c-c-cmb p.btn-mo:after {
+.c-c-cmb div.btn-mo:after {
     color: #71ab91;
 }
-.r-cmb p.btn-mo:after {
+.r-cmb div.btn-mo:after {
     color: #7965c1;
 }
-.c-r-cmb p.btn-mo:after {
+.c-r-cmb div.btn-mo:after {
     color: #7965c1;
 }
 .mob p {
@@ -374,6 +374,7 @@ h3 {
 .c-cmb .cmb {
     background-image: url("/sites/command_describer/data/img/chain_command_block.png");
     background-repeat: no-repeat;
+    background-size: 32px;
 }
 
 /* v Content Config with tag v */
