@@ -410,8 +410,18 @@ h3 {
 }
 
 .command li {
-    list-style: "▶︎ ";
+    list-style: none;
     color: #ffffff;
+}
+.access-command:hover img.thumbnail {
+    display: none;
+}
+.access-command img.preview {
+    display: none;
+    width: 246px;
+}
+.access-command:hover img.preview {
+    display: block;
 }
 
 /* v Content Config with tag v */
