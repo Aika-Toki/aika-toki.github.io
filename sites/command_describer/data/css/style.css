@@ -250,8 +250,8 @@ div#fc2_footer a:visited {
 .hcb-comment-body {
     color: #ffffff;
 }
-.hcb-like {
-    content: "いいね！　";
+.hcb-comment-tb {
+    color: #55ffff;
 }
 /* v Content Config v */
 h1 {
