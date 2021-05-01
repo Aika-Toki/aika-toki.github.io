@@ -216,7 +216,7 @@ div#fc2_footer a:visited {
     display: none;
 }
 #hcb_subscribe {
-    display: none;
+    display: none !important;
 }
 #HCB_comment_box {
     background-image: url("/sites/command_describer/data/img/oak_planks.png");
@@ -224,12 +224,12 @@ div#fc2_footer a:visited {
     background-size: 32px 32px;
     padding: 1px;
 }
-.author_name {
-    color: #ffffff;
-    font-family: PixelMplus-Regular;
+.author-name {
+    color: #ffffff !important;
+    font-family: 'PixelMplus-Regular' !important;
 }
 .date {
-    color:#dddddd;
+    color:#dddddd !important;
 }
 /* v Content Config v */
 h1 {
