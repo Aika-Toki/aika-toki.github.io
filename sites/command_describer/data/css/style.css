@@ -218,9 +218,23 @@ div#fc2_footer a:visited {
 #hcb_subscribe {
     display: none !important;
 }
-#HCB_comment_box {
+#hcb_form {
+    margin: 0 !important;
+}
+#HCB_comment_form_box {
+    margin: 0 !important;
+}
+.comment {
+    margin-left: 10px;
+}
+#comments_list {
     background-image: url("/sites/command_describer/data/img/oak_planks.png");
     background-color: #B99E6B;
+    background-size: 32px 32px;
+}
+#HCB_comment_box {
+    background-image: url("/sites/command_describer/data/img/stone.jpg");
+    background-color: #888888;
     background-size: 32px 32px;
     padding: 1px;
 }
@@ -230,6 +244,7 @@ div#fc2_footer a:visited {
 }
 .date {
     color:#dddddd !important;
+    font-family: 'PixelMplus-Regular' !important;
 }
 /* v Content Config v */
 h1 {
