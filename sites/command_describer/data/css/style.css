@@ -258,6 +258,15 @@ div#fc2_footer a:visited {
 .hcb-comment-tb {
     padding-bottom: 10px;
 }
+#no-comments {
+    color: #ffffff !important
+}
+#hcb_form_name, #hcb_form_content {
+    background-image: url("/sites/command_describer/data/img/oak_planks.png") !important;
+    background-size: 32px 32px;
+    color: #ffffff !important;
+    font-family: PixelMplus-Regular !important;
+}
 /* v Content Config v */
 h1 {
     font-size: 250%;
