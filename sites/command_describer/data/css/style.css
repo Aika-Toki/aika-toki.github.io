@@ -1,10 +1,9 @@
 /* 4-27-21-40 */
 body{
-    background-color: #3338;
+    background-color: #3338 !important;
     padding-top: 90px;
     display: unset;
     background-image: url("/sites/command_describer/data/img/dirt.jpg");
-    background-color: #725946;
     background-repeat: repeat;
     background-size: 32px 32px;
     opacity: 1;
