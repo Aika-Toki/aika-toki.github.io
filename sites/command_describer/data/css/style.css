@@ -210,9 +210,6 @@ div#fc2_footer a:visited {
     color: #ffffff;
     display: inline-block;
 }
-#hcb_msg:before {
-    content: "⚠️";
-}
 .hcb-icon {
     display: none;
 }
@@ -252,6 +249,12 @@ div#fc2_footer a:visited {
 }
 .hcb-comment-body {
     color: #ffffff;
+}
+.hcb-like {
+    display: none;
+}
+.hcb-like:after {
+    content: "いいね！　";
 }
 /* v Content Config v */
 h1 {
