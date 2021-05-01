@@ -218,10 +218,18 @@ div#fc2_footer a:visited {
 #hcb_subscribe {
     display: none;
 }
-#comments_list {
+#HCB_comment_box {
     background-image: url("/sites/command_describer/data/img/oak_planks.png");
     background-color: #B99E6B;
+    background-size: 32px 32px;
     padding: 1px;
+}
+.author_name {
+    color: #ffffff;
+    font-family: PixelMplus-Regular;
+}
+.date {
+    color:#dddddd;
 }
 /* v Content Config v */
 h1 {
