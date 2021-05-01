@@ -4,6 +4,7 @@ body{
     padding-top: 90px;
     display: unset;
     background-image: url("/sites/command_describer/data/img/dirt.jpg");
+    background-color: #725946;
     background-repeat: repeat;
     background-size: 32px 32px;
     opacity: 1;
@@ -308,21 +309,27 @@ a.access-command span {
 }
 .i-cmb .mob {
     background-image: url("/sites/command_describer/data/img/command_block.png");
+    background-color: #bd774b;
 }
 .r-cmb .mob {
     background-image: url("/sites/command_describer/data/img/repeating_command_block.png");
+    background-color: #7965c1;
 }
 .c-cmb .mob {
     background-image: url("/sites/command_describer/data/img/chain_command_block.png");
+    background-color: #71ab91;
 }
 .c-i-cmb .mob {
     background-image: url("/sites/command_describer/data/img/command_block_conditional.png");
+    background-color: #bd774b;
 }
 .c-c-cmb .mob {
     background-image: url("/sites/command_describer/data/img/chain_command_block_conditional.png");
+    background-color: #71ab91;
 }
 .c-r-cmb .mob {
     background-image: url("/sites/command_describer/data/img/repeating_command_block_conditional.png");
+    background-color: #7965c1;
 }
 h3 {
     color:#ffffff;
