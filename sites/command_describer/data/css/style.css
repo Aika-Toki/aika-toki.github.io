@@ -337,6 +337,7 @@ a.access-command span {
     display: inline-flex;
     background-color: #00ff00;
     width: 246px;
+    height: 138px;
 }
 .btn-mo {
     margin: 0;
@@ -481,6 +482,7 @@ h3 {
 .access-command img.preview {
     display: none;
     width: 246px;
+    height: 138px;
 }
 .access-command:hover img.preview {
     display: block;
