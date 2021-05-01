@@ -336,6 +336,7 @@ a.access-command span {
     position: relative;
     display: inline-flex;
     background-color: #00ff00;
+    width: 246px;
 }
 .btn-mo {
     margin: 0;
