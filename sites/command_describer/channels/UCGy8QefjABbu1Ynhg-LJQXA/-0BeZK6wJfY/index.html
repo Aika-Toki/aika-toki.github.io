@@ -1117,7 +1117,133 @@
                             </p>
                         </div>
                     </div>
-
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=ken] ~ ~1002 ~ summon boat ^ ^ ^0.4
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=ken] ~ ~1000 ~ execute @e[r=3,type=boat] ~ ~ ~ tp @s ^ ^ ^ facing @p[tag=ken]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a[tag=ken] add sentaku
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=sentaku,tag=zimen] ~ ~1000 ~ tag @e[r=3,type=boat] add kiru2
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=sentaku,tag=!zimen] ~ ~1000 ~ tag @e[r=3,type=boat] add kiru
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a remove sentaku
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a remove ken
+                            </p>
+                        </div>
+                    </div>
+                    <h3>プレイヤーが空中にいるかどうか感知するコマンド</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a add zimen
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a ~ ~ ~ detect ~ ~-0.1 ~ air 0 tag @s remove zimen
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
