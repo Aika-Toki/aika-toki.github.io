@@ -202,7 +202,19 @@ div#fc2_footer a {
 div#fc2_footer a:visited {
     color: #d574ff;
 }
-
+.home-desc {
+    display: none;
+}
+.hcb_msg {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+.hcb-icon {
+    display: none;
+}
+.hcb_settings {
+    display: none;
+}
 /* v Content Config v */
 h1 {
     font-size: 250%;
