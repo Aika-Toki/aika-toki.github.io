@@ -251,9 +251,6 @@ div#fc2_footer a:visited {
     color: #ffffff;
 }
 .hcb-like {
-    display: none;
-}
-.hcb-like:after {
     content: "いいね！　";
 }
 /* v Content Config v */
