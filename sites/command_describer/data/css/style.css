@@ -212,8 +212,16 @@ div#fc2_footer a:visited {
 .hcb-icon {
     display: none;
 }
-.hcb_settings {
+#hcb_settings {
     display: none;
+}
+#hcb_subscribe {
+    display: none;
+}
+#comments_list {
+    background-image: url("/sites/command_describer/data/img/oak_planks.png");
+    background-color: #B99E6B;
+    padding: 1px;
 }
 /* v Content Config v */
 h1 {
