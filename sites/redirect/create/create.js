@@ -166,10 +166,6 @@ function onCopy(id) {
 // desperately need the URL to be a few characters shorter.
 function onIvCheck(checkbox) {
   if (!checkbox.checked) {
-    checkbox.checked = !confirm("Please only disable initialization vector "
-        + "randomization if you know what you are doing. Disabling this is "
-        + "detrimental to the security of your encrypted link, and it only "
-        + "saves 20-25 characters in the URL length.\n\nPress \"Cancel\" unless "
-        + "you are very sure you know what you are doing.");
+    checkbox.checked = !confirm("何をしているのかがわかっている場合にのみ、初期化ベクトルのランダム化を無効にしてください。 これを無効にすると、暗号化されたリンクのセキュリティが損なわれ、URLの長さが20〜25文字しか節約されません。 自分が何をしているかがよくわかっている場合を除いて、「キャンセル」を押してください。");
   }
 }
