@@ -2,5 +2,5 @@ if (window.location.hash) {
     alert("無効なURLです.")
     window.location.replace("https://aika-toki.github.io");
 } else {
-    window.location.replace("https://aika-toki.github.io/sites/redirect/#eyJ2IjoiMC4wLjEiLCJlIjoiR0FDYVhTZ0hvanhtVXh6SzduTkxLRmREOWo5czdqdHJ4RUt0SUkwand0OGRDNGQwaHdQeVlKNEpTbHFQQjlxN3U1blNqajJ4NTRtVjZ6NGhWZnBDVjB4MUJRPT0iLCJzIjoiZEhsUnpyRzBsazN4TnNxa29uVVJEUT09IiwiaSI6IklJaUxuY1NneFZkWnppTVMifQ==");
+    window.location.replace("https://aika-toki.github.io/sites/redirect/#eyJ2IjoiMC4wLjEiLCJlIjoiK3BRelk3TnJNbFQ4SHZZTHprSUtFemtzUG9NVmEyNU9oZlR3aXRHa0ZFNG1VWTN2SHE3NzhrL2R4Zm5qdXcvbk9uZW43SUhtaitxdjRGSUlYczE1b2RKdG1CZ25mQWd3dzVkdXQxbkZuakZaWWl3a0hFbC9HOXJLKzRGRHpnM3FyK0N4ejA0dExWM3ciLCJzIjoiaDFrOXFvSHJDUmlPUWRqMCtnR1JEdz09IiwiaSI6IktjTVh2c1FROExsM3k5SnMifQ==");
 }
