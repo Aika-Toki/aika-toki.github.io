@@ -127,7 +127,7 @@ async function onEncrypt() {
   highlight("output");
 
   // Adjust "Hidden Bookmark" link
-  document.querySelector("#bookmark").href = `https://aika-toki.github.io/redirect/hidden/#${encrypted}`;
+  document.querySelector("#bookmark").href = `https://aika-toki.github.io/sites/redirect/hidden/#${encrypted}`;
 
   // Adjust "Open in New Tab" link
   document.querySelector("#open").href = output;
