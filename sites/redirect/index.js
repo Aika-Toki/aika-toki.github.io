@@ -97,6 +97,6 @@ async function main() {
     }
   } else {
     // Otherwise redirect to the creator
-    window.location.replace("./create");
+    window.location.replace("./login");
   }
 }
