@@ -1,6 +1,6 @@
 function error(text) {
   document.querySelector(".error").style.display = "inherit";
-  document.querySelector("#errortext").innerText = `Error: ${text}`;
+  document.querySelector("#errortext").innerText = `${text}`;
 }
 
 // Run when the <body> loads
