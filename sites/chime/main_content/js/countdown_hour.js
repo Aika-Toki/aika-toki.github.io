@@ -154,8 +154,7 @@
 		cd_result_time.innerHTML = H+":"+M+":"+S;
 	}
 	function num_set() {
-		num = document.getElementById("num_list").value;
-		document.getElementById("num_value").innerHTML = num;
+		num = Number(document.getElementById("num_list").value);
 		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		var cd_hour = document.getElementById('cd_hour');
