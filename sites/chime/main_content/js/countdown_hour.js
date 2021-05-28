@@ -82,7 +82,7 @@
 	}
 
 	function timeup_clear(){
-		if(timeup_flg == 1){
+		if(timeup_flg === 1){
 			var timeup = document.getElementById('timeup');
 			var cd_result_time = document.getElementById('cd_result_time');
 			timeup.style.display = 'none';
@@ -92,7 +92,7 @@
 	}
 
 	function countdown_stop(){
-		num = Number(document.getElementById("num_list").value) + 1;
+		num = Number(document.getElementById('num_list').value) + 1;
 		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		var cd_hour = document.getElementById('cd_hour');
@@ -113,14 +113,14 @@
 		chime.play();
 		timeup_clear();
 		countdown_hour();
-		document.getElementById("num_list").value = num;
-		document.getElementById("num_value").innerHTML = num;
+		document.getElementById('num_list').value = num;
+		document.getElementById('num_value').innerHTML = num;
 
 		cd_result_time.style.color = '#000000';
 	}
 
 	function cd_clear(){
-		if(move_flg == 0){
+		if(move_flg === 0){
 			var cd_hour = document.getElementById('cd_hour');
 			var cd_minute = document.getElementById('cd_minute');
 			var cd_second = document.getElementById('cd_second');
@@ -154,7 +154,7 @@
 		cd_result_time.innerHTML = H+":"+M+":"+S;
 	}
 	function num_set() {
-		num = Number(document.getElementById("num_list").value);
+		num = Number(document.getElementById('num_list').value);
 		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		var cd_hour = document.getElementById('cd_hour');
@@ -166,5 +166,28 @@
 		cd_minute.value = alarm_minute[num];
 		cd_second.value = 0;
 		countdown_hour();
+		if (document.getElementById('start_stop').value === "Start") {
+			countdown_hour();
+		}
+		timeup_flg = 1;
+		timeup_clear();
+	}
+	function compacter() {
+		if (document.getElementById('compact').value === "詳細表示") {
+			document.getElementById('explain').style.display = 'block';
+			document.getElementById('set_time').style.display = 'block';
+			document.getElementById('control_button').style.display = 'block';
+			document.getElementById('cd_result_time').style.fontSize = '16px';
+			document.getElementById('cd_result_time').style.fontWeight = 'lighter';
+			document.getElementById('compact').value = "通常表示";
+		} else {
+			document.getElementById('explain').style.display = 'none';
+			document.getElementById('set_time').style.display = 'none';
+			document.getElementById('control_button').style.display = 'none';
+			document.getElementById('cd_result_time').style.fontSize = '130px';
+			document.getElementById('cd_result_time').style.fontWeight = 'Bold';
+
+			document.getElementById('compact').value = "詳細表示";
+		}
 	}
 
