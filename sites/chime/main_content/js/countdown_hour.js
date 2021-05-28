@@ -92,7 +92,7 @@
 	}
 
 	function countdown_stop(){
-		num = num + 1;
+		num = Number(document.getElementById("num_list").value) + 1;
 		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		var cd_hour = document.getElementById('cd_hour');
@@ -113,7 +113,8 @@
 		chime.play();
 		timeup_clear();
 		countdown_hour();
-		document.getElementById("num").value = num;
+		document.getElementById("num_list").value = num;
+		document.getElementById("num_value").innerHTML = num;
 
 		cd_result_time.style.color = '#000000';
 	}
@@ -154,6 +155,7 @@
 	}
 	function num_set() {
 		num = document.getElementById("num_list").value;
+		document.getElementById("num_value").innerHTML = num;
 		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		var cd_hour = document.getElementById('cd_hour');
