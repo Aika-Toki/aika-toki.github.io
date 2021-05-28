@@ -92,9 +92,9 @@
 	}
 
 	function countdown_stop(){
-		num = num++;
+		num = num + 1;
 		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
-		var alarm_minute = [30,45,35,45,35,45,15,5,15,5,15,5];
+		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		var cd_hour = document.getElementById('cd_hour');
 		var cd_minute = document.getElementById('cd_minute');
 		var cd_second = document.getElementById('cd_second');
@@ -112,8 +112,10 @@
 		timeup_flg = 1;
 		timeup.style.display = 'block';
 		chime.play();
+		countdown_hour();
+		document.getElementById("num").value = num;
 
-		cd_result_time.style.color = '#FF0033';
+		cd_result_time.style.color = '#000000';
 	}
 
 	function cd_clear(){
@@ -149,5 +151,19 @@
 			S = '0' + S;
 		}
 		cd_result_time.innerHTML = H+":"+M+":"+S;
+	}
+	function num_set() {
+		num = document.getElementById("num_list").value;
+		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
+		var cd_hour = document.getElementById('cd_hour');
+		var cd_minute = document.getElementById('cd_minute');
+		var cd_second = document.getElementById('cd_second');
+		var cd_result = document.getElementById('cd_result');
+		cd_result.style.display = 'none';
+		cd_hour.value= alarm_hour[num];
+		cd_minute.value = alarm_minute[num];
+		cd_second.value = 0;
+		countdown_hour();
 	}
 
