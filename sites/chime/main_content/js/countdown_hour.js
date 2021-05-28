@@ -1,25 +1,25 @@
 
-	var move_flg = 0;
-	//var start_time;
-	var end_time;
-	var timerInterval;
-	var timeup_flg = 0;
-	var chime = new Audio('./snd/Chime11.mp3');
+	let move_flg = 0;
+	//let start_time;
+	let end_time;
+	let timerInterval;
+	let timeup_flg = 0;
+	let chime = new Audio('./snd/Chime11.mp3');
 	chime.load();
-	var num = 0;
+	let num = 0;
 
-	var mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
+	let mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
 
 	function countdown_hour(){
-		var start_stop = document.getElementById('start_stop');
-		var cd_hour = document.getElementById('cd_hour');
-		var cd_minute = document.getElementById('cd_minute');
-		var cd_second = document.getElementById('cd_second');
-		var cd_result = document.getElementById('cd_result');
-		var cd_result_text = document.getElementById('cd_result_text');
-		var cd_result_stop = document.getElementById('cd_result_stop');
+		let start_stop = document.getElementById('start_stop');
+		let cd_hour = document.getElementById('cd_hour');
+		let cd_minute = document.getElementById('cd_minute');
+		let cd_second = document.getElementById('cd_second');
+		let cd_result = document.getElementById('cd_result');
+		let cd_result_text = document.getElementById('cd_result_text');
+		let cd_result_stop = document.getElementById('cd_result_stop');
 		if(move_flg == 0){
-			var cd_hour_time; var cd_minute_time; var cd_second_time;
+			let cd_hour_time; let cd_minute_time; let cd_second_time;
 			if(!cd_hour.selectedIndex){ cd_hour_time = 0; }else{ cd_hour_time = parseInt(cd_hour.selectedIndex,10); }
 			if(!cd_minute.selectedIndex){ cd_minute_time = 0; }else{ cd_minute_time = parseInt(cd_minute.selectedIndex,10); }
 			if(!cd_second.selectedIndex){ cd_second_time = 0; }else{ cd_second_time = parseInt(cd_second.selectedIndex,10); }
@@ -28,7 +28,7 @@
 			end_time.setHours( cd_hour_time );
 			end_time.setMinutes( cd_minute_time );
 			end_time.setSeconds( cd_second_time );
-			var now = new Date();
+			let now = new Date();
 			if(Math.floor((end_time.getTime() - now.getTime())/1000)!=0){
 				if(timeup_flg == 1){
 					timeup_clear();
@@ -83,8 +83,8 @@
 
 	function timeup_clear(){
 		if(timeup_flg === 1){
-			var timeup = document.getElementById('timeup');
-			var cd_result_time = document.getElementById('cd_result_time');
+			let timeup = document.getElementById('timeup');
+			let cd_result_time = document.getElementById('cd_result_time');
 			timeup.style.display = 'none';
 			cd_result_time.style.color = '';
 			timeup_flg = 0;
@@ -92,19 +92,23 @@
 	}
 
 	function countdown_stop(){
-		num = Number(document.getElementById('num_list').value) + 1;
-		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
-		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
-		var cd_hour = document.getElementById('cd_hour');
-		var cd_minute = document.getElementById('cd_minute');
-		var cd_second = document.getElementById('cd_second');
-		var cd_result = document.getElementById('cd_result');
+		if (num !== 12) {
+			num = Number(document.getElementById('num_list').value) + 1;
+		} else {
+			num = 0;
+		}
+		let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+		let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
+		let cd_hour = document.getElementById('cd_hour');
+		let cd_minute = document.getElementById('cd_minute');
+		let cd_second = document.getElementById('cd_second');
+		let cd_result = document.getElementById('cd_result');
 		cd_result.style.display = 'none';
 		cd_hour.value= alarm_hour[num];
 		cd_minute.value = alarm_minute[num];
 		cd_second.value = 0;
-		var timeup = document.getElementById('timeup');
-		var cd_result_time = document.getElementById('cd_result_time');
+		let timeup = document.getElementById('timeup');
+		let cd_result_time = document.getElementById('cd_result_time');
 		move_flg = 0;
 		start_stop.value = "Start";
 		clearInterval(timerInterval);
@@ -114,17 +118,15 @@
 		timeup_clear();
 		countdown_hour();
 		document.getElementById('num_list').value = num;
-		document.getElementById('num_value').innerHTML = num;
-
 		cd_result_time.style.color = '#000000';
 	}
 
 	function cd_clear(){
 		if(move_flg === 0){
-			var cd_hour = document.getElementById('cd_hour');
-			var cd_minute = document.getElementById('cd_minute');
-			var cd_second = document.getElementById('cd_second');
-			var cd_result = document.getElementById('cd_result');
+			let cd_hour = document.getElementById('cd_hour');
+			let cd_minute = document.getElementById('cd_minute');
+			let cd_second = document.getElementById('cd_second');
+			let cd_result = document.getElementById('cd_result');
 			cd_result.style.display = 'none';
 			cd_hour.value= 0;
 			cd_minute.value = 0;
@@ -134,9 +136,9 @@
 	}
 
 	function cd_time_timer(){
-		var cd_result_time = document.getElementById('cd_result_time');
-		var now = new Date();
-		var T = end_time.getTime() - now.getTime();
+		let cd_result_time = document.getElementById('cd_result_time');
+		let now = new Date();
+		let T = end_time.getTime() - now.getTime();
 		if(Math.floor(T/1000)<=0){
 			countdown_stop();
 		}
@@ -155,12 +157,12 @@
 	}
 	function num_set() {
 		num = Number(document.getElementById('num_list').value);
-		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
-		var alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
-		var cd_hour = document.getElementById('cd_hour');
-		var cd_minute = document.getElementById('cd_minute');
-		var cd_second = document.getElementById('cd_second');
-		var cd_result = document.getElementById('cd_result');
+		let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+		let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
+		let cd_hour = document.getElementById('cd_hour');
+		let cd_minute = document.getElementById('cd_minute');
+		let cd_second = document.getElementById('cd_second');
+		let cd_result = document.getElementById('cd_result');
 		cd_result.style.display = 'none';
 		cd_hour.value= alarm_hour[num];
 		cd_minute.value = alarm_minute[num];
