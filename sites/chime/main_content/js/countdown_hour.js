@@ -4,6 +4,9 @@
 	var end_time;
 	var timerInterval;
 	var timeup_flg = 0;
+	var chime = new Audio('./snd/Chime11.mp3');
+	chime.load();
+	var num = 0;
 
 	var mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
 
@@ -89,6 +92,18 @@
 	}
 
 	function countdown_stop(){
+		num = num++;
+		var alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+		var alarm_minute = [30,45,35,45,35,45,15,5,15,5,15,5];
+		var cd_hour = document.getElementById('cd_hour');
+		var cd_minute = document.getElementById('cd_minute');
+		var cd_second = document.getElementById('cd_second');
+		var cd_result = document.getElementById('cd_result');
+		cd_result.style.display = 'none';
+		cd_hour.value= alarm_hour[num];
+		cd_minute.value = alarm_minute[num];
+		cd_second.value = 0;
+		timeup_clear();
 		var timeup = document.getElementById('timeup');
 		var cd_result_time = document.getElementById('cd_result_time');
 		move_flg = 0;
@@ -96,6 +111,8 @@
 		clearInterval(timerInterval);
 		timeup_flg = 1;
 		timeup.style.display = 'block';
+		chime.play();
+
 		cd_result_time.style.color = '#FF0033';
 	}
 
