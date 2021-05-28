@@ -103,7 +103,6 @@
 		cd_hour.value= alarm_hour[num];
 		cd_minute.value = alarm_minute[num];
 		cd_second.value = 0;
-		timeup_clear();
 		var timeup = document.getElementById('timeup');
 		var cd_result_time = document.getElementById('cd_result_time');
 		move_flg = 0;
@@ -112,6 +111,7 @@
 		timeup_flg = 1;
 		timeup.style.display = 'block';
 		chime.play();
+		timeup_clear();
 		countdown_hour();
 		document.getElementById("num").value = num;
 
