@@ -35,14 +35,18 @@
             transition-duration: 800ms;
         }
         div#displays.d--compact{
-            display: none;
+            opacity: 0;
+            height: 0;
+            width: 0;
         }
         span#displays.d--compact{
             font-size: 130px;
             font-weight: bold;
         }
         div#displays.d--detail{
-            display: block;
+            opacity: 1;
+            width: auto;
+            height: auto;
         }
         span#displays.d--detail{
             font-size: 18px;
