@@ -359,7 +359,7 @@ a.access-command span {
     transition-property: all;
     transition-duration: 300ms;
     transition-timing-function: ease;
-    font-size: 0%;
+    font-size: 100%;
 }
 .mob:hover {
     opacity: 1;
@@ -375,7 +375,7 @@ a.access-command span {
     left: 0;
     width: 100%;
     padding: 15px;
-    font-size: 100%;
+    font-size: 0%;
     background-size: 60px;
     background-repeat: repeat;
     border: 2px solid #888;
@@ -384,7 +384,7 @@ a.access-command span {
     color: #fff;
     height: 0;
     transition-property: all;
-    transition-duration: 1s;
+    transition-duration: 300ms;
     transition-timing-function: ease;
 }
 .i-cmb .mob {
