@@ -4,7 +4,7 @@
 	let end_time;
 	let timerInterval;
 	let timeup_flg = 0;
-	let chime = new Audio('./snd/Chime11.mp3');
+	let chime = new Audio('./sound/Chime11.mp3');
 	chime.load();
 	let num = 0;
 
@@ -176,19 +176,10 @@
 	}
 	function compacter() {
 		if (document.getElementById('compact').value === "詳細表示") {
-			document.getElementById('explain').style.display = 'block';
-			document.getElementById('set_time').style.display = 'block';
-			document.getElementById('control_button').style.display = 'block';
-			document.getElementById('cd_result_time').style.fontSize = '16px';
-			document.getElementById('cd_result_time').style.fontWeight = 'lighter';
+			document.getElementById('displays').ClassName = "d--detail";
 			document.getElementById('compact').value = "通常表示";
 		} else {
-			document.getElementById('explain').style.display = 'none';
-			document.getElementById('set_time').style.display = 'none';
-			document.getElementById('control_button').style.display = 'none';
-			document.getElementById('cd_result_time').style.fontSize = '130px';
-			document.getElementById('cd_result_time').style.fontWeight = 'Bold';
-
+			document.getElementById('displays').className = "d--compact";
 			document.getElementById('compact').value = "詳細表示";
 		}
 	}
