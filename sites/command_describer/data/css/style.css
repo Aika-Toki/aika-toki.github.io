@@ -354,13 +354,15 @@ a.access-command span {
     margin: 0;
 }
 .btn-mo:hover + .mob {
-    display: block;
+    opacity: 1;
+    height: auto;
 }
 .mob:hover {
-    display: block;
+    opacity: 1;
+    height: auto;
 }
 .mob {
-    display: none;
+    opacity: 0;
     position: relative;
     top: 0;
     left: 0;
@@ -373,6 +375,7 @@ a.access-command span {
     box-sizing: border-box;
     text-align: left;
     color: #fff;
+    height: 0;
 }
 .i-cmb .mob {
     background-image: url("/sites/command_describer/data/img/command_block.png");
