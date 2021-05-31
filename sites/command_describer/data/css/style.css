@@ -356,10 +356,16 @@ a.access-command span {
 .btn-mo:hover + .mob {
     opacity: 1;
     height: auto;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .mob:hover {
     opacity: 1;
     height: auto;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .mob {
     opacity: 0;
