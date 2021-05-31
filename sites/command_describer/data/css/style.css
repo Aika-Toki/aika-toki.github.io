@@ -376,6 +376,9 @@ a.access-command span {
     text-align: left;
     color: #fff;
     height: 0;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .i-cmb .mob {
     background-image: url("/sites/command_describer/data/img/command_block.png");
