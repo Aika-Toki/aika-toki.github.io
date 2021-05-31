@@ -36,12 +36,16 @@
         }
         div#displays.d--compact{
             opacity: 0;
-            height: 0;
-            width: 0;
+            height: 0px;
+            width: 0px;
+            transition-property: width,height,opacity;
+            transition-duration: 800ms;
         }
         span#displays.d--compact{
             font-size: 130px;
             font-weight: bold;
+            transition-property: font-size,font-weight;
+            transition-duration: 800ms;
         }
         div#displays.d--detail{
             opacity: 1;
@@ -85,7 +89,7 @@
                 <div class="under_pad">
                     <div id="cd_result">
                         <div id="cd_result_text"></div>
-                        <div id="cd_result_window"><span id="cd_result_time,displays" class="d--compact"></span>　<span id="cd_result_stop">停止中</span></div>
+                        <div id="cd_result_window"><span id="cd_result_time displays" class="d--compact"></span>　<span id="cd_result_stop">停止中</span></div>
                         <div id="timeup"><span class="red">時間です</span></div>
                     </div>
                     <select id="num_list">
