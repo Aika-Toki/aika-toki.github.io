@@ -176,7 +176,7 @@
 	}
 	function compacter() {
 		if (document.getElementById('compact').value === "詳細表示") {
-			document.getElementById('displays').ClassName = "d--detail";
+			document.getElementById('displays').className = "d--detail";
 			document.getElementById('compact').value = "通常表示";
 		} else {
 			document.getElementById('displays').className = "d--compact";
