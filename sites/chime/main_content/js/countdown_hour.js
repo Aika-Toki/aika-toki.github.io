@@ -7,6 +7,8 @@
 	let chime = new Audio('./sound/Chime11.mp3');
 	chime.load();
 	let num = 0;
+	let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+	let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 
 	let mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
 
@@ -18,7 +20,7 @@
 		let cd_result = document.getElementById('cd_result');
 		let cd_result_text = document.getElementById('cd_result_text');
 		let cd_result_stop = document.getElementById('cd_result_stop');
-		if(move_flg == 0){
+		if(move_flg === 0){
 			let cd_hour_time; let cd_minute_time; let cd_second_time;
 			if(!cd_hour.selectedIndex){ cd_hour_time = 0; }else{ cd_hour_time = parseInt(cd_hour.selectedIndex,10); }
 			if(!cd_minute.selectedIndex){ cd_minute_time = 0; }else{ cd_minute_time = parseInt(cd_minute.selectedIndex,10); }
@@ -29,8 +31,8 @@
 			end_time.setMinutes( cd_minute_time );
 			end_time.setSeconds( cd_second_time );
 			let now = new Date();
-			if(Math.floor((end_time.getTime() - now.getTime())/1000)!=0){
-				if(timeup_flg == 1){
+			if(Math.floor((end_time.getTime() - now.getTime())/1000)!==0){
+				if(timeup_flg === 1){
 					timeup_clear();
 				}
 				if( end_time.getTime()  < now.getTime() ){
@@ -40,7 +42,7 @@
 				start_stop.value = "Stop";
 				cd_result_stop.style.display = 'none';
 				timerInterval = setInterval("cd_time_timer()",10);
-				if(lang=='ja'){
+				if(lang==='ja'){
 					cd_result_text.innerHTML = (end_time.getMonth()+1) + '月' + end_time.getDate() + '日 ' + cd_hour_time + '時';
 					if(cd_minute_time < 10){
 						cd_result_text.innerHTML += '0' + cd_minute_time;
@@ -54,7 +56,7 @@
 						cd_result_text.innerHTML += cd_second_time;
 					}
 					cd_result_text.innerHTML += '秒 までの残り時間';
-				}else if(lang=='en'){
+				}else if(lang==='en'){
 					cd_result_text.innerHTML = 'The time remaining until the ';
 					cd_result_text.innerHTML += cd_hour_time + ':';
 					if(cd_minute_time < 10){
@@ -97,12 +99,12 @@
 		} else {
 			num = 0;
 		}
-		let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
-		let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
-		let cd_hour = document.getElementById('cd_hour');
-		let cd_minute = document.getElementById('cd_minute');
-		let cd_second = document.getElementById('cd_second');
-		let cd_result = document.getElementById('cd_result');
+		alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+		alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
+		cd_hour = document.getElementById('cd_hour');
+		cd_minute = document.getElementById('cd_minute');
+		cd_second = document.getElementById('cd_second');
+		cd_result = document.getElementById('cd_result');
 		cd_result.style.display = 'none';
 		cd_hour.value= alarm_hour[num];
 		cd_minute.value = alarm_minute[num];
@@ -110,7 +112,7 @@
 		let timeup = document.getElementById('timeup');
 		let cd_result_time = document.getElementById('cd_result_time');
 		move_flg = 0;
-		start_stop.value = "Start";
+		document.getElementById('start_stop').value = "Start";
 		clearInterval(timerInterval);
 		timeup_flg = 1;
 		timeup.style.display = 'block';
@@ -142,14 +144,14 @@
 		if(Math.floor(T/1000)<=0){
 			countdown_stop();
 		}
-		H = Math.floor(T/(60*60*1000));
+		let H = Math.floor(T/(60*60*1000));
 		T = T-(H*60*60*1000);
-		M = Math.floor(T/(60*1000));
+		let M = Math.floor(T/(60*1000));
 		if(M < 10){
 			M = '0' + M;
 		}
 		T = T-(M*60*1000);
-		S = Math.floor(T/1000);
+		let S = Math.floor(T/1000);
 		if(S < 10){
 			S = '0' + S;
 		}
@@ -157,8 +159,8 @@
 	}
 	function num_set() {
 		num = Number(document.getElementById('num_list').value);
-		let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
-		let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
+		alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
+		alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 		let cd_hour = document.getElementById('cd_hour');
 		let cd_minute = document.getElementById('cd_minute');
 		let cd_second = document.getElementById('cd_second');
@@ -175,12 +177,14 @@
 		timeup_clear();
 	}
 	function compacter() {
-		if (document.getElementById('compact').value === "詳細表示") {
-			document.getElementById('displays').className = "d--detail";
-			document.getElementById('compact').value = "通常表示";
-		} else {
-			document.getElementById('displays').className = "d--compact";
-			document.getElementById('compact').value = "詳細表示";
+		if (window.onload) {
+			if (document.getElementById('compact').value === "詳細表示") {
+				document.getElementById('displays').className = "d--detail";
+				document.getElementById('compact').value = "通常表示";
+			} else {
+				document.getElementById('displays').className = "d--compact";
+				document.getElementById('compact').value = "詳細表示";
+			}
 		}
 	}
 

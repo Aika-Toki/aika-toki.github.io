@@ -2,15 +2,15 @@ body {
     transition-property: all !important;
     transition-duration: 800ms !important;
 }
-div#displays.d--compact{
+#description.d--compact{
     opacity: 0;
     height: 0px;
     width: 0px;
     transition-property: width,height,opacity;
     transition-duration: 800ms;
 }
-span#displays.d--compact{
-    font-size: 130px;
+div#displays.d--compact > span#cd_result_time{
+    font-size: 60px;
     font-weight: bold;
     transition-property: font-size,font-weight;
     transition-duration: 800ms;
