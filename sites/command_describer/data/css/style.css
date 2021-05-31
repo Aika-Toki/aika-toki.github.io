@@ -356,10 +356,16 @@ a.access-command span {
 .btn-mo:hover + .mob {
     opacity: 1;
     height: auto;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .mob:hover {
     opacity: 1;
     height: auto;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .mob {
     opacity: 0;
@@ -376,6 +382,9 @@ a.access-command span {
     text-align: left;
     color: #fff;
     height: 0;
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: ease;
 }
 .i-cmb .mob {
     background-image: url("/sites/command_describer/data/img/command_block.png");
