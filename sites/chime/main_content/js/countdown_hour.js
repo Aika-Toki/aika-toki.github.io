@@ -4,7 +4,7 @@
 	let end_time;
 	let timerInterval;
 	let timeup_flg = 0;
-	let chime = new Audio('./snd/Chime11.mp3');
+	let chime = new Audio('./sound/Chime11.mp3');
 	chime.load();
 	let num = 0;
 	let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
