@@ -4,7 +4,7 @@
 	let end_time;
 	let timerInterval;
 	let timeup_flg = 0;
-	let chime = new Audio('./sound/Chime11.mp3');
+	let chime = new Audio('./snd/Chime11.mp3');
 	chime.load();
 	let num = 0;
 	let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
@@ -177,6 +177,7 @@
 		timeup_clear();
 	}
 	function compacter() {
+<<<<<<< HEAD
 		if (window.onload) {
 			if (document.getElementById('compact').value === "詳細表示") {
 				document.getElementById('displays').className = "d--detail";
@@ -185,6 +186,23 @@
 				document.getElementById('displays').className = "d--compact";
 				document.getElementById('compact').value = "詳細表示";
 			}
+=======
+		if (document.getElementById('compact').value === "詳細表示") {
+			document.getElementById('explain').style.display = 'block';
+			document.getElementById('set_time').style.display = 'block';
+			document.getElementById('control_button').style.display = 'block';
+			document.getElementById('cd_result_time').style.fontSize = '16px';
+			document.getElementById('cd_result_time').style.fontWeight = 'lighter';
+			document.getElementById('compact').value = "通常表示";
+		} else {
+			document.getElementById('explain').style.display = 'none';
+			document.getElementById('set_time').style.display = 'none';
+			document.getElementById('control_button').style.display = 'none';
+			document.getElementById('cd_result_time').style.fontSize = '130px';
+			document.getElementById('cd_result_time').style.fontWeight = 'Bold';
+
+			document.getElementById('compact').value = "詳細表示";
+>>>>>>> parent of eaf3e58 (#14)
 		}
 	}
 
