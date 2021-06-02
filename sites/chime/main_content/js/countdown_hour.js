@@ -177,16 +177,6 @@
 		timeup_clear();
 	}
 	function compacter() {
-<<<<<<< HEAD
-		if (window.onload) {
-			if (document.getElementById('compact').value === "詳細表示") {
-				document.getElementById('displays').className = "d--detail";
-				document.getElementById('compact').value = "通常表示";
-			} else {
-				document.getElementById('displays').className = "d--compact";
-				document.getElementById('compact').value = "詳細表示";
-			}
-=======
 		if (document.getElementById('compact').value === "詳細表示") {
 			document.getElementById('explain').style.display = 'block';
 			document.getElementById('set_time').style.display = 'block';
@@ -202,7 +192,6 @@
 			document.getElementById('cd_result_time').style.fontWeight = 'Bold';
 
 			document.getElementById('compact').value = "詳細表示";
->>>>>>> parent of eaf3e58 (#14)
 		}
 	}
 
