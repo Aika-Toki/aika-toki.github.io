@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Chime #22</title>
+    <title>Chime #23</title>
     <script type="text/javascript">
         onload = function() {
             let	fc = '';
@@ -68,10 +68,12 @@
                         <option value=12>6限開始〜6限終了</option>
                     </select>
                     <input type="button" value="設定" class="cd_button" id="num_set" onclick="num_set();" />
-                    <select id="chime_list" onchange="chime_change();">
+                    <br>
+                    <select id="chime_list">
                         <option value=0 selected>夢で描けば(デフォルト)</option>
                         <option value=1>ウェストミンスターの鐘-11</option>
                     </select>
+                    <input type="button" value="設定" class="cd_button" id="chime_set" onclick="chime_change();" />
                 </div>
                 <input type="button" value="サウンドテスト" class="cd_button" id="soundtestbtn" onclick="chime.play()" />
             </div>
