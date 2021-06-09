@@ -4,7 +4,7 @@
 	let end_time;
 	let timerInterval;
 	let timeup_flg = 0;
-	let chime = new Audio('./sound/Chime11.mp3');
+	let chime = new Audio('../sound/shigh.mp3');
 	chime.load();
 	let num = 0;
 	let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
@@ -192,6 +192,16 @@
 			document.getElementById('cd_result_time').style.fontWeight = 'Bold';
 
 			document.getElementById('compact').value = "詳細表示";
+		}
+	}
+	function chime_change() {
+		const chimeList = document.getElementById('chime_list').value;
+		if(chimeList === 0) {
+			chime = new Audio('../sound/shigh.mp3');
+			chime.load();
+		} else if(chimeList === 1) {
+			chime = new Audio('../sound/Chime11.mp3');
+			chime.load();
 		}
 	}
 

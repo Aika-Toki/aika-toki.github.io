@@ -16,19 +16,6 @@
         let root_dir = '/';
         let lang = 'ja';
     </script>
-    <script type="text/javascript">
-
-        let _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-20871439-36']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-            let ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            let s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
-    </script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -81,10 +68,15 @@
                         <option value=12>6限開始〜6限終了</option>
                     </select>
                     <input type="button" value="設定" class="cd_button" id="num_set" onclick="num_set();" />
+                    <select id="chime_list" onchange="chime_change();">
+                        <option value=0 selected>夢で描けば(デフォルト)</option>
+                        <option value=1>ウェストミンスターの鐘-11</option>
+                    </select>
                 </div>
                 <input type="button" value="サウンドテスト" class="cd_button" id="soundtestbtn" onclick="chime.play()" />
             </div>
         </div>
     </div>
+</div>
 </body>
 </html>
