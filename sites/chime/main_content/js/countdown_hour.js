@@ -196,10 +196,10 @@
 	}
 	function chime_change() {
 		const chimeList = document.getElementById('chime_list').value;
-		if(chimeList === 0) {
+		if(chimeList === "0") {
 			chime = new Audio('./sound/shigh.mp3');
 			chime.load();
-		} else if(chimeList === 1) {
+		} else if(chimeList === "1") {
 			chime = new Audio('./sound/Chime11.mp3');
 			chime.load();
 		}
