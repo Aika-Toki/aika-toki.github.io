@@ -116,11 +116,17 @@
 		clearInterval(timerInterval);
 		timeup_flg = 1;
 		timeup.style.display = 'block';
+		stop(chime);
 		chime.play();
 		timeup_clear();
 		countdown_hour();
 		document.getElementById('num_list').value = num;
 		cd_result_time.style.color = '#000000';
+	}
+
+	function stop(name) {
+		name.pause();
+		name.currentTime = 0;
 	}
 
 	function cd_clear(){
@@ -205,3 +211,7 @@
 		}
 	}
 
+	function sound_test() {
+		stop(chime);
+		chime.play();
+	}
