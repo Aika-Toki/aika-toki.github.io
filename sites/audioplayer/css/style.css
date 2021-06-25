@@ -8,3 +8,7 @@
 #seekarea {
     display: flex;
 }
+#current, #duration {
+    padding: 0;
+    margin: .2em;
+}
