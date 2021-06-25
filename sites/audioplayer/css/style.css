@@ -1,0 +1,7 @@
+#seekbar {
+    width: 160px;
+    height: 10px;
+    margin: 1em;
+    border-radius: 5px;
+    background: linear-gradient(#ccc #ccc) no-repeat #eee;
+}
