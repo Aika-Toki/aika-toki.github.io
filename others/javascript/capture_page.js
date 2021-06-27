@@ -3,7 +3,8 @@
 
 	var url = window.URL || window.webkitURL;
 
-	if (!getCaptureParameters('window.location.href')) {
+	if (!getCaptureParameters(window.location.href)) {
+		alert(url.indexOf(window.location.href))
 		alert('このページのキャプチャには対応していません。');
 		return;
 	}
