@@ -131,7 +131,7 @@
 	if (!window.html2canvas) {
 		var scr = document.createElement('script');
 		scr.type = 'text/javascript';
-		scr.src = 'https://tool.kyokugen.info/html2canvas/html2canvas.js';
+		scr.src = 'https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js';
 		scr.onload = main;
 		document.body.appendChild(scr);
 	} else {
