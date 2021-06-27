@@ -40,8 +40,8 @@
 			param.postProcess = resetTableStyle;
 
 		} else {
-//			param.selector = '.cttBox';
-//			param.fileBase = 'capture';
+			param.selector = '.cttBox';
+			param.fileBase = 'capture';
 			return null;
 		}
 		return param;
