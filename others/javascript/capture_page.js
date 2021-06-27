@@ -10,7 +10,7 @@
 
 	function getCaptureParameters(url) {
 		var param = {};
-		if (url.indexOf('//hiroba.dqx.jp/sc/home/status') >= 0) {
+		if (url.indexOf('hiroba.dqx.jp/sc/home/status/') >= 0) {
 			// Skill point
 			param.selector = '#jobLvExp table';
 			param.fileBase = 'skillpoint';
