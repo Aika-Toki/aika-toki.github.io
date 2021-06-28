@@ -1,4 +1,8 @@
 const d = document;
+window.onload = function () {
+    let audioValue = d.getElementById('audioList').value;
+    let audioPathList = 
+}
 
 function audioChange() {
     let audioValue = d.getElementById('audioList').value;
