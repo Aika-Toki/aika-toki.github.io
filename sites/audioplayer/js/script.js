@@ -1,12 +1,13 @@
 const d = document;
 window.onload = function () {
     let audioValue = d.getElementById('audioList').value;
-    let audioPathList = 
+    let audioPathList = ['../sounds/roudoku2021from04.mp3'];
+    let audio = new audio(audioPathList[audioValue]);
 }
 
 function audioChange() {
     let audioValue = d.getElementById('audioList').value;
-    let audioPathList = ['./sounds/roudoku2021from04.mp3'];
+    let audioPathList = ['../sounds/roudoku2021from04.mp3'];
     let audio = new audio(audioPathList[audioValue]);   
 }
 
