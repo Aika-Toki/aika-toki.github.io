@@ -1,8 +1,12 @@
 const d = document;
+let audioValue = 0;
+let audioPathList = [''];
+let audio = new Audio();
+
 window.onload = function () {
-    let audioValue = d.getElementById('audioList').value;
-    let audioPathList = ['../sounds/roudoku2021from04.mp3'];
-    let audio = new Audio(audioPathList[audioValue]);
+    audioValue = d.getElementById('audioList').value;
+    audioPathList = ['../sounds/roudoku2021from04.mp3'];
+    audio = new Audio(audioPathList[audioValue]);
 }
 
 function audioChange() {
@@ -29,13 +33,13 @@ function playTime (t) {
       hms = '00:' + z2(s)
     }
     return hms
-  }
+}
   
-  audio.addEventListener("timeupdate", (e) => {
+audio.addEventListener("timeupdate", (e) => {
     const current = Math.floor(audio.currentTime)
     const duration = Math.round(audio.duration)
     if (!isNaN(duration)) {
-      document.getElementById('current').innerHTML = playTime(current)
-      document.getElementById('duration').innerHTML = playTime(duration)
+        document.getElementById('current').innerHTML = playTime(current)
+        document.getElementById('duration').innerHTML = playTime(duration)
     }
-  })
+})
