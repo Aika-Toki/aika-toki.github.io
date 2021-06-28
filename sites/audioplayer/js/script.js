@@ -2,19 +2,32 @@ const d = document;
 let audioValue = 0;
 let audioPathList = [''];
 let audio = new Audio();
+let play = 0;
 
 window.onload = function () {
     audioValue = d.getElementById('audioList').value;
     audioPathList = ['./sounds/roudoku2021from04.mp3'];
     audio = new Audio(audioPathList[audioValue]);
+    audio.load();
 }
 
 function audioChange() {
     let audioValue = d.getElementById('audioList').value;
     let audioPathList = ['./sounds/roudoku2021from04.mp3'];
-    let audio = new Audio(audioPathList[audioValue]);   
+    let audio = new Audio(audioPathList[audioValue]);
+    audio.load();   
 }
 
+function playPauseAudio() {
+    if (play === 0) {
+        play = 1;
+        audio.play();
+        d.getElementById('play').innerHTML('<i class="fa-solid fa-pause"></i>');
+    } else {
+        play = 0;
+        audio.pause();
+    }
+}
 
 function playTime (t) {
     let hms = ''

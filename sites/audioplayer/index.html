@@ -5,6 +5,7 @@
     <title>【audioplayer</title>
     <link rel="stylesheet" href="./css/style.css">
     <script type="text/javascript" src="./js/script.js"></script>
+    <script src="https://kit.fontawesome.com/ab8882eb77.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="thumbnail">
@@ -17,7 +18,8 @@
         <label id="audioArtist"></label>
     </div>
     <div id="controller">
-        <button onclick="playFile();">▶︎</button>
+        <button onclick="playPauseAudio();" id="playPause">▶︎</button>
+        <button onclick="stopAudio();" id="stop">■</button>
         <div id="seekarea">
             <label id="current">00:00</label>
             <div id="seekbar"></div>
