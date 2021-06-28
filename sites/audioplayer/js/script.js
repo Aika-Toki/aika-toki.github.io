@@ -5,13 +5,13 @@ let audio = new Audio();
 
 window.onload = function () {
     audioValue = d.getElementById('audioList').value;
-    audioPathList = ['../sounds/roudoku2021from04.mp3'];
+    audioPathList = ['./sounds/roudoku2021from04.mp3'];
     audio = new Audio(audioPathList[audioValue]);
 }
 
 function audioChange() {
     let audioValue = d.getElementById('audioList').value;
-    let audioPathList = ['../sounds/roudoku2021from04.mp3'];
+    let audioPathList = ['./sounds/roudoku2021from04.mp3'];
     let audio = new Audio(audioPathList[audioValue]);   
 }
 
