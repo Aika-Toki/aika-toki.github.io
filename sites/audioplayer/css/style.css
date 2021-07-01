@@ -64,7 +64,7 @@ body {
     transition: height 400ms ease 0ms;
 }
 #player:hover {
-    height: 10%;
+    height: 20%;
     transition: height 400ms ease 0ms;
 }
 #current {

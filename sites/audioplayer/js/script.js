@@ -16,56 +16,17 @@ loop = 0;
 
 //Lists
 let audioPathList = [
-  {
-    'file': 'roudoku2021from04.mp3',
-    'title': '朗読部門（2021年4月〜中国語学習開始）　読み上げ音声',
-    'artist': 'TTSMP3.com',
-    'art': '',
-    'path': ''
-  },
-  {
-    'file': 'shigh.mp3',
-    'title': '夢で描けば　耳コピ',
-    'artist': '矢歌絵音',
-    'art': 'https://et-cdn.shoeisha.jp/static/images/article/4778/4778_005.jpg',
-    'path': ''
-  },
-  {
-    'file': 'tondemowonders.mp3',
-    'title': 'トンデモワンダーズ',
-    'artist': 'sasakure.UK',
-    'art': 'http://img.youtube.com/vi/dBQg24mx45Y/maxresdefault.jpg',
-    'path': ''
-  },
-  {
-    'file': 'sinigami.mp3',
-    'title': '死神',
-    'artist': '米津玄師',
-    'art': 'http://img.youtube.com/vi/8nxaZ69ElEc/maxresdefault.jpg',
-    'path': ''
-  },
-  {
-    'file': 'tadasentakugaatta.mp3',
-    'title': 'ただ選択があった',
-    'artist': 'Frog96',
-    'art': 'http://img.youtube.com/vi/FrIiEuNPE38/maxresdefault.jpg',
-    'path': ''
-  },
-  {
-    'file': '',
-    'title': 'ハンター見習い',
-    'artist': 'H/MIX GALLERY',
-    'art': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg',
-    'path': 'http://www.hmix.net/music/n/n37.mp3'
-  },
-  {
-    'file': '',
-    'title': '馬車道',
-    'artist': 'H/MIX GALLERY',
-    'art': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg',
-    'path': 'http://www.hmix.net/music/o/o12.mp3'
-  }
+  {'f': 'none.mp3', 't': ' ', 'a': ' ', 'n': '', 'p': ''}
+//  ,{'f': 'roudoku2021from04.mp3', 't': '朗読部門（2021年4月〜中国語学習開始）　読み上げ音声', 'a': 'TTSMP3.com', 'n': '', 'p': ''}
+//  ,{'f': 'shigh.mp3', 't': '夢で描けば　耳コピ', 'a': '矢歌絵音', 'n': 'https://et-cdn.shoeisha.jp/static/images/article/4778/4778_005.jpg', 'p': ''}
+  ,{'f': 'tondemowonders.mp3', 't': 'トンデモワンダーズ', 'a': 'sasakure.UK', 'n': 'http://img.youtube.com/vi/dBQg24mx45Y/maxresdefault.jpg', 'p': ''}
+  ,{'f': 'sinigami.mp3', 't': '死神', 'a': '米津玄師', 'n': 'http://img.youtube.com/vi/8nxaZ69ElEc/maxresdefault.jpg', 'p': ''}
+  ,{'f': 'tadasentakugaatta.mp3', 't': 'ただ選択があった', 'a': 'Frog96', 'n': 'http://img.youtube.com/vi/FrIiEuNPE38/maxresdefault.jpg', 'p': ''}
+  ,{'f': 'mugenloop.mp3', 't': '無限ループのうた', 'a': 'ラムダ', 'n': 'http://img.youtube.com/vi/M5xKbaVXT8U/maxresdefault.jpg', 'p': ''}
+  ,{'f': '', 't': 'ハンター見習い', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/n/n37.mp3'}
+  ,{'f': '', 't': '馬車道', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/o/o12.mp3'}
   ];
+let playList = [];
 
 
 window.onload = function () {
@@ -74,20 +35,20 @@ window.onload = function () {
   for (let i = 0; i <= audioPathList.length - 1; i++){
     let option = d.createElement('option');
     option.setAttribute('value', i);
-    if (audioPathList[i]['title'] === '') {
-      option.innerHTML = audioPathList[i]['file'];
+    if (audioPathList[i]['t'] === '') {
+      option.innerHTML = audioPathList[i]['f'];
     } else {
-      option.innerHTML = audioPathList[i]['title'];
+      option.innerHTML = audioPathList[i]['t'];
     }
     audioList.appendChild(option);
   };
   audioValue = d.getElementById('audioList').value;
-  if (audioPathList[audioValue]['file'] === '') {
-    audio = new Audio(`${audioPathList[audioValue]['path']}`);
-  } else if (audioPathList[audioValue]['path'] === '') {
-    audio = new Audio(`./sounds/${audioPathList[audioValue]['file']}`);
+  if (audioPathList[audioValue]['f'] === '') {
+    audio = new Audio(`${audioPathList[audioValue]['p']}`);
+  } else if (audioPathList[audioValue]['p'] === '') {
+    audio = new Audio(`./sounds/${audioPathList[audioValue]['f']}`);
   } else {
-    audio = new Audio(`${audioPathList[audioValue]['path']}${audioPathList[audioValue]['file']}`);
+    audio = new Audio(`${audioPathList[audioValue]['p']}${audioPathList[audioValue]['f']}`);
   }
   audio.load();
   d.getElementById('speedVal').innerText = '1x';
@@ -108,15 +69,15 @@ window.onload = function () {
     }
     timeUpdate();
   }
-  if (audioPathList[audioValue]['title'] === '') {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['file'];
+  if (audioPathList[audioValue]['t'] === '') {
+    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['f'];
   } else {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['title'];
+    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['t'];
   }
-  if (audioPathList[audioValue]['artist'] === '') {
+  if (audioPathList[audioValue]['a'] === '') {
     d.getElementById('audioArtist').innerText = '不明';
   } else {
-    d.getElementById('audioArtist').innerText = audioPathList[audioValue]['artist'];
+    d.getElementById('audioArtist').innerText = audioPathList[audioValue]['a'];
   }
   d.getElementById('seekbar').style.backgroundSize = 0;
   d.getElementById('progressbar').style.backgroundSize = 0;
@@ -132,25 +93,25 @@ function audioChange() {
   } else {
     play = 0;
   }
-  if (audioPathList[audioValue]['file'] === '') {
-    audio = new Audio(`${audioPathList[audioValue]['path']}`);
-  } else if (audioPathList[audioValue]['path'] === '') {
-    audio = new Audio(`./sounds/${audioPathList[audioValue]['file']}`);
+  if (audioPathList[audioValue]['f'] === '') {
+    audio = new Audio(`${audioPathList[audioValue]['p']}`);
+  } else if (audioPathList[audioValue]['p'] === '') {
+    audio = new Audio(`./sounds/${audioPathList[audioValue]['f']}`);
   } else {
-    audio = new Audio(`${audioPathList[audioValue]['path']}${audioPathList[audioValue]['file']}`);
+    audio = new Audio(`${audioPathList[audioValue]['p']}${audioPathList[audioValue]['f']}`);
   }
   current = 0;
   duration = Math.round(audio.duration);
   timeUpdate();
-  if (audioPathList[audioValue]['title'] === '') {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['file'];
+  if (audioPathList[audioValue]['t'] === '') {
+    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['f'];
   } else {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['title'];
+    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['t'];
   }
-  if (audioPathList[audioValue]['artist'] === '') {
+  if (audioPathList[audioValue]['a'] === '') {
     d.getElementById('audioArtist').innerText = '不明';
   } else {
-    d.getElementById('audioArtist').innerText = audioPathList[audioValue]['artist'];
+    d.getElementById('audioArtist').innerText = audioPathList[audioValue]['a'];
   }
   d.getElementById('current').innerText = '00:00';
   d.getElementById('duration').innerText = '**:**';
@@ -158,7 +119,7 @@ function audioChange() {
   d.getElementById('progressbar').style.backgroundSize = '0%';
   d.getElementById('speedChanger').value = 1.0;
   speedChange();
-  d.getElementById('playerbg').style.backgroundImage = `url("${audioPathList[audioValue]['art']}")`;
+  d.getElementById('playerbg').style.backgroundImage = `url("${audioPathList[audioValue]['n']}")`;
   audio.volume = d.getElementById('volumeRange').value;
   playPauseAudio();
 }
