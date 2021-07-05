@@ -31,7 +31,9 @@ request.onload = function() {
                 console.log(`note=${note[i]['n']}`);
                 bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
                 bufferSourceNode.start();
-                playsound();
+                if (i <= note.length - 1) {
+                    playsound();
+                }
             });
         }
     });
