@@ -13,8 +13,8 @@ let request, source;
 
 function playsound(v) {
     request = new XMLHttpRequest();
-    request.open('GET','./sounds/harp.ogg',true);
-    request.responseType = 'arraybuffer';
+    request.open("GET","./sounds/harp.ogg",true);
+    request.responseType = "arraybuffer";
     request.onload = completeOnLoad(v);
     request.send();
 }
