@@ -9,33 +9,28 @@ note = [
     {n:16,d:5}
 ];
 let i = 0;
-const request = new XMLHttpRequest();
-request.open('GET','./sounds/harp.ogg',true);
-request.responseType = 'arraybuffer';
-let bufferSourceNode, gainNode;
+let request, source;
 
-request.onload = function() {
+function playsound(v) {
+    request = new XMLHttpRequest();
+    request.open('GET','./sounds/harp.ogg',true);
+    request.responseType = 'arraybuffer';
+    request.onload = completeOnLoad(v);
+    request.send();
+}
+
+function completeOnLoad(v) {
     audioCtx = new AudioContext();
-    audioCtx.decodeAudioData(request.response, function (buffer) {
-        bufferSourceNode = audioCtx.createBufferSource();
-        gainNode = audioCtx.createGain();
+    source = audioCtx.createBufferSource();
 
-        bufferSourceNode.buffer = buffer;
-        bufferSourceNode.loop = false;
-
-        bufferSourceNode.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-
-        document.getElementById('play').onclick = function () {
-            for (let i = 0;i <= note.length - 1; i++) {
-                sleep(note[i]['d'], function () {
-                    console.log(`note=${note[i]['n']}`);
-                    bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
-                    bufferSourceNode.start();
-                });
-            }
-        }
+    audioCtx.decodeAudioData(request.response, function (buf) {
+        source.buffer = buf;
+        source.loop = false;
     });
+
+    source.connect(audioCtx.destination);
+    source.playbackRate.value = 0.5*(2**(note[v]['n']/12));
+    source.start(0);
 };
 
 request.send();
@@ -59,5 +54,7 @@ function playnote(n) {
 
 function start() {
     i = 0;
-    playsound();
+    for (let i = 0; i <= note.length - 1; i++) {
+        setInterval(playsound(i), note[i]['d']*50);
+    }
 }
