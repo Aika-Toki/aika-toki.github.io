@@ -27,14 +27,11 @@ request.onload = function() {
         gainNode.connect(audioCtx.destination);
 
         document.getElementById('play').onclick = function () {
-            while (i <= note.length - 1) {
+            for (let i = 0;i <= note.length - 1; i++) {
                 sleep(note[i]['d'], function () {
                     console.log(`note=${note[i]['n']}`);
                     bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
                     bufferSourceNode.start();
-                    if (i <= note.length - 1) {
-                        playsound();
-                    }
                 });
             }
         }
@@ -58,12 +55,6 @@ function playnote(n) {
     noteNum = n + 54;
     hertz = 440 * (2**((noteNum - 69) / 12));
     playHz(hertz);
-}
-function playsound() {
-    if(i <= note.length - 1) {
-        play();
-        i++;
-    }
 }
 
 function start() {
