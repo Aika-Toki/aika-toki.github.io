@@ -33,7 +33,6 @@ function completeOnLoad(v) {
     source.start(0);
 };
 
-request.send();
 function sleep(tick,callfunc) {
     let spanedTick = 0;
     let id = setInterval(function() {
