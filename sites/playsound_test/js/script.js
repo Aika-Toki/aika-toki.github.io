@@ -10,7 +10,7 @@ note = [
 ];
 let i = 0;
 const request = new XMLHttpRequest();
-request.open('GET','harp.ogg',true);
+request.open('GET','./sounds/harp.ogg',true);
 request.responseType = 'arraybuffer';
 let bufferSourceNode, gainNode;
 
@@ -27,14 +27,12 @@ request.onload = function() {
         gainNode.connect(audioCtx.destination);
 
         document.getElementById('play').onclick = function () {
-            while (i <= note.length - 1) {
-                sleep(note[i]['d'], function () {
-                    console.log(`note=${note[i]['n']}`);
-                    bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
-                    bufferSourceNode.start();
-                    i++
-                });
-            }
+            sleep(note[i]['d'], function () {
+                console.log(`note=${note[i]['n']}`);
+                bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
+                bufferSourceNode.start();
+                playsound();
+            });
         }
     });
 };
@@ -56,6 +54,12 @@ function playnote(n) {
     noteNum = n + 54;
     hertz = 440 * (2**((noteNum - 69) / 12));
     playHz(hertz);
+}
+function playsound() {
+    if(i <= note.length - 1) {
+        play();
+        i++;
+    }
 }
 
 function start() {
