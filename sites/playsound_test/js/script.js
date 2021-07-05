@@ -26,15 +26,17 @@ request.onload = function() {
         bufferSourceNode.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        document.getElementById('play').onclick = function play() {
-            sleep(note[i]['d'], function () {
-                console.log(`note=${note[i]['n']}`);
-                bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
-                bufferSourceNode.start();
-                if (i <= note.length - 1) {
-                    playsound();
-                }
-            });
+        document.getElementById('play').onclick = function () {
+            while (i <= note.length - 1) {
+                sleep(note[i]['d'], function () {
+                    console.log(`note=${note[i]['n']}`);
+                    bufferSourceNode.playbackRate.value = 0.5*(2**(note[i]['n']/12));
+                    bufferSourceNode.start();
+                    if (i <= note.length - 1) {
+                        playsound();
+                    }
+                });
+            }
         }
     });
 };
