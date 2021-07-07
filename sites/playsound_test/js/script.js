@@ -5,17 +5,19 @@ let hertz = 0;
 note = [
     {n:0,d:0},
     {n:4,d:5},
-    {n:15,d:1},
-    {n:16,d:1},
+    {n:15,d:0},
+    {n:16,d:0},
     {n:16,d:5}
 ];
 let i = 0;
-let request, source;
+let request, source, soundTick = 1;
 
 function playsound(v) {
     audio = new Audio('./sounds/harp.ogg');
     audio.preservesPitch = false;
     audio.playbackRate = 0.5*(2**(note[v]['n']/12));
+    soundTick = soundTick + note[v]['d'];
+    console.log(`execute @a[scores={soundTick=${soundTick}}] ~ ~ ~ playsound note.harp @a ~ ~ ~ 0.8 ${0.5*(2**(note[v]['n']/12))}`);
     audio.play();
 }
 
