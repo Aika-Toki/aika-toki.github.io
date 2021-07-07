@@ -10,8 +10,11 @@ note = [
     {n:16,d:5}
 ];
 let i = 0;
-let request, source, soundTick = 1;
-let audio = new Audio('./sounds/harp.ogg');
+let request, source, soundTick = 1, audio;
+
+document.onload = function() {
+    audio = new Audio('./sounds/harp.ogg');
+};
 
 function playsound(v) {
     audio.preservesPitch = false;
