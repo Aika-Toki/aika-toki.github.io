@@ -13,7 +13,7 @@ let i = 0;
 let request, source, soundTick = 1, audio;
 
 document.onload = function() {
-    audio = new Audio('./sounds/harp.ogg');
+    audio = document.querySelector('audio');
 };
 
 function playsound(v) {
