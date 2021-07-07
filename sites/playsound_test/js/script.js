@@ -1,4 +1,5 @@
 let audioCtx;
+const AudioContext = window.AudioContext || window.webkitAudioContext;
 let noteNum = 0;
 let hertz = 0;
 note = [
@@ -30,7 +31,7 @@ function completeOnLoad(v) {
 
     source.connect(audioCtx.destination);
     source.playbackRate.value = 0.5*(2**(note[v]['n']/12));
-    source.start(0);
+    source.start(note[v]['d']*50/1000);
 };
 
 function sleep(tick,callfunc) {
