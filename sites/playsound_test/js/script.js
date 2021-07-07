@@ -35,15 +35,13 @@ function completeOnLoad(v) {
     source.start(note[v]['d']*50/1000);
 };
 
-function sleep(tick,callfunc) {
-    let spanedTick = 0;
-    let id = setInterval(function() {
-        spanedTick++;
-        if (spanedTick >= tick) {
-            clearInterval(id);
-            if (callfunc) callfunc();
-        }
-    }, 50);
+function sleepGram(tick) {
+    return new Promise(resolve => setTimeout(resolve, tick*50));
+}
+
+async function notePl(tick, i) {
+    await sleepGram(tick);
+    playsound(i);
 }
 
 function playnote(n) {
@@ -55,8 +53,9 @@ function playnote(n) {
 
 function start() {
     i = 0;
+    soundTick = 1;
     for (let i = 0; i <= note.length - 1; i++) {
 //        playsound(i);
-        sleep(note[i]['d'], playsound(i));
+        notePl(note[i]['d'], i);
     }
 }
