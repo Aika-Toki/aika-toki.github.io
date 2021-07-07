@@ -16,7 +16,7 @@ function playsound(v) {
     request = new XMLHttpRequest();
     request.open("GET","./sounds/harp.wav",true);
     request.responseType = "arraybuffer";
-    completeOnLoad();
+    completeOnLoad(v);
     request.send();
 }
 
