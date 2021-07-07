@@ -11,9 +11,9 @@ note = [
 ];
 let i = 0;
 let request, source, soundTick = 1;
+let audio = new Audio('./sounds/harp.ogg');
 
 function playsound(v) {
-    audio = new Audio('./sounds/harp.ogg');
     audio.preservesPitch = false;
     audio.playbackRate = 0.5*(2**(note[v]['n']/12));
     soundTick = soundTick + note[v]['d'];
