@@ -55,6 +55,6 @@ function playnote(n) {
 function start() {
     i = 0;
     for (let i = 0; i <= note.length - 1; i++) {
-        setInterval(playsound(i), note[i]['d']*50);
+        playsound(i);
     }
 }
