@@ -13,11 +13,10 @@ let i = 0;
 let request, source;
 
 function playsound(v) {
-    request = new XMLHttpRequest();
-    request.open("GET","./sounds/harp.wav",true);
-    request.responseType = "arraybuffer";
-    completeOnLoad(v);
-    request.send();
+    audio = new Audio('./sounds/harp.ogg');
+    audio.preservesPitch = false;
+    audio.playbackRate = 0.5*(2**(note[v]['n']/12));
+    audio.play();
 }
 
 function completeOnLoad(v) {
@@ -55,6 +54,7 @@ function playnote(n) {
 function start() {
     i = 0;
     for (let i = 0; i <= note.length - 1; i++) {
-        playsound(i);
+//        playsound(i);
+        setInterval(playsound(i), note[i]['d']*50/1000);
     }
 }

@@ -17,8 +17,8 @@ loop = 0;
 //Lists
 let audioPathList = [
   {'f': 'none.mp3', 't': ' ', 'a': ' ', 'n': '', 'p': ''}
-//  ,{'f': 'roudoku2021from04.mp3', 't': '朗読部門（2021年4月〜中国語学習開始）　読み上げ音声', 'a': 'TTSMP3.com', 'n': '', 'p': ''}
-//  ,{'f': 'shigh.mp3', 't': '夢で描けば　耳コピ', 'a': '矢歌絵音', 'n': 'https://et-cdn.shoeisha.jp/static/images/article/4778/4778_005.jpg', 'p': ''}
+  ,{'f': 'roudoku2021from04.mp3', 't': '朗読部門（2021年4月〜中国語学習開始）　読み上げ音声', 'a': 'TTSMP3.com', 'n': '', 'p': ''}
+  ,{'f': 'shigh.mp3', 't': '夢で描けば　耳コピ', 'a': '矢歌絵音', 'n': 'https://et-cdn.shoeisha.jp/static/images/article/4778/4778_005.jpg', 'p': ''}
   ,{'f': 'tondemowonders.mp3', 't': 'トンデモワンダーズ', 'a': 'sasakure.UK', 'n': 'http://img.youtube.com/vi/dBQg24mx45Y/maxresdefault.jpg', 'p': ''}
   ,{'f': 'sinigami.mp3', 't': '死神', 'a': '米津玄師', 'n': 'http://img.youtube.com/vi/8nxaZ69ElEc/maxresdefault.jpg', 'p': ''}
   ,{'f': 'tadasentakugaatta.mp3', 't': 'ただ選択があった', 'a': 'Frog96', 'n': 'http://img.youtube.com/vi/FrIiEuNPE38/maxresdefault.jpg', 'p': ''}
@@ -32,23 +32,21 @@ let playList = [];
 window.onload = function () {
   let audioList = d.getElementById('audioList');
   d.createElement('option')
-  for (let i = 0; i <= audioPathList.length - 1; i++){
     let option = d.createElement('option');
-    option.setAttribute('value', i);
-    if (audioPathList[i]['t'] === '') {
-      option.innerHTML = audioPathList[i]['f'];
+    option.setAttribute('value', 0);
+    if (audioPathList[0]['t'] === '') {
+      option.innerHTML = audioPathList[0]['f'];
     } else {
-      option.innerHTML = audioPathList[i]['t'];
+      option.innerHTML = audioPathList[0]['t'];
     }
     audioList.appendChild(option);
-  };
   audioValue = d.getElementById('audioList').value;
-  if (audioPathList[audioValue]['f'] === '') {
+  if (audioPlayList[audioValue]['f'] === '') {
     audio = new Audio(`${audioPathList[audioValue]['p']}`);
-  } else if (audioPathList[audioValue]['p'] === '') {
-    audio = new Audio(`./sounds/${audioPathList[audioValue]['f']}`);
+  } else if (audioPlayList[audioValue]['p'] === '') {
+    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
   } else {
-    audio = new Audio(`${audioPathList[audioValue]['p']}${audioPathList[audioValue]['f']}`);
+    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
   }
   audio.load();
   d.getElementById('speedVal').innerText = '1x';
