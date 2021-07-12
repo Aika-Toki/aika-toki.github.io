@@ -1,0 +1,6 @@
+div#call {
+    background-color: black;
+}
+div.hidden {
+    display: none;
+}
