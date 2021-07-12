@@ -26,7 +26,7 @@ let audioPathList = [
   ,{'f': '', 't': 'ハンター見習い', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/n/n37.mp3'}
   ,{'f': '', 't': '馬車道', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/o/o12.mp3'}
   ];
-let playList = [];
+let audioPlayList = [];
 
 
 window.onload = function () {
@@ -34,15 +34,15 @@ window.onload = function () {
   d.createElement('option')
     let option = d.createElement('option');
     option.setAttribute('value', 0);
-    if (audioPathList[0]['t'] === '') {
-      option.innerHTML = audioPathList[0]['f'];
+    if (audioPlayList[0]['t'] === '') {
+      option.innerHTML = audioPlayList[0]['f'];
     } else {
-      option.innerHTML = audioPathList[0]['t'];
+      option.innerHTML = audioPlayList[0]['t'];
     }
     audioList.appendChild(option);
   audioValue = d.getElementById('audioList').value;
   if (audioPlayList[audioValue]['f'] === '') {
-    audio = new Audio(`${audioPathList[audioValue]['p']}`);
+    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
   } else if (audioPlayList[audioValue]['p'] === '') {
     audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
   } else {
@@ -67,21 +67,74 @@ window.onload = function () {
     }
     timeUpdate();
   }
-  if (audioPathList[audioValue]['t'] === '') {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['f'];
+  if (audioPlayList[audioValue]['t'] === '') {
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
   } else {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['t'];
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
   }
-  if (audioPathList[audioValue]['a'] === '') {
+  if (audioPlayList[audioValue]['a'] === '') {
     d.getElementById('audioArtist').innerText = '不明';
   } else {
-    d.getElementById('audioArtist').innerText = audioPathList[audioValue]['a'];
+    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
   }
   d.getElementById('seekbar').style.backgroundSize = 0;
   d.getElementById('progressbar').style.backgroundSize = 0;
-  audioList.setAttribute('size', audioPathList.length)
+  audioList.setAttribute('size', audioPlayList.length)
 }
 
+function audioAdded(valueee) {
+  audioPlayList[audioPlayList.length].join(audioPathList[valueee]);
+  let audioList = d.getElementById('audioList');
+  d.createElement('option')
+    let option = d.createElement('option');
+    option.setAttribute('value', 0);
+    if (audioPlayList[0]['t'] === '') {
+      option.innerHTML = audioPlayList[0]['f'];
+    } else {
+      option.innerHTML = audioPlayList[0]['t'];
+    }
+    audioList.appendChild(option);
+  audioValue = d.getElementById('audioList').value;
+  if (audioPlayList[audioValue]['f'] === '') {
+    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
+  } else if (audioPlayList[audioValue]['p'] === '') {
+    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
+  } else {
+    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
+  }
+  audio.load();
+  d.getElementById('speedVal').innerText = '1x';
+  d.getElementById('volumeVal').innerText = '100%';
+  timeUpdate();
+  d.getElementById('seekarea').onclick = function (e) {
+    if (e) event = e;
+    const duration = Math.round(audio.duration)
+    if(!isNaN(duration)){
+      mouse = e.pageX;
+      element = document.getElementById('seekarea');
+      rect = element.getBoundingClientRect();
+      position = rect.left + window.pageXOffset;
+      offset = mouse - position;
+      width = rect.right - rect.left;
+      audio.currentTime = //Math.round
+      (duration * (offset / width));
+    }
+    timeUpdate();
+  }
+  if (audioPlayList[audioValue]['t'] === '') {
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
+  } else {
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
+  }
+  if (audioPlayList[audioValue]['a'] === '') {
+    d.getElementById('audioArtist').innerText = '不明';
+  } else {
+    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
+  }
+  d.getElementById('seekbar').style.backgroundSize = 0;
+  d.getElementById('progressbar').style.backgroundSize = 0;
+  audioList.setAttribute('size', audioPlayList.length)
+}
 function audioChange() {
   audioValue = d.getElementById('audioList').value;
   audio.pause();
@@ -91,25 +144,25 @@ function audioChange() {
   } else {
     play = 0;
   }
-  if (audioPathList[audioValue]['f'] === '') {
-    audio = new Audio(`${audioPathList[audioValue]['p']}`);
-  } else if (audioPathList[audioValue]['p'] === '') {
-    audio = new Audio(`./sounds/${audioPathList[audioValue]['f']}`);
+  if (audioPlayList[audioValue]['f'] === '') {
+    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
+  } else if (audioPlayList[audioValue]['p'] === '') {
+    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
   } else {
-    audio = new Audio(`${audioPathList[audioValue]['p']}${audioPathList[audioValue]['f']}`);
+    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
   }
   current = 0;
   duration = Math.round(audio.duration);
   timeUpdate();
-  if (audioPathList[audioValue]['t'] === '') {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['f'];
+  if (audioPlayList[audioValue]['t'] === '') {
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
   } else {
-    d.getElementById('audioTitle').innerText = audioPathList[audioValue]['t'];
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
   }
-  if (audioPathList[audioValue]['a'] === '') {
+  if (audioPlayList[audioValue]['a'] === '') {
     d.getElementById('audioArtist').innerText = '不明';
   } else {
-    d.getElementById('audioArtist').innerText = audioPathList[audioValue]['a'];
+    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
   }
   d.getElementById('current').innerText = '00:00';
   d.getElementById('duration').innerText = '**:**';
@@ -117,7 +170,7 @@ function audioChange() {
   d.getElementById('progressbar').style.backgroundSize = '0%';
   d.getElementById('speedChanger').value = 1.0;
   speedChange();
-  d.getElementById('playerbg').style.backgroundImage = `url("${audioPathList[audioValue]['n']}")`;
+  d.getElementById('playerbg').style.backgroundImage = `url("${audioPlayList[audioValue]['n']}")`;
   audio.volume = d.getElementById('volumeRange').value;
   playPauseAudio();
 }
@@ -190,7 +243,7 @@ function timeUpdate() {
           playPauseAudio();
         } else if (loop === 2) {
           play = 0;
-          if (d.getElementById('audioList').value === String(audioPathList.length - 1)) {
+          if (d.getElementById('audioList').value === String(audioPlayList.length - 1)) {
             d.getElementById('audioList').value = 0;
           } else {
             ++d.getElementById('audioList').value;
@@ -205,7 +258,7 @@ function prevFile() {
   if (audio.currentTime <= 0.5) {
     let aL = d.getElementById('audioList');
     if(aL.value === "0") {
-      aL.value = audioPathList.length - 1;
+      aL.value = audioPlayList.length - 1;
     } else {
       --aL.value;
     }
@@ -218,7 +271,7 @@ function prevFile() {
 
 function nextFile() {
   let aL = d.getElementById('audioList');
-  if(aL.value === String(audioPathList.length - 1)) {
+  if(aL.value === String(audioPlayList.length - 1)) {
     aL.value = 0;
   } else {
     ++aL.value;
