@@ -11,6 +11,7 @@
 }
 table {
     border-collapse:separate;
+    width: max-content;
 }
 label#storageType{
     padding-top: 12px;
