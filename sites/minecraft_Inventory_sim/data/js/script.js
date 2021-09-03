@@ -3,7 +3,12 @@ function reload() {
     for(let iii = 0;iii < d.querySelectorAll('td').length; iii++) {
         d.querySelectorAll('td')[iii].innerHTML = '';
     }
-    invjsonb = "{"+d.querySelector('#jsoninput').value+"}";
+    d.querySelector('#jsoninput').value = d.querySelector('#jsoninput').value.replace('/data merge block ~ ~ ~ ','');
+    if (d.querySelector('#jsoninput').value.indexOf('{Items:') === -1 || d.querySelector('#jsoninput').value.lastIndexOf('}]}') === -1) {
+        invjsonb = "{"+d.querySelector('#jsoninput').value+"}";
+    } else {
+        invjsonb = d.querySelector('#jsoninput').value;
+    }
     console.log(invjsonb);
     console.log(`1/10 converting to JSON format...`);
     invjsona = invjsonb;
@@ -35,7 +40,7 @@ function reload() {
         iSlot = invjson.Inventory[i].Slot.slice(0,-1);
             d.querySelector(`#container-${iSlot}`).innerHTML = `<img src="./data/img/${invjson.Inventory[i].id.slice(10)}.png" class="item" onclick="openState(${iSlot});">`;
             if (d.querySelectorAll('.item')[i].naturalHeight === 0) {
-                d.querySelector(`#container-${iSlot}`).innerHTML = `<img src="./data/img/${invjson.Inventory[i].id.slice(10)}.png" class="item" onclick="openState(${iSlot});">`;
+                d.querySelector(`#container-${iSlot}`).innerHTML = `<img src="./data/img/missing.png" class="item" onclick="openState(${iSlot});">`;
             } else {
                 d.querySelector(`#container-${iSlot}`).innerHTML = `<img src="./data/img/${invjson.Inventory[i].id.slice(10)}.png" class="item" onclick="openState(${iSlot});">`;
             }
@@ -74,7 +79,7 @@ function imageReload() {
         }
         if (invjson.Inventory[i].tag) {
             if (invjson.Inventory[i].tag.Enchantments) {
-                d.querySelector(`#container-${iSlot}`).innerHTML = `${d.querySelector(`#container-${iSlot}`).innerHTML}<img src="https://aika-toki.github.io/others/images/enchant.gif" class="enchant_effect">`;
+                d.querySelector(`#container-${iSlot}`).innerHTML = `${d.querySelector(`#container-${iSlot}`).innerHTML}<img src="https://aika-toki.github.io/others/images/enchant.gif" class="enchant_effect" onclick="openState(${iSlot});">`;
                 console.log(`effect has reloaded! URL:../../others/images/enchant.png`);
             } else {
                 d.querySelector(`#container-${iSlot}`).innerHTML;
@@ -104,5 +109,24 @@ function xhrgetsetup(url,onsuccess,onfail) {
         } else if(xhr.readyState === 4 && xhr.status === 404) {
             onfail;
         }
+    }
+}
+
+function cmdpr() {
+    let cmd = d.getElementById('cmdp').value;
+    d.getElementById('cmdp').value = '';
+    
+    switch (cmd) {
+        case '/reload image':
+            imageReload();
+            break;
+        case '/reload json':
+            reload();
+            break;
+        case '/reload':
+            alert(`usage: '/reload <content>'`);
+            break;
+        default:
+            alert(`Unknown command:'${cmd}'`);
     }
 }
