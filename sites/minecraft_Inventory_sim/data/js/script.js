@@ -1,6 +1,6 @@
 let d = document, invjson, invjsona, invjsonb, iSlot, itemCount, xhr, jsonprocess, iiii = 0, selcsid, containerDefName;
 const versionStatus = "Beta";
-const versionNum = "0.17.10";
+const versionNum = "0.17.11";
 function reload() {
     if(!containerDefName) {
         containerDefName = "インベントリ";
@@ -179,7 +179,7 @@ function cmdpr() {
             d.querySelector('.Container').id = "Inventory";
             break;
         case '/version':
-            alert('Status:"'+versionStatus+'"¥nVersion:'+versionNum);
+            alert('Status:'+versionStatus+',Version:'+versionNum);
             break;
         default:
             alert(`Unknown command:'${cmd}'`);
