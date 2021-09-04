@@ -5,7 +5,7 @@ function reload() {
         d.querySelectorAll('td')[iii].innerHTML = '';
     }
     d.querySelector('#jsoninput').value = d.querySelector('#jsoninput').value.replace('/data merge block ~ ~ ~ ','');
-    if (d.querySelector('#jsoninput').value.indexOf('{Items:') === -1 && d.querySelector('#jsoninput').value.lastIndexOf('}]}') === -1) {
+    if (d.querySelector('#jsoninput').value.indexOf('{Items:') === -1 && d.querySelector('#jsoninput').value.lastIndexOf('{Inventory:') === -1) {
         invjsonb = "{"+d.querySelector('#jsoninput').value+"}";
     } else {
         invjsonb = d.querySelector('#jsoninput').value;
