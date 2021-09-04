@@ -2,7 +2,7 @@
     font-family: PixelMplus-Regular;
     src: url(https://aika-toki.github.io/sites/command_describer/data/woff/PixelMplus12-Regular.woff) format('woff');
 }
-#Inventory {
+#Inventory,#Storage {
     background-color: lightgray;
     width: fit-content;
     padding: 12px;
@@ -83,4 +83,10 @@ label.countt {
 }
 #cmdpa {
     display: inline-flex;
+}
+#Inventory #hotbar,#Inventory #split {
+    display: table-row;
+}
+#Storage #hotbar,#Storage #split {
+    display: none;
 }

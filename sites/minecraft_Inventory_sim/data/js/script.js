@@ -1,5 +1,8 @@
-let d = document, invjson, invjsona, invjsonb, iSlot, itemCount, xhr, jsonprocess, iiii = 0;
+let d = document, invjson, invjsona, invjsonb, iSlot, itemCount, xhr, jsonprocess, iiii = 0, selcsid, containerDefName;
 function reload() {
+    if(!containerDefName) {
+        containerDefName = "インベントリ";
+    }
     jsonprocess = 15, iiii = 0;
     for(let iii = 0;iii < d.querySelectorAll('td').length; iii++) {
         d.querySelectorAll('td')[iii].innerHTML = '';
@@ -66,10 +69,10 @@ function reload() {
         if(invjson.CustomName.text !== "" && invjson.CustomName.text !== undefined) {
             d.querySelector('#storageType').innerText = invjson.CustomName.text;
         } else {
-            d.querySelector('#storageType').innerText = "インベントリ";
+            d.querySelector('#storageType').innerText = containerDefName;
         }
     } else {
-        d.querySelector('#storageType').innerText = "インベントリ";
+        d.querySelector('#storageType').innerText = containerDefName;
     }
 
     for (let i = 0; i < invjson.Inventory.length; i++){   
@@ -163,7 +166,39 @@ function cmdpr() {
         case '/reload':
             alert(`usage: '/reload <content>'`);
             break;
+        case '/type storage':
+            containerDefName = "チェスト";
+            toStorage();
+            d.querySelector('.Container').id = "Storage";
+            break;
+        case '/type inventory':
+            containerDefName = "インベントリ";
+            toInventory();
+            d.querySelector('.Container').id = "Inventory";
+            break;
         default:
             alert(`Unknown command:'${cmd}'`);
+    }
+}
+
+function toStorage() {
+    if (d.querySelector('.Container').id === "Inventory") {
+        for(let iiiii = 0; iiiii < d.querySelectorAll(".containerslot").length; iiiii++) {
+            selcsid = d.querySelectorAll(".containerslot")[iiiii].id;
+            selcsid = `container-${String(Number(selcsid.slice(10)) - 9)}`;
+            d.querySelectorAll(".containerslot")[iiiii].id = selcsid;
+        }
+        reload();
+    }
+}
+
+function toInventory() {
+    if (d.querySelector('.Container').id === "Storage") {
+        for(let iiiiii = 0; iiiiii < d.querySelectorAll(".containerslot").length; iiiiii++) {
+            selcsid = d.querySelectorAll(".containerslot")[iiiiii].id;
+            selcsid = `container-${String(Number(selcsid.slice(10)) + 9)}`;
+            d.querySelectorAll(".containerslot")[iiiiii].id = selcsid;
+        }
+        reload();
     }
 }
