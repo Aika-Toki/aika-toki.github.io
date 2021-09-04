@@ -62,7 +62,15 @@ function reload() {
     invjson = JSON.parse(invjsona);
     console.log(`completed.`);
     console.log(invjson);
-    d.querySelector('#storageType').innerText = invjson.CustomName.text;
+    if(invjson.CustomName !== undefined) {
+        if(invjson.CustomName.text !== "" && invjson.CustomName.text !== undefined) {
+            d.querySelector('#storageType').innerText = invjson.CustomName.text;
+        } else {
+            d.querySelector('#storageType').innerText = "インベントリ";
+        }
+    } else {
+        d.querySelector('#storageType').innerText = "インベントリ";
+    }
 
     for (let i = 0; i < invjson.Inventory.length; i++){   
         console.log(`${i+1}/${invjson.Inventory.length} image inserting...`);
