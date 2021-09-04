@@ -62,6 +62,7 @@ function reload() {
     invjson = JSON.parse(invjsona);
     console.log(`completed.`);
     console.log(invjson);
+    d.querySelector('#storageType').innerText = invjson.CustomName.text;
 
     for (let i = 0; i < invjson.Inventory.length; i++){   
         console.log(`${i+1}/${invjson.Inventory.length} image inserting...`);
