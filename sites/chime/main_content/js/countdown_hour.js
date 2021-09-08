@@ -201,14 +201,18 @@
 		}
 	}
 	function chime_change() {
+		stop(chime);
 		const chimeList = document.getElementById('chime_list').value;
 		if(chimeList === "0") {
 			chime = new Audio('./sound/shigh.mp3');
 			chime.load();
-		} else if(chimeList === "1") {
+		}else if(chimeList === "1") {
+			chime = new Audio('./sound/nhigh.mp3');
+			chime.load();
+		}else if(chimeList === "2") {
 			chime = new Audio('./sound/Chime11.mp3');
 			chime.load();
-		}
+		} 
 	}
 
 	function sound_test() {
