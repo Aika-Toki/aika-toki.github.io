@@ -1,0 +1,113 @@
+<!--
+
+このHTMLソースは改変自由です。お好みに合わせて自由にご利用ください。
+クレジット表記や使用報告は不要です。
+再配布や自作発言はご遠慮ください。
+
+MinozKi｜mooncape
+https://twitter.com/minozki_i
+https://mc-stock.site/
+
+-->  
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+/* ▼ ここでテキストの色を変更 ▼ */
+    color: #000;
+/* ▲ ここでテキストの色を変更 ▲ */
+}
+
+.nowtime{
+    margin-top: 15px;
+    margin-left: 15px;
+    width:300px;
+    padding : 5px 0px 5px 0px;
+    border-radius: 10px 10px 10px 10px;
+    /* ▼ ここで背景の色を変更 ▼ */
+    background: rgba(255,255,255,1.0);
+    /* ▲ ここで背景の色を変更 ▲ */
+}
+
+#time{
+    display: inline;
+    line-height: 1em;/* 行間 */
+    letter-spacing: 3px;/* 字間 */
+    font-size: 60px;
+}
+
+ #colon{
+    vertical-align: 7%;
+}
+
+
+#live{
+    display: inline;
+    letter-spacing: 5px;/* 字間 */
+    font-size: 27px;
+}
+
+#icon{
+    display: inline;
+    position: relative;
+    top: 5%;
+    left: -3px;
+    }
+
+#bolt{
+    height: 27px;
+    animation: icon 5s linear infinite;
+    fill: currentColor;
+    }
+
+@keyframes icon {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+    }
+
+</style>
+
+</head>
+    
+    
+<body>
+
+<div class="nowtime">
+    
+<!-- ここから時刻 -->
+<p id="time"/>
+  <script language="JavaScript">
+  const day = function() {
+    const dt = dayjs(new Date());
+    const element = document.getElementById("time");
+      element.innerHTML = `${dt.format('HH')}<span id="colon">:</span>${dt.format('mm')}`;
+  };
+  setInterval(day, 1000);
+  </script>
+<!-- ここまで時刻 -->
+
+  <p id="icon"/>
+<svg id="bolt" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 30"><polygon id="bolt-2" data-name="bolt" points="12.4 0 1 18 9.2 18 7.617 30 19 12 10.8 12 12.4 0"/></svg>
+<p id="live">LIVE</p>
+
+</div>
+    
+</body>
+</html>
