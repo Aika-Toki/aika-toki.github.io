@@ -65,6 +65,7 @@ body{
     letter-spacing: 5px;/* 字間 */
     text-indent: 5px;
     font-size: 24px;
+    animation: 10s ease-in-out 0s infinite normal forwards running livea;
 }
     
 #time{
@@ -96,6 +97,21 @@ body{
     }
     100%{
         opacity: 1;
+    }
+}
+
+@keyframes livea{
+    0%{
+        transform: rotateY(0deg);
+    }
+    45%{
+        transform: rotateY(0deg);
+    }
+    60%{
+        transform: rotateY(360deg);
+    }
+    100%{
+        transform: rotateY(360deg);
     }
 }
 </style>
