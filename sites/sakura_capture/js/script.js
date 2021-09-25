@@ -6,7 +6,7 @@ window.onload = function(){
 }
 function load() {
     let id = curl.value;
-    ciframe.setAttribute('src', `https://sakura-checker.jp/search/${id}/`);
+    ciframe.setAttribute('data', `https://sakura-checker.jp/search/${id}/`);
     cid = ciframe.contentWindow.document;
     cmainb = cid.querySelector('.mainBlock');
     creportb = cid.querySelector('.reportBlock');
