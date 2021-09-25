@@ -1,6 +1,6 @@
 javascript:(function() {
     var el = document.createElement("script");
-    el.src = "https://html2canvas.hertzen.com/dist/html2canvas.js";
+    el.src = "https://aika-toki.github.io/sites/sakura_capture/js/html2canvas.js";
     el.id = "html2canvas";
     document.head.appendChild(el);
     var el = document.createElement("div");
