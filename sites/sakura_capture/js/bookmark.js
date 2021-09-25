@@ -23,6 +23,6 @@ javascript:(function() {
     document.body.appendChild(el);
     var el = document.createElement("script");
     el.id = "cs";
-    el.innerText = `document.querySelector('#html2canvas').onload = function() {let d = document, cmainb = d.querySelector('.mainBlock'), creportb = d.querySelector('.reportBlock'), cresult = d.querySelector('#results');html2canvas(cmainb,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('resultMain').src = imgData;}});html2canvas(creportb,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('resultReport').src = imgData;}});html2canvas(cresult,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('addToBookmark').href = imgData;}});}`;
+    el.innerText = `document.querySelector('#html2canvas').onload = function() {let d = document, cmainb = d.querySelector('.mainBlock'), creportb = d.querySelector('.reportBlock'), cresult = d.querySelector('#results');html2canvas(cmainb,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('resultMain').src = imgData;}});html2canvas(creportb,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('resultReport').src = imgData;}});html2canvas(cresult,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('imgDownload').href = imgData;}});}`;
     document.body.appendChild(el);
 })();
