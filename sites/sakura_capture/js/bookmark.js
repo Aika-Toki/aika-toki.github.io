@@ -1,7 +1,8 @@
 javascript:(function() {
     var el = document.createElement("script");
     el.src = "https://html2canvas.hertzen.com/dist/html2canvas.js";
-    document.body.appendChild(el);
+    el.id = "html2canvas";
+    document.head.appendChild(el);
     var el = document.createElement("div");
     el.id = "results";
     el.width = "100%";
@@ -20,23 +21,8 @@ javascript:(function() {
     var el = document.createElement("script");
     el.src = "https://aika-toki.github.io/sites/sakura_capture/js/script.js";
     document.body.appendChild(el);
-    let d = document, cmainb = d.querySelector('.mainBlock'), creportb = d.querySelector('.reportBlock'), cresult = d.querySelector('#results');
-    html2canvas(cmainb,{
-        onrendered: function(canvas){
-            var imgData = canvas.toDataURL();
-            document.getElementById("resultMain").src = imgData;
-        }
-    });
-    html2canvas(creportb,{
-        onrendered: function(canvas){
-            var imgData = canvas.toDataURL();
-            document.getElementById("resultReport").src = imgData;
-        }
-    });
-    html2canvas(cresult,{
-        onrendered: function(canvas){
-            var imgData = canvas.toDataURL();
-            document.getElementById("addToBookmark").href = imgData;
-        }
-    });
+    var el = document.createElement("script");
+    el.id = "cs";
+    el.innerText = `document.querySelector('#html2canvas').onload = function() {let d = document, cmainb = d.querySelector('.mainBlock'), creportb = d.querySelector('.reportBlock'), cresult = d.querySelector('#results');html2canvas(cmainb,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('resultMain').src = imgData;}});html2canvas(creportb,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('resultReport').src = imgData;}});html2canvas(cresult,{onrendered: function(canvas){var imgData = canvas.toDataURL();document.getElementById('addToBookmark').href = imgData;}});}`;
+    document.body.appendChild(el);
 })();
