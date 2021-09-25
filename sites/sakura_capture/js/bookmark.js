@@ -1,4 +1,4 @@
-function bookmark() {
+javascript:(function() {
     var el = document.createElement("script");
     el.src = "https://html2canvas.hertzen.com/dist/html2canvas.js";
     document.body.appendChild(el);
@@ -20,5 +20,23 @@ function bookmark() {
     var el = document.createElement("script");
     el.src = "https://aika-toki.github.io/sites/sakura_capture/js/script.js";
     document.body.appendChild(el);
-    imageOutput();
-}
+    let d = document, cmainb = d.querySelector('.mainBlock'), creportb = d.querySelector('.reportBlock'), cresult = d.querySelector('#results');
+    html2canvas(cmainb,{
+        onrendered: function(canvas){
+            var imgData = canvas.toDataURL();
+            document.getElementById("resultMain").src = imgData;
+        }
+    });
+    html2canvas(creportb,{
+        onrendered: function(canvas){
+            var imgData = canvas.toDataURL();
+            document.getElementById("resultReport").src = imgData;
+        }
+    });
+    html2canvas(cresult,{
+        onrendered: function(canvas){
+            var imgData = canvas.toDataURL();
+            document.getElementById("addToBookmark").href = imgData;
+        }
+    });
+})();

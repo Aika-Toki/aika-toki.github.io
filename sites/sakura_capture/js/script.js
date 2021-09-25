@@ -3,7 +3,7 @@ window.onload = function(){
     curl = d.querySelector('#sakuraUrl');
     ciframe = d.querySelector('#sakuraCheckerSite');
     cconf = d.querySelector('#confirm');
-    d.querySelector('#addToBookmark').href = `javascript:(function(){var el = document.createElement("script");el.src = "https://aika-toki.github.io/sites/sakura_capture/js/bookmark.js";document.body.appendChild(el);bookmark();})();`;
+    d.querySelector('#addToBookmark').href = `javascript:(function(){var e=document.createElement("script");e.src="https://html2canvas.hertzen.com/dist/html2canvas.js",document.body.appendChild(e);e=document.createElement("div");e.id="results",e.width="100%",e.height="min-content",document.body.appendChild(e);e=document.createElement("img");e.id="resultMain",document.querySelector("#results").appendChild(e);e=document.createElement("img");e.id="resultReport",document.querySelector("#results").appendChild(e);e=document.createElement("a");e.id="imgDownload",e.innerText="結果を画像で保存する",document.querySelector(".mainBlock").insertAdjacentElement("afterend",e);e=document.createElement("script");e.src="https://aika-toki.github.io/sites/sakura_capture/js/script.js",document.body.appendChild(e);let t=document,n=t.querySelector(".mainBlock"),r=t.querySelector(".reportBlock"),c=t.querySelector("#results");html2canvas(n,{onrendered:function(e){var t=e.toDataURL();document.getElementById("resultMain").src=t}}),html2canvas(r,{onrendered:function(e){var t=e.toDataURL();document.getElementById("resultReport").src=t}}),html2canvas(c,{onrendered:function(e){var t=e.toDataURL();document.getElementById("resultReport").src=t}})})();`;
 }
 function load() {
     let id = curl.value;
