@@ -24,6 +24,6 @@ javascript:(function() {
     document.body.appendChild(el);
     var el = document.createElement("script");
     el.id = "cs";
-    el.innerText = `document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock"),{onrendered:function(e){var t=e.toDataURL();document.getElementById("resultMain").src=t}}),html2canvas(document.querySelector(".reportBlock"),{onrendered:function(e){var t=e.toDataURL();document.getElementById("resultReport").src=t}}),html2canvas(document.querySelector("#results"),{onrendered:function(e){var t=e.toDataURL();document.getElementById("imgDownload").href=t}})};`;
+    el.innerText = `document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t}),html2canvas(document.querySelector("#results"),{onrendered:function(e){var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t}})};`;
     document.body.appendChild(el);
 })();
