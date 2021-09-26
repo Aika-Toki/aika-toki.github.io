@@ -8,6 +8,7 @@ javascript:(function() {
     el.id = "results";
     el.width = "100%";
     el.height = "min-content";
+    el.style.display = "grid";
     document.body.appendChild(el);
     var el = document.createElement("img");
     el.id = "resultMain";
@@ -20,10 +21,10 @@ javascript:(function() {
     el.innerText = "結果を画像で保存する";
     document.querySelector('.mainBlock').insertAdjacentElement('afterend', el);
     var el = document.createElement("script");
-    el.src = "https://aika-toki.github.io/sites/sakura_capture/js/script.js";
-    document.body.appendChild(el);
-    var el = document.createElement("script");
     el.id = "cs";
-    el.innerText = `document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t}),html2canvas(document.querySelector("#results"),{onrendered:function(e){var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t}})};`;
+    el.innerText = `document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t}),html2canvas(document.querySelector("#results")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t})};`;
     document.body.appendChild(el);
+    var el = document.createElement("style");
+    el.innerText = "#imgDownload {¥n    border-style: dotted;¥n    border-radius: 30px;¥n    padding: 2px;¥n    border-width: 2px;¥n    transition: all cubic-bezier(0.46, 0.03, 0.52, 0.96) 800ms;¥n    font-size: 30px;¥n}¥n#imgDownload:hover{¥n    border-color: coral;¥n    color: coral;¥n    border-width: 4px !important;¥n    border-style: solid !important;¥n    transition: all linear 200ms;¥n    text-decoration: none;¥n    background-color: papayawhip;¥n    font-size: 33px !important;¥n    font-weight: bold;¥n}";
+    document.head.appendChild(el);
 })();
