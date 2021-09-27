@@ -7,6 +7,12 @@ document.querySelector('#html2canvas').onload = function () {
         var imgData = canvas.toDataURL('image/png', 1);
         document.getElementById('resultReport').src = imgData;
     });
+    let wait0 = setInterval(function(){
+        setHref();
+        clearInterval(wait0);
+    },500);
+}
+function setHref() {
     html2canvas(document.querySelector('#results')).then(canvas => {
         var imgData = canvas.toDataURL('image/png', 1);
         document.getElementById('imgDownload').href = imgData;

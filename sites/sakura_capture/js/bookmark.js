@@ -1,14 +1,12 @@
 javascript:(function() {
-    let d = document, cmainb = d.querySelector('.mainBlock'), creportb = d.querySelector('.reportBlock'), cresult = d.querySelector('#results');
     var el = document.createElement("script");
     el.src = "https://aika-toki.github.io/sites/sakura_capture/js/html2canvas.js";
     el.id = "html2canvas";
     document.head.appendChild(el);
     var el = document.createElement("div");
     el.id = "results";
-    el.width = "100%";
-    el.height = "min-content";
     el.style.display = "grid";
+    el.style.width = "max-content";
     document.body.appendChild(el);
     var el = document.createElement("img");
     el.id = "resultMain";
@@ -19,12 +17,14 @@ javascript:(function() {
     var el = document.createElement("a");
     el.id = "imgDownload";
     el.innerText = "結果を画像で保存する";
+    el.download = location.href.slice(33,-1) + "-sakura_capture.png";
+    el.target = "_blank";
     document.querySelector('.mainBlock').insertAdjacentElement('afterend', el);
     var el = document.createElement("script");
     el.id = "cs";
-    el.innerText = `document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t}),html2canvas(document.querySelector("#results")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t})};`;
+    el.innerText = `function setHref(){html2canvas(document.querySelector("#results")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t})}document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t});let e=setInterval(function(){setHref(),clearInterval(e)},5000)};`;
     document.body.appendChild(el);
     var el = document.createElement("style");
-    el.innerText = "#imgDownload {¥n    border-style: dotted;¥n    border-radius: 30px;¥n    padding: 2px;¥n    border-width: 2px;¥n    transition: all cubic-bezier(0.46, 0.03, 0.52, 0.96) 800ms;¥n    font-size: 30px;¥n}¥n#imgDownload:hover{¥n    border-color: coral;¥n    color: coral;¥n    border-width: 4px !important;¥n    border-style: solid !important;¥n    transition: all linear 200ms;¥n    text-decoration: none;¥n    background-color: papayawhip;¥n    font-size: 33px !important;¥n    font-weight: bold;¥n}";
+    el.innerText = "#imgDownload {border-style: dotted;border-radius: 30px;padding: 2px;border-width: 2px;transition: all cubic-bezier(0.46, 0.03, 0.52, 0.96) 800ms;font-size: 30px;}#imgDownload:hover{border-color: coral;color: coral;border-width: 4px !important;border-style: solid !important;transition: all linear 200ms;text-decoration: none;background-color: papayawhip;font-size: 33px !important;font-weight: bold;}";
     document.head.appendChild(el);
 })();
