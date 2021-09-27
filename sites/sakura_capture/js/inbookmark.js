@@ -10,7 +10,7 @@ document.querySelector('#html2canvas').onload = function () {
     let wait0 = setInterval(function(){
         setHref();
         clearInterval(wait0);
-    },500);
+    },5000);
 }
 function setHref() {
     html2canvas(document.querySelector('#results')).then(canvas => {

@@ -1,4 +1,4 @@
-javascript:(function() {
+document.querySelector('#bookmarkScript').onload = function() {
     var el = document.createElement("script");
     el.src = "https://aika-toki.github.io/sites/sakura_capture/js/html2canvas.js";
     el.id = "html2canvas";
@@ -14,6 +14,10 @@ javascript:(function() {
     var el = document.createElement("img");
     el.id = "resultReport";
     document.querySelector('#results').appendChild(el);
+    var el = document.createElement("img");
+    el.id = "merchandiseImg";
+    el.src = document.querySelector('#amaimg').src;
+    document.querySelector('#results').appendChild(el);
     var el = document.createElement("a");
     el.id = "imgDownload";
     el.innerText = "結果を画像で保存する";
@@ -27,4 +31,4 @@ javascript:(function() {
     var el = document.createElement("style");
     el.innerText = "#imgDownload {border-style: dotted;border-radius: 30px;padding: 2px;border-width: 2px;transition: all cubic-bezier(0.46, 0.03, 0.52, 0.96) 800ms;font-size: 30px;}#imgDownload:hover{border-color: coral;color: coral;border-width: 4px !important;border-style: solid !important;transition: all linear 200ms;text-decoration: none;background-color: papayawhip;font-size: 33px !important;font-weight: bold;}";
     document.head.appendChild(el);
-})();
+}
