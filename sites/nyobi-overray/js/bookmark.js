@@ -8,4 +8,5 @@ document.querySelector('#NAIOVER').onload = function(){
     el.style.width = '375px';
     el.style.height = '812px';
     document.body.insertAdjacentElement('afterbegin', el);
+    alert('#4');
 }
