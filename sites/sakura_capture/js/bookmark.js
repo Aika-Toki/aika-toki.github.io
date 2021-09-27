@@ -17,6 +17,10 @@ document.querySelector('#bookmarkScript').onload = function() {
     var el = document.createElement("img");
     el.id = "merchandiseImg";
     el.src = document.querySelector('#amaimg').src;
+    el.style.position = "absolute";
+    el.style.width = "6%";
+    el.style.top = "327%";
+    el.style.left = "10%";
     document.querySelector('#results').appendChild(el);
     var el = document.createElement("a");
     el.id = "imgDownload";
