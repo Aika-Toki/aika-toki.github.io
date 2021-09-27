@@ -3,7 +3,7 @@ window.onload = function(){
     curl = doc.querySelector('#sakuraUrl');
     ciframe = doc.querySelector('#sakuraCheckerSite');
     cconf = doc.querySelector('#confirm');
-    hrefJavaScript = `(function(){var e=document.createElement("script");e.src="https://aika-toki.github.io/sites/sakura_capture/js/bookmark.js",e.id="bookmarkScript",document.head.appendChild(e);)`;
+    hrefJavaScript = `(function(){var e=document.createElement("script");e.src="https://aika-toki.github.io/sites/sakura_capture/js/bookmark.js",e.id="bookmarkScript",document.head.appendChild(e);})`;
     doc.querySelector('#addToBookmark').href = `javascript:${hrefJavaScript}`;
 }
 function load() {
