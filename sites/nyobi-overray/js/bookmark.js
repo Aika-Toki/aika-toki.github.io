@@ -3,6 +3,8 @@ document.querySelector('#NAIOVER').onload = function(){
     el.style.position = 'fixed';
     el.style.borderStyle = 'solid';
     el.style.borderRadius = '3px';
-    el.src = 'https://secure.nnn.ed.jp/mypage/result/pc/list/index';
+    el.src = 'https://secure.nnn.ed.jp/mypage/result/sp/list/index';
+    el.style.width = '375px';
+    el.style.height = '812px';
     document.body.insertAdjacentElement('afterbegin', el);
 }
