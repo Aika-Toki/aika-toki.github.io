@@ -21,13 +21,13 @@ document.querySelector('#bookmarkScript').onload = function() {
     el.style.width = "6%";
     el.style.top = "327%";
     el.style.left = "10%";
-    el.style.opacity = "0";
     document.querySelector('#results').appendChild(el);
     var el = document.createElement("a");
     el.id = "imgDownload";
     el.innerText = "結果を画像で保存する";
     el.download = location.href.slice(33,-1) + "-sakura_capture.png";
     el.target = "_blank";
+    el.style.opacity = "0";
     document.querySelector('.mainBlock').insertAdjacentElement('afterend', el);
     var el = document.createElement("script");
     el.id = "cs";
