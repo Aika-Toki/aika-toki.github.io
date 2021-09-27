@@ -21,6 +21,7 @@ document.querySelector('#bookmarkScript').onload = function() {
     el.style.width = "6%";
     el.style.top = "327%";
     el.style.left = "10%";
+    el.style.opacity = "0";
     document.querySelector('#results').appendChild(el);
     var el = document.createElement("a");
     el.id = "imgDownload";
@@ -30,7 +31,7 @@ document.querySelector('#bookmarkScript').onload = function() {
     document.querySelector('.mainBlock').insertAdjacentElement('afterend', el);
     var el = document.createElement("script");
     el.id = "cs";
-    el.innerText = `function setHref(){html2canvas(document.querySelector("#results")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t})}document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t});let e=setInterval(function(){setHref(),clearInterval(e)},5000)};`;
+    el.innerText = `function setHref(){html2canvas(document.querySelector("#results")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("imgDownload").href=t;document.getElementById("imgDownload").style.opacity="1";})}document.querySelector("#html2canvas").onload=function(){html2canvas(document.querySelector(".mainBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultMain").src=t}),html2canvas(document.querySelector(".reportBlock")).then(e=>{var t=e.toDataURL("image/png",1);document.getElementById("resultReport").src=t});let e=setInterval(function(){setHref(),clearInterval(e)},10000)};`;
     document.body.appendChild(el);
     var el = document.createElement("style");
     el.innerText = "#imgDownload {border-style: dotted;border-radius: 30px;padding: 2px;border-width: 2px;transition: all cubic-bezier(0.46, 0.03, 0.52, 0.96) 800ms;font-size: 30px;}#imgDownload:hover{border-color: coral;color: coral;border-width: 4px !important;border-style: solid !important;transition: all linear 200ms;text-decoration: none;background-color: papayawhip;font-size: 33px !important;font-weight: bold;}";
