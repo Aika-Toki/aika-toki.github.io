@@ -9,6 +9,7 @@
 	let num = 0;
 	let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 	let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
+	let smooth = 1;
 
 	let mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
 
@@ -167,9 +168,18 @@
 		}
 		cd_result_time.innerHTML = H+":"+M+":"+S;
 		c_milli.style.transform = "rotateZ(" + 360*(now.getMilliseconds()/1000) + "deg) translate(0%,-50%)";
-		c_second.style.transform = "rotateZ(" + 6*((now.getSeconds())+(now.getMilliseconds()/1000))+ "deg) scaleY(1.2) translate(0%,-40%)";
+		if(smooth === 1) {
+			c_second.style.transform = "rotateZ(" + 6*((now.getSeconds())+(now.getMilliseconds()/1000))+ "deg) scaleY(1.2) translate(0%,-40%)";
+		} else if(smooth === 0){
+			c_second.style.transform = "rotateZ(" + 6*((now.getSeconds()))+ "deg) scaleY(1.2) translate(0%,-40%)";
+		}
 		c_second.innerHTML = `<p>${now.getSeconds()}</p>`;
-		c_second.querySelector('p').style.transform = `scale(1,0.83) translate(-50%,-50%) rotateZ(-${6*((now.getSeconds())+(now.getMilliseconds()/1000))}deg)`;
+		if(smooth === 1) {
+			c_second.querySelector('p').style.transform = `scale(1,0.83) translate(-50%,-50%) rotateZ(-${6*((now.getSeconds())+(now.getMilliseconds()/1000))}deg)`;
+		} else if(smooth === 0){
+			c_second.querySelector('p').style.transform = `scale(1,0.83) translate(-50%,-50%) rotateZ(-${6*((now.getSeconds()))}deg)`;
+		}
+		
 		c_minute.style.transform = "rotateZ(" + 6*((now.getMinutes())+((now.getSeconds()/60)+(now.getMilliseconds()/60000))) + "deg) translate(0%,-40%) scaleX(2) scaleY(1.4)";
 		c_minute.innerHTML = `<p>${now.getMinutes()}</p>`;
 		c_minute.querySelector('p').style.transform = `scale(0.5,0.714276) translate(-50%,-50%) rotateZ(-${6*((now.getMinutes())+((now.getSeconds()/60)+(now.getMilliseconds()/60000)))}deg)`;
@@ -201,7 +211,7 @@
 			base_ring.style.backgroundImage = 'url("./img/ring02.png")';
 			document.body.className = "light";
 		}
-		console.log(cd_result_time.innerHTML);
+		/*console.log(cd_result_time.innerHTML);*/
 		document.getElementById('nowTime').innerText = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${now.getMilliseconds()}`;
 
 	}
@@ -227,15 +237,11 @@
 	function compacter() {
 		if (document.getElementById('compact').value === "詳細表示") {
 			document.getElementById('head_search_date').className = 'detail';
-			document.getElementById('set_time').style.transform = 'scaleY(1)';
-			document.getElementById('control_button').style.display = 'scaleY(1)';
 			document.getElementById('cd_result_time').style.fontSize = '16px';
 			document.getElementById('cd_result_time').style.fontWeight = 'lighter';
 			document.getElementById('compact').value = "通常表示";
 		} else {
 			document.getElementById('head_search_date').className = 'compact';
-			document.getElementById('set_time').style.display = 'scaleY(0)';
-			document.getElementById('control_button').style.display = 'scaleY(0)';
 			document.getElementById('cd_result_time').style.fontSize = '130px';
 			document.getElementById('cd_result_time').style.fontWeight = 'Bold';
 
