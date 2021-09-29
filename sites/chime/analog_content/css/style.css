@@ -1,0 +1,135 @@
+/*Font*/
+@font-face {
+    font-family: UpperEastSide;
+    src: url("../font/ttf/UpperEastSide.ttf");
+}
+@font-face {
+    font-family: LetsGoDigital;
+    src: url("../font/ttf/Let_s_go_Digital_Regular.ttf");
+}
+/*End of Font*/
+/*Keyframe*/
+@keyframes disappear {
+    0% {
+        display: unset;
+    }
+    99% {
+        display: unset;
+    }
+    100% {
+        display: none;
+        transform: translateY(-300px);
+    }
+}
+@keyframes appear {
+    0% {
+        display: none;
+    }
+    99% {
+        display: none;
+    }
+    100% {
+        display: block;
+        transform: translateY(0px);
+    }
+}
+/*End of Keyframe*/
+body, input, select {
+    transition-property: all;
+    transition-duration: 800ms;
+}
+body.dark {
+    background-color: #333;
+    color: #fffefe;
+}
+body.light {
+    background-color: #fffefe;
+    color: #000;
+}
+.light select {
+    background-color: #fffefe;
+    color: #000;
+}
+.dark select {
+    background-color: #333;
+    color: #fff;
+}
+.light input {
+    background-color: #fffefe;
+    color: #000;
+}
+.dark input {
+    background-color: #333;
+    color: #fffefe;
+}
+#explain, #set_time, #control_button, #cd_result_time {
+    transition: all linear 300ms;
+}
+.compact #explain {
+    transform: scaleY(0);
+    height: 0;
+    opacity: 0;
+    animation: disappear 310ms linear 0ms 1 normal forwards running; 
+}
+.detail #explain {
+    transform: scaleY(1);
+    height: 144px;
+    opacity: 1;
+    animation: appear 310ms linear 0ms 1 normal forwards running; 
+}
+.compact #set_time {
+    transform: scaleY(0);
+    height: 0;
+    opacity: 0;
+    animation: disappear 310ms linear 0ms 1 normal forwards running; 
+}
+.detail #set_time {
+    transform:scaleY(1);
+    height: 27px;
+    opacity: 1;
+    animation: appear 310ms linear 0ms 1 normal forwards running; 
+}
+.compact #control_button {
+    transform: scaleY(0);
+    height: 0;
+    opacity: 0;
+    animation: disappear 310ms linear 0ms 1 normal forwards running;
+}
+.detail #control_button {
+    height: 24px;
+    transform: scaleY(1);
+    opacity: 1;
+    animation: appear 310ms linear 0ms 1 normal forwards running; 
+}
+.compact #cd_result_time {
+    font-size: 130px;
+    font-weight: bold;
+}
+.detail #cd_result_time {
+    font-size: 16px;
+    font-weight: lighter;
+}
+#analog_number p {
+    font-family: UpperEastSide;
+    color: white;
+    text-shadow: 2px 2px 2px #000000, -2px 2px 2px #000000, 2px -2px 2px #000000, -2px -2px 2px #000000, 2px 0px 2px #000000, 0px 2px 2px #000000, -2px 0px 2px #000000, 0px -2px 2px #000000;
+    font-size: 35px;
+    letter-spacing: 4px;
+    position: absolute;
+}
+#cd_result_progress progress {
+    -webkit-appearance: none;
+}
+#cd_result_progress progress::-webkit-progress-value {
+    background-image: url("../img/gradient.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#cd_result_progress progress::-webkit-progress-inner-element {
+    color: white;
+}
+#analog_needle p {
+    font-family: LetsGoDigital;
+    text-shadow: 2px 2px 2px #000000, -2px 2px 2px #000000, 2px -2px 2px #000000, -2px -2px 2px #000000, 2px 0px 2px #000000, 0px 2px 2px #000000, -2px 0px 2px #000000, 0px -2px 2px #000000;
+    transform: rotate(0deg);
+}
