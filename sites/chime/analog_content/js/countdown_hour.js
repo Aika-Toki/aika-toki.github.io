@@ -192,25 +192,14 @@
 		p_hour.value = now.getHours()/24;
 		if (now.getHours() < 6 || now.getHours() > 17) {
 			analog_base.style.backgroundImage = 'url("./img/base01.jpg")';
-			c_hour.style.color = "white";
-			c_hour.style.backgroundColor = "lightgray";
-			c_minute.style.color = "white";
-			c_minute.style.backgroundColor = "lightgray";
-			c_second.style.color = "white";
-			c_second.style.backgroundColor = "lightgray";
 			base_ring.style.backgroundImage = 'url("./img/ring.png")';
 			document.body.className = "dark";
 		} else {
 			analog_base.style.backgroundImage = 'url("./img/base02.jpg")';
-			c_hour.style.color = "gray";
-			c_hour.style.backgroundColor = "darkgray";
-			c_minute.style.color = "gray";
-			c_minute.style.backgroundColor = "darkgray";
-			c_second.style.color = "gray";
-			c_second.style.backgroundColor = "darkgray";
 			base_ring.style.backgroundImage = 'url("./img/ring02.png")';
 			document.body.className = "light";
 		}
+		p_remain.value = now.getMilliseconds()+(now.getSeconds()*1000)+(now.getMinutes()*60000)+(now.getHours()*3600000);
 		/*console.log(cd_result_time.innerHTML);*/
 		document.getElementById('nowTime').innerText = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${now.getMilliseconds()}`;
 

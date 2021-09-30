@@ -12,6 +12,7 @@
 @keyframes disappear {
     0% {
         display: unset;
+        transform: translateY(0px);
     }
     99% {
         display: unset;
@@ -24,9 +25,10 @@
 @keyframes appear {
     0% {
         display: none;
+        transform: translateY(-300px);
     }
-    99% {
-        display: none;
+    1% {
+        display: block;
     }
     100% {
         display: block;
@@ -36,6 +38,10 @@
 /*End of Keyframe*/
 body, input, select {
     transition-property: all;
+    transition-duration: 800ms;
+}
+#c_hour, #c_minute, #c_second, #analog_base, #base_ring {
+    transition-property: background, color;
     transition-duration: 800ms;
 }
 body.dark {
@@ -62,6 +68,27 @@ body.light {
     background-color: #333;
     color: #fffefe;
 }
+.light #c_hour,.light #c_minute,.light #c_second {
+    color: gray;
+    background-color: gray;
+}
+.dark #c_hour,.dark #c_minute,.dark #c_second {
+    color: white;
+    background-color: lightgray;
+}
+.light #analog_base {
+    background-image: url("../img/base02.jpg");
+}
+.dark #analog_base {
+    background-image: url("../img/base01.jpg");
+}
+.light #base_ring {
+    background-image: url("../img/ring02.png");
+}
+.dark #base_ring {
+    background-image: url("../img/ring.png");
+}
+#expla
 #explain, #set_time, #control_button, #cd_result_time {
     transition: all linear 300ms;
 }
@@ -128,8 +155,32 @@ body.light {
 #cd_result_progress progress::-webkit-progress-inner-element {
     color: white;
 }
-#analog_needle p {
+#p_remain {
+    -webkit-appearance: none;
+}
+.light #p_remain {
+    border-color: #000;
+}
+.dark #p_remain {
+    border-color: #fffefe;
+}
+.light #p_remain::-webkit-progress-value {
+    background-color: #fff;
+}
+.dark #p_remain::-webkit-progress-value {
+    background-color: #333;
+}
+#p_remain::-webkit-progress-bar {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,68,140,1) 22%, rgba(219,178,0,1) 29.45%, rgba(0,217,255,1) 34%, rgba(0,217,255,1) 50%, rgba(86,123,193,1) 75.1%, rgba(136,121,57,1) 79%, rgba(0,21,143,1) 83.4%, rgba(0,0,0,1) 100%);
+}
+.dark #analog_needle p {
     font-family: LetsGoDigital;
     text-shadow: 2px 2px 2px #000000, -2px 2px 2px #000000, 2px -2px 2px #000000, -2px -2px 2px #000000, 2px 0px 2px #000000, 0px 2px 2px #000000, -2px 0px 2px #000000, 0px -2px 2px #000000;
+    transform: rotate(0deg);
+}
+.light #analog_needle p {
+    font-family: LetsGoDigital;
+    text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 0px 2px #fff, 0px 2px 2px #fff, -2px 0px 2px #fff, 0px -2px 2px #fff;
     transform: rotate(0deg);
 }
