@@ -7,10 +7,14 @@ document.querySelector('#html2canvas').onload = function () {
         var imgData = canvas.toDataURL('image/png', 1);
         document.getElementById('resultReport').src = imgData;
     });
+    html2canvas(document.querySelector('#amaimg')).then(canvas => {
+        var imgData = canvas.toDataURL('image/png', 1);
+        document.getElementById('merchandiseImg').src = imgData;
+    });
     let wait0 = setInterval(function(){
         setHref();
         clearInterval(wait0);
-    },5000);
+    },10000);
 }
 function setHref() {
     html2canvas(document.querySelector('#results')).then(canvas => {
