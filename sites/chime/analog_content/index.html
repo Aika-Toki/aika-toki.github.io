@@ -44,7 +44,10 @@
                 <div class="under_pad" id="control_button">
                     <input type="button" value="Start" class="cd_button" id="start_stop" onclick="countdown_hour();" />
                     <input type="button" value="Clear" class="cd_button" id="sw_clear" onclick="cd_clear();" />
-                    <input type="button" value="Smooth" class="cd_button" id="sw_smooth" onclick="if(smooth===0){smooth=1;}else{smooth=0;}" />
+                    <input type="button" value="Smooth" class="cd_button enable" id="sw_smooth" onclick="if(smooth===0){smooth=1;}else{smooth=0;}smoothButton();" />
+                    <input type="button" value="progressbar" class="cd_button enable" id="sw_progressbar" onclick="if(progressStatus===false){progressStatus=true;}else{progressStatus=false}cbpb();">
+                    <br>
+                    <input type="range" value="16" min="8" max="30" class="cd_range" id="rg_fontsize" oninput="changeNeedleFontSize();">
                 </div>
 
                 <div class="under_pad">

@@ -35,6 +35,41 @@
         transform: translateY(0px);
     }
 }
+@keyframes cb_checked {
+    0% {
+        background: linear-gradient(90deg, limegreen 0%, transparent 0.01%, transparent 100%);
+        color: unset;
+    }
+    5% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 5%, transparent 5.01%, transparent 100%);
+    }
+    10% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 10%, transparent 10.01%, transparent 100%);
+    }
+    15% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 15%, transparent 15.01%, transparent 100%);
+    }
+    20% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 20%, transparent 20.01%, transparent 100%);
+    }
+    50% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 50%, transparent 50.01%, transparent 100%);
+    }
+    100% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 99.99%, transparent 100%);
+        color: white;
+    }
+}
+@keyframes cb_unchecked {
+    0% {
+        background: limegreen;
+        color: white;
+    }
+    100% {
+        background: transparent;
+        color: unset;
+    }
+}
 /*End of Keyframe*/
 body, input, select {
     transition-property: all;
@@ -123,7 +158,7 @@ body.light {
     animation: disappear 310ms linear 0ms 1 normal forwards running;
 }
 .detail #control_button {
-    height: 24px;
+    height: 38px;
     transform: scaleY(1);
     opacity: 1;
     animation: appear 310ms linear 0ms 1 normal forwards running; 
@@ -165,7 +200,7 @@ body.light {
     border-color: #fffefe;
 }
 .light #p_remain::-webkit-progress-value {
-    background-color: #fff;
+    background-color: #fffefe;
 }
 .dark #p_remain::-webkit-progress-value {
     background-color: #333;
@@ -183,4 +218,21 @@ body.light {
     font-family: LetsGoDigital;
     text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 0px 2px #fff, 0px 2px 2px #fff, -2px 0px 2px #fff, 0px -2px 2px #fff;
     transform: rotate(0deg);
+    z-index: 50;
+}
+.dark input.enable {
+    background-color: #fffefe;
+    color: #333;
+}
+.light input.disable {
+    background-color: #333;
+    color: #fffefe;
+}
+.light input.disable {
+    background-color: #fffefe;
+    color: #333;
+}
+.light input.enable {
+    background-color: #333;
+    color: #fffefe;
 }

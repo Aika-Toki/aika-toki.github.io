@@ -10,6 +10,9 @@
 	let alarm_hour = [9,9,10,10,11,11,12,13,14,14,15,15,16];
 	let alarm_minute = [30,45,35,45,35,45,35,15,5,15,5,15,5];
 	let smooth = 1;
+	let ii=0;
+	let progressStatus = true;
+	let fontsize = '10px';
 
 	let mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
 
@@ -173,7 +176,7 @@
 		} else if(smooth === 0){
 			c_second.style.transform = "rotateZ(" + 6*((now.getSeconds()))+ "deg) scaleY(1.2) translate(0%,-40%)";
 		}
-		c_second.innerHTML = `<p>${now.getSeconds()}</p>`;
+		c_second.innerHTML = `<p class="needle_num_sec" style="font-size:${fontsize}">${now.getSeconds()}</p>`;
 		if(smooth === 1) {
 			c_second.querySelector('p').style.transform = `scale(1,0.83) translate(-50%,-50%) rotateZ(-${6*((now.getSeconds())+(now.getMilliseconds()/1000))}deg)`;
 		} else if(smooth === 0){
@@ -181,10 +184,10 @@
 		}
 		
 		c_minute.style.transform = "rotateZ(" + 6*((now.getMinutes())+((now.getSeconds()/60)+(now.getMilliseconds()/60000))) + "deg) translate(0%,-40%) scaleX(2) scaleY(1.4)";
-		c_minute.innerHTML = `<p>${now.getMinutes()}</p>`;
+		c_minute.innerHTML = `<p class="needle_num_min" style="font-size:${fontsize}">${now.getMinutes()}</p>`;
 		c_minute.querySelector('p').style.transform = `scale(0.5,0.714276) translate(-50%,-50%) rotateZ(-${6*((now.getMinutes())+((now.getSeconds()/60)+(now.getMilliseconds()/60000)))}deg)`;
 		c_hour.style.transform = "rotateZ(" + 30*((now.getHours())+((now.getMinutes()/60)+(now.getSeconds()/3600)+(now.getMilliseconds()/3600000))) + "deg) translate(0%,-20%) scaleY(0.8) scaleX(2)";
-		c_hour.innerHTML = `<p>${now.getHours()}</p>`;
+		c_hour.innerHTML = `<p class="needle_num_hour" style="font-size:${fontsize}">${now.getHours()}</p>`;
 		c_hour.querySelector('p').style.transform = `scale(0.5,1.25) translate(-50%,-50%) rotateZ(-${30*((now.getHours())+((now.getMinutes()/60)+(now.getSeconds()/3600)+(now.getMilliseconds()/3600000)))}deg)`;
 		p_milli.value = now.getMilliseconds()/1000;
 		p_second.value = now.getSeconds()/60;
@@ -255,4 +258,37 @@
 	function sound_test() {
 		stop(chime);
 		chime.play();
+	}
+
+	function cbpb() {
+		let swpb = document.querySelector('#sw_progressbar');
+		let pb = document.querySelector('#cd_result_progress');
+		if(progressStatus === true) {
+			swpb.classList.remove('disable');
+			swpb.classList.add('enable');
+			pb.style.opacity = '1';
+		} else {
+			swpb.classList.remove('enable');
+			swpb.classList.add('disable');
+			pb.style.opacity = '0';
+		}
+	}
+
+	function smoothButton() {
+		let swpb = document.querySelector('#sw_smooth');
+		if(smooth === 1) {
+			swpb.classList.remove('disable');
+			swpb.classList.add('enable');
+		} else {
+			swpb.classList.remove('enable');
+			swpb.classList.add('disable');
+		}
+	}
+
+	function changeNeedleFontSize() {
+		let e = document.querySelector('#rg_fontsize').value;
+		document.getElementsByClassName('needle_num_hour')[0].style.fontSize = e+"px";
+		document.getElementsByClassName('needle_num_min')[0].style.fontSize = e+"px";
+		document.getElementsByClassName('needle_num_sec')[0].style.fontSize = e+"px";
+		fontsize=e+'px';
 	}
