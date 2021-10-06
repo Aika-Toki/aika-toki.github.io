@@ -224,7 +224,7 @@ body.light {
     background-color: #fffefe;
     color: #333;
 }
-.light input.disable {
+.dark input.disable {
     background-color: #333;
     color: #fffefe;
 }
