@@ -1,9 +1,3 @@
-function dialogue(count) {
-    let confirmDialog = window.confirm(`${count}個のファイルをダウンロードしますか？
-ポップアップの許可をしてください。`);
-    if(confirmDialog === false) {break;}
-}
-
 function download(id) {
     switch(id) {
         case 'AdvRi280':
