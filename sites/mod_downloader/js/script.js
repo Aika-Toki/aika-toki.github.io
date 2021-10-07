@@ -48,7 +48,9 @@ function download(id) {
             window.open('https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge/download/3452303/file');
             break;
         case 'AdvRi592':
-            dialogue(2);
+            let confirmDialog = window.confirm(`2個のファイルをダウンロードしますか？
+ポップアップの許可をしてください。`);
+            if(confirmDialog === false) {break;}
             window.open('https://www.curseforge.com/minecraft/mc-mods/storagebox-mod/download/3119354/file');
             window.open('https://www.curseforge.com/minecraft/mc-mods/clickmanaita/download/3205045/file');
             break;
