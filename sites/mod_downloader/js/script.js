@@ -1,7 +1,10 @@
 function download(id) {
+    if(confirmDialog === undefined) {
+        let confirmDialog;
+    }
     switch(id) {
         case 'AdvRi280':
-            let confirmDialog = window.confirm(`36個のファイルをダウンロードしますか？
+            confirmDialog = window.confirm(`36個のファイルをダウンロードしますか？
 ポップアップの許可をしてください。`);
             if(confirmDialog === false) {break;}
             window.open('https://www.curseforge.com/minecraft/mc-mods/iron-chests/download/3405717/file');
@@ -42,7 +45,7 @@ function download(id) {
             window.open('https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge/download/3452303/file');
             break;
         case 'AdvRi592':
-            let confirmDialog = window.confirm(`2個のファイルをダウンロードしますか？
+            confirmDialog = window.confirm(`2個のファイルをダウンロードしますか？
 ポップアップの許可をしてください。`);
             if(confirmDialog === false) {break;}
             window.open('https://www.curseforge.com/minecraft/mc-mods/storagebox-mod/download/3119354/file');
