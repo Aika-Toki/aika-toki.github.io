@@ -1,7 +1,7 @@
 function download(id) {
     switch(id) {
         case 'AdvRi280':
-            let confirmDialog = window.confirm(`35個のファイルをダウンロードしますか？
+            let confirmDialog = window.confirm(`36個のファイルをダウンロードしますか？
 ポップアップの許可をしてください。`);
             if(confirmDialog === false) {break;}
             window.open('https://www.curseforge.com/minecraft/mc-mods/iron-chests/download/3405717/file');
@@ -39,6 +39,7 @@ function download(id) {
             window.open('https://www.curseforge.com/minecraft/mc-mods/better-foliage/download/3409419/file');
             window.open('https://www.curseforge.com/minecraft/mc-mods/dynamic-surroundings/download/3288746/file');
             window.open('https://www.curseforge.com/minecraft/mc-mods/cloth-config-forge/download/3311352/file');
+            window.open('https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge/download/file');
             break;
         default:
             alert("無効なIDです。");
