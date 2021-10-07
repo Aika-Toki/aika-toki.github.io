@@ -1,3 +1,5 @@
+let confirmDialog;
+
 function download(id) {
     if(confirmDialog === undefined) {
         let confirmDialog;
