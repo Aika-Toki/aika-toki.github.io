@@ -1,0 +1,104 @@
+@font-face {
+    font-family: Azuki;
+    src: url("../font/AzukiL.ttf");
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg.jpg");
+    backdrop-filter: blur(10px);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#content {
+    width: 100%;
+    height: 40%;
+}
+#main-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    background-color: white;
+    height: 100%;
+}
+#downloadID {
+    border-radius: 40px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    text-align: center;
+    height: 25%;
+    border-style: solid;
+    font-family: Azuki;
+    font-size: 30px;
+    background-color: #feffb6;
+    color: lightsalmon;
+    transition: all 300ms linear;
+    &:focus {
+        background-color: lightsalmon;
+        color: white;
+    }
+}
+#downloadbtn {
+    background-color: white;
+    border-radius: 60px;
+    border-style: solid;
+    color: lightsalmon;
+    width: 50%;
+    height: 25%;
+    font-size: 25px;
+    font-family: Azuki;
+    transition: all 300ms linear;
+    &:hover {
+        background-color: lightsalmon !important;
+        color: white !important;
+        cursor: pointer;
+        font-weight: bold;
+    }
+}
+#poptestbtn {
+    border-style: none;
+    background-color: white;
+    color: lightsalmon;
+    text-decoration-line: underline;
+    text-decoration-color: #ffa07a00;
+    transition: all 300ms linear;
+    font-size: 15px;
+    margin-left: 40%;
+    font-family: sans;
+    &:hover {
+        cursor: pointer;
+        text-decoration-line: underline;
+        text-decoration-color: #ffa07aff !important;
+    }
+}
+#title {
+    font-family: Azuki;
+    font-size: 50px;
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    padding-top: 20%;
+    filter: blur(1px) brightness(1.3);
+    color: white;
+}
+#main-gui {
+    height: inherit;
+    position: absolute;
+    width: inherit;
+    left: 35%;
+    margin-top: 2%;
+    height: 12%;
+}
+footer {
+    background-color: black;
+    position: absolute;
+    width: 60%;
+    top: 40%;
+    color: white;
+    text-align: center;
+}
