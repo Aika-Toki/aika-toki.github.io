@@ -9,10 +9,23 @@ html {
 body {
     width: 100%;
     height: 100%;
-    background-image: url("../img/bg.jpg");
-    backdrop-filter: blur(10px);
+    background-image: url("../img/bg0.gif");
+    backdrop-filter: blur(8px);
     background-repeat: no-repeat;
     background-size: cover;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    background: #04BBD3;
+    position: absolute;
+    filter: blur(3px) brightness(0.8);
 }
 #content {
     width: 100%;
@@ -87,12 +100,12 @@ body {
     color: white;
 }
 #main-gui {
-    height: inherit;
+    height: 11%;
     position: absolute;
-    width: inherit;
-    left: 35%;
-    margin-top: 2%;
-    height: 12%;
+    width: 40%;
+    padding-top: 2%;
+    padding-left: 20%;
+    background-color: white;
 }
 footer {
     background-color: black;
