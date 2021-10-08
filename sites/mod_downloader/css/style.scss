@@ -48,7 +48,7 @@ html, body {
     height: 25%;
     border-style: solid;
     font-family: Azuki;
-    font-size: 30px;
+    font-size: 120%;
     background-color: #feffb6;
     color: lightsalmon;
     transition: all 300ms linear;
@@ -64,7 +64,7 @@ html, body {
     color: lightsalmon;
     width: 50%;
     height: 25%;
-    font-size: 25px;
+    font-size: 130%;
     font-family: Azuki;
     transition: all 300ms linear;
     &:hover {
@@ -95,6 +95,7 @@ html, body {
     font-size: 50px;
     background-image: url("../img/bg.jpg");
     background-position: center;
+    background-size: cover;
     padding-top: 20%;
     filter: blur(1px) brightness(1.3);
     color: white;
@@ -107,11 +108,12 @@ html, body {
     padding-left: 20%;
     background-color: white;
 }
-footer {
+#footer {
     background-color: black;
     position: absolute;
-    width: 60%;
-    top: 40%;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
     color: white;
     text-align: center;
 }
