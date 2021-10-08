@@ -1,8 +1,8 @@
 let confirmDialog, betaCondition, betaLinks;
 const links = {
     'id':[
-        'AdvRi280',
-        'z66bL42YwZU5'
+        'cTkKdCyTj3GAvZE8',
+        'eRQPF63KrVuvVGhV'
     ],
     'title':[
         '冒険サーバー(仮称)用mod',
@@ -129,5 +129,11 @@ function download_beta(id) {
                 window.open(betaLinks[i]);
             }
         }
+    }
+}
+
+function dlidchanged(id) {
+    if(id.length === 16) {
+        document.querySelector('#downloadID').value = `${id.slice(0,3)}-${id.slice(4,7)}-${id.slice(8,11)}-${id.slice(12,15)}`;
     }
 }
