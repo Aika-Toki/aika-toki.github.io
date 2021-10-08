@@ -2,7 +2,7 @@ let confirmDialog, betaCondition, betaLinks;
 const links = {
     'id':[
         'AdvRi280',
-        'AdvRi592'
+        'z66bL42YwZU5'
     ],
     'title':[
         '冒険サーバー(仮称)用mod',
