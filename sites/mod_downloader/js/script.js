@@ -145,11 +145,3 @@ function dlidchanged(id) {
         document.querySelector('#downloadID').value = `${id.slice(0,4)}-${id.slice(4,8)}-${id.slice(8,12)}-${id.slice(12,16)}`;
     }
 }
-
-document.onload = function() {
-    if(location.search !== '') {
-        dataloc = location.search.indexOf('d=');
-        data = location.search.slice(dataloc+2);
-        document.querySelector('#downloadID').value = data;
-    }
-}
