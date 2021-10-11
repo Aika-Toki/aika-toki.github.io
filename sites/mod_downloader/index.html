@@ -27,13 +27,23 @@
         </div>
     </div>
     <script>
+        let urlParam, param, paramArray, paramItem;
         if(location.search !== '') {
-            if(location.search.length === 22){
+            urlParam = location.search.substring(1);
+            param = urlParam.split('&');
+            paramArray = [];
+            for(let i = 0; i < param.length; i++) {
+                paramItem = param[i].split('=');
+                paramArray[paramItem[0]] = paramItem[1];
+            }
+            if(paramArray["d"].length === 19){
                 dataloc = location.search.indexOf('d=');
                 data = location.search.slice(dataloc+2);
                 document.querySelector('#downloadID').value = data;
-            } else if(location.search.length === 19) {
-                location.href = `https://aika-toki.github.io/sites/mod_downloader/?d=${location.search.slice(3,7)}-${location.search.slice(7,11)}-${location.search.slice(11,15)}-${location.search.slice(15,19)}`;
+            } else if(paramArray["d"].length === 16) {
+                location.search = `?d=${paramArray["d"].slice(0,4)}-${paramArray["d"].slice(4,8)}-${paramArray["d"].slice(8,12)}-${paramArray["d"].slice(12,16)}`;
+            } else {
+                location.search = '';
             }
         }
     </script>
