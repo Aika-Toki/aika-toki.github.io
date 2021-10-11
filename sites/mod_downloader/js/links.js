@@ -7,7 +7,7 @@ const links = {
     'title':[
         '冒険サーバー(仮称)用mod',
         '冒険サーバー(仮称)用mod(追加)',
-        'optifine1.16.5'
+        '冒険サーバー(仮称)用mod(追加part2:AoA,豆腐,XPBank,銃,optifine)'
     ],
     'link':[
         [
@@ -53,7 +53,12 @@ const links = {
             'https://www.curseforge.com/minecraft/mc-mods/clickmanaita/download/3205045/file'
         ],
         [
-            'https://cdn.discordapp.com/attachments/633620196862590976/897015973926801428/OptiFine_1.16.5_HD_U_G8.jar'
+            'https://cdn.discordapp.com/attachments/633620196862590976/897015973926801428/OptiFine_1.16.5_HD_U_G8.jar',
+            'https://www.curseforge.com/minecraft/mc-mods/advent-of-ascension-nevermine/download/3378340/file',
+            'https://www.curseforge.com/minecraft/mc-mods/tofucraftreload/download/3454680/file',
+            'https://www.curseforge.com/minecraft/mc-mods/global-xp/download/3293040/file',
+            'https://www.curseforge.com/minecraft/mc-mods/obfuscate/download/3336021/file',
+            'https://www.curseforge.com/minecraft/mc-mods/mrcrayfishs-gun-mod/download/3224957/file'
         ]
     ]
 };
