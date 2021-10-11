@@ -53,7 +53,7 @@ const links = {
             'https://www.curseforge.com/minecraft/mc-mods/clickmanaita/download/3205045/file'
         ],
         [
-            'https://optifine.net/downloadx?f=OptiFine_1.16.5_HD_U_G8.jar&x=707aa7feb3ad3585a4275e134d116610'
+            '../alternative/OptiFine_1.16.5_HD_U_G8.jar'
         ]
     ]
 };
