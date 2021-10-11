@@ -26,5 +26,12 @@
             <script type="text/javascript" src="./js/canvas.js"></script>
         </div>
     </div>
+    <script>
+        if(location.search !== '') {
+            dataloc = location.search.indexOf('d=');
+            data = location.search.slice(dataloc+2);
+            document.querySelector('#downloadID').value = data;
+        }
+    </script>
 </body>
 </html>
