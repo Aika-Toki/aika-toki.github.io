@@ -28,10 +28,11 @@
     </div>
     <script>
         if(location.search !== '') {
-            dataloc = location.search.indexOf('d=');
-            data = location.search.slice(dataloc+2);
-            document.querySelector('#downloadID').value = data;
-            if(location.search.length === 19) {
+            if(location.search.length === 22){
+                dataloc = location.search.indexOf('d=');
+                data = location.search.slice(dataloc+2);
+                document.querySelector('#downloadID').value = data;
+            } else if(location.search.length === 19) {
                 location.href = `https://aika-toki.github.io/sites/mod_downloader/?d=${location.search.slice(3,7)}-${location.search.slice(7,11)}-${location.search.slice(11,15)}-${location.search.slice(15,19)}`;
             }
         }
