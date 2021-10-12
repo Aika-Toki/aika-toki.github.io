@@ -3,13 +3,15 @@ const links = {
         'cTkKdCyTj3GAvZE8',
         'eRQPF63KrVuvVGhV',
         'hjEjRTF9uSJrvj4w',
-        'LbiGcPFQTsx45iZ5'
+        'LbiGcPFQTsx45iZ5',
+        'kFKX2YXWA5EQaEsf'
     ],
     'title':[
         '冒険サーバー(仮称)用mod',
         '冒険サーバー(仮称)用mod(追加)',
         '冒険サーバー(仮称)用mod(追加part2:AoA,豆腐,XPBank,銃,optifine)',
-        '冒険サーバー(仮称)用mod(追加part3:InvTweaks)'
+        '冒険サーバー(仮称)用mod(追加part3:InvTweaks)',
+        'VC in Minecraft'
     ],
     'link':[
         [
@@ -64,6 +66,9 @@ const links = {
         ],
         [
             'https://www.curseforge.com/minecraft/mc-mods/inventory-tweaks-renewed/download/3102237/file'
+        ],
+        [
+            'https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat/download/3454583/file'
         ]
     ]
 };
