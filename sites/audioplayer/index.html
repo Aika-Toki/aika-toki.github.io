@@ -97,8 +97,8 @@
                 paramArray[paramItem[0]] = paramItem[1];
             }
             if (paramArray["l"] != undefined) {
-                for (i = 0; i < paramArray["l"].length; i++) {
-                    audioAdded(paramArray["l"][i]);
+                for (i = 0; i < playlistsComp[paramArray["l"]].length; i++) {
+                    audioAdded(playlistsComp[aramArray["l"]][i]);
                 }
             }
         }
