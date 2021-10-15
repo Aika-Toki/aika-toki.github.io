@@ -236,3 +236,6 @@ body.light {
     background-color: #333;
     color: #fffefe;
 }
+#nowTime , #cd_result_time{
+    font-family: LetsGoDigital;
+}

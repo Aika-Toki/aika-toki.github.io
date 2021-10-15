@@ -86,5 +86,22 @@
         </div>
     </div>
     <select onchange="audioChange();" id="audioList"></select>
+    <script>
+        let urlParam, param, paramArray, paramItem;
+        if(location.search !== '') {
+            urlParam = location.search.substring(1);
+            param = urlParam.split('&');
+            paramArray = [];
+            for(let i = 0; i < param.length; i++) {
+                paramItem = param[i].split('=');
+                paramArray[paramItem[0]] = paramItem[1];
+            }
+            if (paramArray["l"] != undefined) {
+                for (i = 0; i < paramArray["l"].length; i++) {
+                    audioAdded(paramArray["l"][i]);
+                }
+            }
+        }
+    </script>
 </body>
 </html>

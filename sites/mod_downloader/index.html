@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" oncontextmenu="return false;">
 <head>
     <meta charset="UTF-8">
     <title>Minecraft Mods Downloader</title>
@@ -11,7 +11,7 @@
     <canvas id="canvas"></canvas>
     <div id="content">
         <div id="main-content">
-            <div id="title">
+            <div id="title" onclick="location.search = '';">
                 <label>Minecraft Mods Downloader</label>
             </div>
             <div id="main-gui">
@@ -41,6 +41,7 @@
                 dataloc = location.search.indexOf('d=');
                 data = location.search.slice(dataloc+2);
                 document.querySelector('#downloadID').value = data;
+                document.querySelector('#downloadID').setAttribute('disabled','');
             } else if(paramArray["d"].length === 16) {
                 location.search = `?d=${paramArray["d"].slice(0,4)}-${paramArray["d"].slice(4,8)}-${paramArray["d"].slice(8,12)}-${paramArray["d"].slice(12,16)}`;
             } else {

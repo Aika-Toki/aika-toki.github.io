@@ -16,6 +16,8 @@
 
 	let mnms = { 1:'January',2:'February',3:'March',4:'April',5:'May',6:'June',7:'July',8:'August',9:'September',10:'October',11:'November',12:'December'};
 
+	let dat_hour, dat_min, dat_sec, dat_milli;
+
 	function countdown_hour(){
 		let start_stop = document.getElementById('start_stop');
 		let cd_hour = document.getElementById('cd_hour');
@@ -204,7 +206,8 @@
 		}
 		p_remain.value = now.getMilliseconds()+(now.getSeconds()*1000)+(now.getMinutes()*60000)+(now.getHours()*3600000);
 		/*console.log(cd_result_time.innerHTML);*/
-		document.getElementById('nowTime').innerText = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${now.getMilliseconds()}`;
+		dat_hour = ('0'+now.getHours()).slice(-2), dat_min = ('0'+now.getMinutes()).slice(-2), dat_sec = ('0'+now.getSeconds()).slice(-2), dat_milli = ('00'+now.getMilliseconds()).slice(-3);
+		document.getElementById('nowTime').innerText = `${dat_hour}:${dat_min}:${dat_sec}.${dat_milli}`;
 
 	}
 	function num_set() {

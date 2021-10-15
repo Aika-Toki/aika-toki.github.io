@@ -25,8 +25,14 @@ let audioPathList = [
   ,{'f': 'mugenloop.mp3', 't': '無限ループのうた', 'a': 'ラムダ', 'n': 'http://img.youtube.com/vi/M5xKbaVXT8U/maxresdefault.jpg', 'p': ''}
   ,{'f': '', 't': 'ハンター見習い', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/n/n37.mp3'}
   ,{'f': '', 't': '馬車道', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/o/o12.mp3'}
+  ,{'f': 'mgpdteto.mp3', 't': 'マシンガンポエムドール 重音テトカバー', 'a': 'COSMO@暴走P', 'n': 'http://img.youtube.com/vi/UgZFpO_Y6qo/maxresdefault.jpg', 'p': ''}
   ];
-let audioPlayList = [];
+let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9]];
+let playlistsComp = [];
+for(let i = 0; playlists.length > i+1; i=i+2) {
+  playlistsComp[playlists[i]] = playlists[i+1];
+}
+let audioPlayList =[audioPathList[0]];
 
 
 window.onload = function () {
@@ -83,7 +89,7 @@ window.onload = function () {
 }
 
 function audioAdded(valueee) {
-  audioPlayList[audioPlayList.length].join(audioPathList[valueee]);
+  audioPlayList.push(audioPathList[valueee]);
   let audioList = d.getElementById('audioList');
   d.createElement('option')
     let option = d.createElement('option');
