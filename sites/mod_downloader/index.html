@@ -38,9 +38,7 @@
                 paramArray[paramItem[0]] = paramItem[1];
             }
             if(paramArray["d"].length === 19){
-                dataloc = location.search.indexOf('d=');
-                data = location.search.slice(dataloc+2);
-                document.querySelector('#downloadID').value = data;
+                document.querySelector('#downloadID').value = paramArray["d"];
                 document.querySelector('#downloadID').setAttribute('disabled','');
             } else if(paramArray["d"].length === 16) {
                 location.search = `?d=${paramArray["d"].slice(0,4)}-${paramArray["d"].slice(4,8)}-${paramArray["d"].slice(8,12)}-${paramArray["d"].slice(12,16)}`;
