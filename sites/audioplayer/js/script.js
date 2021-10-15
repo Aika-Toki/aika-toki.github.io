@@ -34,18 +34,60 @@ for(let i = 0; playlists.length > i+1; i=i+2) {
 }
 let audioPlayList =[];
 
-
+function audioChange() {
+  audioValue = d.getElementById('audioList').value;
+  audio.pause();
+  audio.currentTime = 0;
+  if (play === 0) {
+    play = 1;
+  } else {
+    play = 0;
+  }
+  if (audioPlayList[audioValue]['f'] === '') {
+    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
+  } else if (audioPlayList[audioValue]['p'] === '') {
+    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
+  } else {
+    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
+  }
+  current = 0;
+  duration = Math.round(audio.duration);
+  timeUpdate();
+  if (audioPlayList[audioValue]['t'] === '') {
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
+  } else {
+    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
+  }
+  if (audioPlayList[audioValue]['a'] === '') {
+    d.getElementById('audioArtist').innerText = '不明';
+  } else {
+    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
+  }
+  d.getElementById('current').innerText = '00:00';
+  d.getElementById('duration').innerText = '**:**';
+  d.getElementById('seekbar').style.backgroundSize = '0%';
+  d.getElementById('progressbar').style.backgroundSize = '0%';
+  d.getElementById('speedChanger').value = 1.0;
+  speedChange();
+  d.getElementById('playerbg').style.backgroundImage = `url("${audioPlayList[audioValue]['n']}")`;
+  audio.volume = d.getElementById('volumeRange').value;
+  playPauseAudio();
+}
 function load() {
   let audioList = d.getElementById('audioList');
-  d.createElement('option')
+  if(d.getElementById('audioList').querySelector('option') != undefined) {
+    return false;
+  }
+  for(let i = 0; i < audioPlayList.length; i++) {
     let option = d.createElement('option');
-    option.setAttribute('value', 0);
-    if (audioPlayList[0]['t'] === '') {
-      option.innerHTML = audioPlayList[0]['f'];
+    option.setAttribute('value', i);
+    if (audioPlayList[i]['t'] === '') {
+      option.innerHTML = audioPlayList[i]['f'];
     } else {
-      option.innerHTML = audioPlayList[0]['t'];
+      option.innerHTML = audioPlayList[i]['t'];
     }
     audioList.appendChild(option);
+  }
   audioValue = d.getElementById('audioList').value;
   if (audioPlayList[audioValue]['f'] === '') {
     audio = new Audio(`${audioPlayList[audioValue]['p']}`);
@@ -90,95 +132,6 @@ function load() {
 
 function audioAdded(valueee) {
   audioPlayList.push(audioPathList[valueee]);
-  let audioList = d.getElementById('audioList');
-  d.createElement('option')
-    let option = d.createElement('option');
-    option.setAttribute('value', 0);
-    if (audioPlayList[0]['t'] === '') {
-      option.innerHTML = audioPlayList[0]['f'];
-    } else {
-      option.innerHTML = audioPlayList[0]['t'];
-    }
-    audioList.appendChild(option);
-  audioValue = d.getElementById('audioList').value;
-  if (audioPlayList[audioValue]['f'] === '') {
-    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
-  } else if (audioPlayList[audioValue]['p'] === '') {
-    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
-  } else {
-    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
-  }
-  audio.load();
-  d.getElementById('speedVal').innerText = '1x';
-  d.getElementById('volumeVal').innerText = '100%';
-  timeUpdate();
-  d.getElementById('seekarea').onclick = function (e) {
-    if (e) event = e;
-    const duration = Math.round(audio.duration)
-    if(!isNaN(duration)){
-      mouse = e.pageX;
-      element = document.getElementById('seekarea');
-      rect = element.getBoundingClientRect();
-      position = rect.left + window.pageXOffset;
-      offset = mouse - position;
-      width = rect.right - rect.left;
-      audio.currentTime = //Math.round
-      (duration * (offset / width));
-    }
-    timeUpdate();
-  }
-  if (audioPlayList[audioValue]['t'] === '') {
-    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
-  } else {
-    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
-  }
-  if (audioPlayList[audioValue]['a'] === '') {
-    d.getElementById('audioArtist').innerText = '不明';
-  } else {
-    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
-  }
-  d.getElementById('seekbar').style.backgroundSize = 0;
-  d.getElementById('progressbar').style.backgroundSize = 0;
-  audioList.setAttribute('size', audioPlayList.length)
-}
-function audioChange() {
-  audioValue = d.getElementById('audioList').value;
-  audio.pause();
-  audio.currentTime = 0;
-  if (play === 0) {
-    play = 1;
-  } else {
-    play = 0;
-  }
-  if (audioPlayList[audioValue]['f'] === '') {
-    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
-  } else if (audioPlayList[audioValue]['p'] === '') {
-    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
-  } else {
-    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
-  }
-  current = 0;
-  duration = Math.round(audio.duration);
-  timeUpdate();
-  if (audioPlayList[audioValue]['t'] === '') {
-    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
-  } else {
-    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
-  }
-  if (audioPlayList[audioValue]['a'] === '') {
-    d.getElementById('audioArtist').innerText = '不明';
-  } else {
-    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
-  }
-  d.getElementById('current').innerText = '00:00';
-  d.getElementById('duration').innerText = '**:**';
-  d.getElementById('seekbar').style.backgroundSize = '0%';
-  d.getElementById('progressbar').style.backgroundSize = '0%';
-  d.getElementById('speedChanger').value = 1.0;
-  speedChange();
-  d.getElementById('playerbg').style.backgroundImage = `url("${audioPlayList[audioValue]['n']}")`;
-  audio.volume = d.getElementById('volumeRange').value;
-  playPauseAudio();
 }
 
 function playPauseAudio() {
