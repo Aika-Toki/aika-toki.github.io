@@ -35,7 +35,7 @@ for(let i = 0; playlists.length > i+1; i=i+2) {
 let audioPlayList =[];
 
 
-window.onload = function () {
+function load() {
   let audioList = d.getElementById('audioList');
   d.createElement('option')
     let option = d.createElement('option');
@@ -85,7 +85,7 @@ window.onload = function () {
   }
   d.getElementById('seekbar').style.backgroundSize = 0;
   d.getElementById('progressbar').style.backgroundSize = 0;
-  audioList.setAttribute('size', audioPlayList.length)
+  audioList.setAttribute('size', audioPlayList.length);
 }
 
 function audioAdded(valueee) {
