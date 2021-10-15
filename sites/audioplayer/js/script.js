@@ -32,7 +32,7 @@ let playlistsComp = [];
 for(let i = 0; playlists.length > i+1; i=i+2) {
   playlistsComp[playlists[i]] = playlists[i+1];
 }
-let audioPlayList =[audioPathList[0]];
+let audioPlayList =[];
 
 
 window.onload = function () {
