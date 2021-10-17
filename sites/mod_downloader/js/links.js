@@ -4,14 +4,16 @@ const links = {
         'eRQPF63KrVuvVGhV',
         'hjEjRTF9uSJrvj4w',
         'LbiGcPFQTsx45iZ5',
-        'kFKX2YXWA5EQaEsf'
+        'kFKX2YXWA5EQaEsf',
+        'yR5HnGenshtyUQjd'
     ],
     'title':[
         '冒険サーバー(仮称)用mod',
         '冒険サーバー(仮称)用mod(追加)',
         '冒険サーバー(仮称)用mod(追加part2:AoA,豆腐,XPBank,銃,optifine)',
         '冒険サーバー(仮称)用mod(追加part3:InvTweaks)',
-        'VC in Minecraft'
+        'VC in Minecraft',
+        '新冒険サーバー(仮称)用mod'
     ],
     'link':[
         [
@@ -69,6 +71,27 @@ const links = {
         ],
         [
             'https://www.curseforge.com/minecraft/mc-mods/simple-voice-chat/download/3454583/file'
+        ],
+        [
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300261279985674/1.7.10forge1080mod_RosettaEnchantTable_v0.0.5.zip',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300262852825138/1.7.10forge1180mod_StorageBox_v3.0.5.zip',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300263737831465/1.7.10forge1291mod_CutAllSMP_v2.5.0.zip',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300264966783016/1.7.10forge1291mod_MineAllSMP_v2.6.1.zip',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300266254426162/OptiFine_1.7.10_HD_U_E7.jar',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300269307854959/MoreEnchantments-1.7.10-1.3.2.1.jar',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300273758011442/PruneMod1.7.10_1.6.jar',
+            'https://cdn.discordapp.com/attachments/633620196862590976/899300279768469554/Kingdoms_of_the_Overworld-1.7.10-1.6.jar',
+            'https://www.curseforge.com/minecraft/mc-mods/shincolle/download/2405620/file',
+            'https://www.curseforge.com/minecraft/mc-mods/custom-npcs/download/2495406/file',
+            'https://www.curseforge.com/minecraft/mc-mods/chickenchunks/download/2233250/file',
+            'https://www.curseforge.com/minecraft/mc-mods/codechickencore/download/3293859/file',
+            'https://www.curseforge.com/minecraft/mc-mods/techguns/download/2429662/file',
+            'https://www.curseforge.com/minecraft/mc-mods/littlemaidmobx/download/2273490/file',
+            'https://www.curseforge.com/minecraft/mc-mods/advent-of-ascension-nevermine/download/2658642/file',
+            'https://www.curseforge.com/minecraft/mc-mods/backpacks/download/2772380/file',
+            'https://www.curseforge.com/minecraft/mc-mods/gravestone-mod/download/2374232/file',
+            'https://www.curseforge.com/minecraft/mc-mods/slashblade/download/2705970/file',
+            'https://www.curseforge.com/minecraft/mc-mods/dynamic-sword-skills/download/2495462/file'
         ]
     ]
 };
