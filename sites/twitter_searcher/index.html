@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Searcher</title>
+    <style>
+        #key1,#key2 {
+            display: inline-grid;
+        }
+        input[type="text"],input[type="date"] {
+            border-style: solid;
+            border-radius: 2px;
+            border-width: 1px;
+            padding: 2px 0;
+        }
+        input:hover {
+            opacity: 0.6;
+        }
+        input {
+            transition-property: opacity;
+            transition-duration: 300ms;
+        }
+        #keyword {
+            border-color: #37afff;
+            background-color: #bee1ff;
+        }
+        #ignore {
+            border-color: #a71b1b;
+            background-color: #e0a2a2;
+        }
+        input[type="button"] {
+            border-style: none;
+            border-radius: 50px;
+            background-color: #ccc;
+        }
+    </style>
+    <script>
+        function addKeyword(){
+            let e=document.createElement('input');
+            e.type='text';
+            e.id='keyword';
+            document.querySelector('#keyword').after(e);
+            reloadIframe();
+        }
+        function addIgnoreKeyword(){
+            let e=document.createElement('input');
+            e.type='text';
+            e.id='ignore';
+            document.querySelector('#ignore').after(e);
+            reloadIframe();
+        }
+        function reloadIframe(){
+            let t = document.querySelector('#twitter');
+            t.src = 'https://www.twitter.com/search?q=';
+        }
+    </script>
+</head>
+<body>
+    <div id="keywords">
+        <div id="key1">
+            <label>キーワード</label>
+            <input type="text" id="keyword">
+            <input type="button" value="+" onclick="addKeyword();">
+        </div>
+        <div id="key2">
+            <label>含まないキーワード</label>
+            <input type="text" id="ignore">
+            <input type="button" value="+" onclick="addIgnoreKeyword();">
+        </div>
+    </div>
+    <div id="user">
+        <input type="text">
+        <label>⇒</label>
+        <input type="text">
+    </div>
+    <div id="period">
+        <input type="date">
+        <label>~</label>
+        <input type="date">
+    </div>
+    <div id="filter" style="display: grid;">
+        <div>
+            <input type="radio" name="type"><label>なし</label>
+        </div>
+        <div>
+            <input type="radio" name="type"><label>画像</label>
+        </div>
+    </div>
+    <div id="non"></div>
+    <iframe id="twitter" src=""></iframe>
+</body>
+</html>
