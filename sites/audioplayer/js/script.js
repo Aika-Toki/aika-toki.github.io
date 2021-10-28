@@ -23,11 +23,13 @@ let audioPathList = [
   ,{'f': 'sinigami.mp3', 't': '死神', 'a': '米津玄師', 'n': 'http://img.youtube.com/vi/8nxaZ69ElEc/maxresdefault.jpg', 'p': ''}
   ,{'f': 'tadasentakugaatta.mp3', 't': 'ただ選択があった', 'a': 'Frog96', 'n': 'http://img.youtube.com/vi/FrIiEuNPE38/maxresdefault.jpg', 'p': ''}
   ,{'f': 'mugenloop.mp3', 't': '無限ループのうた', 'a': 'ラムダ', 'n': 'http://img.youtube.com/vi/M5xKbaVXT8U/maxresdefault.jpg', 'p': ''}
-  ,{'f': '', 't': 'ハンター見習い', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/n/n37.mp3'}
-  ,{'f': '', 't': '馬車道', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg', 'p': 'http://www.hmix.net/music/o/o12.mp3'}
+  ,{'f': 'n37.mp3', 't': 'ハンター見習い', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg', 'p': ''}
+  ,{'f': 'o12.mp3', 't': '馬車道', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg', 'p': ''}
   ,{'f': 'mgpdteto.mp3', 't': 'マシンガンポエムドール 重音テトカバー', 'a': 'COSMO@暴走P', 'n': 'http://img.youtube.com/vi/UgZFpO_Y6qo/maxresdefault.jpg', 'p': ''}
-  ];
-let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9]];
+  ,{'f': 'MusMus-BGM-103.mp3', 't': '電脳漂流記', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/sqG_a1-c8f4/maxresdefault.jpg', 'p': ''}
+  ,{'f': 'MusMus-BGM-097.mp3', 't': '夕餉の街並み', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/Hn4Czfdmf5o/maxresdefault.jpg', 'p': ''}
+];
+let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11]];
 let playlistsComp = [];
 for(let i = 0; playlists.length > i+1; i=i+2) {
   playlistsComp[playlists[i]] = playlists[i+1];
@@ -46,7 +48,7 @@ function audioChange() {
   if (audioPlayList[audioValue]['f'] === '') {
     audio = new Audio(`${audioPlayList[audioValue]['p']}`);
   } else if (audioPlayList[audioValue]['p'] === '') {
-    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
+    audio = new Audio(`https://aika-toki.github.io/others/library/AudioLibRaw/${audioPlayList[audioValue]['f']}`);
   } else {
     audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
   }
