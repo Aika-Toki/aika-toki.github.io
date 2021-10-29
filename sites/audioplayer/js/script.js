@@ -28,7 +28,7 @@ let audioPathList = [
   ,{'f': 'mgpdteto.mp3', 't': 'マシンガンポエムドール 重音テトカバー', 'a': 'COSMO@暴走P', 'n': 'http://img.youtube.com/vi/UgZFpO_Y6qo/maxresdefault.jpg', 'p': ''}
   ,{'f': 'MusMus-BGM-103.mp3', 't': '電脳漂流記', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/sqG_a1-c8f4/maxresdefault.jpg', 'p': ''}
   ,{'f': 'MusMus-BGM-097.mp3', 't': '夕餉の街並み', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/Hn4Czfdmf5o/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'prsk/sekai/alive.mp3', 't': 'alive', 'a': '鏡音リン', 'n': 'https://sekai-res.dnaroma.eu/file/sekai-assets/music/jacket/jacket_s_082_rip/jacket_s_082.png', 'p': ''}
+  ,{'f': 'prsk/sekai/alive.mp3', 't': 'alive', 'a': '鏡音リン', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_082.png', 'p': ''}
 ];
 let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11,12], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12]];
 let playlistsComp = [];
