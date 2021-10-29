@@ -30,8 +30,9 @@ let audioPathList = [
   ,{'f': 'MusMus-BGM-097.mp3', 't': '夕餉の街並み', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/Hn4Czfdmf5o/maxresdefault.jpg', 'p': ''}
   ,{'f': 'prsk/sekai/alive.mp3', 't': 'alive', 'a': '鏡音リン', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_082.png', 'p': ''}
   ,{'f': 'prsk/sekai/Nostalogic.mp3', 't': 'Nostalogic', 'a': '桐谷 遥, 日野森 雫, MEIKO', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_013.png', 'p': ''}
+  ,{'f': 'prsk/sekai/TellYourWorld.mp3', 't': 'Tell Your World', 'a': '初音ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_001.png', 'p': ''}
 ];
-let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11,12,13], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13]];
+let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11,12,13,14], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13,14]];
 let playlistsComp = [];
 for(let i = 0; playlists.length > i+1; i=i+2) {
   playlistsComp[playlists[i]] = playlists[i+1];
