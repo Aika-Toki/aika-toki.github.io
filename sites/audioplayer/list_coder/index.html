@@ -14,7 +14,7 @@
     </script>
 </head>
 <body style="display: inline-grid;width: 20vw;height: 20vh;left: 0;right: 0;top:0;bottom:0;margin:auto;position: absolute;">
-    <input type="text" name="" id="file" placeholder="File" onchange="title.value = file.value;">
+    <input type="text" name="" id="file" placeholder="File" onchange="if(document.querySelector('#title').value === ''){document.querySelector('#title').value = file.value;}">
     <input type="text" name="" id="title" placeholder="Title">
     <input type="text" name="" id="artist" placeholder="Artist">
     <input type="text" name="" id="thumbnail" placeholder="Thumbnail">
