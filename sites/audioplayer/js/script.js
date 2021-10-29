@@ -42,7 +42,7 @@ let audioPathList = [
   ,{'f': 'prsk/sekai/ツギハギスタッカート.mp3', 't': 'ツギハギスタッカート', 'a': '初音 ミク, 桃井 愛莉, 日野森 雫', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_071.png', 'p': ''}
 
 ];
-let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'PJSekai', [14,18,19,20,21,12,15,16,17,13]];
+let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'PJSekai', [14,18,19,20,21,12,15,16,17,22,13,23]];
 let playlistsComp = [];
 for(let i = 0; playlists.length > i+1; i=i+2) {
   playlistsComp[playlists[i]] = playlists[i+1];
