@@ -7,20 +7,37 @@
     <title>Play List Coder</title>
     <script>
         function copy(){
-            copyarea.innerText = `,{'f': '${file.value}', 't': '${title.value}', 'a': '${artist.value}', 'n': '${thumbnail.value}', 'p': '${link.value}'}`;
+            copyarea.value = `,{'f': '${file.value}', 't': '${title.value}', 'a': '${artist.value}', 'n': '${thumbnail.value}', 'p': '${link.value}'}
+  `;
             copyarea.select();
             document.execCommand("copy");
         }
+        function append(){
+            copyarea.value = `${copyarea.value},{'f': '${file.value}', 't': '${title.value}', 'a': '${artist.value}', 'n': '${thumbnail.value}', 'p': '${link.value}'}
+  `;
+            file.value = '';
+            title.value = '';
+            artist.value = '';
+            thumbnail.value = '';
+            link.value = '';
+        }
+        function copyOnly(){
+            copyarea.select();
+            document.execCommand("copy")
+        }
     </script>
 </head>
-<body style="display: inline-grid;width: 20vw;height: 20vh;left: 0;right: 0;top:0;bottom:0;margin:auto;position: absolute;">
+<body style="display: inline-grid;width: 35vw;height: 80vh;left: 0;right: 0;top:0;bottom:0;margin:auto;position: absolute;">
     <input type="text" name="" id="file" placeholder="File" onchange="if(document.querySelector('#title').value === ''){document.querySelector('#title').value = file.value;}">
     <input type="text" name="" id="title" placeholder="Title">
     <input type="text" name="" id="artist" placeholder="Artist">
     <input type="text" name="" id="thumbnail" placeholder="Thumbnail">
-    <input type="button" value="↑Image is in server!!(write file name)" onclick="thumbnail.value = 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/'+thumbnail.value">
+    <input type="button" value="↑Image is jacket!!(write ID)" onclick="thumbnail.value = 'jacket_s_'+thumbnail.value+'.png';">
+    <input type="button" value="↑Image is in the server!!(write file name)" onclick="thumbnail.value = 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/'+thumbnail.value;">
     <input type="text" name="" id="link" placeholder="Link (unless exist file)">
     <input type="button" value="make and copy" onclick="copy();">
-    <textarea id="copyarea" style="opacity: 0;"></textarea>
+    <input type="button" value="make and append" onclick="append();">
+    <input type="button" value="copy" onclick="copyOnly();">
+    <textarea id="copyarea" style="opacity: 1;height: 50vh;"></textarea>
 </body>
 </html>
