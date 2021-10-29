@@ -46,6 +46,7 @@ html {
     height: 37px;
     border: none;
     background-color: transparent;
+    text-shadow: 0px 0px 3px #000;
 }
 #controller {
     display: flex;
@@ -219,5 +220,5 @@ body {
 }
 .loopEnable {
     transition: color 300ms ease 0ms;
-    color: #00bbff !important;
+    color: #7bdcff !important;
 }
