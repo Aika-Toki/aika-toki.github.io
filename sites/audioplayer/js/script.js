@@ -33,8 +33,10 @@ let audioPathList = [
   ,{'f': 'prsk/sekai/TellYourWorld.mp3', 't': 'Tell Your World', 'a': '初音ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_001.png', 'p': ''}
   ,{'f': 'prsk/sekai/ロキ.mp3', 't': 'ロキ', 'a': '星乃 一歌, 初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_002.png', 'p': ''}
   ,{'f': 'prsk/sekai/テオ.mp3', 't': 'テオ', 'a': '星乃 一歌, 初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_003.png', 'p': ''}
+  ,{'f': 'prsk/sekai/ヒバナ-Reloaded-.mp3', 't': 'ヒバナ-Reloaded-', 'a': '初音 ミク, 星乃 一歌', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_006.png', 'p': ''}
+  ,{'f': 'prsk/sekai/ネクストネスト.mp3', 't': 'ネクストネスト', 'a': '初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_043.png', 'p': ''}
 ];
-let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'PJSekai', [14,15,16,13,12]];
+let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'PJSekai', [14,18,15,16,17,13,12]];
 let playlistsComp = [];
 for(let i = 0; playlists.length > i+1; i=i+2) {
   playlistsComp[playlists[i]] = playlists[i+1];

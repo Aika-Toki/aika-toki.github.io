@@ -138,10 +138,14 @@ body {
     text-align: center;
     font-size: 120%;
     font-weight: bold;
+    font-family: MPlus;
+    font-variation-settings: 'wght' 700;
 }
 #audioArtist {
     text-align: center;
     color: #353533;
+    font-family: MPlus;
+    font-variation-settings: 'wght' 700;
 }
 #title {
     position: absolute;
@@ -188,13 +192,16 @@ body {
     top: 60%;
     transform: translate(-50%, -50%);
     position: absolute;
+    opacity: 1;
 }
 #controlButtons button {
     margin-left: 2%;
     margin-right: 2%;
 }
 #player #controlButtons {
-    display: none;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 300ms;
 }
 #audioList {
     background-color: transparent;
