@@ -6,10 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>電車遅延情報</title>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css">
     <script src="./index.js" charset="utf-8"></script>
+    <style>
+        .item-head{
+            display: inline-flex;
+        }
+        .item-head i, .item-head h1 {
+            left:0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            font-size: 1vw;
+        }
+        .item-head i {
+            padding-left: 1vw;
+        }
+    </style>
 </head>
 <body>
-    <div class="list">
+    <div id="list">
         <ul>
         </ul>
     </div>
