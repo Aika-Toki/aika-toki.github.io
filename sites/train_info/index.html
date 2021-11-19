@@ -14,9 +14,33 @@
             height: 100vh;
             margin: 0;
         }
+        #category, #published, #updated, #description {
+            padding-left: 1.5vw;
+        }
+        #description {
+            transform: scale(1.3) translate(11%, 0%);
+        }
+        #updt {
+            padding-left: 1vw;
+        }
+        #header {
+            display: flex;
+            align-items: flex-end;
+        }
+        #bg {
+            width: 100vw;
+            height: 100vh;
+            filter: blur(20px) brightness(1.1);
+            position: absolute;
+            background-size: 105% 105%;
+            background-repeat: no-repeat;
+            z-index: -99;
+            background-position: center;
+        }
         #list marquee {
             font-size: 2em;
             font-weight: bold;
+            color: white;
         }
         a marquee {
             width: 54.8vw;
@@ -34,23 +58,52 @@
             height: 3vh;
             width: 60vw;
             position: relative;
+            background-color: orange;
+            transition-property: background-color;
+            transition-duration: 300ms;
+        }
+        .item-head.open {
+            background-color: white;
         }
         .item-head i {
             right: 0;
             font-size: 1vw;
             position: absolute;
-            transition-property: transform;
+            transition-property: transform, color;
             transition-duration: 300ms;
-            background-color: orange;
             margin-top: 0.5vh;
+            color: white;
         }
-        .item-head h1 {
+        .item-head.open i {
+            transform: rotateZ(90deg);
+            color: orange;
+        }
+        .item-head #title {
             margin: 0;
+            color: white;
+            transition-property: color;
+            transition-duration: 300ms;
+        }
+        .item-head.open #title {
+            color: orange;
         }
         .item {
             width: 60vw;
             height: 3vh;
             background-color: orange;
+            transition-property: text-shadow, text-decoration, border;
+            transition-duration: 300ms;
+            text-decoration-line: underline;
+            text-decoration-color: #fff0;
+            border-color: #fff0;
+            border-style: solid none;   
+            border-width: 3px 0px;
+
+        }
+        .item:hover {
+            text-shadow: 0px 0px 8px #fff8;
+            text-decoration-color: white;
+            border-color: #fff;
         }
         #link {
             background-color: orange;
@@ -60,7 +113,7 @@
             border-width: 3px;
             border-style: solid;
             border-color: white;
-            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
             text-decoration: none;
             transition-property: border-color, color, background-color;
             transition-duration: 300ms;
@@ -70,13 +123,28 @@
             position: absolute;
             top: 6.6vh;
             left: 1.5vw;
+            display: flex;
+            white-space: nowrap;
+        }
+        #link:hover {
+            background-color: white;
+            color: orange;
+            border-color: orange;
+        }
+        #link i {
+            padding: 0.3vh 0;
+            right: 18px;
+            position: absolute;
+        }
+        #link p {
+            margin: 0;
         }
         .item-content {
             width: 0;
             opacity: 0;
             height: 0;
             overflow: hidden;
-            transition-property: width, opacity, height;
+            transition-property: opacity;
             transition-duration: 200ms;
             transition-timing-function: linear;
             border-top-style: solid;
@@ -114,12 +182,22 @@
         #disp li {
             border-color: rgb(255, 202, 103);
         }
+        #disp {
+            height: 11vh;
+        }
     </style>
 </head>
 <body>
+    <div id="bg"></div>
     <div id="content">
+        <div id="header"><h1>電車遅延情報</h1><h4 id="updt"></h4><h4>更新</h4></div>
         <div id="list">
             <ul>
+                <li class="item" id="itemtop" style="display: none;">
+                    <div class="item-head open" id="itemtop-head" style="display: none;">
+                        <h1>電車遅延情報</h1>
+                    </div>
+                </li>
             </ul>
         </div>
         <div id="disp">

@@ -7,7 +7,9 @@ let jsonurl = 'https://script.google.com/macros/s/AKfycbwNR8-_QlFKRbSVowyyP5goqj
 $(function () {
     $.getJSON(jsonurl, (data) => {
         JSONdata = data;
+        JSONdatahead = JSONdata[0];
         JSONdata = JSONdata[1];
+        qs('#updt').innerText = JSONdatahead;
         for(let i = 0; i < JSONdata.length; i++) {
             e = d.createElement('li');
             e.id = `item${i}`;
@@ -21,7 +23,7 @@ $(function () {
             <br>`;
             
             qs('#list').querySelector('ul').appendChild(e);
-            if(JSONdata[i][1].length > 27) {
+            if(qs(`#item${i}-head`).clientWidth-30 < qs(`#item${i}-head`).querySelector('#title').clientWidth) {
                 let re = d.createElement('marquee');
                 re.id = 'title';
                 re.innerText = JSONdata[i][1];
@@ -38,10 +40,10 @@ $(function () {
 <h5 id="updated">${JSONdata[i][6]} ${JSONdata[i][7]}更新</h5>
 <h4 id="description">${JSONdata[i][3]}</h4>
 <br>
-<a href="${JSONdata[i][2]}" id="link" target="_blank">${JSONdata[i][1]}の情報を見る<i class="fas fa-caret-right"></i></a>`;
+<a href="${JSONdata[i][2]}" id="link" target="_blank"><p id="btntxt">${JSONdata[i][1]}の情報を見る</p><i class="fas fa-caret-right"></i></a>`;
             qs('#disp').querySelector('ul').appendChild(e);
-            if(qs(`#item${i}-content`).querySelector('a').innerText.length > 30) {
-                qs(`#item${i}-content`).querySelector('a').innerHTML = `<marquee scrollamount="15">${qs(`#item${i}-content`).querySelector('a').innerText}</marquee><i class="fas fa-caret-right"></i>`;
+            if(qs(`#item${i}-content`).querySelector('a').clientWidth < qs(`#item${i}-content`).querySelector('#btntxt').clientWidth ) {
+                qs(`#item${i}-content`).querySelector('a').innerHTML = `<marquee scrollamount="10">${qs(`#item${i}-content`).querySelector('#btntxt').innerText}</marquee><i class="fas fa-caret-right"></i>`;
             }
             e = d.createElement('script');
             e.innerHTML = 
@@ -53,16 +55,29 @@ qs('#item${i}').onclick = function() {
             qs('body').appendChild(e);
         }
     });
+    let bgnum = Math.floor(Math.random() * 8);
+    qs('#bg').style.backgroundImage = `url("./img/bg${bgnum}.png")`;
 });
 function open(p) {
     if(qs('.item-content.open') !== null) {
         if(qs(`#item${p}-content`).classList.length === 2) {
             qs(`.item-content.open`).classList.remove("open");
+            qs(`.item-head.open`).classList.remove('open');
+            qs('#itemtop-content').classList.add("open");
+            qs('#itemtop-head').classList.add('open');
         } else {
             qs(`.item-content.open`).classList.remove("open");
+            qs(`.item-head.open`).classList.remove('open');
             qs(`#item${p}-content`).classList.add("open");
+            qs(`#item${p}-head`).classList.add("open");
         }
     } else {
         qs(`#item${p}-content`).classList.add("open");
+        qs(`#item${p}-head`).classList.add('open');
     }
 }
+
+window.onresize = function(){
+    location.reload();
+}
+
