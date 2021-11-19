@@ -9,26 +9,127 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css">
     <script src="./index.js" charset="utf-8"></script>
     <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+        #list marquee {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        a marquee {
+            width: 54.8vw;
+        }
+        #list {
+            width: 60vw;
+        }
+        #content {
+            margin: 0 auto;
+            display: grid;
+            width: 60vw;
+        }
         .item-head{
             display: inline-flex;
-        }
-        .item-head i, .item-head h1 {
-            left:0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
-            font-size: 1vw;
+            height: 3vh;
+            width: 60vw;
+            position: relative;
         }
         .item-head i {
-            padding-left: 1vw;
+            right: 0;
+            font-size: 1vw;
+            position: absolute;
+            transition-property: transform;
+            transition-duration: 300ms;
+            background-color: orange;
+            margin-top: 0.5vh;
+        }
+        .item-head h1 {
+            margin: 0;
+        }
+        .item {
+            width: 60vw;
+            height: 3vh;
+            background-color: orange;
+        }
+        #link {
+            background-color: orange;
+            color: white;
+            padding: 1vh 1vw;
+            border-radius: 500px;
+            border-width: 3px;
+            border-style: solid;
+            border-color: white;
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 1);
+            text-decoration: none;
+            transition-property: border-color, color, background-color;
+            transition-duration: 300ms;
+            font-size: 0.5vw;
+            width: 55vw;
+            margin: 0 auto;
+            position: absolute;
+            top: 6.6vh;
+            left: 1.5vw;
+        }
+        .item-content {
+            width: 0;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition-property: width, opacity, height;
+            transition-duration: 200ms;
+            transition-timing-function: linear;
+            border-top-style: solid;
+            border-top-color: white;
+            border-top-width: 2px;
+            border-bottom-style: solid;
+            border-bottom-color: white;
+            border-bottom-width: 2px;
+            list-style-type: none;
+            position: absolute;
+        }
+        .item-content.open {
+            width: 60vw;
+            height: 11vh;
+            opacity: 1;
+            overflow: visible;
+            background-color: rgb(255, 202, 103);
+        }
+        h5, h6 {
+            color: white;
+            margin: 0;
+        }
+        #list ul{
+            width: 60vw;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #disp ul {
+            width: 20vw;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #disp li {
+            border-color: rgb(255, 202, 103);
         }
     </style>
 </head>
 <body>
-    <div id="list">
-        <ul>
-        </ul>
+    <div id="content">
+        <div id="list">
+            <ul>
+            </ul>
+        </div>
+        <div id="disp">
+            <ul>
+                <li class="item-content open" id="itemtop-content">
+                    <p>ここに情報の詳細が表示されます。</p>
+                </li>
+            </ul>
+        </div>
     </div>
+    <script id="click-script"></script>
 </body>
 </html>

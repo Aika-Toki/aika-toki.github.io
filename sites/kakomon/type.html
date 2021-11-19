@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    <script src="fabric.min.js"></script>
+    <title>過去問克服サイト</title>
+    <script>
+        let qs = [
+            [
+                [
+                    '読み：なだらかな<丘陵>が広がる。',
+                    '読み：問屋から<卸値>で買った。',
+                    `同音異義：屈<タク>のない笑い声が聞こえる。
+(a.宅,b.託,c.沢,d.拓,e.卓)`,
+                    `同音異義：<タク>抜な着想に感心する。
+(a.宅,b.託,c.沢,d.拓,e.卓)`,
+                    `同音異義：<コウ>久な平和を祈る。
+(a.拘,b.恒,c.綱,d.坑,e.孔)`,
+                    `同音異義：芸に<エン>熟味が出てきた
+(a.円,b.縁,c.援,d.炎,e.宴)`,
+                    '共通漢字：悲？、？願、？歓',
+                    '共通漢字：？示、？発、拝？',
+                    '共通漢字：？装、？病、？設',
+                    '部首：魔（a.广,b.木,c.鬼,d.儿）',
+                    '部首：窒（a.至,b.宀,c.穴,d.土）',
+                    '対義語；進展⇔停<タイ>',
+                    '対義語：丁重⇔粗<リャク>',
+                    '対義語：違反⇔遵<シュ>',
+                    '類義語：没頭≒<セン>念',
+                    '類義語：図書≒書<セキ>',
+                    '類義語：処置≒<ソ>置',
+                    '送り仮名：河が二つの国を<ヘダテル>。',
+                    '送り仮名：駅前に土産物店が軒を<ツラネ>ている。',
+                    '送り仮名：青年への思いに胸を<コガシ>た。',
+                    '四字熟語：<ゲイイン>馬食',
+                    '四字熟語：力戦<フントウ>',
+                    '四字熟語：無罪<ホウメン>',
+                    '誤字訂正：政府の諮問機関が消費増税を前に、個人消費を喚期する策を検討した。',
+                    '誤字訂正：アラスカを主たる居点に撮影活動を行なった写真家の作品展が開催された。',
+                    '書き：本番では<キンチョウ>して足が震えた。',
+                    '書き：外国居住の<ホウジン>の安全を図る。',
+                    '書き：年来の夢は<マボロシ>と消えた。',
+                    '書き：赤字が<フク>らみ頭が痛い。'
+                ],
+                [
+                    'きゅうりょう','おろしね',
+                    'b','e','b','a',
+                    '哀','啓','仮',
+                    'c','c',
+                    '滞','略','守',
+                    '専','籍','措',
+                    '隔てる','連ね','焦がし',
+                    '鯨飲','奮闘','放免',
+                    '期⇒起','居⇒拠',
+                    '緊張','邦人','幻','膨'
+                ]
+            ]
+        ]
+        let q = [], a = [], n = [], r, nqn;
+        function im(num) {
+            q=qs[num][0];
+            a=qs[num][1];
+            for(let i = 0;qs[num][1].length > i;i++){
+                n.push(i);
+            };
+        }
+        function startf() {
+            main.style.display = 'block';
+            input.style.display = 'none';
+            nextf();
+        }
+        function nextf() {
+            answerdisp.style.display = 'none';
+            openans.style.display = 'block';
+            next.style.display = 'none';
+            if(n.length === 0){
+                alert('終了');
+                main.style.display = 'none';
+                input.style.display = 'block';
+            }else{
+                r = Math.floor(Math.random() * n.length);
+                nqn = n.splice(r, 1);
+                questiondisp.innerText = q[nqn];
+                answerdisp.innerText = a[nqn];
+            }
+        }
+        function addf() {
+            if(question.value === '' || answer.value === '') {
+                alert('空っぽ');
+            } else {
+                q.push(question.value);
+                a.push(answer.value);
+                n.push(q.length-1);
+                question.value = '';
+                answer.value = '';
+            }
+        }
+    </script>
+</head>
+<body style="font-family: 'YuKyokasho Yoko','UD Digi Kyokasho N-R';">
+    <div id="input">
+        <input type="text" id="question" placeholder="問題を入力">
+        <input type="text" id="answer" placeholder="答えを入力">
+        <input type="button" value="リストに追加" onclick="addf();">
+        <br>
+        <input type="text" id="listid" placeholder="リストID">
+        <input type="button" value="インポート" onclick="im(listid.value)">
+        <br><br>
+        <input type="button" value="問題を出題！" onclick="startf();">
+    </div>
+    <div id="main" style="display:none;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;width: 80vw;height: 80vh;">
+        <h1 id="questiondisp" style="text-align: center;font-size: 4vw;">問題</h1>
+        <hr>
+        <h2 id="answerdisp" style="display: none;text-align: center;font-size: 3vw;color:red">答え</h2>
+        <input type="button" value="次へ▶︎" id="next" onclick="nextf();" style="display: none;position: fixed;bottom: 0;width: 100vw;left: 0;height: 5vh;background-color: #9bedff;border-style: none;font-size: 1.2vw;">
+        <input type="button" value="答えを表示" id="openans" onclick="answerdisp.style.display = 'block';next.style.display = 'block';openans.style.display = 'none';" style="position: fixed;bottom: 0;width: 100vw;left: 0;height: 5vh;background-color: #ff9b9b;border-style: none;font-size: 1.2vw;">
+    </div>
+</body>
+</html>
