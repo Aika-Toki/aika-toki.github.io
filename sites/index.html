@@ -8,6 +8,11 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
   <style type="text/css">
+    body {
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+    }
     body a.Enter {
       background-color:#ccc;
       color:#000;
@@ -33,21 +38,87 @@
     div#fc2_footer {
       display: block;
     }
+    #navigation ol {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    #navigation {
+      display: inline-block;
+    }
+    #navigation a::after {
+      display: inline-block;
+      color: #000;
+      content: '>';
+      font-size: 80%;
+      font-weight: bold;
+      padding: 0 3px;
+  }
+  header {
+      position: fixed;
+      height: 3vh;
+      width: 100vw;
+      background-color: rgb(238,238,238);
+      display: flex;
+    }
+    header label {
+      line-height: 3vh;
+      padding: 0 1vw;
+      font-size: 0.8vw;
+    }
+    .header-link {
+      line-height: 3vh;
+      border-style: none solid;
+      border-width: 1px;
+      border-color: #aaa;
+      padding: 0 0.8vw;
+      transition-property: filter, color, background;
+      transition-duration: 300ms;
+      background-color: rgb(238,238,238);
+    }
+    .header-link:hover {
+      background-color: rgb(110, 110, 110);
+      color: #fff;
+    }
+    #header-space {
+      height: 3vh;
+    }
+    #link0 {
+      background-color: skyblue;
+    }
   </style>
 </head>
 
 <body id="top">
-  <h4><a href="https://aika-toki.github.io">秋鹿朱鷺のブログ</a>> サイト一覧</h4>
-<ul>
-  <li><a href="/sites/redirect/#eyJ2IjoiMC4wLjEiLCJlIjoiZGZYWDFlaFNYVVlsV1VVMmlBMUYxU1AxdkV2dDRRU2JMTTVsMVBIbndjZFNNUmdwa3BSbUI0S2VWWi92RGExc0ROenhGTVJCZFdMZXZ1SkpCSEo1bFd0WkZ3PT0iLCJpIjoiZ2dsRGdzaHpRcFRPcTNWUSJ9" class="Enter">Command Describer</a></li>
-  <li><a href="/sites/redirect/#eyJ2IjoiMC4wLjEiLCJlIjoibDdXVTljRUV4bGNwUDF0NW9oV3lHNjRNb0FDMzlvZWlIbWdET2NPVS8zdHFvN2MxSzUvRFphTDJWUVQzekJxUFlNUWhYNEV3cTY2Wmo3bllXUT09IiwiaSI6IjFxcG9pVTVtSlBjNWpSZUYifQ==" class="Enter">PDFファイルテスト</a></li>
-  <li><a href="/sites/redirect" class="Enter">リダイレクト</a></li>
-  <li><a href="/sites/chime" class="Enter">Chime</a></li>
-  <li><a href="/sites/audioplayer/" class="Enter">【Audioplayer】</a></li>
-  <li><a href="/sites/minecraft_Inventory_sim/" class="Enter">Minecraft Inventory Simulator</a></li>
-  <li><a href="/sites/mod_downloader/" class="Enter">Minecraft Mods Downloader</a></li>
-  <li><a href="/sites/traindisplay/" class="Enter">ㅤ	</a></li>
-</ul>
+  <header>
+    <label>秋鹿朱鷺のホームページ</label>
+    <div class="header-link" id="link0">サイト一覧</div>
+  </header>
+  <div id="header-space"></div>
+  <nav id="navigation">
+    <ol>
+      <li id="navigation"><a href="https://aika-toki.github.io">秋鹿朱鷺のブログ</a></li>
+      <li id="navigation">サイト一覧</li>
+    </ol>
+  </nav>
+  <ul>
+    <li><a href="/sites/redirect/#eyJ2IjoiMC4wLjEiLCJlIjoiZGZYWDFlaFNYVVlsV1VVMmlBMUYxU1AxdkV2dDRRU2JMTTVsMVBIbndjZFNNUmdwa3BSbUI0S2VWWi92RGExc0ROenhGTVJCZFdMZXZ1SkpCSEo1bFd0WkZ3PT0iLCJpIjoiZ2dsRGdzaHpRcFRPcTNWUSJ9" class="Enter">Command Describer</a></li>
+    <li><a href="/sites/redirect/#eyJ2IjoiMC4wLjEiLCJlIjoibDdXVTljRUV4bGNwUDF0NW9oV3lHNjRNb0FDMzlvZWlIbWdET2NPVS8zdHFvN2MxSzUvRFphTDJWUVQzekJxUFlNUWhYNEV3cTY2Wmo3bllXUT09IiwiaSI6IjFxcG9pVTVtSlBjNWpSZUYifQ==" class="Enter">PDFファイルテスト</a></li>
+    <li><a href="/sites/redirect" class="Enter">リダイレクト</a></li>
+    <li><a href="/sites/chime" class="Enter">Chime</a></li>
+    <li><a href="/sites/audioplayer/" class="Enter">【Audioplayer】</a></li>
+    <li><a href="/sites/minecraft_Inventory_sim/" class="Enter">Minecraft Inventory Simulator</a></li>
+    <li><a href="/sites/mod_downloader/" class="Enter">Minecraft Mods Downloader</a></li>
+    <li><a href="/sites/traindisplay/" class="Enter">ㅤ	</a></li>
+    <li><a href="/sites/train_info/" class="Enter">電車遅延情報</a></li>
+  </ul>
+  <script>
+    document.querySelector('#link0').onclick = function() {
+      location.href = '/sites/';
+    }
+    document.querySelector('header').querySelector('label').onclick = function() {
+      location.href = '/';
+    }
+  </script>
 </body>
 
 </html>
