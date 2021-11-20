@@ -1,4 +1,5 @@
 const d = document;
+const body = 'body', head = 'head', html = 'html';
 let JSONdata, e;
 function qs(selector) {
     return d.querySelector(selector);
@@ -57,6 +58,9 @@ qs('#item${i}').onclick = function() {
     });
     let bgnum = Math.floor(Math.random() * 8);
     qs('#bg').style.backgroundImage = `url("./img/bg${bgnum}.png")`;
+    if(qs('body').clientWidth<qs('body').clientHeight) {
+        qs(body).className = 'sp';
+    }
 });
 function open(p) {
     if(qs('.item-content.open') !== null) {
