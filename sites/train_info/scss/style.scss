@@ -290,6 +290,11 @@ h5, h6 {
         z-index: -1;
         &.open {
             z-index: 1;
+            & #link {
+                overflow: visible !important;
+                height: 4vh !important;
+                z-index: 9 !important;
+            }
         }
         & li {
             width: 100vw;
@@ -316,9 +321,11 @@ h5, h6 {
                     bottom: 0;
                     margin: 0;
                     box-shadow: 0px 0px 0px #fff0;
-                    height: 4vh;
+                    height: 0;
                     line-height: 4vh;
                     font-size: 2vh;
+                    overflow: hidden;
+                    z-index: -90;
                     & #btntxt {
                         width: max-content;
                     }
