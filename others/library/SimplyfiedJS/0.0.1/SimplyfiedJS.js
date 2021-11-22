@@ -2,7 +2,7 @@ const d = document,
 head = 'head',
 body = 'body',
 html = 'html',
-top = window.top;
+wtop = window.top;
 function dqs(t) {
     return document.querySelector(t);
 }

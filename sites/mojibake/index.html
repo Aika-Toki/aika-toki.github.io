@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOJIBAKE</title>
+    <script src="/others/library/SimplyfiedJS/0.0.1/SimplyfiedJS.min.js"></script>
+    <script>
+        function cnv() {
+            let istr = dqs('#inputstr').value;
+        }
+    </script>
+</head>
+<body style="display: grid;width: 60vw;margin:0 auto;">
+    <input type="text" id="inputstr" placeholder="変換したい文字列を入力" oninput="cnv();">
+    <textarea id="resultstr"></textarea>
+</body>
+</html>
