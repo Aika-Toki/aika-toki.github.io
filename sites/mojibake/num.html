@@ -27,6 +27,17 @@ reversed:"${estr}",
 escape formatted:"${exstr}",
 result:"${unescape(exstr)}"`);
         }
+        function enc() {
+            let istr = dqs('#inputstr').value;
+            let exstr = chunk(istr, 4).join('%u');
+            exstr = `%u${exstr}`;
+            if(istr === ''){
+                exstr = '';
+            }
+            let eex = chunk(unescape(exstr),4).join('%u');
+            eex = `%u${eex}`;
+            dqs('#resultstr').innerText = unescape(eex);
+        }
         var unicodeEscape = function(str) {
             if (!String.prototype.repeat) {
                 String.prototype.repeat = function(digit) {
@@ -61,5 +72,6 @@ result:"${unescape(exstr)}"`);
     <input type="text" id="inputstr" placeholder="変換したい文字列を入力" oninput="cnv();">
     <textarea id="resultstr" onclick="dqs('#resultstr').select();d.execCommand('copy');"></textarea>
     <textarea id="reresultstr"></textarea>
+    <input type="button" value="実は解析" onclick="enc();">
 </body>
 </html>
