@@ -16,6 +16,20 @@
                 exstr = '';
             }
             dqs('#resultstr').innerText = unescape(exstr);
+            let reistr = dqs('#resultstr').innerHTML;
+            let reestr = unicodeEscape(reistr).split('').reverse().join('');
+            let reexstr = chunk(reestr, 4).join('%u');
+            reexstr = `%u${reexstr}`;
+            if(reistr === ''){
+                reexstr = '';
+            }
+            dqs('#reresultstr').innerText = unescape(reexstr);
+            console.log(
+`input str:"${istr}",
+Unicode Escape:"${unicodeEscape(istr)}",
+reversed:"${estr}",
+escape formatted:"${exstr}",
+result:"${unescape(exstr)}"`);
         }
         var unicodeEscape = function(str) {
             if (!String.prototype.repeat) {
@@ -50,5 +64,6 @@
 <body style="display: grid;width: 60vw;margin:0 auto;">
     <input type="text" id="inputstr" placeholder="変換したい文字列を入力" oninput="cnv();">
     <textarea id="resultstr" onclick="dqs('#resultstr').select();d.execCommand('copy');"></textarea>
+    <textarea id="reresultstr"></textarea>
 </body>
 </html>
