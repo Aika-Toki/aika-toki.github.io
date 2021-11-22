@@ -333,6 +333,7 @@ h5, h6 {
 .sp #list ul .item .item-head #title {
   line-height: 6vh;
   font-size: 3vw;
+  height: 6vh;
 }
 
 .sp #list ul .item .item-head i {
