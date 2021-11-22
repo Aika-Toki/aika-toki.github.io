@@ -19,7 +19,7 @@ $(function () {
             e.innerHTML = 
             `<div id="item${i}-head" class="item-head">
             <h1 id="title">${JSONdata[i][1]}</h1>
-            <i class="fas fa-caret-circle-right"></i>
+            <i class="fal fa-chevron-right"></i>
             </div>
             <br>`;
             
@@ -43,8 +43,8 @@ $(function () {
 <br>
 <a href="${JSONdata[i][2]}" id="link" target="_blank"><p id="btntxt">${JSONdata[i][1]}の情報を見る</p><i class="fas fa-caret-right"></i></a>`;
             qs('#disp').querySelector('ul').appendChild(e);
-            if(qs(`#item${i}-content`).querySelector('a').clientWidth < qs(`#item${i}-content`).querySelector('#btntxt').clientWidth ) {
-                qs(`#item${i}-content`).querySelector('a').innerHTML = `<marquee scrollamount="10">${qs(`#item${i}-content`).querySelector('#btntxt').innerText}</marquee><i class="fas fa-caret-right"></i>`;
+            if(qs(`#item${i}-content`).querySelector('#link').clientWidth-20 < qs(`#item${i}-content`).querySelector('#btntxt').clientWidth ) {
+                qs(`#item${i}-content`).querySelector('a').innerHTML = `<marquee scrollamount="10" id="btntxt">${qs(`#item${i}-content`).querySelector('#btntxt').innerText}</marquee><i class="fas fa-caret-right"></i>`;
             }
             e = d.createElement('script');
             e.innerHTML = 
@@ -69,15 +69,18 @@ function open(p) {
             qs(`.item-head.open`).classList.remove('open');
             qs('#itemtop-content').classList.add("open");
             qs('#itemtop-head').classList.add('open');
+            qs('#disp').classList.remove('open');
         } else {
             qs(`.item-content.open`).classList.remove("open");
             qs(`.item-head.open`).classList.remove('open');
             qs(`#item${p}-content`).classList.add("open");
             qs(`#item${p}-head`).classList.add("open");
+            qs('#disp').classList.add('open');
         }
     } else {
         qs(`#item${p}-content`).classList.add("open");
         qs(`#item${p}-head`).classList.add('open');
+        qs('#disp').classList.add('open');
     }
 }
 
