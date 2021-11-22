@@ -9,11 +9,46 @@
     <script>
         function cnv() {
             let istr = dqs('#inputstr').value;
+            let estr = unicodeEscape(istr).split('').reverse().join('');
+            let exstr = chunk(estr, 4).join('%u');
+            exstr = `%u${exstr}`;
+            if(istr === ''){
+                exstr = '';
+            }
+            dqs('#resultstr').innerText = unescape(exstr);
         }
+        var unicodeEscape = function(str) {
+            if (!String.prototype.repeat) {
+                String.prototype.repeat = function(digit) {
+                    var result = '';
+                    for (var i = 0; i < Number(digit); i++) result += str;
+                    return result;
+                };
+            }
+        
+            var strs = str.split(''), hex, result = '';
+        
+            for (var i = 0, len = strs.length; i < len; i++) {
+                hex = strs[i].charCodeAt(0).toString(16);
+                result += ('0'.repeat(Math.abs(hex.length - 4))) + hex;
+            }
+            return result;
+        };
+        function chunk(str, n) {
+            var ret = [];
+            var i;
+            var len;
+            
+            for(i = 0, len = str.length; i < len; i += n) {
+                ret.push(str.substr(i, n))
+            }
+            
+            return ret
+        };
     </script>
 </head>
 <body style="display: grid;width: 60vw;margin:0 auto;">
     <input type="text" id="inputstr" placeholder="変換したい文字列を入力" oninput="cnv();">
-    <textarea id="resultstr"></textarea>
+    <textarea id="resultstr" onclick="dqs('#resultstr').select();d.execCommand('copy');"></textarea>
 </body>
 </html>
