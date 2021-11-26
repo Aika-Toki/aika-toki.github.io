@@ -97,12 +97,16 @@
                 paramArray[paramItem[0]] = paramItem[1];
             }
             if (paramArray["l"] != undefined) {
-                for (i = 0; i < playlistsComp[paramArray["l"]].length; i++) {
-                    audioAdded(playlistsComp[paramArray["l"]][i]);
-                }
+                let jsonurl, jsondata;
+                jsonurl = `${apiurl}?list=${paramArray["l"]}`;
+                $.getJSON(jsonurl, (data) => {
+                    jsondata = data;
+                    audioPlayList = jsondata;
+                    load();
+                });
+                
             }
         }
-        load();
     </script>
 </body>
 </html>

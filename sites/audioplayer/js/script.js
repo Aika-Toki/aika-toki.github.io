@@ -12,41 +12,13 @@ position = "",
 offset = "",
 width = "",
 loop = 0;
+const apiurl = "https://script.google.com/macros/s/AKfycbzpK34WhbSNwqhtiExfwxraUo0eC5mbJOsrPJoWdsGr_1nvVJo5wi4WVUZz8mpS28kq/exec";
 
 
-//Lists
-let audioPathList = [
-  {'f': 'none.mp3', 't': ' ', 'a': ' ', 'n': '', 'p': ''}
-  ,{'f': 'roudoku2021from04.mp3', 't': '朗読部門（2021年4月〜中国語学習開始）　読み上げ音声', 'a': 'TTSMP3.com', 'n': '', 'p': ''}
-  ,{'f': 'shigh.mp3', 't': '夢で描けば　耳コピ', 'a': '矢歌絵音', 'n': 'https://et-cdn.shoeisha.jp/static/images/article/4778/4778_005.jpg', 'p': ''}
-  ,{'f': 'tondemowonders.mp3', 't': 'トンデモワンダーズ', 'a': 'sasakure.UK', 'n': 'http://img.youtube.com/vi/dBQg24mx45Y/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'sinigami.mp3', 't': '死神', 'a': '米津玄師', 'n': 'http://img.youtube.com/vi/8nxaZ69ElEc/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'tadasentakugaatta.mp3', 't': 'ただ選択があった', 'a': 'Frog96', 'n': 'http://img.youtube.com/vi/FrIiEuNPE38/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'mugenloop.mp3', 't': '無限ループのうた', 'a': 'ラムダ', 'n': 'http://img.youtube.com/vi/M5xKbaVXT8U/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'n37.mp3', 't': 'ハンター見習い', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/ZZ8CTqP-py4/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'o12.mp3', 't': '馬車道', 'a': 'H/MIX GALLERY', 'n': 'http://img.youtube.com/vi/tgijC899HWY/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'mgpdteto.mp3', 't': 'マシンガンポエムドール 重音テトカバー', 'a': 'COSMO@暴走P', 'n': 'http://img.youtube.com/vi/UgZFpO_Y6qo/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'MusMus-BGM-103.mp3', 't': '電脳漂流記', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/sqG_a1-c8f4/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'MusMus-BGM-097.mp3', 't': '夕餉の街並み', 'a': 'MusMus', 'n': 'http://img.youtube.com/vi/Hn4Czfdmf5o/maxresdefault.jpg', 'p': ''}
-  ,{'f': 'prsk/sekai/alive.mp3', 't': 'alive', 'a': '鏡音リン', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_082.png', 'p': ''}
-  ,{'f': 'prsk/sekai/Nostalogic.mp3', 't': 'Nostalogic', 'a': '桐谷 遥, 日野森 雫, MEIKO', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_013.png', 'p': ''}
-  ,{'f': 'prsk/sekai/TellYourWorld.mp3', 't': 'Tell Your World', 'a': '初音ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_001.png', 'p': ''}
-  ,{'f': 'prsk/sekai/ロキ.mp3', 't': 'ロキ', 'a': '星乃 一歌, 初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_002.png', 'p': ''}
-  ,{'f': 'prsk/sekai/テオ.mp3', 't': 'テオ', 'a': '星乃 一歌, 初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_003.png', 'p': ''}
-  ,{'f': 'prsk/sekai/ヒバナ-Reloaded-.mp3', 't': 'ヒバナ-Reloaded-', 'a': '初音 ミク, 星乃 一歌', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_006.png', 'p': ''}
-  ,{'f': 'prsk/sekai/ネクストネスト.mp3', 't': 'ネクストネスト', 'a': '初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_043.png', 'p': ''}
-  ,{'f': 'prsk/sekai/メルト.mp3', 't': 'メルト', 'a': '初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_047.png', 'p': ''}
-  ,{'f': 'prsk/sekai/初音ミクの消失.mp3', 't': '初音ミクの消失', 'a': '初音 ミク', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_049.png', 'p': ''}
-  ,{'f': 'prsk/sekai/Blessing.mp3', 't': 'Blessing', 'a': '初音 ミク, 鏡音 リン, 鏡音 レン, 巡音 ルカ, MEIKO, KAITO', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_050.png', 'p': ''}
-  ,{'f': 'prsk/sekai/ハッピーシンセサイザ.mp3', 't': 'ハッピーシンセサイザ', 'a': '花里 みのり, 桐谷 遥, 桃井 愛莉, 日野森 雫', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_010.png', 'p': ''}
-  ,{'f': 'prsk/sekai/ツギハギスタッカート.mp3', 't': 'ツギハギスタッカート', 'a': '初音 ミク, 桃井 愛莉, 日野森 雫', 'n': 'https://aika-toki.github.io/others/library/AudioCoverImageLibRaw/jacket_s_071.png', 'p': ''}
-
-];
-let playlists = ['IzaNECxri4SV', [3,4,5,6,7,8,9,10,11], 'bffvpfte3J-t', [1], '4APTZMQNgmk2', [2], 'base', [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 'PJSekai', [14,18,19,20,21,12,15,16,17,22,13,23]];
-let playlistsComp = [];
-for(let i = 0; playlists.length > i+1; i=i+2) {
-  playlistsComp[playlists[i]] = playlists[i+1];
-}
+let playlistComp = [];
+// for(let i = 0; playlists.length > i+1; i=i+2) {
+//   playlistsComp[playlists[i]] = playlists[i+1];
+// }
 let audioPlayList =[];
 
 function audioChange() {
@@ -89,65 +61,69 @@ function audioChange() {
   playPauseAudio();
 }
 function load() {
-  let audioList = d.getElementById('audioList');
-  if(d.getElementById('audioList').querySelector('option') != undefined) {
-    return false;
-  }
-  for(let i = 0; i < audioPlayList.length; i++) {
-    let option = d.createElement('option');
-    option.setAttribute('value', i);
-    if (audioPlayList[i]['t'] === '') {
-      option.innerHTML = audioPlayList[i]['f'];
-    } else {
-      option.innerHTML = audioPlayList[i]['t'];
-    }
-    audioList.appendChild(option);
-  }
-  audioValue = d.getElementById('audioList').value;
-  if (audioPlayList[audioValue]['f'] === '') {
-    audio = new Audio(`${audioPlayList[audioValue]['p']}`);
-  } else if (audioPlayList[audioValue]['p'] === '') {
-    audio = new Audio(`./sounds/${audioPlayList[audioValue]['f']}`);
-  } else {
-    audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
-  }
-  audio.load();
-  d.getElementById('speedVal').innerText = '1x';
-  d.getElementById('volumeVal').innerText = '100%';
-  timeUpdate();
-  d.getElementById('seekarea').onclick = function (e) {
-    if (e) event = e;
-    const duration = Math.round(audio.duration)
-    if(!isNaN(duration)){
-      mouse = e.pageX;
-      element = document.getElementById('seekarea');
-      rect = element.getBoundingClientRect();
-      position = rect.left + window.pageXOffset;
-      offset = mouse - position;
-      width = rect.right - rect.left;
-      audio.currentTime = //Math.round
-      (duration * (offset / width));
-    }
-    timeUpdate();
-  }
-  if (audioPlayList[audioValue]['t'] === '') {
-    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
-  } else {
-    d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
-  }
-  if (audioPlayList[audioValue]['a'] === '') {
-    d.getElementById('audioArtist').innerText = '不明';
-  } else {
-    d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
-  }
-  d.getElementById('seekbar').style.backgroundSize = 0;
-  d.getElementById('progressbar').style.backgroundSize = 0;
-  audioList.setAttribute('size', audioPlayList.length);
+  const audioList = d.getElementById('audioList');
+  // if(audioList.querySelector('option') != undefined) {
+  //   return false;
+  // }
+      for(let i = 0; i < audioPlayList.length; i++) {
+        let optione = d.createElement('option');
+        optione.setAttribute('value', i);
+        if (audioPlayList[i]['t'] === '') {
+          optione.innerHTML = audioPlayList[i]['f'];
+        } else {
+          optione.innerHTML = audioPlayList[i]['t'];
+        }
+        audioList.appendChild(optione);
+      }
+      audioValue = d.getElementById('audioList').value;
+      if(audioValue === ""){audioValue=0;}
+      if (audioPlayList[audioValue]['f'] === '') {
+        audio = new Audio(`${audioPlayList[audioValue]['p']}`);
+      } else if (audioPlayList[audioValue]['p'] === '') {
+        audio = new Audio(`https://aika-toki.github.io/others/library/AudioLibRaw/${audioPlayList[audioValue]['f']}`);
+      } else {
+        audio = new Audio(`${audioPlayList[audioValue]['p']}${audioPlayList[audioValue]['f']}`);
+      }
+      audio.load();
+      d.getElementById('speedVal').innerText = '1x';
+      d.getElementById('volumeVal').innerText = '100%';
+      timeUpdate();
+      if (audioPlayList[audioValue]['t'] === '') {
+        d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['f'];
+      } else {
+        d.getElementById('audioTitle').innerText = audioPlayList[audioValue]['t'];
+      }
+      if (audioPlayList[audioValue]['a'] === '') {
+        d.getElementById('audioArtist').innerText = '不明';
+      } else {
+        d.getElementById('audioArtist').innerText = audioPlayList[audioValue]['a'];
+      }
+      audioList.setAttribute('size', audioPlayList.length);
+      d.getElementById('seekarea').onclick = function (e) {
+        if (e) event = e;
+        const duration = Math.round(audio.duration)
+        if(!isNaN(duration)){
+          mouse = e.pageX;
+          element = document.getElementById('seekarea');
+          rect = element.getBoundingClientRect();
+          position = rect.left + window.pageXOffset;
+          offset = mouse - position;
+          width = rect.right - rect.left;
+          audio.currentTime = //Math.round
+          (duration * (offset / width));
+        }
+        timeUpdate();
+      }
+      d.getElementById('seekbar').style.backgroundSize = 0;
+      d.getElementById('progressbar').style.backgroundSize = 0;
 }
 
-function audioAdded(valueee) {
-  audioPlayList.push(audioPathList[valueee]);
-}
+// function audioAdded(valueee) {
+//   $.getJSON(jsonurl, (data) => {
+//     jsondata = data;
+//     audioPlayList.push(data);
+//   });
+// }
 
 function playPauseAudio() {
     if (play === 0) {
