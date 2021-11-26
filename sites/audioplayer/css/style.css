@@ -239,3 +239,7 @@ body {
     transition: color 300ms ease 0ms;
     color: #7bdcff !important;
 }
+.shuffleEnable {
+    transition: color 300ms ease 0ms;
+    color: #7bdcff !important;
+}

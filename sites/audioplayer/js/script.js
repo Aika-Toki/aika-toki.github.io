@@ -11,7 +11,8 @@ rect = "",
 position = "",
 offset = "",
 width = "",
-loop = 0;
+loop = 0,
+shuffle = 0;
 const apiurl = "https://script.google.com/macros/s/AKfycbzpK34WhbSNwqhtiExfwxraUo0eC5mbJOsrPJoWdsGr_1nvVJo5wi4WVUZz8mpS28kq/exec";
 
 
@@ -193,10 +194,14 @@ function timeUpdate() {
           playPauseAudio();
         } else if (loop === 2) {
           play = 0;
-          if (d.getElementById('audioList').value === String(audioPlayList.length - 1)) {
-            d.getElementById('audioList').value = 0;
+          if(shuffle === 0){
+            if (d.getElementById('audioList').value === String(audioPlayList.length - 1)) {
+              d.getElementById('audioList').value = 0;
+            } else {
+              ++d.getElementById('audioList').value;
+            }
           } else {
-            ++d.getElementById('audioList').value;
+            d.getElementById('audioList').value = Math.floor(Math.random() * audioPlayList.length);
           }
           audioChange();
           playPauseAudio();
@@ -221,10 +226,14 @@ function prevFile() {
 
 function nextFile() {
   let aL = d.getElementById('audioList');
-  if(aL.value === String(audioPlayList.length - 1)) {
-    aL.value = 0;
+  if(shuffle === 0){
+    if(aL.value === String(audioPlayList.length - 1)) {
+      aL.value = 0;
+    } else {
+      ++aL.value;
+    }
   } else {
-    ++aL.value;
+    aL.value = Math.floor(Math.random() * audioPlayList.length);
   }
   audioChange();
 }
@@ -280,5 +289,16 @@ function shiftLoopMode() {
     loop = 0;
     loopButton.innerHTML = '<i class="fas fa-repeat"></i>';
     loopButton.setAttribute('title', 'ループ')
+  }
+}
+
+function toggleShuffle() {
+  let randbtn = d.getElementById('shuffle');
+  if (shuffle === 0) {
+    shuffle = 1;
+    randbtn.innerHTML = '<i class="far fa-random shuffleEnable"></i>';
+  } else {
+    shuffle = 0;
+    randbtn.innerHTML = '<i class="far fa-random"></i>';
   }
 }
