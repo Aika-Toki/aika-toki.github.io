@@ -250,6 +250,7 @@ h5, h6 {
   display: grid;
   width: 100vw;
   position: fixed;
+  z-index: 1;
 }
 
 .sp #header h1 {
@@ -281,6 +282,9 @@ h5, h6 {
   line-height: 4vh;
   text-align: center;
   font-size: 3vw;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
 }
 
 .sp #content {
@@ -388,6 +392,7 @@ h5, h6 {
   background-color: #333;
   border-color: #fff0;
   font-size: 3vw;
+  position: fixed;
 }
 
 .sp #disp li.item-content #description {
