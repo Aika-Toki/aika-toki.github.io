@@ -276,6 +276,7 @@ h5, h6 {
                             right: auto;
                             transform: rotateZ(180deg);
                             color: $font;
+                            z-index: 1;
                         }
                         & h1 {
                             color: $font;

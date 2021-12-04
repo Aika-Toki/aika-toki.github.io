@@ -355,6 +355,7 @@ h5, h6 {
   -webkit-transform: rotateZ(180deg);
           transform: rotateZ(180deg);
   color: #fff;
+  z-index: 1;
 }
 
 .sp #list ul .item .item-head.open h1 {
