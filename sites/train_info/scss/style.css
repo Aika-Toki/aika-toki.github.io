@@ -5,7 +5,10 @@ body {
   margin: 0;
 }
 
-#category, #published, #updated, #description {
+#category,
+#published,
+#updated,
+#description {
   padding-left: 1.5vw;
 }
 
@@ -214,7 +217,8 @@ a marquee {
   background-color: #ffca67;
 }
 
-h5, h6 {
+h5,
+h6 {
   color: white;
   margin: 0;
 }

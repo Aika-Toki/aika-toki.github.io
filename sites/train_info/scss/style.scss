@@ -2,29 +2,39 @@
 $bgcol: #333;
 $accentcol: rgb(87, 87, 255);
 $font: #fff;
+
 // color setting end
 body {
     width: 100vw;
     height: 100vh;
     margin: 0;
 }
-#category, #published, #updated, #description {
+
+#category,
+#published,
+#updated,
+#description {
     padding-left: 1.5vw;
 }
+
 #description {
     font-size: 0.8vw;
     margin: 0;
 }
+
 #updt {
     padding-left: 1vw;
+
     &::after {
         content: "更新";
     }
 }
+
 #header {
     display: flex;
     align-items: flex-end;
 }
+
 #bg {
     width: 100vw;
     height: 100vh;
@@ -35,23 +45,28 @@ body {
     z-index: -99;
     background-position: center;
 }
+
 #list marquee {
     font-size: 2em;
     font-weight: bold;
     color: white;
 }
+
 a marquee {
     width: 54.8vw;
 }
+
 #list {
     width: 60vw;
 }
+
 #content {
     margin: 0 auto;
     display: grid;
     width: 60vw;
 }
-.item-head{
+
+.item-head {
     display: inline-flex;
     height: 3vh;
     width: 60vw;
@@ -60,9 +75,11 @@ a marquee {
     transition-property: background-color;
     transition-duration: 300ms;
 }
+
 .item-head.open {
     background-color: white;
 }
+
 .item-head i {
     right: 0.5vw;
     font-size: 1vw;
@@ -72,10 +89,12 @@ a marquee {
     margin-top: 0.5vh;
     color: white;
 }
+
 .item-head.open i {
     transform: rotateZ(90deg);
     color: orange;
 }
+
 .item-head #title {
     margin: 0;
     color: white;
@@ -83,9 +102,11 @@ a marquee {
     transition-duration: 300ms;
     font-size: 1.2vw;
 }
+
 .item-head.open #title {
     color: orange;
 }
+
 .item {
     width: 60vw;
     height: 3vh;
@@ -95,15 +116,17 @@ a marquee {
     text-decoration-line: underline;
     text-decoration-color: #fff0;
     border-color: #fff0;
-    border-style: solid none;   
+    border-style: solid none;
     border-width: 3px 0px;
 
 }
+
 .item:hover {
     text-shadow: 0px 0px 8px #fff8;
     text-decoration-color: white;
     border-color: #fff;
 }
+
 #link {
     background-color: orange;
     color: white;
@@ -125,19 +148,23 @@ a marquee {
     display: flex;
     white-space: nowrap;
 }
+
 #link:hover {
     background-color: white;
     color: orange;
     border-color: orange;
 }
+
 #link i {
     padding: 0.3vh 0;
     right: 18px;
     position: absolute;
 }
+
 #link p {
     margin: 0;
 }
+
 .item-content {
     opacity: 0;
     transition-property: opacity;
@@ -155,6 +182,7 @@ a marquee {
     list-style-type: none;
     position: absolute;
 }
+
 .item-content.open {
     width: 60vw;
     height: 11vh;
@@ -162,37 +190,46 @@ a marquee {
     overflow: visible;
     background-color: rgb(255, 202, 103);
 }
-h5, h6 {
+
+h5,
+h6 {
     color: white;
     margin: 0;
 }
-#list ul{
+
+#list ul {
     width: 60vw;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
 #disp {
     height: 11vh;
+
     & ul {
         width: 20vw;
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
+
     & li {
         border-color: rgb(255, 202, 103);
     }
 }
+
 #header h1 {
     font-size: 2vw;
 }
+
 .sp {
     & #header {
         display: grid;
         width: 100vw;
         position: fixed;
         z-index: 1;
+
         & h1 {
             font-size: 5vw;
             background-color: $accentcol;
@@ -204,9 +241,11 @@ h5, h6 {
             height: 5vh;
             line-height: 5vh;
         }
+
         & h4 {
             display: none;
         }
+
         & #updt {
             display: block;
             position: fixed;
@@ -224,6 +263,7 @@ h5, h6 {
             backdrop-filter: blur(3px);
         }
     }
+
     & #content {
         margin: 0 auto;
         display: grid;
@@ -231,14 +271,18 @@ h5, h6 {
         height: 100vh;
         background-color: $bgcol;
     }
+
     & #bg {
         display: none;
     }
+
     & #list {
         width: 100vw;
         margin-top: 7vh;
+
         & ul {
             width: 100vw;
+
             & .item {
                 width: 100vw;
                 height: 6vh;
@@ -249,25 +293,30 @@ h5, h6 {
                 border-bottom: solid;
                 border-color: $font;
                 border-width: 2px;
+
                 &:hover {
                     background-color: $bgcol;
                     color: $font;
                     text-shadow: 0px 0px 0px #fff0;
                     text-decoration: none;
                 }
+
                 & .item-head {
                     background-color: transparent;
                     width: 100vw;
+
                     & #title {
                         line-height: 6vh;
                         font-size: 3vw;
                         height: 6vh;
                     }
+
                     & i {
                         line-height: 6vh;
                         font-size: 6vw;
                         transition-property: none;
                     }
+
                     &.open {
                         & i {
                             position: fixed;
@@ -278,6 +327,7 @@ h5, h6 {
                             color: $font;
                             z-index: 1;
                         }
+
                         & h1 {
                             color: $font;
                         }
@@ -286,37 +336,45 @@ h5, h6 {
             }
         }
     }
+
     & #disp {
         width: 100vw;
         height: 93vh;
         position: absolute;
         margin-top: 7vh;
         z-index: -1;
+
         &.open {
             z-index: 1;
+
             & #link {
                 overflow: visible !important;
                 height: 4vh !important;
                 z-index: 9 !important;
             }
         }
+
         & li {
             width: 100vw;
+
             &#itemtop-content {
                 display: none;
             }
+
             &.item-content {
                 height: 93vh;
                 background-color: $bgcol;
                 border-color: #fff0;
                 font-size: 3vw;
                 position: fixed;
+
                 & #description {
                     color: $font;
                     font-size: inherit;
                 }
+
                 & #link {
-                    position:fixed;
+                    position: fixed;
                     border: none;
                     background-color: #fff3;
                     border-radius: 0;
@@ -331,9 +389,11 @@ h5, h6 {
                     font-size: 2vh;
                     overflow: hidden;
                     z-index: -90;
+
                     & #btntxt {
                         width: max-content;
                     }
+
                     & i {
                         line-height: 4vh;
                     }
@@ -342,4 +402,3 @@ h5, h6 {
         }
     }
 }
-    
