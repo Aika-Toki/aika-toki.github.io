@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>パスワードジェネレーター</title>
+    <link rel="stylesheet" href="./scss/index.css">
+</head>
+<body>
+    <script src="./js/index.js"></script>
+    <div class="rangeElements">
+        <label for="length" id="lengthLabel" class="rangeLabel">文字数(1~200)</label>
+        <div>
+            <input type="range" id="length" max="200" min="1" step="1" value="12" oninput="lengthchanged();">
+            <div id="h4-container"><div id="h4-subcontainer"><h4 style="left: 6%;">12<span></span></h4></div></div>
+        </div>
+    </div>
+    <div class="rangeElements">
+        <label for="count" id="countLabel" class="rangeLabel">個数(1~100)</label>
+        <div>
+            <input type="range" id="count" max="100" min="1" step="1" value="5" oninput="countchanged();">
+            <div id="h4-container"><div id="h4-subcontainer"><h4 style="left: 5%;">5<span></span></h4></div></div>
+        </div>
+    </div>
+    <div id="elements">
+        <div>
+            <input type="checkbox" id="allowNumber" checked disabled onchange="checkboxChanged();">
+            <label for="allowNumber">数字</label>
+        </div>
+        <div>
+            <input type="checkbox" id="allowSmallLetter" onchange="checkboxChanged();">
+            <label for="allowSmallLetter">小文字</label>
+        </div>
+        <div>
+            <input type="checkbox" id="allowBigLetter" onchange="checkboxChanged();">
+            <label for="allowBigLetter">大文字</label>
+        </div>
+        <div>
+            <input type="checkbox" id="allowSimbol" onchange="checkboxChanged();">
+            <label for="allowSimbol">記号</label>
+        </div>
+    </div>
+    <div id="genbtn" onclick="generate();">
+        <a>生成</a>
+    </div>
+    <div id="result"></div>
+</body>
+</html>

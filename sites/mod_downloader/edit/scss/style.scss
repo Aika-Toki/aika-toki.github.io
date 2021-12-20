@@ -1,0 +1,145 @@
+#formTitle {
+    font-size: 25px;
+    margin-bottom: 0;
+    border-style: none none solid none;
+    border-color: #000;
+    border-width: 1px;
+}
+
+#formContent {
+    background-color: #ccc;
+    padding: 10px;
+    border-style: inset;
+    border-width: 3px;
+    margin-bottom: 5px;
+    display: flex;
+
+    & input[type="text"] {
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 0;
+        border-color: #333;
+        padding: 4px 10px;
+        margin-right: 0;
+        display: block;
+        width: 8vw;
+        transition-property: width, border, background-color, color;
+        transition-duration: 300ms;
+
+        &:focus-visible {
+            border-color: #007bb4;
+            border-width: 2px;
+            outline-style: none;
+            width: 25vw;
+            background-color: #00415f;
+            color: #fff;
+        }
+
+        &+input[type="button"] {
+            border-style: solid;
+            border-width: 1px;
+            border-color: #333;
+            border-left-style: none;
+            margin-left: 0;
+            display: block;
+            transition-property: background-color, color, border-color;
+            transition-duration: 300ms;
+        }
+    }
+
+    & table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 30vw;
+
+        & tr {
+            height: 2vh;
+
+            &#dllinkadd {
+                & td {
+                    padding: 0;
+                    height: 2vh;
+
+                    & input[type="button"] {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 0;
+                        border-style: none;
+                        font-size: 21pt;
+                        background-color: #ddd;
+                        color: #333;
+                        transition-property: color,background-color;
+                        transition-duration: 300ms;
+
+                        &:hover {
+                            background-color: #333;
+                            color: #ddd;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            & td {
+                width: 8vw;
+                padding: 5px;
+                border-style: solid;
+                border-color: #333;
+                border-width: 2px;
+                transition-property: width, border-color, background-color, color;
+                transition-duration: 300ms;
+
+                &#contenturl {
+                    color: #007bb4;
+                    text-decoration-line: underline;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    background-color: #fff;
+
+                    &:hover {
+                        background-color: #ccc;
+                    }
+                    
+                    &:focus-visible {
+                        border-width: 2px;
+                        outline-style: none;
+                        background-color: #00415f;
+                        color: #fff;
+                        text-decoration-line: underline;
+                        white-space: normal !important;
+                    }
+                }
+            }
+        }
+
+        & td#remove {
+            padding: 0;
+            height: 2vh;
+
+            & input[type="button"] {
+                width: 100%;
+                height: 100%;
+                border-radius: 0;
+                border-style: none;
+                font-size: 21pt;
+                background-color: #ddd;
+                color: #333;
+                transition-property: background-color,color;
+                transition-duration: 300ms;
+
+                &:hover {
+                    background-color: #333;
+                    color: #ddd;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    & #code {
+        & code {
+            font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;
+            white-space: pre-wrap;
+        }
+    }
+}
