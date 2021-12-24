@@ -58,13 +58,13 @@ function generateCode() {
 }
 
 function submit() {
-    if(dlid === ""||d.querySelector('')){
-        alert("値が不足しています。")
-        return false;
-    }
     let links = [];
     for(let i = 0;i<d.querySelectorAll('.linkContent').length;i++){
         links.push(encodeURIComponent(d.querySelectorAll('.linkContent')[i].querySelector("#contenturl").innerText));
+    }
+    if(d.querySelector("#dlid").value === ""||d.querySelector('#dlname').value === ''||links.length == 0){
+        alert("値が不足しています。")
+        return false;
     }
     let jsondata;
     let jsonurlbase = "https://script.google.com/macros/s/AKfycbzAmXJKJgPuso_FDStgsIu0ZXD3yT6TusoO79bpcfipQr31Eosllbdjq6VpZSeAJrYw/exec";
@@ -75,7 +75,7 @@ function submit() {
             if(jsondata==="save-success"){
                 alert("登録完了");
             } else if(jsondata==="save-fail"){
-                alert("エラー。再試行してください。");
+                alert("既存のIDです。IDを再生成します。");
                 dlidChange();
             }
         }
