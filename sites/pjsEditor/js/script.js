@@ -111,13 +111,15 @@ function nextd() {
 
 function submit() {
     let d = document;
+    d.querySelector("#loadingCover").style.overflow = "hidden";
+    d.querySelector("#loadingCover").style.zIndex = "-1";
     d.querySelector("#loadingCover").classList.remove("hidden");
     let tar = d.querySelector("#targetArea").value,
     free = d.querySelector("#freeArea").value,
     review = d.querySelector("#reviewArea").value,
     temperature = d.querySelector("#tempArea").value,
     att = d.querySelector("#attendanceArea").hasAttribute("checked");
-    if(att === true){
+    if(att == true){
         att = "◯";
     } else {
         att = "";
