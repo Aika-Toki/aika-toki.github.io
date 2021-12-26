@@ -113,6 +113,7 @@ function submit() {
     let d = document;
     d.querySelector("#loadingCover").style.overflow = "unset";
     d.querySelector("#loadingCover").style.zIndex = "1";
+    d.querySelector("#loadingCover").querySelector("h2").innerText = "saving...";
     d.querySelector("#loadingCover").classList.remove("hidden");
     let tar = d.querySelector("#targetArea").value,
     free = d.querySelector("#freeArea").value,
