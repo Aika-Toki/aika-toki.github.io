@@ -20,7 +20,7 @@ if (location.search !== '') {
         cookieArray[cookieItem[0]] = cookieItem[1];
     }
     id = cookieArray.id;
-    if (id == "") {
+    if (id == "" || id == undefined) {
         location.href = location.pathname;
     }
     let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycbw6FSP1vn8KXKBl7Nt8wDuKPLzT_5kteFa-Z04FN6XpgnWE62aG9Eo_KnDlM4SSg-7DaQ/exec";
