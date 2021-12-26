@@ -54,7 +54,7 @@ if (location.search !== '') {
         cookieArray[cookieItem[0]] = cookieItem[1];
     }
     let cookid = cookieArray.id;
-    if (cookid == "") {
+    if (cookid == "" || cookid == undefined) {
         id = window.prompt("IDを入力", "");
         if (id == "" || id == null) {
             location.reload();
