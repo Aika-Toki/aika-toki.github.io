@@ -1,6 +1,12 @@
 let urlParam, param, paramArray, paramItem, year, month, date, id;
 let randcolor = `hsl(${Math.floor(Math.random()*360)},70%,40%)`
 document.querySelector("html").style.setProperty('--accent-color', randcolor);
+let cookies = document.cookie.split("; ");
+    let cookieItem, cookieArray = [];
+    for (let i = 0; i < cookies.length; i++) {
+        cookieItem = cookies[i].split("=");
+        cookieArray[cookieItem[0]] = cookieItem[1];
+    }
 if (location.search !== '') {
     urlParam = location.search.substring(1);
     param = urlParam.split('&');
@@ -13,12 +19,6 @@ if (location.search !== '') {
     year = dates[0],
         month = dates[1],
         date = dates[2];
-    let cookies = document.cookie.split("; ");
-    let cookieItem, cookieArray = [];
-    for (let i = 0; i < cookies.length; i++) {
-        cookieItem = cookies[i].split("=");
-        cookieArray[cookieItem[0]] = cookieItem[1];
-    }
     id = cookieArray.id;
     if (id == "" || id == undefined) {
         location.href = location.pathname;
@@ -47,28 +47,9 @@ if (location.search !== '') {
         },400)
     });
 } else {
-    let cookies = document.cookie.split("; ");
-    let cookieItem, cookieArray = [];
-    for (let i = 0; i < cookies.length; i++) {
-        cookieItem = cookies[i].split("=");
-        cookieArray[cookieItem[0]] = cookieItem[1];
-    }
     let cookid = cookieArray.id;
     if (cookid == "" || cookid == undefined) {
-        id = window.prompt("IDを入力", "");
-        if (id == "" || id == null) {
-            location.reload();
-        } else {
-            document.cookie = `id=${id}`;
-            let date = new Date();
-            if(date.getDay()==6){
-                location.search = `at=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()-1}`;
-            } else if(date.getDay()==0){
-                location.search = `at=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()+1}`;
-            } else {
-                location.search = `at=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
-            }
-        }
+        location.pathname = "/sites/pjsEditor/login";
     } else {
         let date = new Date();
         if(date.getDay()==6){
@@ -85,8 +66,8 @@ document.querySelector("#nextDate").addEventListener("click", nextd, false);
 document.querySelector("#submitbtn").addEventListener("click", submit, false);
 
 function logout() {
-    document.cookie = "id=";
-    location.href = location.pathname;
+    document.cookie = "id=;path=/sites/pjsEditor";
+    location.pathname = "/sites/pjsEditor/login";
 }
 
 function previousd() {
@@ -113,13 +94,16 @@ function submit() {
     let d = document;
     d.querySelector("#loadingCover").style.overflow = "unset";
     d.querySelector("#loadingCover").style.zIndex = "1";
-    d.querySelector("#loadingCover").querySelector("h2").innerText = "saving...";
+    d.querySelector("#loadingCover").querySelector("h2").innerText = "Saving...";
     d.querySelector("#loadingCover").classList.remove("hidden");
     let tar = d.querySelector("#targetArea").value,
     free = d.querySelector("#freeArea").value,
     review = d.querySelector("#reviewArea").value,
     temperature = d.querySelector("#tempArea").value,
-    att = d.querySelector("#attendanceArea").hasAttribute("checked");
+    att = d.querySelector("#attendanceArea").checked;
+    tar = tar.replaceAll("\n","<break>");
+    free = free.replaceAll("\n","<break>");
+    review = review.replaceAll("\n","<break>");
     if(att == true){
         att = "◯";
     } else {

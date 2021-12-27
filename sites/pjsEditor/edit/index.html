@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./scss/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="shortcut icon" href="../media/icon/favicon256.png" type="image/x-icon">
 </head>
 <body>
     <div id="loadingCover">
@@ -18,7 +19,9 @@
     </div>
     <header>
         <div id="menubar">
-            <div id="title">PJS Editor</div>
+            <a id="title" href="./">
+                <img src="../media/icon/icon256text.png" alt="">
+            </a>
             <div id="account">
                 <div id="id"></div>
                 <div id="logout"><i class="fal fa-sign-out"></i></div>
@@ -50,7 +53,6 @@
                 <input type="text" id="tempArea">
             </div>
             <div>
-                <h2>登校日</h2>
                 <input type="checkbox" id="attendanceArea">
                 <label for="attendanceArea"><i class="fas fa-check-circle"></i></label>
             </div>
