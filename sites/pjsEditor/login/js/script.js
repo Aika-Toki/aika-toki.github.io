@@ -6,3 +6,12 @@ function login() {
     d.cookie = `id=${id};path=/sites/pjsEditor`;
     location.pathname = "/sites/pjsEditor/edit";
 }
+let cookies = document.cookie.split("; ");
+let cookieItem, cookieArray = [];
+for (let i = 0; i < cookies.length; i++) {
+    cookieItem = cookies[i].split("=");
+    cookieArray[cookieItem[0]] = cookieItem[1];
+}
+if(cookieArray.id != undefined && cookieArray.id != ""){
+    location.pathname = "/sites/pjsEditor/edit/"
+}
