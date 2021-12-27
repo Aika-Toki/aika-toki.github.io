@@ -1,4 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap');
+$pc: 920px;
+$sp: 480px;
+@mixin pc {
+    @media (min-width: ($pc)) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media (max-width: ($sp)) {
+        @content;
+    }
+}
 html {
     width: 100vw;
     height: 100vh;
@@ -31,6 +50,10 @@ main {
     bottom: 0;
     position: absolute;
 
+    @include sp {
+        min-width: 360px;
+    }
+
     & #formHeader {
         height: 10vh;
         padding-top: 5vh;
@@ -38,8 +61,17 @@ main {
         text-align: center;
         margin: 0 auto;
 
+        @include sp {
+            height: 20vh;
+        }
+
         & span {
             font-size: 30px;
+
+            @include sp {
+                display: flex;
+                flex-direction: column;
+            }
         }
 
         & #summary {
@@ -63,6 +95,10 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        @include sp {
+            height: 30vh;
+        }
 
         & #id {
             width: 100%;
@@ -90,6 +126,12 @@ main {
             border-width: 1px;
             border-radius: 5px;
             font-family: 'Klee One';
+            height: 4vh;
+            font-size: 20px;
+
+            @include sp {
+                height: 50px;
+            }
 
             &:hover {
                 cursor: pointer;
