@@ -8,13 +8,13 @@ $sp: 480px;
 }
 
 @mixin tab {
-    @media (max-width: ($sp)) {
+    @media (max-width: ($pc)) {
         @content;
     }
 }
 
 @mixin sp {
-    @media (max-width: ($sp)) {
+    @media (max-width: ($pc)) {
         @content;
     }
 }
