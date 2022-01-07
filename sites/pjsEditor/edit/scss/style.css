@@ -11,6 +11,9 @@ header {
   width: 100vw;
   height: 8vh;
   background-color: var(--accent-color);
+  font-family: "Concert One", "Kaisei Opti";
+  -webkit-box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
 header #menubar {
@@ -32,16 +35,23 @@ header #menubar #title {
   height: 4vh;
   margin-right: 35vw;
   margin-left: 15vw;
-  -webkit-transition: background-color 300ms;
-  transition: background-color 300ms;
+  -webkit-transition: -webkit-filter 300ms;
+  transition: -webkit-filter 300ms;
+  transition: filter 300ms;
+  transition: filter 300ms, -webkit-filter 300ms;
 }
 
 header #menubar #title:hover {
-  background-color: #aaa3;
+  -webkit-filter: drop-shadow(1px 1px 1px #79797999);
+          filter: drop-shadow(1px 1px 1px #79797999);
 }
 
 header #menubar #title img {
   height: 4vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 header #menubar #account {
@@ -116,16 +126,16 @@ header #datebar {
 
 header #datebar #previousDate {
   color: #fff;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-  -webkit-transition: -webkit-transform 300ms;
-  transition: -webkit-transform 300ms;
-  transition: transform 300ms;
-  transition: transform 300ms, -webkit-transform 300ms;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(255, 255, 255, 0);
+  -webkit-transition: text-shadow 300ms, -webkit-transform 300ms;
+  transition: text-shadow 300ms, -webkit-transform 300ms;
+  transition: transform 300ms, text-shadow 300ms;
+  transition: transform 300ms, text-shadow 300ms, -webkit-transform 300ms;
 }
 
 header #datebar #previousDate:hover {
   cursor: pointer;
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 0px 5px white;
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
 }
@@ -133,20 +143,25 @@ header #datebar #previousDate:hover {
 header #datebar #currentDate {
   color: #fff;
   font-weight: bold;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 header #datebar #nextDate {
   color: #fff;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-  -webkit-transition: -webkit-transform 300ms;
-  transition: -webkit-transform 300ms;
-  transition: transform 300ms;
-  transition: transform 300ms, -webkit-transform 300ms;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(255, 255, 255, 0);
+  -webkit-transition: text-shadow 300ms, -webkit-transform 300ms;
+  transition: text-shadow 300ms, -webkit-transform 300ms;
+  transition: transform 300ms, text-shadow 300ms;
+  transition: transform 300ms, text-shadow 300ms, -webkit-transform 300ms;
 }
 
 header #datebar #nextDate:hover {
   cursor: pointer;
-  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 0px 5px white;
   -webkit-transform: translateY(1px);
           transform: translateY(1px);
 }
@@ -162,6 +177,7 @@ main {
   padding-top: 2vh;
   height: 90vh;
   width: 100vw;
+  font-family: "Concert One", "Kaisei Opti";
 }
 
 main div {
@@ -189,6 +205,17 @@ main div#temperature div {
   margin-left: 1vw;
 }
 
+main div#temperature #tempArea {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Concert One", "Kaisei Opti";
+  margin-bottom: 5px;
+  text-align: right;
+}
+
 main div#temperature input[type="checkbox"] {
   display: none;
 }
@@ -205,6 +232,9 @@ main div#temperature input[type="checkbox"] ~ label > i::before {
 
 main div#temperature input[type="checkbox"] ~ label > i::after {
   content: "休日";
+  font-family: "Concert One", "Kaisei Opti";
+  font-size: 18px;
+  line-height: 25px;
   color: #000;
   -webkit-transition-property: color;
   transition-property: color;
@@ -223,11 +253,18 @@ main div#temperature input[type="checkbox"]:checked ~ label > i::before {
 
 main div#temperature input[type="checkbox"]:checked ~ label > i::after {
   content: "登校日";
+  font-size: 18px;
+  line-height: 25px;
+  font-family: "Concert One", "Kaisei Opti";
   color: var(--accent-color);
 }
 
 main div h2 {
   margin: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 main div textarea {
@@ -235,6 +272,8 @@ main div textarea {
   height: 15vh;
   resize: none;
   font-size: 20px;
+  font-family: "Concert One", "Kaisei Opti";
+  border-radius: 5px;
 }
 
 #loadingCover {
@@ -265,6 +304,7 @@ main div textarea {
 
 #loadingCover #loadingArea h2 {
   text-align: center;
+  font-family: "Concert One", "Kaisei Opti";
 }
 
 #loadingCover.hidden {
@@ -289,6 +329,13 @@ main div textarea {
           transition-duration: 300ms;
   -webkit-box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Concert One", "Kaisei Opti";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media (max-width: 920px) {
@@ -306,99 +353,7 @@ main div textarea {
 }
 
 .loader {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 90px;
-  text-indent: -9999em;
-  overflow: hidden;
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  margin: 0 auto 50px;
-  position: relative;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-  animation: load6 1.7s infinite ease, round 1.7s infinite ease;
-}
-
-@-webkit-keyframes load6 {
-  0% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  5%,
-  95% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  10%,
-  59% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-  }
-  20% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-  }
-  38% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-  }
-  100% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-}
-
-@keyframes load6 {
-  0% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  5%,
-  95% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-  10%,
-  59% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
-  }
-  20% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em, -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em, -0.749em -0.34em 0 -0.477em;
-  }
-  38% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em, -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em, -0.82em -0.09em 0 -0.477em;
-  }
-  100% {
-    -webkit-box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-            box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
-  }
-}
-
-@-webkit-keyframes round {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes round {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
+  width: 150px;
+  height: 150px;
 }
 /*# sourceMappingURL=style.css.map */
