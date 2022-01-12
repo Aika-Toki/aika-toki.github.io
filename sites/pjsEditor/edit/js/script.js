@@ -36,6 +36,7 @@ if (location.search !== '') {
         d.querySelector("#freeArea").value = jsondata[1];
         d.querySelector("#reviewArea").value = jsondata[2];
         d.querySelector("#tempArea").value = jsondata[3];
+        tempfix();
         if(jsondata[4]=="◯"){
             d.querySelector("#attendanceArea").setAttribute("checked","");
         }
@@ -64,6 +65,11 @@ document.querySelector("#logout").addEventListener("click", logout, false);
 document.querySelector("#previousDate").addEventListener("click", previousd, false);
 document.querySelector("#nextDate").addEventListener("click", nextd, false);
 document.querySelector("#submitbtn").addEventListener("click", submit, false);
+document.querySelector('#tempArea').addEventListener("change", tempfix, false);
+
+function tempfix() {
+    document.querySelector("#tempArea").value = Number(document.querySelector("#tempArea").value).toFixed(1); 
+}
 
 function logout() {
     document.cookie = "id=;path=/sites/pjsEditor";
