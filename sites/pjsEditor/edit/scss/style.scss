@@ -171,6 +171,18 @@ main {
                 font-family: $def-font;
                 margin-bottom: 5px;
                 text-align: right;
+                border-color: #333;
+                transition-property: color, border-color, border-width;
+                transition-duration: 300ms;
+
+                &:focus-visible {
+                    outline-style: none;
+                    color: var(--accent-color);
+                    border-color: var(--accent-color);
+                    border-width: 2px;
+                    transition-property: color, border-color, border-width;
+                    transition-duration: 300ms;
+                }
             }
 
             & input[type="checkbox"] {
@@ -225,6 +237,20 @@ main {
             font-size: 20px;
             font-family: $def-font;
             border-radius: 5px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #333;
+            transition-property: color, border-color, border-width;
+            transition-duration: 300ms;
+
+            &:focus-visible {
+                outline-style: none;
+                color: var(--accent-color);
+                border-color: var(--accent-color);
+                border-width: 2px;
+                transition-property: color, border-color, border-width;
+                transition-duration: 300ms;
+            }
         }
     }
 }
