@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap");
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+#overlay {
+  background-color: #0003;
+  opacity: 0;
+  z-index: -900;
+  -webkit-transition: opacity 300ms linear 0ms;
+  transition: opacity 300ms linear 0ms;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#overlay.show {
+  -webkit-transition: opacity 300ms linear 0ms;
+  transition: opacity 300ms linear 0ms;
+  opacity: 1;
+  z-index: 900;
+}
+
+#overlay.show > div {
+  -webkit-transition: opacity 300ms linear 0ms;
+  transition: opacity 300ms linear 0ms;
+  opacity: 0;
+  z-index: -901;
+}
+
+#overlay.show > div#createCalendar {
+  width: 720px;
+  height: 1000px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#overlay.show > div.show {
+  opacity: 1;
+  z-index: 901;
+  -webkit-transition: opacity 300ms linear 0ms;
+  transition: opacity 300ms linear 0ms;
+}
+
+header {
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.8);
+  height: 250px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: 'Kiwi Maru';
+}
+
+header > #serviceName {
+  background-color: #fff;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 0px;
+}
+
+header > #serviceName > i {
+  line-height: 80px;
+  font-size: 32px;
+  margin: 0 15px;
+}
+
+header > #serviceName > h1 {
+  font-family: "Kiwi Maru";
+  font-weight: 300;
+  line-height: 40px;
+}
+
+header > #menutab {
+  height: 50px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #008cff;
+}
+
+header > #menutab > div {
+  color: #fff;
+  line-height: 40px;
+  font-size: 18px;
+  padding: 4px 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-transition: background-color 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms;
+}
+
+header > #menutab > div:hover {
+  -webkit-transition: background-color 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms;
+  background-color: #259dff;
+}
+
+header > #menutab > div.sel {
+  -webkit-transition: background-color 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms;
+  background-color: #56b3ff;
+}
+
+header > #menutab > div.sel:hover {
+  -webkit-transition: background-color 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms;
+  background-color: #259dff;
+}
+
+header > #menucontent {
+  height: 120px;
+  width: 100vw;
+  background-color: #eeeeee;
+}
+
+header > #menucontent > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  opacity: 0;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
+  pointer-events: none;
+  -webkit-transition: opacity 200ms linear 0ms, display 0ms linear 200ms, -webkit-transform 200ms linear 0ms;
+  transition: opacity 200ms linear 0ms, display 0ms linear 200ms, -webkit-transform 200ms linear 0ms;
+  transition: opacity 200ms linear 0ms, transform 200ms linear 0ms, display 0ms linear 200ms;
+  transition: opacity 200ms linear 0ms, transform 200ms linear 0ms, display 0ms linear 200ms, -webkit-transform 200ms linear 0ms;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+header > #menucontent > div.sel {
+  -webkit-transition: opacity 200ms linear 20ms, display 0ms linear 0ms, -webkit-transform 200ms linear 20ms;
+  transition: opacity 200ms linear 20ms, display 0ms linear 0ms, -webkit-transform 200ms linear 20ms;
+  transition: opacity 200ms linear 20ms, transform 200ms linear 20ms, display 0ms linear 0ms;
+  transition: opacity 200ms linear 20ms, transform 200ms linear 20ms, display 0ms linear 0ms, -webkit-transform 200ms linear 20ms;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translate(0px);
+          transform: translate(0px);
+}
+
+header > #menucontent > div > hr {
+  margin: 10px 20px;
+}
+
+header > #menucontent > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 110px;
+  height: 110px;
+  margin: 5px 0px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+}
+
+header > #menucontent > div > div > i {
+  font-size: 32px;
+  margin: 5px auto 5px auto;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+}
+
+header > #menucontent > div > div > span {
+  font-size: 16px;
+  word-break: break-all;
+  text-align: center;
+  width: 110px;
+  margin-top: 5px;
+  height: 63px;
+}
+
+header > #menucontent > div > div:hover {
+  background-color: #fafafa;
+  -webkit-transition: background-color 100m linear 0ms;
+  transition: background-color 100m linear 0ms;
+}
+/*# sourceMappingURL=style.css.map */
