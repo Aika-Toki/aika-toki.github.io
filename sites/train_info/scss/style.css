@@ -382,6 +382,7 @@ h6 {
   overflow: visible !important;
   height: 4vh !important;
   z-index: 9 !important;
+  pointer-events: auto;
 }
 
 .sp #disp li {
@@ -422,6 +423,7 @@ h6 {
   font-size: 2vh;
   overflow: hidden;
   z-index: -90;
+  pointer-events: none;
 }
 
 .sp #disp li.item-content #link #btntxt {
