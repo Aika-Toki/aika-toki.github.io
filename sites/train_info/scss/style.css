@@ -209,20 +209,12 @@ a marquee {
   position: absolute;
 }
 
-.item-content #link {
-  pointer-events: none;
-}
-
 .item-content.open {
   width: 60vw;
   height: 11vh;
   opacity: 1;
   overflow: visible;
   background-color: #ffca67;
-}
-
-.item-content.open #link {
-  pointer-events: auto !important;
 }
 
 h5,
@@ -406,6 +398,7 @@ h6 {
   border-color: #fff0;
   font-size: 3vw;
   position: fixed;
+  z-index: -90;
 }
 
 .sp #disp li.item-content #description {
@@ -430,6 +423,7 @@ h6 {
   font-size: 2vh;
   overflow: hidden;
   z-index: -90;
+  pointer-events: none;
 }
 
 .sp #disp li.item-content #link #btntxt {
@@ -440,5 +434,13 @@ h6 {
 
 .sp #disp li.item-content #link i {
   line-height: 4vh;
+}
+
+.sp #disp li.item-content.open {
+  z-index: 15;
+}
+
+.sp #disp li.item-content.open #link {
+  pointer-events: auto;
 }
 /*# sourceMappingURL=style.css.map */

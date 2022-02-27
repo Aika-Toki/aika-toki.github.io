@@ -181,9 +181,6 @@ a marquee {
     border-bottom-width: 2px;
     list-style-type: none;
     position: absolute;
-    & #link {
-        pointer-events: none;
-    }
 }
 
 .item-content.open {
@@ -192,9 +189,6 @@ a marquee {
     opacity: 1;
     overflow: visible;
     background-color: rgb(255, 202, 103);
-    & #link {
-        pointer-events: auto !important;
-    }
 }
 
 h5,
@@ -373,6 +367,7 @@ h6 {
                 border-color: #fff0;
                 font-size: 3vw;
                 position: fixed;
+                z-index: -90;
 
                 & #description {
                     color: $font;
@@ -395,6 +390,7 @@ h6 {
                     font-size: 2vh;
                     overflow: hidden;
                     z-index: -90;
+                    pointer-events: none;
 
                     & #btntxt {
                         width: max-content;
@@ -402,6 +398,14 @@ h6 {
 
                     & i {
                         line-height: 4vh;
+                    }
+                }
+
+                &.open {
+                    z-index: 15;
+
+                    & #link {
+                        pointer-events: auto;
                     }
                 }
             }
