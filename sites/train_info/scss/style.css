@@ -209,12 +209,20 @@ a marquee {
   position: absolute;
 }
 
+.item-content #link {
+  pointer-events: none;
+}
+
 .item-content.open {
   width: 60vw;
   height: 11vh;
   opacity: 1;
   overflow: visible;
   background-color: #ffca67;
+}
+
+.item-content.open #link {
+  pointer-events: auto !important;
 }
 
 h5,
@@ -382,7 +390,6 @@ h6 {
   overflow: visible !important;
   height: 4vh !important;
   z-index: 9 !important;
-  pointer-events: auto !important;
 }
 
 .sp #disp li {
@@ -423,7 +430,6 @@ h6 {
   font-size: 2vh;
   overflow: hidden;
   z-index: -90;
-  pointer-events: none;
 }
 
 .sp #disp li.item-content #link #btntxt {
