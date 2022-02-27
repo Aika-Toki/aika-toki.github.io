@@ -11,15 +11,16 @@ let calendarStyle = {
 d.addEventListener('DOMContentLoaded', () => {
     ce = d.querySelector('div#calendar');
     tab = "edit";
+    const click = 'click';
     d.querySelector('div#menutab>div#file').addEventListener('click',tabswitch_file,false);
     d.querySelector('div#menutab>div#edit').addEventListener('click',tabswitch_edit,false);
     d.querySelector('div#menutab>div#event').addEventListener('click',tabswitch_event,false);
     d.querySelector('div#menutab>div#layout').addEventListener('click',tabswitch_layout,false);
     d.querySelector('div#edit_create-calendar').addEventListener('click',edit_createCalendar,false);
-    d.querySelector('div#overlay').addEventListener('click',()=>{
-        d.querySelector('div#overlay').classList.remove('show');
-        d.querySelector('div#overlay>div.show').classList.remove('show');
-    },false);
+    d.querySelector('div#createCalendar>div#innerFrameHeader>i').addEventListener('click',()=>{
+        d.querySelector('#overlay').classList.remove("show");
+        d.querySelector('#createCalendar').classList.remove("show");
+    },false)
 }, false);
 function* tabshow() {
     let el = window.getComputedStyle(d.querySelector('div#menucontent>div.sel'));

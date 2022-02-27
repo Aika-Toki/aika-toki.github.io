@@ -33,10 +33,10 @@ html, body {
 }
 
 #overlay.show > div {
-  -webkit-transition: opacity 300ms linear 0ms;
-  transition: opacity 300ms linear 0ms;
   opacity: 0;
   z-index: -901;
+  -webkit-transition: opacity 100ms linear 0ms;
+  transition: opacity 100ms linear 0ms;
 }
 
 #overlay.show > div#createCalendar {
@@ -46,11 +46,37 @@ html, body {
   border-radius: 10px;
 }
 
+#overlay.show > div > div#innerFrameHeader {
+  height: 50px;
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#overlay.show > div > div#innerFrameHeader > span {
+  font-family: 'Kiwi Maru';
+  font-size: 28px;
+}
+
+#overlay.show > div > div#innerFrameHeader > i {
+  font-size: 24px;
+  cursor: pointer;
+}
+
 #overlay.show > div.show {
   opacity: 1;
   z-index: 901;
-  -webkit-transition: opacity 300ms linear 0ms;
-  transition: opacity 300ms linear 0ms;
+  -webkit-transition: opacity 100ms linear 0ms;
+  transition: opacity 100ms linear 0ms;
 }
 
 header {

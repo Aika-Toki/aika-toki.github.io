@@ -24,19 +24,36 @@ html,body {
         opacity: 1;
         z-index: 900;
         &>div{
-            transition: opacity 300ms linear 0ms;
             opacity: 0;
             z-index: -901;
+            transition: opacity 100ms linear 0ms;
             &#createCalendar{
                 width: 28vw;
                 height: 67vh;
                 background-color: #fff;
                 border-radius: 10px;
             }
+            &>div#innerFrameHeader{
+                height: 50px;
+                width: 90%;
+                padding-left: 5%;
+                padding-right: 5%;
+                justify-content: space-between;
+                align-items: center;
+                display: flex;
+                &>span{
+                    font-family: 'Kiwi Maru';
+                    font-size: 28px;
+                }
+                &>i{
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+            }
             &.show{
                 opacity: 1;
                 z-index: 901;
-                transition: opacity 300ms linear 0ms;
+                transition: opacity 100ms linear 0ms;
             }
         }
     }
