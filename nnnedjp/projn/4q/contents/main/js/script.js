@@ -200,6 +200,7 @@ function game_clear(){
         f.src = `https://script.google.com/macros/s/AKfycbysuE5m1tbH_UA14htS6IiKH55ksiud70SEtXEJ8vpq5ksqRCbPXc1DTOfrRa9VQjNJ/exec?rec=${timerecord.join(':')}&time=${finishtime.join('-')}&name=${name}&recm=${record}`;
         f.style.width = "0px";
         f.style.height = "0px";
+        f.style.display = "none";
         d.body.appendChild(f);
     }
     setup();
