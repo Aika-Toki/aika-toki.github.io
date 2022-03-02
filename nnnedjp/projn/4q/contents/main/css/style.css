@@ -245,8 +245,16 @@ main > #frame > #table > #col > #cell {
   background-color: #000;
   width: 3.5vw;
   height: 3.5vw;
-  -webkit-transition: background-color 300ms linear 0ms;
-  transition: background-color 300ms linear 0ms;
+  -webkit-transition: background-color 100ms linear 0ms, -webkit-transform 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms, -webkit-transform 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms, transform 100ms linear 0ms;
+  transition: background-color 100ms linear 0ms, transform 100ms linear 0ms, -webkit-transform 100ms linear 0ms;
+}
+
+main > #frame > #table > #col > #cell:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.25);
+          transform: scale(1.25);
 }
 
 main > #frame > #table > #col > #cell.off {

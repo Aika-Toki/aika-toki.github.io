@@ -156,6 +156,7 @@ function next(first){
         frip(Math.floor(Math.random()*5)+1,Math.floor(Math.random()*5)+1);
     }
     if(!first){
+        new Audio('../audio/next.mp3').play();
         gamestatus.location[0] += 2.3;
         gamestatus.health[0] += 60;
         if(gamestatus.health[0]>gamestatus.health[1]){
@@ -169,6 +170,7 @@ function next(first){
     }
 }
 function game_clear(){
+    new Audio('../audio/clear.mp3').play();
     finishtime = new Date();
     finishtime = finishtime.getTime();
     let record = finishtime - starttime;
@@ -186,7 +188,7 @@ function game_clear(){
         Math.floor(record/1000/60/60)%60,
         Math.floor(record/1000/60)%60,
         Math.floor(record/1000)%60,
-        String((Math.floor((record/1000)*1000)/1000)%60).split('.')[1]
+        String((Math.trunc((record/1000)*1000)/1000)).split('.')[1]
     ];
     let dialog0 = confirm(`クリアおめでとう！
 
@@ -195,7 +197,7 @@ function game_clear(){
     if(dialog0 == true){
         let name = prompt("名前は？","量産型メロス");
         let f = d.createElement('iframe');
-        f.src = `https://script.google.com/macros/s/AKfycbysuE5m1tbH_UA14htS6IiKH55ksiud70SEtXEJ8vpq5ksqRCbPXc1DTOfrRa9VQjNJ/exec?rec=${timerecord.join('.')}&time=${finishtime.join('-')}&name=${name}`;
+        f.src = `https://script.google.com/macros/s/AKfycbysuE5m1tbH_UA14htS6IiKH55ksiud70SEtXEJ8vpq5ksqRCbPXc1DTOfrRa9VQjNJ/exec?rec=${timerecord.join(':')}&time=${finishtime.join('-')}&name=${name}&recm=${record}`;
         f.style.width = "0px";
         f.style.height = "0px";
         d.body.appendChild(f);
@@ -204,6 +206,7 @@ function game_clear(){
     game_pause();
 }
 function game_over(){
+    new Audio("../audio/fail.mp3").play();
     alert("ゲームオーバー！");
     setup();
 }

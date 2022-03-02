@@ -212,7 +212,11 @@ main {
                     background-color: #000;
                     width: 3.5vw;
                     height: 3.5vw;
-                    transition: background-color 300ms linear 0ms;
+                    transition: background-color 100ms linear 0ms, transform 100ms linear 0ms;
+                    &:hover {
+                        cursor: pointer;
+                        transform: scale(1.25);
+                    }
                     &.off {
                         background-color: #000;
                     }
