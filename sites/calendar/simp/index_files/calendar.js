@@ -6,6 +6,7 @@ function alter(){
   bgcol01 = fm.bgcolor01.value;
   bgcol02 = fm.bgcolor02.value;
   bgcol03 = fm.bgcolor03.value;
+  bgcol04 = fm.bgcolor04.value;
   wdh01 = fm.wdh01.value;
   dd = new Date(yy,mm,1);
   ll = new Date(yy,mm+1,0);
@@ -37,7 +38,8 @@ function alter(){
     data = data+'<td style="border-top:1px solid '+bgcol02+';border-left:1px solid '+bgcol02+'"';
     co='';
     if((k > 0) && (k <= ld)){
-      if(eval("fm.D"+k+".checked")) co = ' bgcolor="'+bgcol01+'"';
+      if(eval("fm.D"+k+"[0].checked")) co = ' bgcolor="'+bgcol04+'"';
+      if(eval("fm.D"+k+"[1].checked")) co = ' bgcolor="'+bgcol01+'"';
     }
     data = data+co;
     data = data +'>';

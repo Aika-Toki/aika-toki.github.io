@@ -11,6 +11,10 @@ body{
 	text-align:center;
 }
 
+label {
+  user-select: none;
+}
+
 .disabled {
   display: none;
 }
