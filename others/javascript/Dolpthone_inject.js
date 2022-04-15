@@ -1,5 +1,6 @@
 subscribe();
 function subscribe() {
+    let video = document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
     video.addEventListener("ended", ()=>{
     console.log("DONE!");
     setTimeout(
