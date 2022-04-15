@@ -1,9 +1,11 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.210 alpha";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.211 alpha";
 startup();
 subscribe();
 function subscribe() {
     let video = document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
-    video.addEventListener("ended", ()=>{
+    video.addEventListener("ended", done);
+}
+function done(){
     console.log("DONE!");
     setTimeout(
         function () {
@@ -17,7 +19,6 @@ function subscribe() {
         },
         "3000"
     );
-    });
 }
 function next() {
     const caps = document.getElementsByClassName("u-list")[0].getElementsByTagName("li"); 
