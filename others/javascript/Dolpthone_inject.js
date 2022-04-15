@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.205";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.206";
 startup();
 subscribe();
 function subscribe() {
@@ -29,6 +29,11 @@ function next() {
             if (cl.contains("movie") && !cl.contains("supplement")) {
                 break;
             } else if (cl.contains("evaluation-test") || cl.contains("essay-test")) {
+                let notifsound = new Audio("https://aika-toki.github.io/others/library/NotiSound/002_3s.wav");
+                notifsound.play();
+                notifsound.addEventListener('ended',()=>{
+                    notifsound = "";
+                });
                 break;
             }
         }
