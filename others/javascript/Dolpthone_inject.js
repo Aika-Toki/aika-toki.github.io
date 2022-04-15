@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.208 beta";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.209 beta";
 startup();
 subscribe();
 function subscribe() {
@@ -50,7 +50,7 @@ function startup(){
     let patchtts = new SpeechSynthesisUtterance();
     patchtts.text = version_sentense;
     patchtts.lang = "en-US";
-    patchtts.rate = 1.5;
+    patchtts.rate = 1.3;
     patchtts.pitch = 1.2;
     patchsound.play()
     setTimeout(()=>{
