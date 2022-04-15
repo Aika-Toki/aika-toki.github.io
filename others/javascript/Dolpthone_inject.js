@@ -1,3 +1,4 @@
+const version = "0.2.200";
 subscribe();
 function subscribe() {
     let video = document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
@@ -35,4 +36,11 @@ function next() {
 
     caps[lastIndex].querySelector("a").click();
 }
-new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav').play();
+let version_sentense = `Dolpthone version ${version} has loaded.`;
+let patchsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav');
+let patchtts = new SpeechSynthesisUtterance();
+patchtts.text = version_sentense;
+patchsound.play()
+setTimeout(()=>{
+    window.speechSynthesis.speak(patchtts);
+},1000);
