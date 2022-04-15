@@ -15,7 +15,7 @@ function subscribe() {
         },
         "3000"
     );
-});
+    });
 }
 function next() {
     const caps = document.getElementsByClassName("u-list")[0].getElementsByTagName("li"); 
@@ -35,3 +35,4 @@ function next() {
 
     caps[lastIndex].querySelector("a").click();
 }
+new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav').play();
