@@ -32,4 +32,6 @@ function next() {
         }
         lastIndex += 1
     }
+
+    caps[lastIndex].querySelector("a").click();
 }
