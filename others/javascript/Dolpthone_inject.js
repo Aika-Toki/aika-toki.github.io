@@ -44,6 +44,8 @@ function startup(){
     let patchtts = new SpeechSynthesisUtterance();
     patchtts.text = version_sentense;
     patchtts.lang = "en-US";
+    patchtts.rate = 1.5;
+    patchtts.pitch = 1.2;
     patchsound.play()
     setTimeout(()=>{
         window.speechSynthesis.speak(patchtts);
