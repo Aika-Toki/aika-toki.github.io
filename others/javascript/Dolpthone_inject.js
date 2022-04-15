@@ -1,4 +1,4 @@
-const version = "0.2.200";
+let version = "0.2.200";
 subscribe();
 function subscribe() {
     let video = document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
@@ -43,4 +43,11 @@ patchtts.text = version_sentense;
 patchsound.play()
 setTimeout(()=>{
     window.speechSynthesis.speak(patchtts);
+    setTimeout(()=>{
+        version_sentense = undefined;
+        patchsound = undefined;
+        patchtts = undefined;
+        version = undefined;
+    },
+    20000);
 },1000);
