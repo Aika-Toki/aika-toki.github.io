@@ -1,4 +1,5 @@
-let version = "0.2.200";
+const window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.200";
+startup();
 subscribe();
 function subscribe() {
     let video = document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
@@ -36,18 +37,22 @@ function next() {
 
     caps[lastIndex].querySelector("a").click();
 }
-let version_sentense = `Dolpthone version ${version} has loaded.`;
-let patchsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav');
-let patchtts = new SpeechSynthesisUtterance();
-patchtts.text = version_sentense;
-patchsound.play()
-setTimeout(()=>{
-    window.speechSynthesis.speak(patchtts);
+function startup(){
+    let version = window_5209hbf298hew9jfiowg_Dolpthone_version;
+    let version_sentense = `Dolpthone version ${version} has loaded.`;
+    let patchsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav');
+    let patchtts = new SpeechSynthesisUtterance();
+    patchtts.text = version_sentense;
+    patchsound.play()
     setTimeout(()=>{
-        version_sentense = undefined;
-        patchsound = undefined;
-        patchtts = undefined;
-        version = undefined;
-    },
-    20000);
-},1000);
+        window.speechSynthesis.speak(patchtts);
+        setTimeout(()=>{
+            version_sentense = "";
+            patchsound = "";
+            patchtts = "";
+            version = "";
+            console.log("cache cleared.");
+        },
+        20000);
+    },1000);
+}
