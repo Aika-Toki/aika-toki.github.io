@@ -43,6 +43,7 @@ function startup(){
     let patchsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav');
     let patchtts = new SpeechSynthesisUtterance();
     patchtts.text = version_sentense;
+    patchtts.lang = "en-US";
     patchsound.play()
     setTimeout(()=>{
         window.speechSynthesis.speak(patchtts);
