@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.211 alpha";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.212";
 startup();
 subscribe();
 function subscribe() {
@@ -17,7 +17,7 @@ function done(){
         function () {
             subscribe();
         },
-        "3000"
+        "10000"
     );
 }
 function next() {
