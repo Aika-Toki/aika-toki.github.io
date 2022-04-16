@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.212";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.213 alpha";
 startup();
 subscribe();
 function subscribe() {
@@ -8,16 +8,18 @@ function subscribe() {
 function done(){
     console.log("DONE!");
     setTimeout(
-        function () {
+        ()=>{
             next();
+            console.log("Next")
         },
-        "1000"
+        1000
     );
     setTimeout(
-        function () {
+        ()=>{
             subscribe();
+            console.log("Subscribe")
         },
-        "10000"
+        10000
     );
 }
 function next() {
