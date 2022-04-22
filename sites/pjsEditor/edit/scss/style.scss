@@ -152,6 +152,16 @@ main {
         width: fit-content;
         margin: 0 auto;
 
+        &#review {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 4vw;
+            & div{
+                margin-left: 1vw;
+            }
+        }
+
         &#temperature {
             display: flex;
             flex-direction: column;
@@ -316,4 +326,23 @@ main {
 .loader {
     width: 150px;
     height: 150px;
+}
+
+#feelingArea {
+    flex-direction: column;
+    display: table-row;
+    height: 55px;
+    overflow: hidden;
+    & option {
+        font-size: 30px;
+        display: table-cell;
+        &:checked{
+            background: linear-gradient(var(--accent-color),var(--accent-color));
+            font-size: 35px;
+            filter:drop-shadow(0px 0px 2px #0008);
+            outline-style: none;
+            transition-property: background;
+            transition-duration: 300ms;
+        }
+    }
 }

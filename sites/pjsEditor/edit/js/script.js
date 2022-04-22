@@ -23,7 +23,7 @@ if (location.search !== '') {
     if (id == "" || id == undefined) {
         location.href = location.pathname;
     }
-    let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycbw6FSP1vn8KXKBl7Nt8wDuKPLzT_5kteFa-Z04FN6XpgnWE62aG9Eo_KnDlM4SSg-7DaQ/exec";
+    let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
     let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}`;
     const d = document;
     let wd = "日月火水木金土";
@@ -32,14 +32,14 @@ if (location.search !== '') {
     d.querySelector("#id").innerText = id;
     $.getJSON(jsonUrl, (data) => {
         let jsondata = data;
+        console.log(JSON.stringify(jsondata));
         d.querySelector("#targetArea").value = jsondata[0];
-        d.querySelector("#freeArea").value = jsondata[1];
         d.querySelector("#reviewArea").value = jsondata[2];
+        if(jsondata[1] != ""){
+            d.querySelector("#feelingArea").querySelector(`option[value=${jsondata[1]}]`).setAttribute('selected','');
+        }
         d.querySelector("#tempArea").value = jsondata[3];
         tempfix();
-        if(jsondata[4]=="◯"){
-            d.querySelector("#attendanceArea").setAttribute("checked","");
-        }
 
         d.querySelector("#loadingCover").classList.add("hidden");
         setTimeout(()=>{
@@ -103,20 +103,14 @@ function submit() {
     d.querySelector("#loadingCover").querySelector("h2").innerText = "Saving...";
     d.querySelector("#loadingCover").classList.remove("hidden");
     let tar = d.querySelector("#targetArea").value,
-    free = d.querySelector("#freeArea").value,
+    feeling = d.querySelector("#feelingArea").value,
     review = d.querySelector("#reviewArea").value,
-    temperature = d.querySelector("#tempArea").value,
-    att = d.querySelector("#attendanceArea").checked;
+    temperature = d.querySelector("#tempArea").value;
     tar = tar.replaceAll("\n","<break>");
-    free = free.replaceAll("\n","<break>");
     review = review.replaceAll("\n","<break>");
-    if(att == true){
-        att = "◯";
-    } else {
-        att = "";
-    }
-    let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycbw6FSP1vn8KXKBl7Nt8wDuKPLzT_5kteFa-Z04FN6XpgnWE62aG9Eo_KnDlM4SSg-7DaQ/exec";
-    let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}&w=1&ta=${tar}&f=${free}&r=${review}&te=${temperature}&a=${att}`;
+
+    let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
+    let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}&w=1&ta=${tar}&r=${review}&f=${feeling}&te=${temperature}`;
     $.getJSON(jsonUrl, (data)=>{
         location.reload();
     }

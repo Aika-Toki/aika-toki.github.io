@@ -187,6 +187,24 @@ main div {
   margin: 0 auto;
 }
 
+main div#review {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-left: 4vw;
+}
+
+main div#review div {
+  margin-left: 1vw;
+}
+
 main div#temperature {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -390,5 +408,33 @@ main div textarea:focus-visible {
 .loader {
   width: 150px;
   height: 150px;
+}
+
+#feelingArea {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: table-row;
+  height: 55px;
+  overflow: hidden;
+}
+
+#feelingArea option {
+  font-size: 30px;
+  display: table-cell;
+}
+
+#feelingArea option:checked {
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--accent-color)), to(var(--accent-color)));
+  background: linear-gradient(var(--accent-color), var(--accent-color));
+  font-size: 35px;
+  -webkit-filter: drop-shadow(0px 0px 2px #0008);
+          filter: drop-shadow(0px 0px 2px #0008);
+  outline-style: none;
+  -webkit-transition-property: background;
+  transition-property: background;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
 }
 /*# sourceMappingURL=style.css.map */
