@@ -1,4 +1,5 @@
 let urlParam, param, paramArray, paramItem, year, month, date, id;
+const JSONURLBASED = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
 let randcolor = `hsl(${Math.floor(Math.random()*360)},70%,40%)`
 document.querySelector("html").style.setProperty('--accent-color', randcolor);
 let cookies = document.cookie.split("; ");
@@ -23,7 +24,7 @@ if (location.search !== '') {
     if (id == "" || id == undefined) {
         location.href = location.pathname;
     }
-    let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
+    let jsonUrlBase = JSONURLBASED;
     let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}`;
     const d = document;
     let wd = "日月火水木金土";
@@ -109,7 +110,7 @@ function submit() {
     tar = tar.replaceAll("\n","<break>");
     review = review.replaceAll("\n","<break>");
 
-    let jsonUrlBase = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
+    let jsonUrlBase = JSONURLBASED;
     let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}&w=1&ta=${tar}&r=${review}&f=${feeling}&te=${temperature}`;
     $.getJSON(jsonUrl, (data)=>{
         location.reload();
