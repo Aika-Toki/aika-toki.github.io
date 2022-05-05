@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas tester</title>
+    <style>
+        canvas{
+            border: solid 2px black;
+            height: 50vh;
+        }
+        textarea{
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+            color: white;
+        }
+        div#wh{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <br>
+    <div id="wh">
+        <input type="number" id="width">
+        <label>x</label>
+        <input type="number" id="height">
+    </div>
+    <textarea oninput="draw()"></textarea>
+    <script id="background">
+        function draw(){
+            document.querySelector('script#main').remove();
+            let script = document.createElement('script');
+            script.id = "main";
+            script.innerHTML = `function drawmain(){const canvas = document.querySelector("canvas");const context = canvas.getContext('2d');canvas.setAttribute('width',document.querySelector("input#width").value);canvas.setAttribute('height',document.querySelector('input#height').value);${document.querySelector('textarea').value}}`;
+            document.body.appendChild(script);
+            drawmain();
+        }
+    </script>
+    <script id="main"></script>
+</body>
+</html>
