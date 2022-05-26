@@ -6,7 +6,7 @@ function login() {
     d.querySelector('input#pw').value = btoa(id);
     d.cookie = `id=${id};path=/sites/pjsEditor`;
     location.search = "";
-    location.pathname = "/sites/pjsEditor/edit";
+    // location.pathname = "/sites/pjsEditor/edit";
 }
 let cookies = document.cookie.split("; ");
 let cookieItem, cookieArray = [];
