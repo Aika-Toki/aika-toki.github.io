@@ -3,6 +3,7 @@ d.querySelector('body').style.backgroundImage = `url(./media/background/bg${Math
 d.querySelector("#login").addEventListener("click",login,false);
 function login() {
     let id = d.querySelector("input#id").value;
+    d.querySelector('input#pw').value = btoa(id);
     d.cookie = `id=${id};path=/sites/pjsEditor`;
     location.pathname = "/sites/pjsEditor/edit";
 }
