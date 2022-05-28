@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チーム分け</title>
+    <link rel="stylesheet" href="./scss/style.css">
+</head>
+<body>
+    <div id="control" class="front">
+        <div id="name">
+            <ul id="names"></ul>
+            <div>
+                <input type="text" name="name" id="nameinput" placeholder="PLAYER">
+                <input type="button" value="追加" id="add">
+            </div>
+            <input type="button" value="実行" id="run">
+        </div>
+    </div>
+    <div id="result">
+        <label id="mapname">MAP</label>
+        <div id="teamv">
+            <div id="teama">
+                <label>ATTACKER</label>
+                <ul></ul>
+            </div>
+            <div id="teamb">
+                <label>DEFENDER</label>
+                <ul></ul>
+            </div>
+        </div>
+        <input type="button" value="again" id="again">
+        <label for="again" id="againbtn">AGAIN</label>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>

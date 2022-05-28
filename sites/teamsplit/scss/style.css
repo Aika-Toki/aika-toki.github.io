@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+}
+
+.front {
+  z-index: 90;
+}
+
+div#control {
+  position: fixed;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div#control #name {
+  width: 50vw;
+  height: 80vh;
+  margin: auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+div#control #name ul {
+  background-color: #ccc;
+  width: 50vw;
+  height: 70vh;
+}
+
+div#control #name > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+div#control #name input {
+  height: 2vh;
+}
+
+div#control #name input#nameinput {
+  width: 50vw;
+  font-size: 25pt;
+}
+
+div#result {
+  position: fixed;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #bbbbbb;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div#result > label#mapname {
+  color: #fff;
+  top: 3vh;
+  position: absolute;
+  font-size: 60pt;
+  -webkit-filter: drop-shadow(1px 1px 2px #000);
+          filter: drop-shadow(1px 1px 2px #000);
+}
+
+div#result #teama > label {
+  color: #e15555;
+  font-size: 30pt;
+  -webkit-filter: drop-shadow(1px 1px 2px #000);
+          filter: drop-shadow(1px 1px 2px #000);
+  background-color: #0002;
+  padding: 1vh 3vw;
+}
+
+div#result #teamb > label {
+  color: #78def2;
+  font-size: 30pt;
+  -webkit-filter: drop-shadow(1px 1px 2px #000);
+          filter: drop-shadow(1px 1px 2px #000);
+  background-color: #0002;
+  padding: 1vh 3vw;
+}
+
+div#result #teamv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 60vw;
+}
+
+div#result #teamv ul {
+  color: #fff;
+  font-size: 25pt;
+  -webkit-filter: drop-shadow(1px 1px 2px #000);
+          filter: drop-shadow(1px 1px 2px #000);
+  background-color: #0002;
+  padding: 1vh 3vw;
+}
+
+div#result #teamv > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  height: 70vh;
+}
+
+div#result #again {
+  display: none;
+}
+
+div#result #againbtn {
+  padding: 1vh 3vw;
+  background-color: #228a76;
+  color: #fff;
+  -webkit-filter: drop-shadow(1px 1px 2px #000);
+          filter: drop-shadow(1px 1px 2px #000);
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 20px 60px;
+  border-radius: 999px;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+  -webkit-box-shadow: 0 0 0 2em transparent;
+          box-shadow: 0 0 0 2em transparent;
+  -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 white;
+            box-shadow: 0 0 0 0 white;
+    font-size: 22px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 white;
+            box-shadow: 0 0 0 0 white;
+    font-size: 22px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
