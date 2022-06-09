@@ -235,17 +235,61 @@ main {
             }
         }
 
-        &#savepls {
+        &#save {
+            margin-left: 5vw;
             display: flex;
-            flex-direction: row;
-            color: var(--accent-color);
-            opacity: 0;
-            transform: translateY(-10px);
-
-            &.visible{
-                transform: translateY(0px);
-                opacity: 1;
-                transition: all 300ms linear 0ms;
+            @include sp {
+                flex-direction: column;
+            }
+            &>#savenotice {
+                margin-left: 1vw;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                color: var(--accent-color);
+                opacity: 0;
+                transform: translateY(-10px);
+                font-size: calc(18em / 16);
+    
+                &>span{
+                    line-height: 50px;
+                }
+    
+                &>i{
+                    letter-spacing: 0.6em;
+                    line-height: 50px;
+                }
+    
+                &.visible{
+                    transform: translateY(0px);
+                    opacity: 1;
+                    transition: all 300ms linear 0ms;
+                }
+            }
+            &>#submitbtn {
+                width: 5vw;
+                height: 50px;
+                background-color: var(--accent-color);
+                color: #fff;
+                border-style: solid;
+                border-width: 2px;
+                border-radius: 5px;
+                border-color: #ddd;
+                transition-property: box-shadow,transform;
+                transition-duration: 300ms;
+                box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+                font-size: 16px;
+                line-height: 16px;
+                font-family: $def-font;
+                user-select: none;
+                @include sp {
+                    width: 25vw;
+                }
+                &:hover {
+                    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+                    transform: translateY(4px);
+                    cursor: pointer;
+                }
             }
         }
 
@@ -311,32 +355,7 @@ main {
     }
 }
 
-#submitbtn {
-    margin-left: 5vw;
-    width: 5vw;
-    height: 50px;
-    background-color: var(--accent-color);
-    color: #fff;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 5px;
-    border-color: #ddd;
-    transition-property: box-shadow,transform;
-    transition-duration: 300ms;
-    box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    line-height: 16px;
-    font-family: $def-font;
-    user-select: none;
-    @include sp {
-        width: 25vw;
-    }
-    &:hover {
-        box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
-        transform: translateY(4px);
-        cursor: pointer;
-    }
-}
+
 .loader {
     width: 150px;
     height: 150px;
@@ -345,11 +364,17 @@ main {
 #feelingArea {
     flex-direction: column;
     display: table-row;
+    @include sp {
+        display: block;
+    }
     height: 55px;
     overflow: hidden;
     & option {
         font-size: 30px;
         display: table-cell;
+        @include sp {
+            display: table-cell;
+        }
         &:checked{
             background: linear-gradient(var(--accent-color),var(--accent-color));
             font-size: 35px;

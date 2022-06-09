@@ -1,5 +1,8 @@
 let urlParam, param, paramArray, paramItem, year, month, date, id;
 const d = document;
+//*debug*//
+d.cookie = `id=1OiRDYPWloHROvSB2xVKcYg9bdsLCMSunpvH4qgVVclc`;
+//*DEBUG//
 const JSONURLBASED = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
 let randcolor = `hsl(${Math.floor(Math.random()*360)},70%,40%)`
 d.querySelector("html").style.setProperty('--accent-color', randcolor);
@@ -73,7 +76,7 @@ d.querySelector('#reviewArea').addEventListener("change",savepls);
 d.querySelector('#feelingArea').addEventListener("change",savepls);
 
 function savepls() {
-    d.querySelector('#savepls').className = "visible";
+    d.querySelector('#savenotice').className = "visible";
 }
 
 function tempfix() {

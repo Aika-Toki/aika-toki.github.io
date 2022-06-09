@@ -293,7 +293,25 @@ main div#temperature input[type="checkbox"]:checked ~ label > i::after {
   color: var(--accent-color);
 }
 
-main div#savepls {
+main div#save {
+  margin-left: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 920px) {
+  main div#save {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+main div#save > #savenotice {
+  margin-left: 1vw;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,14 +323,64 @@ main div#savepls {
   opacity: 0;
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
+  font-size: calc(18em / 16);
 }
 
-main div#savepls.visible {
+main div#save > #savenotice > span {
+  line-height: 50px;
+}
+
+main div#save > #savenotice > i {
+  letter-spacing: 0.6em;
+  line-height: 50px;
+}
+
+main div#save > #savenotice.visible {
   -webkit-transform: translateY(0px);
           transform: translateY(0px);
   opacity: 1;
   -webkit-transition: all 300ms linear 0ms;
   transition: all 300ms linear 0ms;
+}
+
+main div#save > #submitbtn {
+  width: 5vw;
+  height: 50px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: #ddd;
+  -webkit-transition-property: -webkit-box-shadow,-webkit-transform;
+  transition-property: -webkit-box-shadow,-webkit-transform;
+  transition-property: box-shadow,transform;
+  transition-property: box-shadow,transform,-webkit-box-shadow,-webkit-transform;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
+  -webkit-box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Concert One", "Kaisei Opti";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media (max-width: 920px) {
+  main div#save > #submitbtn {
+    width: 25vw;
+  }
+}
+
+main div#save > #submitbtn:hover {
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+  cursor: pointer;
 }
 
 main div h2 {
@@ -386,47 +454,6 @@ main div textarea:focus-visible {
   opacity: 0;
 }
 
-#submitbtn {
-  margin-left: 5vw;
-  width: 5vw;
-  height: 50px;
-  background-color: var(--accent-color);
-  color: #fff;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 5px;
-  border-color: #ddd;
-  -webkit-transition-property: -webkit-box-shadow,-webkit-transform;
-  transition-property: -webkit-box-shadow,-webkit-transform;
-  transition-property: box-shadow,transform;
-  transition-property: box-shadow,transform,-webkit-box-shadow,-webkit-transform;
-  -webkit-transition-duration: 300ms;
-          transition-duration: 300ms;
-  -webkit-box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
-  line-height: 16px;
-  font-family: "Concert One", "Kaisei Opti";
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-@media (max-width: 920px) {
-  #submitbtn {
-    width: 25vw;
-  }
-}
-
-#submitbtn:hover {
-  -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
-  -webkit-transform: translateY(4px);
-          transform: translateY(4px);
-  cursor: pointer;
-}
-
 .loader {
   width: 150px;
   height: 150px;
@@ -442,9 +469,21 @@ main div textarea:focus-visible {
   overflow: hidden;
 }
 
+@media (max-width: 920px) {
+  #feelingArea {
+    display: block;
+  }
+}
+
 #feelingArea option {
   font-size: 30px;
   display: table-cell;
+}
+
+@media (max-width: 920px) {
+  #feelingArea option {
+    display: table-cell;
+  }
 }
 
 #feelingArea option:checked {
