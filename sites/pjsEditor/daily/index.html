@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./scss/style.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
-    <link rel="shortcut icon" href="../../media/icon/favicon256.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../media/icon/favicon256.png" type="image/x-icon">
     <link rel="stylesheet" href="./scss/loaders.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,28 +33,28 @@
             </a>
             <div id="account">
                 <div id="id"></div>
-                <!-- <div id="logout"><i class="fal fa-sign-out"></i></div> -->
+                <div id="logout"><i class="fal fa-sign-out"></i></div>
             </div>
         </div>
         <div id="datebar">
-            <!-- <div id="previousDate"><i class="fal fa-chevron-left"></i></div> -->
-            <div id="currentDate"></div>
-            <!-- <div id="nextDate"><i class="fal fa-chevron-right"></i></div> -->
+            <div id="previousDate"><i class="fal fa-chevron-left"></i></div>
+            <div id="currentDate"><label for="currentInput"></label><input type="date" id="currentInput"></div>
+            <div id="nextDate"><i class="fal fa-chevron-right"></i></div>
         </div>
     </header>
     <main>
         <div id="target">
             <h2>今日やること，やりたいこと，意気込み</h2>
-            <textarea id="targetArea"></textarea>
+            <code id="targetArea"></code>
         </div>
         <div id="freespace">
             <h2>今日できたこと，気づいたこと，思ったこと</h2>
-            <textarea id="reviewArea"></textarea>
+            <code id="reviewArea"></code>
         </div>
         <div id="review">
             <div>
                 <h2>今日の気分</h2>
-                <select id="feelingArea" size="2">
+                <select id="feelingArea" size="2" disabled>
                     <option value="enjoy">😆</option>
                     <option value="goingwell">🙂</option>
                     <option value="holdout">💪</option>
@@ -70,16 +70,13 @@
         <div id="temperature">
             <div>
                 <h2>体温</h2>
-                <input type="number" id="tempArea" step="0.1">
+                <input type="number" id="tempArea" step="0.1" disabled>
             </div>
         </div>
         <hr>
         <div id="save">
-            <button id="submitbtn">保存</button>
-            <div id="savenotice">
-                <i class="fa-regular fa-circle-exclamation"></i>
-                <span>保存されていません</span>
-            </div>
+            <button id="editbtn">編集</button>
+            <button id="weekbtn">この週を表示する</button>
         </div>
     </main>
     <script src="./js/script.js"></script>

@@ -1,7 +1,7 @@
 let urlParam, param, paramArray, paramItem, year, month, date, id;
 const d = document;
 //*debug*//
-d.cookie = `id=1OiRDYPWloHROvSB2xVKcYg9bdsLCMSunpvH4qgVVclc`;
+// d.cookie = `id=1OiRDYPWloHROvSB2xVKcYg9bdsLCMSunpvH4qgVVclc`;
 //*DEBUG//
 const JSONURLBASED = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
 let randcolor = `hsl(${Math.floor(Math.random()*360)},70%,40%)`
@@ -32,13 +32,14 @@ if (location.search !== '') {
     let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}&w=0`;
     let wd = "日月火水木金土";
     let datedata = new Date(year, month - 1, date);
-    d.querySelector("#currentDate").innerText = `${year}年${month}月${date}日(${wd.charAt(datedata.getDay())})`;
+    d.querySelector("#currentDate>label").innerText = `${year}年${month}月${date}日(${wd.charAt(datedata.getDay())})`;
+    d.querySelector('#currentInput').value = `${year}/${month}/${date}`;
     d.querySelector("#id").innerText = id;
     $.getJSON(jsonUrl, (data) => {
         let jsondata = data;
         console.log(JSON.stringify(jsondata));
-        d.querySelector("#targetArea").value = jsondata[0];
-        d.querySelector("#reviewArea").value = jsondata[2];
+        d.querySelector("#targetArea").innerText = jsondata[0];
+        d.querySelector("#reviewArea").innerText = jsondata[2];
         if(jsondata[1] != ""){
             d.querySelector("#feelingArea").querySelector(`option[value=${jsondata[1]}]`).setAttribute('selected','');
         }
@@ -65,15 +66,27 @@ if (location.search !== '') {
             location.search = `at=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
         }    }
 }
-// d.querySelector("#logout").addEventListener("click", logout, false);
-// d.querySelector("#previousDate").addEventListener("click", previousd, false);
-// d.querySelector("#nextDate").addEventListener("click", nextd, false);
-d.querySelector("#submitbtn").addEventListener("click", submit, false);
+d.querySelector("#logout").addEventListener("click", logout, false);
+d.querySelector("#previousDate").addEventListener("click", previousd, false);
+d.querySelector("#nextDate").addEventListener("click", nextd, false);
+d.querySelector("#editbtn").addEventListener("click", edit, false);
 d.querySelector('#tempArea').addEventListener("change", tempfix, false);
-d.querySelector('#tempArea').addEventListener("change", savepls, false);
-d.querySelector('#targetArea').addEventListener("change",savepls);
-d.querySelector('#reviewArea').addEventListener("change",savepls);
-d.querySelector('#feelingArea').addEventListener("change",savepls);
+// d.querySelector('#tempArea').addEventListener("change", savepls, false);
+// d.querySelector('#targetArea').addEventListener("change",savepls);
+// d.querySelector('#reviewArea').addEventListener("change",savepls);
+// d.querySelector('#feelingArea').addEventListener("change",savepls);
+d.querySelector("#currentInput").addEventListener("change", datechanged);
+d.querySelector("#weekbtn").addEventListener("click",()=>{
+    location.href = `./weekly/${location.search}`;
+});
+
+function datechanged(){
+    let date = d.querySelector("#currentInput").value.split('-');
+    for(let i = 0; i < date.length; i++){
+        date[i] = Number(date[i]);
+    }
+    location.search = `?at=${date.join('-')}`;
+}
 
 function savepls() {
     d.querySelector('#savenotice').className = "visible";
@@ -108,22 +121,7 @@ function nextd() {
     location.search = `at=${dates.join("-")}`;
 }
 
-function submit() {
-    d.querySelector("#loadingCover").style.overflow = "unset";
-    d.querySelector("#loadingCover").style.zIndex = "1";
-    d.querySelector("#loadingCover").querySelector("h2").innerText = "Saving...";
-    d.querySelector("#loadingCover").classList.remove("hidden");
-    let tar = d.querySelector("#targetArea").value,
-    feeling = d.querySelector("#feelingArea").value,
-    review = d.querySelector("#reviewArea").value,
-    temperature = d.querySelector("#tempArea").value;
-    tar = tar.replaceAll("\n","<break>");
-    review = review.replaceAll("\n","<break>");
-
-    let jsonUrlBase = JSONURLBASED;
-    let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}&w=1&ta=${tar}&r=${review}&f=${feeling}&te=${temperature}`;
-    $.getJSON(jsonUrl, (data)=>{
-        location.href = "../"+location.search;
-    }
-    );
+function edit() {
+    let href = "./edit/"+location.search;
+    location.href = href;
 }
