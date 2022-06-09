@@ -293,6 +293,28 @@ main div#temperature input[type="checkbox"]:checked ~ label > i::after {
   color: var(--accent-color);
 }
 
+main div#savepls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: var(--accent-color);
+  opacity: 0;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+main div#savepls.visible {
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  opacity: 1;
+  -webkit-transition: all 300ms linear 0ms;
+  transition: all 300ms linear 0ms;
+}
+
 main div h2 {
   margin: 0;
   -webkit-user-select: none;

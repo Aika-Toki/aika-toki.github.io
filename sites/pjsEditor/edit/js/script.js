@@ -1,8 +1,9 @@
 let urlParam, param, paramArray, paramItem, year, month, date, id;
+const d = document;
 const JSONURLBASED = "https://script.google.com/a/macros/nnn.ed.jp/s/AKfycby4ax8jU2dtozrw5Oe8b79lQ_tI7yCnDQoaKuWchxjIEMZST7bcOz9vr_DSY4GJJ0A8/exec";
 let randcolor = `hsl(${Math.floor(Math.random()*360)},70%,40%)`
-document.querySelector("html").style.setProperty('--accent-color', randcolor);
-let cookies = document.cookie.split("; ");
+d.querySelector("html").style.setProperty('--accent-color', randcolor);
+let cookies = d.cookie.split("; ");
     let cookieItem, cookieArray = [];
     for (let i = 0; i < cookies.length; i++) {
         cookieItem = cookies[i].split("=");
@@ -26,7 +27,6 @@ if (location.search !== '') {
     }
     let jsonUrlBase = JSONURLBASED;
     let jsonUrl = `${jsonUrlBase}?y=${year}&m=${month}&d=${date}&i=${id}`;
-    const d = document;
     let wd = "日月火水木金土";
     let datedata = new Date(year, month - 1, date);
     d.querySelector("#currentDate").innerText = `${year}年${month}月${date}日(${wd.charAt(datedata.getDay())})`;
@@ -62,18 +62,26 @@ if (location.search !== '') {
             location.search = `at=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
         }    }
 }
-document.querySelector("#logout").addEventListener("click", logout, false);
-document.querySelector("#previousDate").addEventListener("click", previousd, false);
-document.querySelector("#nextDate").addEventListener("click", nextd, false);
-document.querySelector("#submitbtn").addEventListener("click", submit, false);
-document.querySelector('#tempArea').addEventListener("change", tempfix, false);
+d.querySelector("#logout").addEventListener("click", logout, false);
+d.querySelector("#previousDate").addEventListener("click", previousd, false);
+d.querySelector("#nextDate").addEventListener("click", nextd, false);
+d.querySelector("#submitbtn").addEventListener("click", submit, false);
+d.querySelector('#tempArea').addEventListener("change", tempfix, false);
+d.querySelector('#targetArea').addEventListener("change",savepls);
+d.querySelector('#reviewArea').addEventListener("change",savepls);
+d.querySelector('#feelingArea').addEventListener("change",savepls);
+
+function savepls() {
+    d.querySelector('#savepls').className = "visible";
+}
 
 function tempfix() {
-    document.querySelector("#tempArea").value = Number(document.querySelector("#tempArea").value).toFixed(1); 
+    d.querySelector("#tempArea").value = Number(d.querySelector("#tempArea").value).toFixed(1);
+    savepls();
 }
 
 function logout() {
-    document.cookie = "id=;path=/sites/pjsEditor";
+    d.cookie = "id=;path=/sites/pjsEditor";
     location.pathname = "/sites/pjsEditor/login";
 }
 
@@ -98,7 +106,6 @@ function nextd() {
 }
 
 function submit() {
-    let d = document;
     d.querySelector("#loadingCover").style.overflow = "unset";
     d.querySelector("#loadingCover").style.zIndex = "1";
     d.querySelector("#loadingCover").querySelector("h2").innerText = "Saving...";

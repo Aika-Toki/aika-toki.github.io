@@ -235,6 +235,20 @@ main {
             }
         }
 
+        &#savepls {
+            display: flex;
+            flex-direction: row;
+            color: var(--accent-color);
+            opacity: 0;
+            transform: translateY(-10px);
+
+            &.visible{
+                transform: translateY(0px);
+                opacity: 1;
+                transition: all 300ms linear 0ms;
+            }
+        }
+
         & h2 {
             margin: 0;
             user-select: none;
