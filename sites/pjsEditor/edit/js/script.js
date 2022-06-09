@@ -67,6 +67,7 @@ d.querySelector("#previousDate").addEventListener("click", previousd, false);
 d.querySelector("#nextDate").addEventListener("click", nextd, false);
 d.querySelector("#submitbtn").addEventListener("click", submit, false);
 d.querySelector('#tempArea').addEventListener("change", tempfix, false);
+d.querySelector('#tempArea').addEventListener("change", savepls, false);
 d.querySelector('#targetArea').addEventListener("change",savepls);
 d.querySelector('#reviewArea').addEventListener("change",savepls);
 d.querySelector('#feelingArea').addEventListener("change",savepls);
@@ -77,7 +78,6 @@ function savepls() {
 
 function tempfix() {
     d.querySelector("#tempArea").value = Number(d.querySelector("#tempArea").value).toFixed(1);
-    savepls();
 }
 
 function logout() {
