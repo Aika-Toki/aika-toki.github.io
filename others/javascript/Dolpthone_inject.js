@@ -1,8 +1,10 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.214 ベータ";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.215 ベータ";
 startup();
 subscribe();
 function subscribe() {
-    let video = document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
+    let subsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/003_1s.wav');
+    subsound.play();
+    let video = window.top.document.querySelector('#modal-inner-iframe').contentDocument.querySelector('#video-player');
     video.addEventListener("ended", done);
 }
 function done(){
