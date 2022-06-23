@@ -15,7 +15,7 @@ for (let i = 0; i < cookies.length; i++) {
     cookieArray[cookieItem[0]] = cookieItem[1];
 }
 if(cookieArray.id != undefined && cookieArray.id != ""){
-    location.pathname = "/sites/pjsEditor/daily/edit/"
+    location.pathname = "/sites/pjsEditor/daily/"
 }
 let userAgent = [window.navigator.userAgent.toLowerCase(),window.navigator.platform.toLowerCase()];
 if(userAgent[0].indexOf('msie') != -1 || userAgent[0].indexOf('trident') != -1) {
