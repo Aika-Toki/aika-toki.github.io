@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウンター</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000022;
+        }
+        #counter{
+            width: 60vw;
+            height: 30vh;
+            font-size: 5em;
+            color: #008888;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 3px 3px 6px #fffa;
+            flex-direction: column;
+        }
+        @keyframes button_hover {
+            0%{
+                box-shadow: 0 0 0 0 #fff;
+            }
+        }
+        @keyframes count {
+            0%{
+                transform: scaleY(1.2);
+            }
+        }
+        button{
+            width: 20vw;
+            height: 5vh;
+            margin: 5px;
+            background-color: #aaa;
+            border-radius: 5px;
+            border-style: solid;
+            box-shadow: 0 0 0 0.5em transparent;
+            font-size: 0.4em;
+        }
+        button:hover{
+            animation: 400ms linear 0ms 1 normal forwards running button_hover;
+        }
+        td {
+            transform: scaleY(1);
+        }
+        td.anim {
+            animation: 200ms linear 0ms 1 normal forwards running count;
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">
+        <table>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
+        <button id="plus">+1</button>
+        <button id="reset">RESET</button>
+    </div>
+    <script>
+        document.querySelector("#plus").addEventListener('click',plus);
+        document.querySelector('#reset').addEventListener('click',reset);
+        function plus(){
+            let counterel = document.querySelectorAll('td');
+            let countval = [];
+            for(let i = 0; i < document.querySelectorAll('td').length; i++){
+                countval.push(counterel[i].innerText);
+            }
+            let pluszero = [];
+            for(let i = 0; i < (document.querySelectorAll('td').length-1); i++){
+                pluszero.push('0');
+            }
+            pluszero = String(pluszero.join(''));
+            let countvala = countval.join('');
+            console.log(countvala);
+            countvala = Number(countvala)+1;
+            countvala = `${pluszero}${countvala}`.substr((0-document.querySelectorAll('td').length)).split('');
+            console.log(countvala)
+            for(let i = 0; i < document.querySelectorAll('td').length; i++){
+                if(countval[i] != countvala[i]){
+                    anim(i);
+                }
+                document.querySelectorAll('td')[i].innerText = countvala[i];
+            }
+        }
+        function anim(at){
+            document.querySelectorAll('td')[at].className = '';
+            document.querySelectorAll('td')[at].className = 'anim';
+            ananim(at);
+        }
+        function ananim(at){
+            setTimeout(
+                ()=>{
+                    document.querySelectorAll('td')[at].className = '';
+                },
+                200
+            )
+        }
+        function reset(){
+            for(let i = 0; i < document.querySelectorAll('td').length; i++){
+                document.querySelectorAll('td')[i].innerText = "0";
+            }
+        }
+    </script>
+</body>
+</html>
