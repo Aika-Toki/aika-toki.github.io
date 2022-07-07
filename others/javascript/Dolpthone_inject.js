@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.215 ベータ";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.216 ベータ";
 startup();
 subscribe();
 function subscribe() {
@@ -25,7 +25,7 @@ function done(){
     );
 }
 function next() {
-    const caps = document.getElementsByClassName("u-list")[0].getElementsByTagName("li"); 
+    const caps = window.top.document.getElementsByClassName("u-list")[0].getElementsByTagName("li"); 
 
     let lastIndex = 0
     for (const item in caps) { 
