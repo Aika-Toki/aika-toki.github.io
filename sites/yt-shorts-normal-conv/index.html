@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" class="uk-background-default">
+    <head>
+        <title>Youtube Shorts Converter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css"/>
+        <style>
+            code {
+                word-break: break-all;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="uk-navbar-container">
+            <div class="uk-navbar-left">
+                <a href="javascript:void(0)" class="uk-navbar-item uk-logo">Youtube Shorts Converter</a>
+            </div>
+        </div>
+        <div class="uk-container">
+            <div class="uk-tile uk-tile-primary">
+                <article class="uk-article">
+                    <h1 class="uk-article-title">「Youtube Shorts Converter」は</h1>
+                    <p class="uk-article-meta">pcでShorts動画を再生するときに普通の動画表示にしてくれる。そんなブックマークです。</p>
+                </article>
+            </div>
+            <hr>
+            <h2>導入方法</h2>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title">1.</h3>
+                <p>
+                    WindowsはCtrl + D,
+                    MacはCommand + D
+                    でブックマークを追加する。
+                </p>
+            </div>
+            <div class="uk-card uk-card-default uk-card-body">
+                <h3 class="uk-card-title">2.</h3>
+                <p>
+                    追加したブックマークを編集する。
+                </p>
+            </div>
+            <div class="uk-card uk-card-secondary uk-card-body">
+                <h3 class="uk-card-title">3.</h3>
+                <p>アドレスを以下のコードに置き換える。<br>
+                    <code>
+                        javascript:(()=>{if(location.hostname=="www.youtube.com"&&location.pathname.includes("shorts")){let n=location.pathname.split('/')[2];location.href="//www.youtube.com/watch?v="+n;}})();
+                    </code>
+                </p>
+            </div>
+            <div class="uk-card uk-card-primary uk-card-body">
+                <h3 class="uk-card-title">4.</h3>
+                <h2>完了！</h2>
+            </div>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js" 
+                integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js" 
+                integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw==" crossorigin="anonymous"></script>
+    </body>
+</html>
