@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.216 ベータ";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.217 ベータ";
 startup();
 subscribe();
 function subscribe() {
@@ -16,10 +16,11 @@ function done(){
         },
         1000
     );
-    setTimeout(
+    let sub = setTimeout(
         ()=>{
             subscribe();
-            console.log("Subscribe")
+            console.log("Subscribe");
+            clearTimeout(sub);
         },
         10000
     );
