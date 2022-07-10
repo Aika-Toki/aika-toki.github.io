@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antimatter Dimention</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="/others/library/SimplyfiedJS/0.0.1/SimplyfiedJS.min.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <h1>Antimatter Dimention Editor</h1>
+    <input id="savecode" type="text">
+    <div id="buttons">
+        <button id="load" onclick="load()">Load</button>
+        <button id="save">Save</button>
+    </div>
+    <hr>
+    <h3>Last Save Time</h3>
+    <input type="datetime-local" id="_lastsavetime">
+    <h3>Version</h3>
+    <input type="text" id="_version">
+    <h3>Moneys</h3>
+    <table>
+        <tr>
+            <th>反物質(AM)</th>
+            <td id="_antimatter"></td>
+        </tr>
+        <tr>
+            <th>無限ポイント(IP)</th>
+            <td id="_infinitypoint"></td>
+        </tr>
+        <tr>
+            <th>永遠ポイント(EP)</th>
+            <td id="_eternitypoint"></td>
+        </tr>
+        <tr>
+            <th>時間定理(TT)</th>
+            <td id="_timetheorems"></td>
+        </tr>
+    </table>
+</body>
+</html>
