@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.217 ベータ";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.218 ベータ";
 startup();
 subscribe();
 function subscribe() {
@@ -19,6 +19,7 @@ function done(){
     let sub = setTimeout(
         ()=>{
             subscribe();
+            reinject();
             console.log("Subscribe");
             clearTimeout(sub);
         },
@@ -70,4 +71,14 @@ function startup(){
         },
         20000);
     },1000);
+}
+function reinject(){
+    let p=document.querySelector('script#di');
+    if(p!=null){
+        document.querySelector('script#di').remove();
+    }
+    let e=document.createElement('script');
+    e.src="https://aika-toki.github.io/others/javascript/Dolpthone_inject.js";
+    e.id="di";
+    document.head.appendChild(e);
 }
