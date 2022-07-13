@@ -1,4 +1,7 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.218 ベータ";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.219 Beta";
+let swalsc = window.top.document.createElement('script');
+swalsc.src = "//cdn.jsdelivr.net/npm/sweetalert2@11";
+window.top.document.querySelector('script#di').before(swalsc);
 startup();
 subscribe();
 function subscribe() {
@@ -52,25 +55,10 @@ function next() {
 function startup(){
     let version = window_5209hbf298hew9jfiowg_Dolpthone_version;
     console.log('\u001b[33m[Dolpthone]Ver.'+version+' (re)loaded.');
-    let version_sentense = `ドルフォン，バージョン ${version} ，を適用しました`;
+    let version_sentense = `Dolpthone version ${version} has applied.`;
     let patchsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav');
-    let patchtts = new SpeechSynthesisUtterance();
-    patchtts.text = version_sentense;
-    patchtts.lang = "ja-JP";
-    patchtts.rate = 1.2;
-    patchtts.pitch = 0.8;
-    patchsound.play()
-    setTimeout(()=>{
-        window.speechSynthesis.speak(patchtts);
-        setTimeout(()=>{
-            version_sentense = "";
-            patchsound = "";
-            patchtts = "";
-            version = "";
-            console.log("cache cleared.");
-        },
-        20000);
-    },1000);
+    patchsound.play();
+    Swal.fire(version_sentense);
 }
 function reinject(){
     let p=document.querySelector('script#di');
