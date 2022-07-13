@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yjbot用お知らせエディタ</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <style>
+        textarea {
+            resize: none;
+            height: 20em !important;
+        }
+    </style>
+    <script src="//aika-toki.github.io/others/library/SimplyfiedJS/0.0.1/SimplyfiedJS.min.js"></script>
+</head>
+<body>
+    <h1>yjbot用お知らせエディタ</h1>
+    <hr>
+    <h3>タイトル</h3>
+    <input type="text" id="title">
+    <h3>日時</h3>
+    <input type="datetime-local" id="datetime">
+    <hr>
+    <h3>内容</h3>
+    <textarea id="content"></textarea>
+    <hr>
+    <button id="generate">生成</button>
+    <hr>
+    <textarea id="result"></textarea>
+    <script>
+        function first(){
+            let now = new Date();
+            now = [
+                now.getFullYear(),
+                now.getMonth()+1,
+                now.getDate(),
+                now.getHours(),
+                now.getMinutes()
+            ];
+            let now_month = String("0"+now[1]).substr(-2);
+            let now_date = String("0"+now[2]).substr(-2);
+            let now_hour = String("0"+now[3]).substr(-2);
+            let now_min = String("0"+now[4]).substr(-2);
+            dqs('#datetime').value = now[0]+"-"+now_month+"-"+now_date+"T"+now_hour+":"+now_min;
+        }
+        dqs('#generate').addEventListener('click',()=>{
+            let time = new Date(dqs('#datetime').value);
+            time = time.getTime();
+            time = Math.floor(time/1000);
+            let title = dqs("#title").value;
+            let text = dqs("#content").value;
+            let content = `@_.お知らせ希望 \n**📢【${title}】**|\|<t:${time}:d><t:${time}:t>\n\`\`\`\n${text}\n\`\`\``;
+            dqs('#result').value = content;
+        });
+    </script>
+    <script>
+        first();
+    </script>
+</body>
+</html>
