@@ -1,4 +1,4 @@
-window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.219 Beta";
+window_5209hbf298hew9jfiowg_Dolpthone_version = "0.2.220 Beta";
 let swalsc = window.top.document.createElement('script');
 swalsc.src = "//cdn.jsdelivr.net/npm/sweetalert2@11";
 window.top.document.querySelector('script#di').before(swalsc);
@@ -58,7 +58,7 @@ function startup(){
     let version_sentense = `Dolpthone version ${version} has applied.`;
     let patchsound = new Audio('https://aika-toki.github.io/others/library/NotiSound/001_2s.wav');
     patchsound.play();
-    Swal.fire(version_sentense);
+    window.opener.Swal.fire(version_sentense);
 }
 function reinject(){
     let p=document.querySelector('script#di');
