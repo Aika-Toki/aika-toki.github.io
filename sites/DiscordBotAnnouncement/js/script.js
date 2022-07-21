@@ -7,6 +7,7 @@ async function setup(){
     }
     console.log(l);
     document.querySelector('#article').innerHTML = marked.parse(b642str(l.md));
+    dqs('title').innerText = dqs('#article h2').textContent+dqs('#article div').textContent;
 }
 function uint8ArrToStr(uint8Arr) {
     let encodedStr = String.fromCharCode.apply(null, uint8Arr),
