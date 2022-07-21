@@ -42,6 +42,7 @@
     <textarea id="result"></textarea>
     <textarea id="resultm"></textarea>
     <textarea id="resultmdl"></textarea>
+    <button id="mdlcopy">copy</button>
     <script>
         function first(){
             let now = new Date();
@@ -77,7 +78,7 @@
             dqs('#result').value = textcontent;
             dqs('#resultm').value = marpcontent;
             let c = `## 📢${title}\n\n<div style="text-align:right">@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}</div>\n\n---\n\n${text}`;
-            mdlgen(c);
+            mdlgen(c,title);
         });
         dqs('#add').addEventListener('click',()=>{
             if(!dqs('#content').value.includes(':-:')){
@@ -86,6 +87,9 @@
             dqs('#content').value += `|${dqs('#target').value}|${dqs('#ucontent').value}|\n`;
             dqs('#target').value = "";
             dqs('#ucontent').value = "";
+        });
+        dqs('#mdlcopy').addEventListener('click',()=>{
+            navigator.clipboard.writeText(dqs('#resultmdl').value);
         });
     </script>
     <script>
