@@ -76,7 +76,7 @@
             let textcontent = `@_.お知らせ希望 \n**📢【${title}】**|\|<t:${time}:d><t:${time}:t>\n\`\`\`\n${text}\n\`\`\``;
             dqs('#result').value = textcontent;
             dqs('#resultm').value = marpcontent;
-            let c = `## 📢${title}\n\n<div style="text-align:right">@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}</div>\n\n${text}`;
+            let c = `## 📢${title}\n\n<div style="text-align:right">@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}</div>\n---\n${text}`;
             mdlgen(c);
         });
         dqs('#add').addEventListener('click',()=>{
