@@ -42,7 +42,7 @@ function randomteam(names=[],teams=[]){
         let rand = Math.floor(Math.random()*teams.length);
         output[teams[rand]].push(names[i]);
     }
-    let map = ['FRACTURE','BREEZE','ICEBOX','BIND','HAVEN','SPLIT','ASCENT'];
+    let map = ['FRACTURE','BREEZE','ICEBOX','BIND','HAVEN','SPLIT','ASCENT',"PEARL"];
     let random = Math.floor(Math.random()*map.length);
     output['map'] = map[random];
     return output;
