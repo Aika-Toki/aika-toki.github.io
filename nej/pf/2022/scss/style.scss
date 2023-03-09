@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+html, body{
+  overflow: hidden;
+  height: 100vh;
+  font-family: 'Noto Sans JP',sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  body{
+    --primary:var(--dark-primary);
+    --onPrimary:var(--dark-onPrimary);
+    --primaryContainer:var(--dark-primaryContainer);
+    --onPrimaryContainer:var(--dark-onPrimaryContainer);
+    --secondary:var(--dark-secondary);
+    --onSecondary:var(--dark-onSecondary);
+    --secondaryContainer:var(--dark-secondaryContainer);
+    --onSecondaryContainer:var(--dark-onSecondaryContainer);
+    --tertiary:var(--dark-tertiary);
+    --onTertiary:var(--dark-onTertiary);
+    --tertiaryContainer:var(--dark-tertiaryContainer);
+    --onTertiaryContainer:var(--dark-onTertiaryContainer);
+    --error:var(--dark-error);
+    --errorContainer:var(--dark-errorContainer);
+    --onError:var(--dark-onError);
+    --onErrorContainer:var(--dark-onErrorContainer);
+    --background:var(--dark-background);
+    --onBackground:var(--dark-onBackground);
+    --surface:var(--dark-surface);
+    --onSurface:var(--dark-onSurface);
+    --surfaceVariant:var(--dark-surfaceVariant);
+    --onSurfaceVariant:var(--dark-onSurfaceVariant);
+    --outline:var(--dark-outline);
+    --inverseOnSurface:var(--dark-inverseOnSurface);
+    --inverseSurface:var(--dark-inverseSurface);
+    --inversePrimary:var(--dark-inversePrimary);
+    --shadow:var(--dark-shadow);
+  }
+}
+@mixin dark{
+  @media(prefers-color-scheme:dark){
+    @content;
+  }
+}
+@mixin light{
+  @media(prefers-color-scheme:light){
+    @content;
+  }
+}
+@media (prefers-color-scheme:light){
+  body{
+    --primary:var(--light-primary);
+    --onPrimary:var(--light-onPrimary);
+    --primaryContainer:var(--light-primaryContainer);
+    --onPrimaryContainer:var(--light-onPrimaryContainer);
+    --secondary:var(--light-secondary);
+    --onSecondary:var(--light-onSecondary);
+    --secondaryContainer:var(--light-secondaryContainer);
+    --onSecondaryContainer:var(--light-onSecondaryContainer);
+    --tertiary:var(--light-tertiary);
+    --onTertiary:var(--light-onTertiary);
+    --tertiaryContainer:var(--light-tertiaryContainer);
+    --onTertiaryContainer:var(--light-onTertiaryContainer);
+    --error:var(--light-error);
+    --errorContainer:var(--light-errorContainer);
+    --onError:var(--light-onError);
+    --onErrorContainer:var(--light-onErrorContainer);
+    --background:var(--light-background);
+    --onBackground:var(--light-onBackground);
+    --surface:var(--light-surface);
+    --onSurface:var(--light-onSurface);
+    --surfaceVariant:var(--light-surfaceVariant);
+    --onSurfaceVariant:var(--light-onSurfaceVariant);
+    --outline:var(--light-outline);
+    --inverseOnSurface:var(--light-inverseOnSurface);
+    --inverseSurface:var(--light-inverseSurface);
+    --inversePrimary:var(--light-inversePrimary);
+    --shadow:var(--light-shadow);
+  }
+}
+.container {
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vw);
+  scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh;
+}
+section {
+  opacity: 0.95;
+  scroll-snap-align: center;
+  width: 95vw;
+  height: 95vh;
+  margin: 2.5vh 2.5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+  background: var(--background);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // Default Color
+  & *{
+    color: var(--onSurface);
+  }
+  & td{
+    border-bottom: 1px solid var(--onSurface);
+    padding: 25px;
+    &:first-child{
+      border-right: 1px solid var(--onSurface);
+    }
+  }
+  // Default Font Size
+
+  & h1{
+    font-size: 6em;
+  }
+  & h3{
+    font-size: 4em;
+  }
+  & header{
+    font-size: 1.3em;
+  }
+  & footer{
+    font-size: 1.3em;
+  }
+  & p{
+    font-size: 3em;
+    margin: 0.3em;
+  }
+  & td{
+    font-size: 2.5em;
+  }
+
+  // <-- /Default Font Size -->
+  &::before{
+    content: "";
+    position: absolute;
+    width: 95vw;
+    height: 95vh;
+
+    background: inherit;
+    z-index: -1;
+  }
+  &#section{
+    &01{
+      background-size: cover;
+      @include dark(){
+        background: linear-gradient(#0008,#0008),url(../Assets/Yuu1726IMGL0044_TP_V.jpg);
+      }
+      @include light(){
+        background: linear-gradient(#fff6,#fff6),url(../Assets/Yuu1726IMGL0044_TP_V.jpg);
+      }
+      & h1{
+        color: var(--primary);
+      }
+      & h3{
+        color: var(--onSurfaceVariant);
+      }
+    }
+    &02{
+      &>div{
+        width: 100%;
+        height: 100%;
+        &>div{
+          position: absolute;
+        }
+      }
+      & table{
+        color: var(--onSurface);
+      }
+    }
+  }
+}
+header, footer{
+  font-size: .45em;
+  letter-spacing: 1px;
+  position: absolute;
+  color: var(--surfaceVariant);
+}
+header{
+  top: 30px;
+}
+footer{
+  bottom: 30px;
+}
+.splitL{
+  all: initial;
+  width: var(--split, 50%);
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+}
+.splitLl{
+  width: calc(100% - var(--split, 50%));
+  left: var(--split);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.splitL>figure{
+  all: initial;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex: auto;
+  margin: 0;
+}
+.background{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  background-blend-mode: overlay;
+}
+.menu{
+  z-index: 4;
+  position: fixed;
+  top: 0;
+}

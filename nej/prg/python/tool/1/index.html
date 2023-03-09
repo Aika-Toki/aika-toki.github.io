@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザーエージェントをコピーするやつ</title>
+</head>
+<body>
+    <input type="text" name="" id="ua" style="position: fixed;z-index: -10;">
+    <input type="button" value="ユーザーエージェントをコピー" id="cp" style="border:none;width:100vw;height:100vh;position:fixed;z-index:1;">
+    <script>
+        window.addEventListener('load',()=>{
+            document.querySelector('#cp').addEventListener('click',()=>{
+                document.querySelector('#ua').select();
+                document.execCommand("copy");
+                setTimeout(()=>{
+                    window.close();
+                },1);
+            });
+            document.querySelector('#ua').value = navigator.userAgent;
+        });
+
+    </script>
+</body>
+</html>

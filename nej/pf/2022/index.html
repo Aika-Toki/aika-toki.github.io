@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="/others/library/CssReset/normalize.css">
+  <link rel="stylesheet" href="scss/style.css">
+</head>
+
+<body>
+  <div class="menu">
+    <select id="background" onchange="bgchange()">
+      <option value="Background/arnaud-steckle-dpzp54GkIGI-unsplash.jpg">dpzp54GkIGI</option>
+      <option value="Background/damian-markutt-eCkmZ7f8oWY-unsplash.jpg">eCkmZ7f8oWY</option>
+      <option value="Background/erik-mclean-CKJYAcSc3WE-unsplash.jpg">CKJYAcSc3WE</option>
+      <option value="Background/krisztian-tabori-nZGNVOvEYio-unsplash.jpg">nZGNVOvEYio</option>
+      <option value="Background/maud-bocquillod-bj7EB5my6og-unsplash.jpg">bj7EB5my6og</option>
+      <option value="Background/pawel-czerwinski-yn97LNy0bao-unsplash.jpg">yn97LNy0bao</option>
+      <option value="Background/yuriy-chemerys-M-52SPN77Bg-unsplash.jpg">52SPN77Bg</option>
+      <option value="Background/zdenek-machacek-hxXtAZXqGWs-unsplash.jpg">hxXtAZXqGWs</option>
+    </select>
+  </div>
+  <div class="background"></div>
+  <div class="container">
+    <section id="section01">
+      <h1>Portfolio</h1>
+      <h3>Aika Toki</h3>
+    </section>
+    <section id="section02">
+      <header>Portfolio</header>
+      <div>
+        <div style="--split:20%;" class="splitL">
+          <figure style="background-image: url(Assets/icon.png);"></figure>
+        </div>
+        <div style="--split:20%" class="splitLl">
+          <h1>About Me</h1>
+          <table>
+            <thead>
+              <tr>
+                <th style="text-align:center"></th>
+                <th style="text-align:center"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="text-align:center">Name</td>
+                <td style="text-align:center">Aika Toki</td>
+              </tr>
+              <tr>
+                <td style="text-align:center">Affiliation</td>
+                <td style="text-align:center">N High Sch. Nagoya Campus</td>
+              </tr>
+              <tr>
+                <td style="text-align:center">Skills Acquired</td>
+                <td style="text-align:center">Javascript, SCSS, Node.js, MongoDB</td>
+              </tr>
+              <tr>
+                <td style="text-align:center">For Fut</td>
+                <td style="text-align:center">Game/Service Production</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <footer>by <strong>Aika Toki</strong></footer>
+    </section>
+    <section id="section03" class="header footer">
+      <header>Portfolio</header>
+      <h1>Self Promotion</h1>
+      <p>イベント当日に発覚したUIのズレを</p>
+      <p>イベント開始前の1時間弱で修正した。</p>
+      <footer>by <strong>Aika Toki</strong></footer>
+    </section>
+    <section id="section04">
+      <header>Portfolio</header>
+      <h1></h1>
+      <footer>by <strong>Aika Toki</strong></footer>
+    </section>
+    <section id="templete" style="display: none;">
+      <header>Portfolio</header>
+      <h1></h1>
+      <footer>by <strong>Aika Toki</strong></footer>
+    </section>
+  </div>
+  <script type="module"
+    src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.1.5/dist/cdn/material-dynamic-colors.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    setTimeout(() => {
+      bgchange();
+    }, 1000);
+  </script>
+</body>
+
+</html>

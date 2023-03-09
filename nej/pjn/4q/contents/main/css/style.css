@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Shippori+Mincho:wght@400;500;600;700;800&family=VT323&display=swap");
+html, body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background-color: rgba(204, 204, 204, 0.7490196078);
+}
+
+.bg_pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #a7caff;
+  z-index: -9000;
+}
+
+.Isometric {
+  background-image: linear-gradient(30deg, #07a4ff 12%, transparent 12.5%, transparent 87%, #07a4ff 87.5%, #07a4ff), linear-gradient(150deg, #07a4ff 12%, transparent 12.5%, transparent 87%, #07a4ff 87.5%, #07a4ff), linear-gradient(30deg, #07a4ff 12%, transparent 12.5%, transparent 87%, #07a4ff 87.5%, #07a4ff), linear-gradient(150deg, #07a4ff 12%, transparent 12.5%, transparent 87%, #07a4ff 87.5%, #07a4ff), linear-gradient(60deg, rgba(7, 164, 255, 0.4666666667) 25%, transparent 25.5%, transparent 75%, rgba(7, 164, 255, 0.4666666667) 75%, rgba(7, 164, 255, 0.4666666667)), linear-gradient(60deg, rgba(7, 164, 255, 0.4666666667) 25%, transparent 25.5%, transparent 75%, rgba(7, 164, 255, 0.4666666667) 75%, rgba(7, 164, 255, 0.4666666667));
+  background-size: 40px 70px;
+  z-index: -9000;
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#pageprogressbar > .bar {
+  background: #3787ff;
+}
+
+#locationprogress {
+  background: #9e846c;
+}
+#locationprogress > .bar {
+  background: #ffa500;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  height: 10vh;
+  z-index: 1;
+  background-color: #fff;
+  padding-top: 30px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom: 2px solid #ccc;
+}
+header > div {
+  display: flex;
+  flex-direction: column;
+}
+header > div#location > #text {
+  font-family: "VT323";
+}
+header > div#location > #text > i {
+  color: orange;
+}
+header > div#health.safe > #text > i {
+  color: limegreen;
+}
+header > div#health.safe #remininghealth {
+  color: limegreen;
+}
+header > div#health.safe #healthprogress {
+  background: #598358;
+}
+header > div#health.safe #healthprogress > .bar {
+  background: limegreen;
+}
+header > div#health.warn > #text > i {
+  color: gold;
+}
+header > div#health.warn #remininghealth {
+  color: gold;
+}
+header > div#health.warn #healthprogress {
+  background: #867f52;
+}
+header > div#health.warn #healthprogress > .bar {
+  background: gold;
+}
+header > div#health.danger > #text > i {
+  color: red;
+}
+header > div#health.danger #remininghealth {
+  color: red;
+}
+header > div#health.danger #healthprogress {
+  background: #6d3535;
+}
+header > div#health.danger #healthprogress > .bar {
+  background: red;
+}
+header > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+header > div > div > #barmain {
+  width: 25vw;
+  height: 1vh;
+  padding: 0 5px;
+}
+header > div > div > #barmain > .nanobar {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+header > div > div > #barmain > .nanobar > .bar {
+  border-radius: 10px;
+}
+header > div > div > i {
+  font-size: 28px;
+}
+header > div > div > p {
+  margin: 0;
+  font-size: 32px;
+  font-family: "VT323";
+}
+header > div > div > p#currentlocation {
+  color: orange;
+}
+header > div > div > p#goallocation {
+  color: gray;
+  font-size: 28px;
+}
+header > div > div > p#maxhealth {
+  color: grey;
+  font-size: 28px;
+}
+header > div > div > p#maxhealth.glowed {
+  color: goldenrod;
+}
+
+main > #frame {
+  width: 30vw;
+  height: 50vh;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main > #frame > #table {
+  width: 20vw;
+  height: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main > #frame > #table > #col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+main > #frame > #table > #col > #cell {
+  background-color: #000;
+  width: 3.5vw;
+  height: 3.5vw;
+  transition: background-color 100ms linear 0ms, transform 100ms linear 0ms;
+}
+main > #frame > #table > #col > #cell:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+}
+main > #frame > #table > #col > #cell.off {
+  background-color: #000;
+}
+main > #frame > #table > #col > #cell.on {
+  background-color: gold;
+}
+
+footer {
+  height: 5vh;
+  width: 30vw;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: #fff;
+  border-top: 2px #ccc solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+footer > i {
+  font-size: 36px;
+  color: #aaa;
+}/*# sourceMappingURL=style.css.map */

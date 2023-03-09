@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja" class="bg_pattern Isometric">
+	<head>
+        <script src="./js/nanobar.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./js/script.js"></script>
+        <title>メロス・ライツ</title>
+        <meta name="description" content="ライツアウトのパズルを解いてメロスと共にシラクスの町へ走ろう！">
+    </head>
+	<body>
+        <header>
+            <div id="location">
+                <div id="text">
+                    <i class="fa-regular fa-location-dot"></i>
+                    <p id="currentlocation">0.00</p>
+                    <span>km / </span>
+                    <p id="goallocation">39.00</p>
+                    <span>km</span>
+                </div>
+                <div id="bar">
+                    <i class="fa-regular fa-house"></i>
+                    <div id="barmain"></div>
+                    <i class="fa-regular fa-fort"></i>
+                </div>
+            </div>
+            <div id="health" class="safe">
+                <div id="text">
+                    <i class="fa-regular fa-heart-pulse"></i>
+                    <p id="remininghealth">100</p>
+                    <span> / </span>
+                    <p id="maxhealth">100</p>
+                </div>
+                <div id="bar">
+                    <div id="barmain"></div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="frame">
+                <div id="table">
+                    <div id="col" data-col="1">
+                        <div id="cell" data-row="1" class="off"></div>
+                        <div id="cell" data-row="2" class="off"></div>
+                        <div id="cell" data-row="3" class="off"></div>
+                        <div id="cell" data-row="4" class="off"></div>
+                        <div id="cell" data-row="5" class="off"></div>
+                    </div>
+                    <div id="col" data-col="2">
+                        <div id="cell" data-row="1" class="off"></div>
+                        <div id="cell" data-row="2" class="off"></div>
+                        <div id="cell" data-row="3" class="off"></div>
+                        <div id="cell" data-row="4" class="off"></div>
+                        <div id="cell" data-row="5" class="off"></div>
+                    </div>
+                    <div id="col" data-col="3">
+                        <div id="cell" data-row="1" class="off"></div>
+                        <div id="cell" data-row="2" class="off"></div>
+                        <div id="cell" data-row="3" class="off"></div>
+                        <div id="cell" data-row="4" class="off"></div>
+                        <div id="cell" data-row="5" class="off"></div>
+                    </div>
+                    <div id="col" data-col="4">
+                        <div id="cell" data-row="1" class="off"></div>
+                        <div id="cell" data-row="2" class="off"></div>
+                        <div id="cell" data-row="3" class="off"></div>
+                        <div id="cell" data-row="4" class="off"></div>
+                        <div id="cell" data-row="5" class="off"></div>
+                    </div>
+                    <div id="col" data-col="5">
+                        <div id="cell" data-row="1" class="off"></div>
+                        <div id="cell" data-row="2" class="off"></div>
+                        <div id="cell" data-row="3" class="off"></div>
+                        <div id="cell" data-row="4" class="off"></div>
+                        <div id="cell" data-row="5" class="off"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <i class="fa-solid fa-pause"></i>
+        </footer>
+    </body>
+</html>
