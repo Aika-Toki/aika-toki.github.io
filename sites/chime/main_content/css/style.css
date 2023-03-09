@@ -1,0 +1,17 @@
+body {
+    transition-property: all;
+    transition-duration: 800ms;
+}
+#explain {
+    display: none;
+}
+#set_time {
+    display: none;
+}
+#control_button {
+    display: none;
+}
+#cd_result_time {
+    font-size: 130px;
+    font-weight: bold;
+}

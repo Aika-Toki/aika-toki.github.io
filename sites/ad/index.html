@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antimatter Dimention</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <script src="/others/library/SimplyfiedJS/0.0.1/SimplyfiedJS.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.1.0/highlightjs-line-numbers.min.js">
+    </script>
+    <script>
+        hljs.initLineNumbersOnLoad();
+    </script>
+    <style>
+        pre {
+            position:relative;
+        }
+        .copy-button{
+            color:#888;
+            font-size:.6rem;
+            display:inline-block;
+            padding:8px 16px;
+            margin-right:20px;
+            box-shadow:0px 2px 5px 0px rgba(0,0,0,0.16), 0px 2px 6px 0px rgba(0,0,0,0.12);
+            border:2px solid #666;
+            cursor: pointer;
+            background-color: #fff;
+            transition: all .2s ease;
+            position:absolute;
+            right:0;
+            top:-20px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            
+        }
+        .copy-button.success{
+            border-color:#00C851;
+            background-color:#c8e6c9;
+            color:#007E33;
+        }
+        .copy-button.failed{
+            border-color:#ff4444;
+            background-color:#ffcdd2;
+            color:#CC0000;
+        }
+        .copy-button:hover{
+            box-shadow:0px 2px 5px 0px rgba(0,0,0,0.3), 0px 2px 10px 0px rgba(0,0,0,0.12);
+        }
+        td.hljs-ln-numbers {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        
+            text-align: center;
+            color: gray;
+            border-right: 1px solid #FFcc66; /*#CCC;*/
+            vertical-align: top;
+            padding-right: 5px;
+        }
+        table.hljs-ln {
+            width: unset !important;
+        }
+        td.hljs-ln-code {
+            padding-left: 10px !important;
+        }
+    </style>
+</head>
+<body>
+    <span><a href=""></a></span>
+    <h1>Antimatter Dimention Editor</h1>
+    <input id="savecode" type="text">
+    <div id="buttons">
+        <button id="load" onclick="load()">Load</button>
+        <button id="save">Save</button>
+    </div>
+    <hr>
+    <h3>Last Save Time</h3>
+    <input type="datetime-local" id="_lastsavetime">
+    <h3>Version</h3>
+    <input type="text" id="_version">
+    <h3>Moneys</h3>
+    <table>
+        <tr>
+            <th>反物質(AM)</th>
+            <td id="_antimatter"></td>
+        </tr>
+        <tr>
+            <th>無限ポイント(IP)</th>
+            <td id="_infinitypoint"></td>
+        </tr>
+        <tr>
+            <th>永遠ポイント(EP)</th>
+            <td id="_eternitypoint"></td>
+        </tr>
+        <tr>
+            <th>時間定理(TT)</th>
+            <td id="_timetheorems"></td>
+        </tr>
+    </table>
+    <h3>ティック数</h3>
+    <table>
+        <tbody>
+            <tr>
+                <th>ティック数</th>
+                <td id="_tickspeed"></td>
+            </tr>
+            <tr>
+                <th>ティック数アップグレードコスト</th>
+                <td id="_tickspeedcost"></td>
+            </tr>
+            <tr>
+                <th>ティック数乗数</th>
+                <td id="_tickspeedmultiplier"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>反物質</h3>
+    <table>
+        <thead>
+            <th>次元</th>
+            <th>コスト</th>
+            <th>量</th>
+            <th>乗数</th>
+            <th>購入数</th>
+            <th>コスト増加量</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>第1次元</th>
+                <td id="_dimention1cost"></td>
+                <td id="_dimention1amount"></td>
+                <td id="_dimention1multiplier"></td>
+                <td id="_dimention1bought"></td>
+                <td id="_dimention1costincrease"></td>
+            </tr>
+            <tr>
+                <th>第2次元</th>
+                <td id="_dimention2cost"></td>
+                <td id="_dimention2amount"></td>
+                <td id="_dimention2multiplier"></td>
+                <td id="_dimention2bought"></td>
+                <td id="_dimention2costincrease"></td>
+            </tr>
+            <tr>
+                <th>第3次元</th>
+                <td id="_dimention3cost"></td>
+                <td id="_dimention3amount"></td>
+                <td id="_dimention3multiplier"></td>
+                <td id="_dimention3bought"></td>
+                <td id="_dimention3costincrease"></td>
+            </tr>
+            <tr>
+                <th>第4次元</th>
+                <td id="_dimention4cost"></td>
+                <td id="_dimention4amount"></td>
+                <td id="_dimention4multiplier"></td>
+                <td id="_dimention4bought"></td>
+                <td id="_dimention4costincrease"></td>
+            </tr>
+            <tr>
+                <th>第5次元</th>
+                <td id="_dimention5cost"></td>
+                <td id="_dimention5amount"></td>
+                <td id="_dimention5multiplier"></td>
+                <td id="_dimention5bought"></td>
+                <td id="_dimention5costincrease"></td>
+            </tr>
+            <tr>
+                <th>第6次元</th>
+                <td id="_dimention6cost"></td>
+                <td id="_dimention6amount"></td>
+                <td id="_dimention6multiplier"></td>
+                <td id="_dimention6bought"></td>
+                <td id="_dimention6costincrease"></td>
+            </tr>
+            <tr>
+                <th>第7次元</th>
+                <td id="_dimention7cost"></td>
+                <td id="_dimention7amount"></td>
+                <td id="_dimention7multiplier"></td>
+                <td id="_dimention7bought"></td>
+                <td id="_dimention7costincrease"></td>
+            </tr>
+            <tr>
+                <th>第8次元</th>
+                <td id="_dimention8cost"></td>
+                <td id="_dimention8amount"></td>
+                <td id="_dimention8multiplier"></td>
+                <td id="_dimention8bought"></td>
+                <td id="_dimention8costincrease"></td>
+            </tr>
+        </tbody>
+    </table>
+    <pre><code></code></pre>
+    <script src="./js/script.js"></script>
+</body>
+</html>

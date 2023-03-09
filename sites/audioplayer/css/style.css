@@ -1,0 +1,239 @@
+@font-face {
+    font-family: MPlus;
+    src: url("../font/Mplus2.ttf");
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: #444;
+}
+#seekbar, #progressbar {
+    width: 100%;
+    height: 4px;
+    transition: height 400ms ease 0ms, background 30ms linear 0ms;
+}
+#seekbar {
+    background: linear-gradient(135deg, rgba(23, 210, 253, 1) 0%, rgba(227, 195, 252, 1) 25%, rgba(253, 137, 220, 1) 50%, rgba(251, 83, 96, 1) 75%, rgba(254, 190, 108, 1) 100%) no-repeat #eee0;
+    background-size: 100% 300%;
+    z-index: 2;
+    position: absolute;
+    bottom: 0px;
+}
+#progressbar {
+    background: linear-gradient(#aaa, #aaa) no-repeat #eee;
+    z-index: 1;
+    transition: height 400ms ease 0ms, background 300ms linear 0ms !important;
+}
+#seekarea {
+    position: absolute;
+    bottom: 100%;
+    left: 0px;
+    width: 100%;
+    padding-top: 3em;
+}
+#player:hover #seekbar {
+    height: 15px;
+    transition: height 400ms ease 0ms, background 50ms ease 0ms;
+}
+#player:hover #progressbar {
+    height: 15px;
+    transition: height 400ms ease 0ms, background 30ms linear 0ms;
+}
+#current, #duration {
+    padding: 0;
+    margin: .2em;
+    line-height: 37.38px;
+    filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px -1px 2px white);
+}
+.controlButton {
+    width: 37px;
+    height: 37px;
+    border: none;
+    background-color: transparent;
+    text-shadow: 0px 0px 3px #000;
+}
+#controller {
+    display: flex;
+}
+#times {
+    display: flex;
+}
+body {
+    margin: 0;
+}
+#player {
+    position: absolute;
+    width: 100vw;
+    height: 5vh;
+    bottom: 0;
+    transition: height 600ms ease 2000ms;
+}
+#player:hover {
+    height: 20vh;
+    transition: height 400ms ease 0ms;
+}
+#current {
+    position: absolute;
+    left: 0px;
+}
+#duration {
+    position: absolute;
+    right: 0px;
+}
+#slash {
+    display: none;
+}
+#stop {
+    display: none;
+}
+#far:hover {
+    display: none;
+}
+#fas:hover {
+    display: block;
+}
+#player:hover #volume {
+    height: 30%;
+    opacity: 1;
+}
+#player #volume {
+    position: absolute;
+    right: 14%;
+    bottom: 50%;
+    height: 0;
+    opacity: 0;
+    display: grid;
+    transition-property: height, opacity;
+    transition-duration: 400ms;
+}
+#player:hover #speed {
+    height: 30%;
+    opacity: 1;
+}
+#speedChanger {
+    width: 230%;
+}
+#player #speed {
+    position: absolute;
+    right: 14%;
+    bottom: 10%;
+    height: 0;
+    display: grid;
+    opacity: 0;
+    transition-property: height, opacity;
+    transition-duration: 400ms;
+}
+#volumeRange {
+    width: 230%;
+
+}
+#audioTitle {
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    font-family: MPlus;
+    font-variation-settings: 'wght' 700;
+}
+#audioArtist {
+    text-align: center;
+    color: #353533;
+    font-family: MPlus;
+    font-variation-settings: 'wght' 700;
+}
+#title {
+    position: absolute;
+    transform: translate(-50%);
+    top: 5%;
+    left: 50%;
+    display: grid;
+    filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px -1px 2px white);
+    transition: filter 300ms ease 0ms;
+}
+#player:hover #title, #volumeVal, #speedVal {
+    transition: filter 300ms ease 0ms;
+    filter: drop-shadow(1px 1px 2px white) drop-shadow(-1px -1px 1px white);
+}
+#playerbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #444;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(0.7);
+    transition: filter 400ms ease 0ms;
+}
+#player:hover #playerbg {
+    filter: blur(10px) brightness(0.9);
+    transition: filter 400ms ease 0ms;
+}
+#controlButtons i {
+    color: #fff;
+    transition: color 200ms ease 0ms, transform 200ms ease 0ms;
+    transform: scale(2);
+}
+#controlButtons i:hover {
+    color: #fff;
+    transform: scale(2.3);
+    transition: color 200ms ease 0ms, transform 200ms ease 0ms;
+}
+#player:hover #controlButtons {
+    opacity: 1;
+}
+#controlButtons button {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#player #controlButtons {
+    opacity: 0;
+    display: flex;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition-property: opacity;
+    transition-duration: 400ms;
+}
+#audioList {
+    background-color: transparent;
+    color: #fff;
+    transition: background 300ms ease 0ms;
+    border: none;
+}
+#audioList:focus-visible {
+    outline: none;
+}
+#audioList option {
+    transition: all 300ms ease 0ms;
+    font-size: 20px;
+    font-family: MPlus;
+    font-variation-settings: 'wght' 200;
+}
+#audioList option:hover {
+    background-color: #666;
+    color: #fff;
+    transition: background 300ms ease 0ms, text-shadow 300ms ease 0ms, font-variation-settings 300ms ease 0ms;
+    text-shadow: 0px 0px 6px #fff8;
+    font-variation-settings: 'wght' 400;
+}
+#audioList option:checked {
+    background-image: url("https://products.ls.graphics/mesh-gradients/images/60.-Zircon.jpg");
+    background-size: cover;
+    font-size: 23px;
+    transition: all 300ms ease 0ms;
+    background-color: transparent !important;
+    color: #000;
+    font-weight: bold;
+    font-variation-settings: 'wght' 600;
+}
+.loopEnable {
+    transition: color 300ms ease 0ms;
+    color: #7bdcff !important;
+}
+.shuffleEnable {
+    transition: color 300ms ease 0ms;
+    color: #7bdcff !important;
+}

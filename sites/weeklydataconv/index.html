@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Data Convert</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <style>
+    th,td{
+      text-align: center !important;
+      vertical-align: middle !important;
+    }
+    #exp{
+      display: flex;
+    }
+    #exp>p{
+      padding-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Weekly Data Convert</h1>
+  <div id="upload">
+    <label>出力した.HTMファイルをアップロード</label>
+    <input type="file" id="uplhtm" onchange="upload(this)" accept=".htm">
+  </div>
+  <div id="setting" style="display: none;">
+    <h2>記録期間</h2>
+    <label id="period"><span>####/##/## ##:##:##</span> ~ <span>####/##/## ##:##:##</span></label>
+    <hr>
+    <h2>出力期間</h2>
+    <div id="exp">
+      <select id="exf" onchange="exoptchanged('from')"></select>
+      <p>~</p>
+      <select id="exe" onchange="exoptchanged('until')"></select>
+    </div>
+    <table>
+      <tbody>
+        <tr class="from">
+          <th rowspan="6">出力の先頭</th>
+          <th colspan="2">Ticket</th>
+          <th>Item</th>
+          <th>Type</th>
+          <th>Size</th>
+        </tr>
+        <tr class="from">
+          <td colspan="2"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="from">
+          <th colspan="5">Time</th>
+        </tr>
+        <tr class="from">
+          <td></td>
+          <td></td>
+          <td>〜</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="from">
+          <th colspan="3">Price</th>
+          <th colspan="2">Profit</th>
+        </tr>
+        <tr class="from">
+          <td></td>
+          <td>→</td>
+          <td></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr><th><br></th></tr>
+        <tr class="until">
+          <th rowspan="6">出力の末尾</th>
+          <th colspan="2">Ticket</th>
+          <th>Item</th>
+          <th>Type</th>
+          <th>Size</th>
+        </tr>
+        <tr class="until">
+          <td colspan="2"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="until">
+          <th colspan="5">Time</th>
+        </tr>
+        <tr class="until">
+          <td></td>
+          <td></td>
+          <td>〜</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr class="until">
+          <th colspan="3">Price</th>
+          <th colspan="2">Profit</th>
+        </tr>
+        <tr class="until">
+          <td></td>
+          <td>→</td>
+          <td></td>
+          <td colspan="2"></td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <button onclick="preview()">プレビュー</button> -->
+    <button onclick="exportfile()">出力</button>
+    <br>
+    <!-- <textarea id="preview"></textarea> -->
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>

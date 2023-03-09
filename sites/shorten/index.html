@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <script src="./d.js"></script>
+    <script src="./e.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>汎用短縮URLジェネレータ</h1>
+            <p id="comment">JavaScriptによる簡易的な汎用短縮URL生成ジェネレータです。</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="alert alert-success">短縮したいURLを入力してください。</div>
+        <input type="text" class="form-control" id="url" placeholder="短くしたいURL">
+        <br />
+        <div class="alert alert-success">短縮したURLは以下の通りです。</div>
+        <input type="text" readonly class="form-control" id="shorturl" placeholder="短縮URL">
+        <button id="copy" class="btn btn-primary" onclick="clipboadCopy('shorturl')">クリップボードにコピー</button>
+    </div>
+    <script>var url = location.href;
+        var query = location.search;
+        if(query.slice(1) != ""){
+            location.href=inflate(query.slice(1));
+        }</script>
+</body>
+</html>

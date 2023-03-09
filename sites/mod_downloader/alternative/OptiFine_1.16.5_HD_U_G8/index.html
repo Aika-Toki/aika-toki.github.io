@@ -1,0 +1,16 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <a href="./OptiFine_1.16.5_HD_U_G8.jar" download id="dllink"></a>
+        <script>
+            document.onload = download();
+            function download(){
+                document.querySelector("#dllink").click();
+                setTimeout(() => {
+                    window.close();
+                }, 300);
+            }
+        </script>
+    </body>
+</html>

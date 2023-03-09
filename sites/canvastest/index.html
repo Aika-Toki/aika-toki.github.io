@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas tester</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.14.1/css/uikit.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.14.1/js/uikit.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.14.1/js/uikit-icons.min.js" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="./scss/style.css">
+    
+</head>
+<body class="uk-dark">
+    <div id="content">
+        <div id="left">
+            <div id="preview">
+                <canvas></canvas>
+            </div>
+            <div id="output">
+                <textarea oninput="draw()" placeholder="The quick brown fox jumps over the lazy dog"></textarea>
+            </div>
+        </div>
+        <div id="right">
+            <div id="control">
+                <div class="uk-button-group" id="control-tabs">
+                    <button class="uk-button uk-button-primary" id="canvas-cfg-btn">キャンバス設定</button>
+                    <button class="uk-button uk-button-secondary" id="canvas-els-btn">要素</button>
+                    <button class="uk-button uk-button-secondary" id="canvas-vrl-btn">変数</button>
+                </div>
+                <div id="control-contents">
+                    <div id="canvas-cfg" class="control-panel">
+                        <div id="resolution-cfg">
+                            <button class="uk-button uk-button-secondary">解像度設定</button>
+                            <label>x</label>
+                        </div>
+                    </div>
+                    <div id="canvas-elements" class="control-panel"></div>
+                    <div id="canvas-variable" class="control-panel"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script id="main"></script>
+    <code id="cfgdata">{"canvas":{},"elements":{},"variable":{}}</code>
+    <script src="./js/script.js" id="background"></script>
+</body>
+</html>

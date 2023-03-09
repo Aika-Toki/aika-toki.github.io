@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="0; url=./simp/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダージェネレーター</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div id="overlay">
+        <div id="createCalendar">
+            <div id="innerFrameHeader">
+                <span>カレンダーを作成</span>
+                <i class="fa-regular fa-xmark"></i>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div id="serviceName">
+            <i class="fa-regular fa-calendars"></i>
+            <h1>Calendar Generator</h1>
+        </div>
+        <div id="menutab">
+            <div id="file">ファイル</div>
+            <div id="edit" class="sel">編集</div>
+            <div id="event">イベント</div>
+            <div id="layout">レイアウト</div>
+        </div>
+        <div id="menucontent">
+            <div id="file">
+                <div id="file_output-to-image">
+                    <i class="fa-regular fa-image"></i>
+                    <span>画像に<br>出力</span>
+                </div>
+                <div id="file_output-to-html-source">
+                    <i class="fa-regular fa-file-code"></i>
+                    <span>htmlソースに<br>出力</span>
+                </div>
+            </div>
+            <div id="edit" class="sel">
+                <div id="edit_create-calendar">
+                    <i class="fa-regular fa-calendar-circle-plus"></i>
+                    <span>カレンダーを<br>作成</span>
+                </div>
+                <div id="edit_remove-calendar">
+                    <i class="fa-regular fa-calendar-circle-minus"></i>
+                    <span>カレンダーを<br>削除</span>
+                </div>
+                <div id="edit_edit-calendar-style">
+                    <i class="fa-regular fa-calendar-pen"></i>
+                    <span style="font-size: 15px;">カレンダーの<br>スタイルを編集</span>
+                </div>
+            </div>
+            <div id="event">
+                <div id="event_edit">
+                    <i class="fa-regular fa-calendar-star"></i>
+                    <span>イベントを<br>編集</span>
+                </div>
+            </div>
+            <div id="layout">
+                <div id="layout_direction">
+                    <i class="fa-regular fa-table-layout"></i>
+                    <span>レイアウトを<br>編集</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="calendar"></div>
+    </main>
+    <footer></footer>
+</body>
+</html>

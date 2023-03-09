@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>天気予報</title>
+    <style>
+        #weather > thead th{
+            text-align: center;
+
+        }
+        #weather > tbody > tr > td:nth-child(1){
+            vertical-align: middle;
+            text-align: center;
+        }
+        #weather > tbody > tr > td p{
+            margin: 0;
+            text-align: center;
+        }
+        #weather > tbody > tr > td p:nth-child(3){
+            font-size: 0.6em;
+        }
+        #weather td > div {
+            display:flex;
+            flex-direction:column;
+        }
+        #weather td {
+            vertical-align: middle;
+        }
+        #weather td img {
+            filter: drop-shadow(0px 0px 3px #0005);
+        }
+    </style>
+</head>
+<body>
+    <h1>天気予報</h1>
+    <div style="display: flex;">
+        <input type="text" id="cityname" placeholder="市区町村名(市区町村まで入力)">
+        <button onclick="citysearch();">検索</button>
+    </div>
+    <div id="citylistarea" style="display:none;">
+        <select id="citylist">
+            <option value="" selected>候補を選択</option>
+            <option value="" id="city0" class="changeable" style="display: none;"></option>
+            <option value="" id="city1" class="changeable" style="display: none;"></option>
+            <option value="" id="city2" class="changeable" style="display: none;"></option>
+            <option value="" id="city3" class="changeable" style="display: none;"></option>
+            <option value="" id="city4" class="changeable" style="display: none;"></option>
+        </select>
+        <button onclick="getWeather();">確定</button>
+    </div>
+    <hr>
+    <h2 id="summary" style="display: none;"><span></span>の天気</h2>
+    <table id="sun" style="display: none;">
+        <thead>
+            <tr>
+                <th>日の出</th>
+                <th>日の入り</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>**:**:**</td>
+                <td>**:**:**</td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="weather" style="display: none;">
+        <thead>
+            <tr>
+                <th></th>
+                <th>0</th>
+                <th>3</th>
+                <th>6</th>
+                <th>9</th>
+                <th>12</th>
+                <th>15</th>
+                <th>18</th>
+                <th>21</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="day0">
+                <td id="day0">#/#</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day1">
+                <td id="day1">#/#</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day2">
+                <td id="day2">#/#</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day3">
+                <td id="day3">#/#</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day4">
+                <td id="day4">#/#</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="day5">
+                <td id="day5">#/#</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function citysearch(){
+            let cityname = document.querySelector('#cityname').value;
+            if(cityname == ""){
+                Swal.fire("不正な値","市町村名が空です","error");
+            } else{
+                fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityname}&limit=5&appid=44e140144103825150ca684ba5bd056d`)
+                .then((res)=>{
+                    return(res.json());
+                })
+                .then((json)=>{
+                    console.log(json);
+                    let cities = document.querySelectorAll('.changeable');
+                    for(let i = 0;i < cities.length; i++){
+                        cities[i].value = "";
+                        cities[i].textContent = "";
+                        cities[i].style.display = "none";
+                        if(cities[i].hasAttribute('selected')){
+                            cities[i].removeAttribute('selected');
+                        }
+                    }
+                    document.querySelector('#citylist>option:nth-child(1)').setAttribute('selected',"");
+                    if(json.length == 0){
+                        Swal.fire("該当なし","入力内容を確認してください","error");
+                        return;
+                    }
+                    for(let i = 0;i < json.length; i++){
+                        let city = document.querySelector(`#city${i}`);
+                        let statename;
+                        if(json[i].state){
+                            statename = `${json[i].state} - `;
+                        }else{
+                            statename = "";
+                        }
+                        let cityname = json[i].local_names ? (json[i].local_names.ja ? json[i].local_names.ja : json[i].name) : json[i].name;
+                        city.setAttribute("value",`${json[i].lat}/${json[i].lon}`);
+                        city.textContent = `${cityname} - ${statename}${json[i].country}`;
+                        city.style.display = "unset";
+                    }
+                    document.querySelector('#citylistarea').style.display = "flex";
+                });
+            }
+        }
+        function getWeather(){
+            let coord = document.querySelector('#citylist').value.split('/');
+            let url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coord[0]}&lon=${coord[1]}&appid=44e140144103825150ca684ba5bd056d&lang=ja&units=metric`;
+            fetch(url)
+            .then((res)=>{
+                return(res.json());
+            })
+            .then((json)=>{
+                let weathers = json.list;
+                let datear = []
+                for(let i = 0;i < weathers.length;i++){
+                    let wdt = weathers[i].dt*1000
+                    let wdtMD = `${new Date(wdt).getMonth()+1}/${new Date(wdt).getDate()}`;
+                    if(!datear.includes(wdtMD)){
+                        datear.push(wdtMD);
+                    }
+                }
+                arrtotextcontent('table#weather>tbody>tr>td:nth-child(1)',datear);
+                console.log(datear);
+                document.querySelector('#summary>span').textContent = json.city.name;
+                let sunriset = new Date(json.city.sunrise * 1000);
+                let sunsett = new Date(json.city.sunset * 1000);
+                document.querySelector('#sun>tbody>tr>td:nth-child(1)').textContent = `${sunriset.getHours()}:${("0"+String(sunriset.getMinutes())).substr(-2)}`;
+                document.querySelector('#sun>tbody>tr>td:nth-child(2)').textContent = `${sunsett.getHours()}:${("0"+String(sunsett.getMinutes())).substr(-2)}`;
+                let weatherchartarr = [
+                    'tr#day0>td:nth-child(2)',
+                    'tr#day0>td:nth-child(3)',
+                    'tr#day0>td:nth-child(4)',
+                    'tr#day0>td:nth-child(5)',
+                    'tr#day0>td:nth-child(6)',
+                    'tr#day0>td:nth-child(7)',
+                    'tr#day0>td:nth-child(8)',
+                    'tr#day0>td:nth-child(9)',
+                    'tr#day1>td:nth-child(2)',
+                    'tr#day1>td:nth-child(3)',
+                    'tr#day1>td:nth-child(4)',
+                    'tr#day1>td:nth-child(5)',
+                    'tr#day1>td:nth-child(6)',
+                    'tr#day1>td:nth-child(7)',
+                    'tr#day1>td:nth-child(8)',
+                    'tr#day1>td:nth-child(9)',
+                    'tr#day2>td:nth-child(2)',
+                    'tr#day2>td:nth-child(3)',
+                    'tr#day2>td:nth-child(4)',
+                    'tr#day2>td:nth-child(5)',
+                    'tr#day2>td:nth-child(6)',
+                    'tr#day2>td:nth-child(7)',
+                    'tr#day2>td:nth-child(8)',
+                    'tr#day2>td:nth-child(9)',
+                    'tr#day3>td:nth-child(2)',
+                    'tr#day3>td:nth-child(3)',
+                    'tr#day3>td:nth-child(4)',
+                    'tr#day3>td:nth-child(5)',
+                    'tr#day3>td:nth-child(6)',
+                    'tr#day3>td:nth-child(7)',
+                    'tr#day3>td:nth-child(8)',
+                    'tr#day3>td:nth-child(9)',
+                    'tr#day4>td:nth-child(2)',
+                    'tr#day4>td:nth-child(3)',
+                    'tr#day4>td:nth-child(4)',
+                    'tr#day4>td:nth-child(5)',
+                    'tr#day4>td:nth-child(6)',
+                    'tr#day4>td:nth-child(7)',
+                    'tr#day4>td:nth-child(8)',
+                    'tr#day4>td:nth-child(9)',
+                    'tr#day5>td:nth-child(2)',
+                    'tr#day5>td:nth-child(3)',
+                    'tr#day5>td:nth-child(4)',
+                    'tr#day5>td:nth-child(5)',
+                    'tr#day5>td:nth-child(6)',
+                    'tr#day5>td:nth-child(7)',
+                    'tr#day5>td:nth-child(8)',
+                    'tr#day5>td:nth-child(9)'
+                ];
+                let stp = [1,2,3,4,5,6,7,0][getTimeTop()];
+                for(let i = 0;i < weathers.length;i++){
+                    let chartpos = i + stp;
+                    let wdata = weathers[i];
+                    let wdataarr = [
+                        wdata.weather[0].icon,
+                        wdata.weather[0].description,
+                        `${Math.round(wdata.main.temp_max*10)/10}℃/${Math.round(wdata.main.temp_min*10)/10}℃`
+                    ];
+                    document.querySelector(weatherchartarr[chartpos]).innerHTML = `<div><img src="https://openweathermap.org/img/wn/${wdataarr[0]}@4x.png"><p>${wdataarr[1]}</p><p>${wdataarr[2]}</p></div>`;
+                }
+                for(let i = 0; i < weatherchartarr.length; i++){
+                    let tar = document.querySelector(weatherchartarr[i]);
+                    tar.innerHTML = tar.innerHTML == "" ? "<div><p>-</p></div>" : tar.innerHTML;
+                }
+                document.querySelector('h2').style.display = "unset";
+                document.querySelector('table#weather').style.display = "table";
+                document.querySelector('table#sun').style.display = "table";
+            });
+        }
+        function arrtotextcontent(elementdata,arr){
+            let els = document.querySelectorAll(elementdata);
+            if(els.length > arr.length){
+                for(let i = 0;i < (els.length-arr.length);i++){
+                    arr.push('');
+                }
+            }
+            for(let i = 0;i<els.length;i++){
+                els[i].textContent = arr[i];
+            }
+        }
+        function getTimeTop(){
+            let nowh = new Date().getHours();
+            let nowhc = Math.floor(nowh/3);
+            // console.log(nowhc);
+            // let har = ['0:3','0:6','0:9','0:12','0:15','0:18','0:21','1:0'][nowhc-1];
+            return nowhc;
+        }
+    </script>
+</body>
+</html>

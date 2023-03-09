@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bet Calculator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+  <h1>Bet Calculator</h1>
+  <label for="have">所持数</label>
+  <input type="number" id="have">
+  <hr>
+  <label for="bet1">1にBetする数</label>
+  <input type="number" id="bet1" oninput="calculate()">
+  <label for="bet3">3にBetする数</label>
+  <input type="number" id="bet3" oninput="calculate()">
+  <label for="bet5">5にBetする数</label>
+  <input type="number" id="bet5" oninput="calculate()">
+  <label for="bet10">10にBetする数</label>
+  <input type="number" id="bet10" oninput="calculate()">
+  <label for="bet20">20にBetする数</label>
+  <input type="number" id="bet20" oninput="calculate()">
+  <button onclick="reset()">Reset</button>
+  <p id="scrapremain"><span id="have"></span> - <span id="totalusing"></span> = <span id="remain"></span></p>
+  <hr>
+  <table>
+    <tr>
+      <th></th>
+      <th>所持数</th>
+      <th>所持数との差</th>
+      <th>差を埋める必要なBet数</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td id="result1"></td>
+      <td id="gap1"></td>
+      <td id="repair1"></td>
+      <td><button onclick="addrepair(1)">+</button></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td id="result3"></td>
+      <td id="gap3"></td>
+      <td id="repair3"></td>
+      <td><button onclick="addrepair(3)">+</button></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td id="result5"></td>
+      <td id="gap5"></td>
+      <td id="repair5"></td>
+      <td><button onclick="addrepair(5)">+</button></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td id="result10"></td>
+      <td id="gap10"></td>
+      <td id="repair10"></td>
+      <td><button onclick="addrepair(10)">+</button></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td id="result20"></td>
+      <td id="gap20"></td>
+      <td id="repair20"></td>
+      <td><button onclick="addrepair(20)">+</button></td>
+    </tr>
+  </table>
+  <code id="command"></code>
+  <button onclick="copycmd()">copy</button>
+  <br>
+  <button onclick="calculate();">計算</button>
+  <script>
+    function calculate(){
+      let have = Number(qs('input#have').value);
+      let bet = [
+        Number(qs('#bet1').value),
+        Number(qs('#bet3').value),
+        Number(qs('#bet5').value),
+        Number(qs('#bet10').value),
+        Number(qs('#bet20').value)
+      ];
+      qs('span#have').textContent = have;
+      qs('span#totalusing').textContent = bet[0]+bet[1]+bet[2]+bet[3]+bet[4];
+      let remain = Number(have)-(bet[0]+bet[1]+bet[2]+bet[3]+bet[4])
+      qs('#remain').textContent = remain;
+      let result = [
+        remain + (bet[0]*2),
+        remain + (bet[1]*4),
+        remain + (bet[2]*6),
+        remain + (bet[3]*11),
+        remain + (bet[4]*21)
+      ];
+      let gap = [
+        result[0] - have,
+        result[1] - have,
+        result[2] - have,
+        result[3] - have,
+        result[4] - have
+      ];
+      let repair = [
+        repairf(have,1,remain,bet[0]),
+        repairf(have,3,remain,bet[1]),
+        repairf(have,5,remain,bet[2]),
+        repairf(have,10,remain,bet[3]),
+        repairf(have,20,remain,bet[4])
+      ]
+      qs('#result1').textContent = result[0];
+      qs('#result3').textContent = result[1];
+      qs('#result5').textContent = result[2];
+      qs('#result10').textContent = result[3];
+      qs('#result20').textContent = result[4];
+      qs('#gap1').textContent = gap[0];
+      qs('#gap3').textContent = gap[1];
+      qs('#gap5').textContent = gap[2];
+      qs('#gap10').textContent = gap[3];
+      qs('#gap20').textContent = gap[4];
+      qs('#repair1').textContent = repair[0];
+      qs('#repair3').textContent = repair[1];
+      qs('#repair5').textContent = repair[2];
+      qs('#repair10').textContent = repair[3];
+      qs('#repair20').textContent = repair[4];
+      qs('#command').textContent = "<bet "+bet[0]+" "+bet[1]+" "+bet[2]+" "+bet[3]+" "+bet[4];
+    }
+    function qs(el){
+      return document.querySelector(el)
+    }
+    function copycmd(){
+      navigator.clipboard.writeText(qs('#command').textContent);
+    }
+    function repairf(hv,slot,rm,bt){
+      let times = slot + 1;
+      let have = hv;
+      let remin = rm;
+      let bet = bt;
+      let gap;
+      let repaircost = 0;
+      let res = remin + (bet*times);
+      gap = have - res;
+      console.log(gap);
+      let i = 0;
+      while(gap > 0){
+        res = remin + (bet*times);
+        gap = have - res;
+        let repc = gap > 0 ? Math.ceil(gap/times):0;
+        bet += repc;
+        remin -= repc;
+        repaircost += repc;
+        i++;
+        console.log([gap,repc,repaircost,i]);
+      }
+      return repaircost;
+    }
+    function addrepair(slot){
+      qs(`#bet${slot}`).value = Number(qs(`#repair${slot}`).textContent)+Number(qs(`#bet${slot}`).value);
+      calculate();
+    }
+    function reset(){
+      qs(`#bet1`).value = 0;
+      qs(`#bet3`).value = 0;
+      qs(`#bet5`).value = 0;
+      qs(`#bet10`).value = 0;
+      qs(`#bet20`).value = 0;
+      calculate();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja" oncontextmenu="return false;">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft Mods Downloader</title>
+    <script type="text/javascript" src="./js/links.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- <canvas id="canvas"></canvas> -->
+    <div id="content">
+        <div id="main-content">
+            <div id="title" onclick="location.search = '';">
+                <label>Minecraft Mods Downloader</label>
+            </div>
+            <div id="main-gui">
+                <input type="text" id="downloadID" placeholder="ダウンロードID(****-****-****-****)を入力" onchange="dlidchanged(document.querySelector('#downloadID').value);">
+                <br>
+                <input type="button" value="ダウンロード" id="downloadbtn" onclick="download_beta(document.querySelector('#downloadID').value);">
+                <br>
+                <input type="button" value="▶︎ポップアップテスト" id="poptestbtn" onclick="window.open('pop.html');window.open('pop.html');">
+            </div>
+            <div id="footer">
+                <p>©️ 2021 Aika Toki</p>
+            </div>
+            <!-- <script type="text/javascript" src="./js/canvas.js"></script> -->
+        </div>
+    </div>
+    <script>
+        let urlParam, param, paramArray, paramItem;
+        if(location.search !== '') {
+            urlParam = location.search.substring(1);
+            param = urlParam.split('&');
+            paramArray = [];
+            for(let i = 0; i < param.length; i++) {
+                paramItem = param[i].split('=');
+                paramArray[paramItem[0]] = paramItem[1];
+            }
+            if(paramArray["d"].length === 19){
+                document.querySelector('#downloadID').value = paramArray["d"];
+                document.querySelector('#downloadID').setAttribute('disabled','');
+            } else if(paramArray["d"].length === 16) {
+                location.search = `?d=${paramArray["d"].slice(0,4)}-${paramArray["d"].slice(4,8)}-${paramArray["d"].slice(8,12)}-${paramArray["d"].slice(12,16)}`;
+            } else {
+                location.search = '';
+            }
+        }
+    </script>
+</body>
+</html>

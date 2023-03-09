@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン | PJS Editor</title>
+    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="shortcut icon" href="../media/icon/favicon256.png" type="image/x-icon">
+</head>
+<body>
+    <div id="plslatest">
+        <img src="./media/browserLogo/IE.svg" alt="IE is not Supported!" id="ielogo">
+        <h1>このサイトはInternet Explorerをサポートしていません！</h1>
+        <h2>下のリンクより最新のブラウザをご利用ください！</h2>
+        <div id="browserlinks" class="bwlinks0">
+            <div id="edge">
+                <img src="./media/browserLogo/Edge.svg" alt="Edge Logo">
+                <h3>Microsoft Edge</h3>
+            </div>
+            <div id="chrome">
+                <img src="./media/browserLogo/Chrome.svg" alt="Chrome Logo">
+                <h3>Google Chrome</h3>
+            </div>
+            <div id="safari">
+                <img src="./media/browserLogo/Safari.svg" alt="Safari Logo">
+                <h3>Safari</h3>
+            </div>
+        </div>
+        <div id="browserlinks" class="bwlinks1">
+            <div id="firefox">
+                <img src="./media/browserLogo/Firefox.svg" alt="FireFox Logo">
+                <h3>FireFox</h3>
+            </div>
+            <div id="opera">
+                <img src="./media/browserLogo/Opera.png" alt="Opera Logo" id="operal">
+                <h3>Opera</h3>
+            </div>
+            <div id="vivaldi">
+                <img src="./media/browserLogo/Vivaldi.svg" alt="Vivaldi Logo">
+                <h3>Vivaldi</h3>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div id="loginForm">
+            <div id="formHeader">
+                <div id="summary">
+                    <img id="surviceIcon" src="../media/icon/favicon256.png">
+                    <span><b id="surviceName">PJS Editor</b>にログイン</span>
+                </div>
+            </div>
+            <div id="formMain">
+                <form action="/sites/pjsEditor/">
+                    <input type="text" id="id" placeholder="ID" name="username" required autocomplete="on">
+                    <input type="password" name="password" id="pw" autocomplete="on" required placeholder="Password(自動入力)">
+                    <input type="submit" value="ログイン" id="login">
+                </form>
+            </div>
+        </div>
+        <!-- <div style="position: fixed;z-index: 9999;margin: 0px;background-color: black;width:100vw;height:100vh;">
+            <h1 style="color:white;font-size:64px;width:100vw;height:100vh;text-align:center;margin:0;line-height:100vh;">メンテナンス中</h1>
+        </div> -->
+    </main>
+    <script src="./js/script.js"></script>
+</body>
+</html>

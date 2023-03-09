@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja" class="uk-background-default">
+
+<head>
+    <title>Youtube Shorts Converter</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.3.2/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.1.0/highlightjs-line-numbers.min.js">
+    </script>
+    <script>
+        hljs.initLineNumbersOnLoad();
+    </script>
+    <style>
+        pre {
+            position:relative;
+        }
+        .copy-button{
+            color:#888;
+            font-size:.6rem;
+            display:inline-block;
+            padding:8px 16px;
+            margin-right:20px;
+            box-shadow:0px 2px 5px 0px rgba(0,0,0,0.16), 0px 2px 6px 0px rgba(0,0,0,0.12);
+            border:2px solid #666;
+            cursor: pointer;
+            background-color: #fff;
+            transition: all .2s ease;
+            position:absolute;
+            right:0;
+            top:-20px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            
+        }
+        .copy-button.success{
+            border-color:#00C851;
+            background-color:#c8e6c9;
+            color:#007E33;
+        }
+        .copy-button.failed{
+            border-color:#ff4444;
+            background-color:#ffcdd2;
+            color:#CC0000;
+        }
+        .copy-button:hover{
+            box-shadow:0px 2px 5px 0px rgba(0,0,0,0.3), 0px 2px 10px 0px rgba(0,0,0,0.12);
+        }
+        td.hljs-ln-numbers {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        
+            text-align: center;
+            color: gray;
+            border-right: 1px solid #FFcc66; /*#CCC;*/
+            vertical-align: top;
+            padding-right: 5px;
+        }
+        td.hljs-ln-code {
+            padding-left: 10px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="uk-navbar-container">
+        <div class="uk-navbar-left">
+            <a href="javascript:void(0)" class="uk-navbar-item uk-logo">Youtube Shorts Converter</a>
+        </div>
+    </div>
+    <div class="uk-container">
+        <div class="uk-tile uk-tile-primary">
+            <article class="uk-article">
+                <h1 class="uk-article-title">「Youtube Shorts Converter」</h1>
+                <p class="uk-article-meta">pcでShorts動画を再生するときに普通の動画表示にしてくれる。そんなブックマークです。</p>
+            </article>
+        </div>
+        <hr>
+        <h2>導入方法</h2>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">1.</h3>
+            <p>
+                WindowsはCtrl + D,
+                MacはCommand + D
+                でブックマークを追加する。
+            </p>
+        </div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">2.</h3>
+            <p>
+                追加したブックマークを編集する。
+            </p>
+        </div>
+        <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">3.</h3>
+            <p>アドレスを以下のコードに置き換える。</p>
+            <pre><code>javascript:(()=>{if(location.hostname=="www.youtube.com"&&location.pathname.includes("shorts")){let n=location.pathname.split('/')[2];location.href="//www.youtube.com/watch?v="+n;}})();</code></pre>
+        </div>
+        <div class="uk-card uk-card-primary uk-card-body">
+            <h3 class="uk-card-title">4.</h3>
+            <h2>完了！</h2>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"
+        integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js"
+        integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw=="
+        crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    <script>
+        setup();
+    </script>
+</body>
+
+</html>

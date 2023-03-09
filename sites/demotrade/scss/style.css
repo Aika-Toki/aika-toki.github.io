@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Fira-Code;
+  src: url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@0.2.1/FiraCode-Regular.ttf);
+}
+div#terminal {
+  display: flex;
+  width: 100vw;
+}
+
+pre#console {
+  width: 95vw;
+  height: 10vh;
+  overflow: scroll;
+  font-family: Fira-Code;
+}/*# sourceMappingURL=style.css.map */

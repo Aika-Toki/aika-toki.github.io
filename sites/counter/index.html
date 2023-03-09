@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カウンター</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000022;
+        }
+        #counter{
+            width: 60vw;
+            height: 30vh;
+            font-size: 5em;
+            color: #008888;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 3px 3px 6px #fffa;
+            flex-direction: column;
+        }
+        @keyframes button_hover {
+            0%{
+                box-shadow: 0 0 0 0 #fff;
+            }
+        }
+        @keyframes anim_popy {
+            0%{
+                transform: scaleY(1.2);
+            }
+        }
+        @keyframes anim_popx {
+            0%{
+                transform: scaleX(1.2);
+            }
+        }
+        @keyframes anim_skew {
+            0%{
+                transform: skew(5deg,5deg);
+            }
+        }
+        @keyframes anim_rotatey {
+            0%{
+                transform: rotateY(1deg);
+            }
+        }
+        @keyframes anim_rotatex {
+            0%{
+                transform: rotateX(1deg);
+            }
+        }
+        @keyframes anim_rotatez {
+            0%{
+                transform: rotateZ(10deg);
+            }
+        }
+        @keyframes anim_rollz {
+            0%{
+                transform: rotateZ(180deg);
+            }
+        }
+        #modify {
+            display: flex;
+        }
+        button{
+            width: 20vw;
+            height: 5vh;
+            margin: 5px;
+            background-color: #aaa;
+            border-radius: 5px;
+            border-style: solid;
+            box-shadow: 0 0 0 0.5em transparent;
+            font-size: 0.4em;
+        }
+        button:hover{
+            animation: 200ms linear 0ms 1 normal forwards running button_hover;
+            cursor: pointer;
+        }
+        td {
+            transform: matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1) perspective(0) rotate3d(0,0,0,0deg) scale3d(1,1,1) skew(0,0) translate3d(0,0,0);
+        }
+        td.anim_popy {
+            animation: 80ms linear 0ms 1 normal forwards running anim_popy;
+        }
+        td.anim_popx {
+            animation: 80ms linear 0ms 1 normal forwards running anim_popx;
+        }
+        td.anim_skew {
+            animation: 80ms linear 0ms 1 normal forwards running anim_skew;
+        }
+        td.anim_rotatey {
+            animation: 80ms linear 0ms 1 normal forwards running anim_rotatey;
+        }
+        td.anim_rotatex {
+            animation: 80ms linear 0ms 1 normal forwards running anim_rotatex;
+        }
+        td.anim_rotatez {
+            animation: 80ms linear 0ms 1 normal forwards running anim_rotatez;
+        }
+        td.anim_rollz {
+            animation: 80ms linear 0ms 1 normal forwards running anim_rollz;
+        }
+        #setting{
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        #setting>div{
+            font-size: 1.4em;
+        }
+        #setting>div>label {
+            color: #fff;
+        }
+        #setting>div>label::after {
+            content: ":";
+        }
+        #setting>div>select {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="setting">
+        <div id="animation">
+            <label>アニメーション</label>
+            <select>
+                <option value="popy" selected>popY[default]</option>
+                <option value="popx">popX</option>
+                <option value="skew">skew</option>
+                <option value="rotatey">rotatey</option>
+                <option value="rotatex">rotatex</option>
+                <option value="rotatez">rotatez</option>
+                <option value="rollz">rollz</option>
+            </select>
+        </div>
+    </div>
+    <div id="counter">
+        <table>
+            <tr>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </table>
+        <div id="modify">
+            <button id="plus">+1</button>
+            <button id="minus">-1</button>
+        </div>
+        <button id="reset">RESET</button>
+    </div>
+    <script>
+        let animation_name = 'popy';
+        document.querySelector("#plus").addEventListener('click',plus);
+        document.querySelector("#minus").addEventListener('click',minus);
+        document.querySelector('#reset').addEventListener('click',reset);
+        document.querySelector('#animation>select').addEventListener('change',anim_change);
+        window.addEventListener('keydown',(e)=>{keydetect(e)});
+        function anim_change(){
+            animation_name = document.querySelector('#animation>select').value;
+        }
+        function plus(){
+            let counterel = document.querySelectorAll('td');
+            let countval = [];
+            for(let i = 0; i < counterel.length; i++){
+                countval.push(counterel[i].innerText);
+            }
+            let pluszero = [];
+            for(let i = 0; i < (counterel.length-1); i++){
+                pluszero.push('0');
+            }
+            pluszero = String(pluszero.join(''));
+            let countvala = countval.join('');
+            console.log(countvala);
+            countvala = Number(countvala)+1;
+            countvala = `${pluszero}${countvala}`.substr((0-counterel.length)).split('');
+            console.log(countvala)
+            for(let i = 0; i < counterel.length; i++){
+                if(countval[i] != countvala[i]){
+                    anim(i,animation_name);
+                }
+                counterel[i].innerText = countvala[i];
+            }
+            let disableattr = countvala.length > counterel.length ? "disabled" : "data-d";
+            document.querySelector('#plus').setAttribute(disableattr,"");
+        }
+        function minus(){
+            let counterel = document.querySelectorAll('td');
+            let countval = [];
+            for(let i = 0; i < counterel.length; i++){
+                countval.push(counterel[i].innerText);
+            }
+            let pluszero = [];
+            for(let i = 0; i < (counterel.length-1); i++){
+                pluszero.push('0');
+            }
+            pluszero = String(pluszero.join(''));
+            let countvala = countval.join('');
+            console.log(countvala);
+            countvala = countvala == 0 ? (10**counterel.length)-1 : Number(countvala)-1;
+            countvala = `${pluszero}${countvala}`.substr((0-counterel.length)).split('');
+            console.log(countvala)
+            for(let i = 0; i < counterel.length; i++){
+                if(countval[i] != countvala[i]){
+                    anim(i,animation_name);
+                }
+                counterel[i].innerText = countvala[i];
+            }
+        }
+        function anim(at,anim_name){
+            let el = document.querySelectorAll('td')[at];
+            el.className = ""
+            switch(anim_name){
+                case 'popx':
+                    el.className = 'anim_popx';
+                    break;
+                case 'skew':
+                    el.className = 'anim_skew';
+                    break;
+                case 'rotatey':
+                    el.className = 'anim_rotatey';
+                    break;
+                case 'rotatex':
+                    el.className = 'anim_rotatex';
+                    break;
+                case 'rotatez':
+                    el.className = 'anim_rotatez';
+                    break;
+                case 'rollz':
+                    el.className = 'anim_rollz';
+                    break;
+                case "popy":
+                default:
+                    el.className = 'anim_popy';
+                    break;
+            }
+            ananim(at,anim_name)
+        }
+        function ananim(at,anim_name){
+            let time = {
+                popy: 80,
+                popx: 80,
+                skew: 80,
+                rotatey: 80,
+                rotatex: 80,
+                rotatez: 80,
+                rollz: 80
+            }
+            let timeout;
+            if(anim_name in time){
+                timeout = time[anim_name];
+            } else {
+                timeout = 0;
+            }
+            setTimeout(()=>{
+                document.querySelectorAll('td')[at].className = '';
+            },timeout);
+        }
+        function reset(){
+            for(let i = 0; i < document.querySelectorAll('td').length; i++){
+                document.querySelectorAll('td')[i].innerText = "0";
+            }
+        }
+        function keydetect(e){
+            let keyid = e.key;
+            console.log(keyid);
+            switch(keyid){
+                case 'Enter':
+                case 'ArrowRight':
+                case 'ArrowUp':
+                case ' ':
+                    plus();
+                    break;
+                case 'Backspace':
+                case 'ArrowLeft':
+                case 'ArrowDown':
+                    minus();
+                    break;
+                case 'r':
+                case 'Escape':
+                    reset();
+                    break;
+                default: 
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

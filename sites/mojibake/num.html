@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOJIBAKE</title>
+    <script src="/others/library/SimplyfiedJS/0.0.1/SimplyfiedJS.min.js"></script>
+    <script>
+        function cnv() {
+            let istr = dqs('#inputstr').value;
+            let estr = unicodeEscape(unicodeEscape(istr));
+            dqs('#resultstr').innerText = unescape(estr);
+            let reistr = dqs('#resultstr').innerHTML;
+            let reexstr = chunk(reistr, 4).join('%u');
+            reexstr = `%u${reexstr}`;
+            if(reistr === ''){
+                reexstr = '';
+            }
+            let reeex = chunk(unescape(reexstr),4).join('%u');
+            reeex = `%u${reeex}`;
+            dqs('#reresultstr').innerText = unescape(reeex);
+            console.log(
+`input str:"${istr}",
+Unicode Escape:"${unicodeEscape(istr)}",
+reversed:"${estr}",
+escape formatted:"${exstr}",
+result:"${unescape(exstr)}"`);
+        }
+        function enc() {
+            let istr = dqs('#inputstr').value;
+            let exstr = chunk(istr, 4).join('%u');
+            exstr = `%u${exstr}`;
+            if(istr === ''){
+                exstr = '';
+            }
+            let eex = chunk(unescape(exstr),4).join('%u');
+            eex = `%u${eex}`;
+            dqs('#resultstr').innerText = unescape(eex);
+        }
+        var unicodeEscape = function(str) {
+            if (!String.prototype.repeat) {
+                String.prototype.repeat = function(digit) {
+                    var result = '';
+                    for (var i = 0; i < Number(digit); i++) result += str;
+                    return result;
+                };
+            }
+        
+            var strs = str.split(''), hex, result = '';
+        
+            for (var i = 0, len = strs.length; i < len; i++) {
+                hex = strs[i].charCodeAt(0).toString(16);
+                result += ('0'.repeat(Math.abs(hex.length - 4))) + hex;
+            }
+            return result;
+        };
+        function chunk(str, n) {
+            var ret = [];
+            var i;
+            var len;
+            
+            for(i = 0, len = str.length; i < len; i += n) {
+                ret.push(str.substr(i, n))
+            }
+            
+            return ret
+        };
+    </script>
+</head>
+<body style="display: grid;width: 60vw;margin:0 auto;">
+    <input type="text" id="inputstr" placeholder="変換したい文字列を入力" oninput="cnv();">
+    <textarea id="resultstr" onclick="dqs('#resultstr').select();d.execCommand('copy');"></textarea>
+    <textarea id="reresultstr"></textarea>
+    <input type="button" value="実は解析" onclick="enc();">
+</body>
+</html>

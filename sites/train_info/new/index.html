@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Train Delay Info</title>
+  <!-- Compiled and minified CSS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit/dist/css/uikit.min.css"/> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./scss/style.css">
+  <!-- Compiled and minified JavaScript -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit-icons.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="./js/script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="navbar-fixed">
+      <nav class="orange">
+        <div class="nav-wrapper">
+          <a href="." class="brand-logo">Train Delay Info</a>
+          <div class="input-field right">
+            <input type="search" id="search" required oninput="search()">
+            <label for="search" class="label-icon"><i class="material-icons">search</i></label>
+            <i class="material-icons" onclick="searchClear()">close</i>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Updated on <span id="upd8time"></span></h4></li>
+        <template id="collection"><li class="collection-item" onclick="$s"><div>$title<a class="secondary-content"><i class="material-icons">chevron_right</i></a></div></li></template>
+        <template id="collectionNoFound"><li class="collection-item"><div>$title</div></li></template>
+      </ul>
+    </div>
+  </main>
+  <template id="cache"></template>
+</body>
+</html>

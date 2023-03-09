@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Chime</title>
+    <script type="text/javascript">
+        onload = function() {
+            let	fc = '';
+            if(fc){ fc; }
+        };
+    </script>
+    <script type="text/javascript">
+        let year = 2021;
+        let month = 4;
+        let day = 26;
+        let root_dir = '/';
+        let lang = 'ja';
+    </script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="light">
+<div id="main">
+    <script type="text/javascript" src="./js/day_count.js"></script><script type="text/javascript" src="./js/countdown_hour.js"></script><!--|====================PANKUZU====================|-->
+    <!--|====================/PANKUZU===================|-->
+    <h2>チャイムシステム</h2>
+    <input type="button" id="compact" onclick="compacter();" value="詳細表示">
+    <div class="text">
+    <div id="head_search">
+        <div id="head_search_date" class="compact">
+            <div class="explain" id="explain">
+                <p>指定された時刻までの時間をカウントダウンをします。</p>
+                <p>終了時刻を入力し「Start」ボタンをクリックするとカウントダウンが開始されます。</p>
+                <p>「Stop」ボタンでカウントダウンを一時停止し、「Clear」ボタンで入力内容をクリアします。</p>
+                <p>時刻が現在時刻よりも前の場合は、明日の時刻としてカウントダウンが開始されます。</p>
+            </div>
+            <div class="countdown">
+                <div class="under_pad" id="set_time">
+                    <span class="cd_text" >終了時刻：</span>
+                    <select name="cd_hour" id="cd_hour" class="select_right" >
+                        <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option>		</select>時		<select name="cd_minute" id="cd_minute" class="select_right" >
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option>		</select>分		<select name="cd_second" id="cd_second" class="select_right" >
+                    <option value="0" selected>0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option><option value="32">32</option><option value="33">33</option><option value="34">34</option><option value="35">35</option><option value="36">36</option><option value="37">37</option><option value="38">38</option><option value="39">39</option><option value="40">40</option><option value="41">41</option><option value="42">42</option><option value="43">43</option><option value="44">44</option><option value="45">45</option><option value="46">46</option><option value="47">47</option><option value="48">48</option><option value="49">49</option><option value="50">50</option><option value="51">51</option><option value="52">52</option><option value="53">53</option><option value="54">54</option><option value="55">55</option><option value="56">56</option><option value="57">57</option><option value="58">58</option><option value="59">59</option>		</select>秒　			<input type="button" name="from_now" value="現在時刻を入力" onClick="time_change(3);timeup_clear();"><br />
+                </div>
+                <div class="under_pad" id="control_button">
+                    <input type="button" value="Start" class="cd_button" id="start_stop" onclick="countdown_hour();" />
+                    <input type="button" value="Clear" class="cd_button" id="sw_clear" onclick="cd_clear();" />
+                    <input type="button" value="Smooth" class="cd_button enable" id="sw_smooth" onclick="if(smooth===0){smooth=1;}else{smooth=0;}smoothButton();" />
+                    <input type="button" value="progressbar" class="cd_button enable" id="sw_progressbar" onclick="if(progressStatus===false){progressStatus=true;}else{progressStatus=false}cbpb();">
+                    <br>
+                    <input type="range" value="16" min="8" max="30" class="cd_range" id="rg_fontsize" oninput="changeNeedleFontSize();">
+                </div>
+
+                <div class="under_pad">
+                    <div id="cd_result">
+                        <div id="cd_result_text"></div>
+                        <div id="cd_result_analog" style="position: absolute;left: 35%;">
+                            <div id="analog_needle" style="position: absolute; width: 350px;height: 350px; transform: translate(0%,2.2%);">
+                                <div id="c_hour" style="height: 150px;width:2px; position: absolute; transform: rotateZ(300deg) translate(0%,-20%) scaleY(0.8) scaleX(2);font-weight: bold;"></div>
+                                <div id="c_minute" style="height: 150px;width:2px; position: absolute; transform: rotateZ(60deg) translate(0%,-40%) scaleY(1.4) scaleX(2);font-weight: bold;"></div>
+                                <div id="c_second" style="/*background-image:url(&quot;./img/n_sec.png&quot;);*/height: 150px;width:2px; position: absolute;background-size: cover; transform: rotateZ(180deg) translate(0%,-40%) scaleY(1.4);font-weight: bold;"></div>
+                                <div id="c_milli" style="background-color: aqua;height: 150px;width:1px; position: absolute;display: none;"></div>
+                            </div>
+                            <div id="analog_base" style="position: absolute;height: 350px;width: 350px;left: 23%;top: 2%;border-radius: 200px;z-index: -9;transform: translate(-50%, -26%);">
+                                <div id="analog_number" style="position: absolute;">
+                                    <p style="transform: translate(480%, -30%);">12</p>
+                                    <p style="transform: translate(2230%, 20%);">1</p>
+                                    <p style="transform: translate(1200%, 140%);">2</p>
+                                    <p style="transform: translate(1320%, 315%);">3</p>
+                                    <p style="transform: translate(1070%, 480%);">4</p>
+                                    <p style="transform: translate(1030%, 600%);">5</p>
+                                    <p style="transform: translate(670%, 660%);">6</p>
+                                    <p style="transform: translate(400%, 600%);">7</p>
+                                    <p style="transform: translate(200%, 480%);">8</p>
+                                    <p style="transform: translate(110%, 315%);">9</p>
+                                    <p style="transform: translate(120%, 140%);">10</p>
+                                    <p style="transform: translate(440%, 20%);">11</p>
+                                </div>
+                                <div id="base_ring" style="width: 350px; height: 350px; position: absolute;"></div>
+                            </div>
+                        </div>
+                        <div id="cd_result_progress" style="position: absolute;left: 50%;display: grid;">
+                            <progress id="p_hour"></progress>
+                            <progress id="p_minute"></progress>
+                            <progress id="p_second"></progress>
+                            <progress id="p_milli"></progress>
+                        </div>
+                        <p id="nowTime"></p>
+                        <div id="cd_result_window"><span id="cd_result_time"></span>　<span id="cd_result_stop">停止中</span></div>
+                        <div id="timeup"><span class="red"></span></div>
+                    </div>
+                    <select id="num_list">
+                        <option value=0>〜朝礼</option>
+                        <option value=1>朝礼〜1限開始</option>
+                        <option value=2>1限開始〜1限終了</option>
+                        <option value=3>1限終了〜2限開始</option>
+                        <option value=4>2限開始〜2限終了</option>
+                        <option value=5>2限終了〜3限開始</option>
+                        <option value=6>3限開始〜3限終了</option>
+                        <option value=7>3限終了〜4限開始(昼休み)</option>
+                        <option value=8>4限開始〜4限終了</option>
+                        <option value=9>4限終了〜5限開始</option>
+                        <option value=10>5限開始〜5限終了</option>
+                        <option value=11>5限終了〜6限開始</option>
+                        <option value=12>6限開始〜6限終了</option>
+                    </select>
+                    <input type="button" value="設定" class="cd_button" id="num_set" onclick="num_set();" />
+                    <br>
+                    <select id="chime_list" onchange="chime_change();">
+                        <option value=0 selected>夢で描けば(デフォルト)</option>
+                        <option value=1>代数Nの方程式</option>
+                        <option value=2>ウェストミンスターの鐘-11</option>
+                    </select>
+                </div>
+                <input type="button" value="サウンドテスト" class="cd_button" id="soundtestbtn" onclick="sound_test();" />
+                <div id="dayRemain">
+                    <progress id="p_remain" max="86400000" style="width: 100%;height: 60px;transform: rotateZ(180deg);border-width: 2px;border-style: solid;"></progress>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>#27</p>
+</footer>
+</body>
+</html>

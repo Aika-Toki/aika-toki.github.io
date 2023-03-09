@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/water.css">
+    <link rel="stylesheet" type="text/css" href="./css/iziToast.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <script src="./js/class.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./js/iziToast.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body onload="pageLoaded()">
+  <h1>Seeded Randomizer</h1>
+<input id="base">
+  <button onclick="run()">run</button>
+<hr>
+  <label>seed</label>
+  <input id="seed">
+  <label>seedRaw</label>
+  <input id="seedraw">
+  <label>result</label>
+  <input id="result">
+<hr>
+  <div id="gen">
+    <h2>Generate</h2>
+    <div>
+      <label>Seed</label>
+      <input id="_seed">
+    </div>
+    <div>
+      <input type="checkbox" id="_time">
+      <label for="_time">Time Preservation</label>
+    </div>
+    <div>
+      <label>Min</label>
+      <input id="_min">
+    </div>
+    <div>
+        <label>Max</label>
+        <input id="_max"/>
+    </div>
+    <button id="_generate" onclick="generate()">>Generate<</button>
+    <hr>
+    <textarea id="_result"></textarea>
+  </div>
+</body>
+</html>

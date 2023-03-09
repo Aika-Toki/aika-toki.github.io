@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Channels | Command Describer for Minecrafters</title>
+    <link href="/sites/command_describer/data/css/style.css" rel="stylesheet">
+    <link href="../../../data/css/style.css" rel="stylesheet">
+    <link rel="icon" href="/sites/command_describer/data/img/command_block.png">
+</head>
+<body>
+<header>
+    <div class="logobg">
+        <a href="https://minecraft.net" target="_blank">
+            <img src="/sites/command_describer/data/img/minecraft.png" class="logo" alt="">
+        </a>
+        <ul class="menu pc">
+            <li>
+                <a href="/sites/command_describer/" class="btn">
+                    <span>Top</span>
+                </a>
+            </li>
+            <li>
+                <a href="/sites/command_describer/channels/" class="btn">
+                    <span>Command Creator Channels</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="cp_navi sp">
+    <div id="cp_sidenav" class="sidenav">
+        <a href="/sites/command_describer/" id="menu00">Top</a>
+        <a href="/sites/command_describer/channels/" id="menu01">Command Creator Channels</a>
+    </div>
+</div>
+<main>
+    <div class="content">
+        <img src="https://i.ytimg.com/vi/-0BeZK6wJfY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLByjzxUNh_aqJjQzx_b26bwiK4P2g" alt="" class="thumbnail">
+        <h2>
+            【コマンド】横スラッシュからのジャンプ斬り！クールな斬撃を放てるコマンド【マイクラBE】
+        </h2>
+        <a href="https://www.youtube.com/watch?v=-0BeZK6wJfY" class="youtube-link" target="_blank">
+            <span>▶︎YouTube Video</span>
+        </a>
+        <ul class="command_detail">
+            <li>
+                <h4 class="update-date">2021/05/01</h4>
+                <h4 class="Edition">Bedrock Edition</h4>
+                <div class="command_content">
+                    <!-- Command Template
+                    <div class="moc -cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    div.moc.-cmb.always>div.btn-mo.btn-cmb>div.cmb>a>img[src="/sites/command_describer/data/img/command_block.png" alt=""]^^^div.mob>p{}
+                -->
+                    <h3>準備機構</h3>
+                    <div class="moc i-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                scoreboard objectives add kaiten dummy
+                            </p>
+                        </div>
+                    </div>
+                    <h3>縦切りのコマンドの一部</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=!tptp] ~ ~ ~ tp @s ~ ~0.2 ~ ~-55 0
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=!tptp] ~ ~-1000 ~ playsound item.trident.throw @a ~ ~ ~ 1 0.5
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=!tptp] ~ ~-1000 ~ particle minecraft:dragon_destroy_block ^ ^ ^-1.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @e[tag=kiru2,tag=!tptp] add tptp
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                scoreboard players add @e[tag=kiru2,tag=tptp] kaiten 1
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                kill @e[scores={kaiten=3..}]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~ ~ tp @s ~ ~-0.03 ~ ~3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru2,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <h3>横切りのコマンドの一部</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=!tptp] ~ ~ ~ tp @s ~ ~-1 ~ ~ 50
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=!tptp] ~ ~-1000 ~ playsound item.trident.throw @a ~ ~ ~ 1 0.5
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=!tptp] ~ ~-1000 ~ particle minecraft:dragon_destroy_block ^ ^ ^-1.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @e[tag=kiru,tag=!tptp] add tptp
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~ ~ tp @s ~ ~ ~ ~ ~-3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @e[tag=kiru,tag=tptp] ~ ~-1000 ~ particle minecraft:balloon_gas_particle ^ ^ ^-2.3
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                kill @e[tag=kiru,tag=tptp,rx=-30]
+                            </p>
+                        </div>
+                    </div>
+                    <h3>コマンド本体</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @r add ken
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                clear @a[tag=ken] minecraft:iron_sword 1 1
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                replaceitem entity @a[tag=ken] slot.weapon.mainhand 0 iron_sword
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=ken] ~ ~1002 ~ summon boat ^ ^ ^0.4
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=ken] ~ ~1000 ~ execute @e[r=3,type=boat] ~ ~ ~ tp @s ^ ^ ^ facing @p[tag=ken]
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a[tag=ken] add sentaku
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=sentaku,tag=zimen] ~ ~1000 ~ tag @e[r=3,type=boat] add kiru2
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a[tag=sentaku,tag=!zimen] ~ ~1000 ~ tag @e[r=3,type=boat] add kiru
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a remove sentaku
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a remove ken
+                            </p>
+                        </div>
+                    </div>
+                    <h3>プレイヤーが空中にいるかどうか感知するコマンド</h3>
+                    <div class="moc r-cmb redstone-required-toggle">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                tag @a add zimen
+                            </p>
+                        </div>
+                    </div>
+                    <div class="moc c-cmb always">
+                        <div class="btn-mo btn-cmb">
+                            <div class="cmb">
+                                <a>
+                                    <img src="/sites/command_describer/data/img/command_block.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mob">
+                            <p>
+                                execute @a ~ ~ ~ detect ~ ~-0.1 ~ air 0 tag @s remove zimen
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="comment-feedback-boxform">
+        <!-- customize labels of htmlcommentbox.com -->
+        <script>
+            // This code goes ABOVE the main HTML Comment Box code!
+            // replace the text in the single quotes below to customize labels.
+            hcb_user = {
+// L10N
+                comments_header : 'コメント',
+                name_label : '名無しの勇者',
+                content_label: 'コメントをどうぞ！(8192文字まで入力可能です)',
+                submit : 'コメントを送信',
+                logout_link : '<img title="log out" src="//www.htmlcommentbox.com/static/images/door_out.png" alt="[logout]" class="hcb-icon"/>',
+                admin_link : '<img src="//www.htmlcommentbox.com/static/images/door_in.png" alt="[login]" class="hcb-icon"/>',
+                no_comments_msg: 'まだコメントはありません',
+                add:'コメントを追加する',
+                again: 'さらにコメントを投稿する',
+                rss:'<img src="//www.htmlcommentbox.com/static/images/feed.png" class="hcb-icon" alt="rss"/> ',
+                said:'さん',
+                prev_page:'<img src="//www.htmlcommentbox.com/static/images/arrow_left.png" class="hcb-icon" title="previous page" alt="[prev]"/>',
+                next_page:'<img src="//www.htmlcommentbox.com/static/images/arrow_right.png" class="hcb-icon" title="next page" alt="[next]"/>',
+                showing:'もっと見る',
+                to:'～',
+                website_label:'website (optional)',
+                email_label:'email',
+                anonymous:'名無しの勇者',
+                mod_label:'(管理人)',
+                subscribe:'返信をメールで知らせる',
+                are_you_sure:'不適切なコメントとして報告しますか？',
+                add_image:'画像を追加する',
+
+                reply:'<img src="//www.htmlcommentbox.com/static/images/reply.png"/> 返信',
+                flag:' ',
+                like:'<img src="//www.htmlcommentbox.com/static/images/like.png"/> いいね！',
+
+//dates
+                days_ago:'日前',
+                hours_ago:'時間前',
+                minutes_ago:'分前',
+                within_the_last_minute:'数分前',
+                msg_thankyou:'コメントをありがとうございます！',
+                msg_approval:'(このコメントは管理者に承認されるまで公開されません)',
+                msg_approval_required:'Thank you for commenting! Your comment will appear once approved by a moderator.',
+
+                err_bad_html:'コメントにはhtmlタグを使用することはできません',
+                err_bad_email:'正しいメールアドレスを入力してください',
+                err_too_frequent:'連続投稿はできません、数十秒おいてください',
+                err_comment_empty:'コメント欄が空です',
+                err_denied:'コメントの投稿に失敗しました',
+//SETTINGS
+                MAX_CHARS: 8192,
+                PAGE:'', // ID of the webpage to show comments for. defaults to the webpage the user is currently visiting.
+                RELATIVE_DATES:true // show dates in the form "X hours ago." etc.
+            };
+        </script>
+        <!-- done customizing labels of htmlcommentbox.com -->
+        <!-- begin www.htmlcommentbox.com -->
+        <div id="HCB_comment_box">
+            <a href="http://www.htmlcommentbox.com">Widget</a>is loading comments...
+        </div>
+        <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+        <script type="text/javascript" id="hcb">
+            /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24iWRry51wu2NmYzewi6jaO1"+"&opts=16854&num=10&ts=1619882770350");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/
+        </script>
+        <!-- end www.htmlcommentbox.com -->
+        </div>
+    </div>
+</main>
+</body>
+</html>

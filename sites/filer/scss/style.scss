@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@500;600;700;800;900&display=swap');
+body {
+  margin: 0;
+}
+#container {
+  display: flex;
+  width: 98vw;
+  height: 98vh;
+  margin: 1vh 1vw;
+  & #column {
+    &-left {
+      width: 20%;
+    }
+    &-right {
+      width: 80%;
+      & #editor {
+        width: 100%;
+        height: 100%;
+        border: 1px solid grey;
+      }
+    }
+  }
+}
+div#explorer {
+  user-select: none;
+  margin-top: 1%;
+  overflow: auto;
+  height: 95.6%;
+  width: 94%;
+  padding-top: 1%;
+  padding-left: 1%;
+  border: 1px solid #000;
+}
+div.directory > details > summary::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\e185";
+  font-size: 20px;
+  padding-right: 2px;
+}
+div.directory > details[open]> summary::before {
+  content: "\f07c";
+}
+div.file > span::before {
+  font-family: "Font Awesome 6 Free";
+  content: "\f15b";
+  font-size: 20px;
+  padding-right: 2px;
+}
+div.directory > details > summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: 'Noto Sans Mono', monospace;
+  font-weight: 900;
+  font-size: 18px;
+  -webkit-text-stroke: #fff 0.8px;
+}
+div.file > span {
+  font-family: 'Noto Sans Mono', monospace;
+  font-weight: 900;
+  font-size: 18px;
+  -webkit-text-stroke: #fff 0.8px;
+}
+div.children {
+  padding-left: 12px;
+  margin-left: 8px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-left: 2px #000 solid;
+  background-color: #0001;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="./js/variable.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <main>
+        <div id="content">
+            <input type="button" id="play" value="test" onclick="start();">
+            <label></label>
+            <hr>
+            <span>
+                <input type="number" id="audioThreadNum" oninput="cmdGen();" min="0" step="1" value="0" contenteditable="false">
+                <hr>
+                <h3>■definition</h3>
+                <input type="button" id="copyD" value="copy" onclick="copyD();">
+                <br>
+                <p contenteditable="false" id="definition"></p>
+                <br>
+                <h3>■function audioEnded</h3>
+                <input type="button" id="copyFAE" value="copy" onclick="copyFAE();">
+                <br>
+                <p contenteditable="false" id="functionAudioEnded"></p>
+                <br>
+                <h3>■function playSound</h3>
+                <input type="button" id="copyFPS" value="copy" onclick="copyFPS();">
+                <br>
+                <p contenteditable="false" id="functionPlaysound"></p>
+                <br>
+                <h3>■inNotePlay</h3>
+                <input type="button" id="copyINP" value="copy" onclick="copyINP();">
+                <br>
+                <p contenteditable="false" id="inNotePlay"></p>
+            </span>
+        </div>
+    </main>
+    <footer>
+        <div id="infobar">
+            <p>Copied!</p>
+        </div>
+    </footer>
+</body>
+</html>

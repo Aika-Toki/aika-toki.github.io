@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
+// Font Setting
+// "Kiwi Maru" = 300, 400, 500
+// "M Plus 2" = 100, 200, 300, 400, 500, 600, 700, 800, 900
+// "Shippori Mincho" = 400, 500, 600, 700
+html,body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+#overlay {
+    background-color: #0006;
+    opacity: 0;
+    z-index: -900;
+    transition: opacity 300ms linear 0ms;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &.show{
+        transition: opacity 300ms linear 0ms;
+        opacity: 1;
+        z-index: 900;
+        &>div{
+            opacity: 0;
+            z-index: -901;
+            transition: opacity 100ms linear 0ms;
+            &#createCalendar{
+                width: 28vw;
+                height: 67vh;
+                background-color: #fff;
+                border-radius: 10px;
+            }
+            &>div#innerFrameHeader{
+                height: 50px;
+                width: 90%;
+                padding-left: 5%;
+                padding-right: 5%;
+                justify-content: space-between;
+                align-items: center;
+                display: flex;
+                &>span{
+                    font-family: 'Kiwi Maru';
+                    font-size: 28px;
+                }
+                &>i{
+                    font-size: 24px;
+                    cursor: pointer;
+                }
+            }
+            &.show{
+                opacity: 1;
+                z-index: 901;
+                transition: opacity 100ms linear 0ms;
+            }
+        }
+    }
+}
+header {
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.8);
+    height: 250px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Kiwi Maru';
+    &>#serviceName {
+        background-color: #fff;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        margin-left: 0px;
+        &>i{
+            line-height: 80px;
+            font-size: 32px;
+            margin: 0 15px;
+        }
+        &>h1{
+            font-family: "Kiwi Maru";
+            font-weight: 300;
+            line-height: 40px;
+        }
+    }
+    &>#menutab {
+        height: 50px;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        background-color: #008cff;
+        &>div{
+            color: #fff;
+            line-height: 40px;
+            font-size: 18px;
+            padding: 4px 10px;
+            user-select: none;
+            cursor: pointer;
+            transition: background-color 100ms linear 0ms;
+            &:hover{
+                transition: background-color 100ms linear 0ms;
+                background-color: #259dff;
+            }
+            &.sel{
+                transition: background-color 100ms linear 0ms;
+                background-color: #56b3ff;
+                &:hover{
+                    transition: background-color 100ms linear 0ms;
+                    background-color: #259dff;
+                }
+            }
+        }
+    }
+    &>#menucontent {
+        height: 120px;
+        width: 100vw;
+        background-color: #eeeeee;
+        &>div{
+            display: flex;
+            position: absolute;
+            opacity: 0;
+            transform: translateX(50px);
+            pointer-events: none;
+            transition: opacity 200ms linear 0ms, transform 200ms linear 0ms, display 0ms linear 200ms;
+            &.sel{
+                transition: opacity 200ms linear 20ms, transform 200ms linear 20ms, display 0ms linear 0ms;
+                transition: 200ms;
+                opacity: 1;
+                pointer-events: auto;
+                transform: translate(0px);
+            }
+            flex-direction: row;
+            &>hr{
+                margin: 10px 20px;
+            }
+            &>div{
+                display: flex;
+                flex-direction: column;
+                width: 110px;
+                height: 110px;
+                margin: 5px 0px;
+                user-select: none;
+                cursor: pointer;
+                &>i{
+                    font-size: 32px;
+                    margin: 5px auto 5px auto;
+                    width: 32px;
+                    height: 32px;
+                    text-align: center;
+                }
+                &>span{
+                    font-size: 16px;
+                    word-break: break-all;
+                    text-align: center;
+                    width: 110px;
+                    // line-height: 63px;
+                    margin-top: 5px;
+                    height: 63px;
+                }
+                &:hover{
+                    background-color: #fafafa;
+                    transition: background-color 100m linear 0ms;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,271 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap");
+@keyframes zoomin {
+  0% {
+    background-size: 100vw;
+  }
+  5% {
+    background-size: 110vw;
+  }
+  100% {
+    background-size: 112vw;
+  }
+}
+@keyframes zoomout {
+  0% {
+    transform: scale(1.1);
+  }
+  5% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes darken {
+  0% {
+    -webkit-backdrop-filter: brightness(1) saturate(1);
+            backdrop-filter: brightness(1) saturate(1);
+  }
+  100% {
+    -webkit-backdrop-filter: brightness(0.6) saturate(0.8);
+            backdrop-filter: brightness(0.6) saturate(0.8);
+  }
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeoutb {
+  0% {
+    -webkit-backdrop-filter: opacity(1);
+            backdrop-filter: opacity(1);
+  }
+  100% {
+    -webkit-backdrop-filter: opacity(0);
+            backdrop-filter: opacity(0);
+  }
+}
+@keyframes slideup {
+  0% {
+    transform: translateY(0vh);
+    font-size: 10vw;
+  }
+  100% {
+    transform: translateY(-40vh);
+    font-size: 8vw;
+  }
+}
+.hide {
+  display: none !important;
+}
+
+tr > td:nth-child(1) {
+  vertical-align: middle;
+}
+tr button {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#warn {
+  opacity: 0;
+  max-height: 0vh;
+  transition-property: opacity, max-height;
+  transition-duration: 600ms;
+}
+#warn.show {
+  opacity: 1;
+  max-height: 5vh;
+}
+
+div#result {
+  position: fixed;
+  flex-direction: column;
+  background-color: #bbbbbb;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  animation: zoomin 3s linear 800ms 1 forwards running;
+}
+div#result > div#mapnamearea {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../img/71_20221028232650.png");
+  background-size: 85vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1.1);
+  animation: zoomout 3s linear 800ms 1 forwards running, darken 3s linear 800ms 1 forwards running;
+}
+div#result > div#mapnamearea > label#mapname {
+  color: #fff;
+  font-size: 10vw;
+  font-family: "Anton";
+  animation: slideup 1s ease-out 6.8s 1 forwards running;
+}
+div#result > div#coordinatemodearea {
+  width: 90vw;
+  padding: 0 10vw;
+  height: 20vh;
+  background-color: rgba(255, 255, 255, 0.1254901961);
+  background-size: 100vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: scale(1.1);
+  animation: zoomout 3s linear 800ms 1 forwards running, fadeout 1s linear 6.8s 1 forwards running;
+}
+div#result > div#coordinatemodearea > label {
+  font-size: 1.5vw;
+  letter-spacing: 0.2vw;
+  color: #fff;
+  font-family: "Quicksand";
+  font-weight: 300;
+}
+div#result #teamname {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 76.5vw;
+}
+div#result #teamname > label {
+  font-size: 1.2vw;
+  letter-spacing: 0.2vw;
+  font-family: "Quicksand";
+  font-weight: 400;
+}
+div#result #teamname > label#teama {
+  color: #FC474F;
+}
+div#result #teamname > label#teamb {
+  color: #5CDBC2;
+}
+div#result #teamspl {
+  width: 100vw;
+  background-image: url("../img/72_20221028224950.png");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  height: 3vh;
+}
+div#result #teamv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  opacity: 0;
+  height: 100vh;
+  position: fixed;
+  background: linear-gradient(90deg, rgba(252, 71, 79, 0.3) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0) 70%, rgba(87, 197, 178, 0.3) 100%);
+  animation: fadein 2s linear 8.2s 1 forwards running;
+}
+div#result #teammember {
+  display: flex;
+  justify-content: space-between;
+  width: 93.4vw;
+  margin-top: 1vh;
+  align-items: center;
+}
+div#result #teammember > div {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: start; */
+}
+div#result #teammember > div#teama #teamcolor {
+  background-color: #FC474F;
+}
+div#result #teammember > div#teama #images {
+  background: linear-gradient(90deg, rgba(252, 71, 79, 0.3764705882) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%);
+}
+div#result #teammember > div#teamb #teamcolor {
+  background-color: #5CDBC2;
+}
+div#result #teammember > div#teamb #images {
+  background: linear-gradient(270deg, rgba(92, 219, 194, 0.3764705882) 0%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 100%);
+}
+div#result #teammember > div#vs {
+  background-image: url(../img/71_20221027225146.png);
+  background-size: 110vw;
+  background-position: center;
+  margin-bottom: 10vh;
+  padding: 20vh 10vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#result #teammember > div#vs > label {
+  font-family: "Anton";
+  font-size: 6vw;
+  color: #fff;
+}
+div#result #teammember > div > div {
+  display: flex;
+  margin: 0.7vh 0;
+}
+div#result #teammember > div > div > #teamcolor {
+  width: 0.4vw;
+}
+div#result #teammember > div > div > #playerinfo {
+  display: flex;
+  flex-direction: column;
+}
+div#result #teammember > div > div > #playerinfo > #images {
+  display: flex;
+}
+div#result #teammember > div > div > #playerinfo > #images > #agentIcon {
+  height: 11vh;
+}
+div#result #teammember > div > div > #playerinfo > #images > #banner {
+  height: 11vh;
+}
+div#result #teammember > div > div > #playerinfo > #texts {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgb(0, 0, 0) 100%);
+  align-items: center;
+  width: 96%;
+  padding: 0 2%;
+}
+div#result #teammember > div > div > #playerinfo > #texts > #name {
+  font-size: 1vw;
+  font-weight: bold;
+  color: #fff;
+}
+div#result #teammember > div > div > #playerinfo > #texts > #title, div#result #teammember > div > div > #playerinfo > #texts #agentName {
+  font-size: 0.6vw;
+  color: #aaa;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 white;
+    font-size: 22px;
+  }
+}/*# sourceMappingURL=style.css.map */

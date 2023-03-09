@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チーム分け</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <link rel="stylesheet" href="./scss/style.css">
+</head>
+<body>
+    <div id="control">
+        <div id="name">
+            <label id="warn">注意：総メンバーが11人以上になると画面に収まらない可能性があります</label>
+            <table id="names">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="btns">
+                <div>
+                    <input type="text" name="name" id="nameinput" placeholder="PLAYER">
+                    <input type="button" value="追加" id="add">
+                </div>
+                <hr>
+                <input type="button" value="実行" id="run">
+            </div>
+        </div>
+    </div>
+    <div id="result" class="hide">
+        <div id="mapnamearea">
+            <label id="mapname">MAP</label>
+        </div>
+        <div id="coordinatemodearea">
+            <label id="coordinate"></label>
+            <label id="mode">SIMURATION</label>
+        </div>
+        <div id="teamv">
+            <div id="teamname">
+                <label id="teama">ATTACKING</label>
+                <label id="teamb">DEFENDING</label>
+            </div>
+            <div id="teamspl"></div>
+            <div id="teammember">
+                <div id="teama"></div>
+                <div id="vs">
+                    <label>VS</label>
+                </div>
+                <div id="teamb"></div>
+            </div>
+            <div>
+                <input type="button" value="back" id="edit">
+                <input type="button" value="again" id="again">
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>

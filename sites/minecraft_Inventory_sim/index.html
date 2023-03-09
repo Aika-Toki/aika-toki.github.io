@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./data/css/style.css">
+    <script type="text/javascript" src="./data/js/script.js"></script>
+    <title>Minecraft Inventory Sim</title>
+</head>
+<body>
+    <div id="Inventory" class="Container">
+        <label id="storageType">インベントリ</label>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="containerslot" id="container-9"></td>
+                    <td class="containerslot" id="container-10"></td>
+                    <td class="containerslot" id="container-11"></td>
+                    <td class="containerslot" id="container-12"></td>
+                    <td class="containerslot" id="container-13"></td>
+                    <td class="containerslot" id="container-14"></td>
+                    <td class="containerslot" id="container-15"></td>
+                    <td class="containerslot" id="container-16"></td>
+                    <td class="containerslot" id="container-17"></td>
+                </tr>
+                <tr>
+                    <td class="containerslot" id="container-18"></td>
+                    <td class="containerslot" id="container-19"></td>
+                    <td class="containerslot" id="container-20"></td>
+                    <td class="containerslot" id="container-21"></td>
+                    <td class="containerslot" id="container-22"></td>
+                    <td class="containerslot" id="container-23"></td>
+                    <td class="containerslot" id="container-24"></td>
+                    <td class="containerslot" id="container-25"></td>
+                    <td class="containerslot" id="container-26"></td>
+                </tr>
+                <tr>
+                    <td class="containerslot" id="container-27"></td>
+                    <td class="containerslot" id="container-28"></td>
+                    <td class="containerslot" id="container-29"></td>
+                    <td class="containerslot" id="container-30"></td>
+                    <td class="containerslot" id="container-31"></td>
+                    <td class="containerslot" id="container-32"></td>
+                    <td class="containerslot" id="container-33"></td>
+                    <td class="containerslot" id="container-34"></td>
+                    <td class="containerslot" id="container-35"></td>
+                </tr>
+                <tr id="split">
+                    <th></th>
+                </tr>
+                <tr id="hotbar">
+                    <td class="containerslot" id="container-0"></td>
+                    <td class="containerslot" id="container-1"></td>
+                    <td class="containerslot" id="container-2"></td>
+                    <td class="containerslot" id="container-3"></td>
+                    <td class="containerslot" id="container-4"></td>
+                    <td class="containerslot" id="container-5"></td>
+                    <td class="containerslot" id="container-6"></td>
+                    <td class="containerslot" id="container-7"></td>
+                    <td class="containerslot" id="container-8"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <textarea type="text" placeholder="Inventory:から入力/ペースト" id="jsoninput" oninput="reload();"></textarea>
+    <br><br><br><br><br><br><br>
+    <div id="cmdpa">
+        <input type="text" id="cmdp" placeholder="/">
+        <input type="button" onclick="cmdpr();" id="cmdprb" value="▼">
+    </div>
+</body>
+</html>

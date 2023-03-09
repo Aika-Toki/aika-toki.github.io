@@ -1,0 +1,353 @@
+@charset "UTF-8";
+header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100vw;
+  height: 8vh;
+  background-color: var(--accent-color);
+  font-family: "Concert One", "Kaisei Opti";
+  box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.3);
+}
+header #menubar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 4vh;
+  line-height: 4vh;
+  background-color: rgba(255, 255, 255, 0.8666666667);
+}
+header #menubar #title {
+  height: 4vh;
+  margin-right: 35vw;
+  margin-left: 15vw;
+  transition: filter 300ms;
+}
+header #menubar #title:hover {
+  filter: drop-shadow(1px 1px 1px rgba(121, 121, 121, 0.6));
+}
+header #menubar #title img {
+  height: 4vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+header #menubar #account {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 40vw;
+}
+header #menubar #account #logout {
+  color: #fff;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+  font-size: 30px;
+  transition-property: background-color;
+  transition-duration: 300ms;
+  padding: 0px 16px;
+}
+@media (max-width: 920px) {
+  header #menubar #account #logout {
+    font-size: 20px;
+  }
+}
+header #menubar #account #logout:hover {
+  background-color: rgba(170, 170, 170, 0.2);
+  cursor: pointer;
+}
+header #menubar #account #id {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-break: break-all;
+  width: 1vw;
+}
+@media (max-width: 920px) {
+  header #menubar #account #id {
+    display: none;
+  }
+}
+header #datebar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  line-height: 4vh;
+  height: 4vh;
+  font-size: 25px;
+}
+@media (max-width: 920px) {
+  header #datebar {
+    font-size: 20px;
+  }
+}
+header #datebar #previousDate {
+  color: #fff;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(255, 255, 255, 0);
+  transition: transform 300ms, text-shadow 300ms;
+}
+header #datebar #previousDate:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(255, 255, 255, 0.6);
+  transform: translateY(1px);
+}
+header #datebar #currentDate {
+  color: #fff;
+  font-weight: bold;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+header #datebar #nextDate {
+  color: #fff;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(255, 255, 255, 0);
+  transition: transform 300ms, text-shadow 300ms;
+}
+header #datebar #nextDate:hover {
+  cursor: pointer;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(255, 255, 255, 0.6);
+  transform: translateY(1px);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+main {
+  background-color: #ccc;
+  padding-top: 2vh;
+  height: 90vh;
+  width: 100vw;
+  font-family: "Concert One", "Kaisei Opti";
+}
+main div {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+main div#review {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 4vw;
+}
+main div#review div {
+  margin-left: 1vw;
+}
+main div#temperature {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 4vw;
+}
+main div#temperature div {
+  margin-left: 1vw;
+}
+main div#temperature #tempArea {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Concert One", "Kaisei Opti";
+  margin-bottom: 5px;
+  text-align: right;
+  border-color: #333;
+  transition-property: color, border-color, border-width;
+  transition-duration: 300ms;
+}
+main div#temperature #tempArea:focus-visible {
+  outline-style: none;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  border-width: 2px;
+  transition-property: color, border-color, border-width;
+  transition-duration: 300ms;
+}
+main div#temperature input[type=checkbox] {
+  display: none;
+}
+main div#temperature input[type=checkbox] ~ label > i::before {
+  color: #000;
+  font-weight: 500;
+  font-size: 25px;
+  transition-property: color;
+  transition-duration: 300ms;
+}
+main div#temperature input[type=checkbox] ~ label > i::after {
+  content: "休日";
+  font-family: "Concert One", "Kaisei Opti";
+  font-size: 18px;
+  line-height: 25px;
+  color: #000;
+  transition-property: color;
+  transition-duration: 300ms;
+}
+main div#temperature input[type=checkbox] ~ label:hover {
+  cursor: pointer;
+}
+main div#temperature input[type=checkbox]:checked ~ label > i::before {
+  font-weight: 800;
+  color: var(--accent-color);
+}
+main div#temperature input[type=checkbox]:checked ~ label > i::after {
+  content: "登校日";
+  font-size: 18px;
+  line-height: 25px;
+  font-family: "Concert One", "Kaisei Opti";
+  color: var(--accent-color);
+}
+main div#save {
+  margin-left: 5vw;
+  display: flex;
+}
+@media (max-width: 920px) {
+  main div#save {
+    flex-direction: column;
+  }
+}
+main div#save > #savenotice {
+  margin-left: 1vw;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: var(--accent-color);
+  opacity: 0;
+  transform: translateY(-10px);
+  font-size: 1.125em;
+}
+main div#save > #savenotice > span {
+  line-height: 50px;
+}
+main div#save > #savenotice > i {
+  letter-spacing: 0.6em;
+  line-height: 50px;
+}
+main div#save > #savenotice.visible {
+  transform: translateY(0px);
+  opacity: 1;
+  transition: all 300ms linear 0ms;
+}
+main div#save > #submitbtn {
+  width: 5vw;
+  height: 50px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  border-color: #ddd;
+  transition-property: box-shadow, transform;
+  transition-duration: 300ms;
+  box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Concert One", "Kaisei Opti";
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+@media (max-width: 920px) {
+  main div#save > #submitbtn {
+    width: 25vw;
+  }
+}
+main div#save > #submitbtn:hover {
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+  transform: translateY(4px);
+  cursor: pointer;
+}
+main div h2 {
+  margin: 0;
+  width: 90vw;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+main div textarea {
+  width: 90vw;
+  height: 15vh;
+  resize: none;
+  font-size: 20px;
+  font-family: "Concert One", "Kaisei Opti";
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #333;
+  transition-property: color, border-color, border-width;
+  transition-duration: 300ms;
+}
+main div textarea:focus-visible {
+  outline-style: none;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  border-width: 2px;
+  transition-property: color, border-color, border-width;
+  transition-duration: 300ms;
+}
+
+#loadingCover {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  opacity: 1;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5333333333);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transition-property: opacity;
+  transition-duration: 300ms;
+}
+#loadingCover #loadingArea {
+  width: 150px;
+  height: 180px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+#loadingCover #loadingArea h2 {
+  text-align: center;
+  font-family: "Concert One", "Kaisei Opti";
+  font-size: 32px;
+}
+#loadingCover.hidden {
+  opacity: 0;
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+}
+
+#feelingArea {
+  flex-direction: column;
+  display: table-row;
+  height: 55px;
+  overflow: hidden;
+}
+@media (max-width: 920px) {
+  #feelingArea {
+    display: block;
+  }
+}
+#feelingArea option {
+  font-size: 30px;
+  display: table-cell;
+}
+@media (max-width: 920px) {
+  #feelingArea option {
+    display: table-cell;
+  }
+}
+#feelingArea option:checked {
+  background: linear-gradient(var(--accent-color), var(--accent-color));
+  font-size: 35px;
+  filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.5333333333));
+  outline-style: none;
+  transition-property: background;
+  transition-duration: 300ms;
+}/*# sourceMappingURL=style.css.map */

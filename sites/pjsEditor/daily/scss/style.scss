@@ -1,0 +1,400 @@
+$pc: 920px;
+$sp: 480px;
+$def-font: 'Concert One', 'Kaisei Opti';
+@mixin pc {
+    @media (min-width: ($pc)) {
+        @content;
+    }
+}
+
+@mixin tab {
+    @media (max-width: ($pc)) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media (max-width: ($pc)) {
+        @content;
+    }
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--accent-color);
+    font-family: $def-font;
+    box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.3);
+
+    & #menubar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 4vh;
+        line-height: 4vh;
+        background-color: #fffd;
+
+        & #title {
+            height: 4vh;
+            margin-right: 35vw;
+            margin-left: 15vw;
+            transition: filter 300ms;
+
+            &:hover {
+                filter: drop-shadow(1px 1px 1px #79797999);
+            }
+
+            & img {
+                height: 4vh;
+                user-select: none;
+            }
+        }
+
+        & #account {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 40vw;
+
+            & #logout {
+                color: #fff;
+                text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+                font-size: 30px;
+                transition-property: background-color;
+                transition-duration: 300ms;
+                padding: 0px 16px;
+
+                @include sp {
+                    font-size: 20px;
+                }
+
+                &:hover {
+                    background-color: #aaa3;
+                    cursor: pointer;
+                }
+            }
+
+            & #id {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                line-break: break-all;
+                width: 1vw;
+
+                @include sp {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    & #datebar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        line-height: 4vh;
+        height: 4vh;
+        font-size: 25px;
+
+        @include sp {
+            font-size: 20px;
+        }
+
+        & #previousDate {
+            color: #fff;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(255, 255, 255, 0);
+            transition: transform 300ms, text-shadow 300ms;
+
+            &:hover {
+                cursor: pointer;
+                text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(255, 255, 255, 60%);
+                transform: translateY(1px);
+            }
+        }
+        
+        & #currentDate {
+            color: #fff;
+            font-weight: bold;
+            cursor:pointer;
+            user-select: none;
+            &>label {
+                cursor: pointer;
+            }
+            &>input {
+                display: none;
+            }
+        }
+        
+        & #nextDate {
+            color: #fff;
+            text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(255, 255, 255, 0);
+            transition: transform 300ms, text-shadow 300ms;
+    
+            &:hover {
+                cursor: pointer;
+                text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(255, 255, 255, 60%);
+                transform: translateY(1px);
+            }
+        }
+    }
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+main {
+    background-color: #ccc;
+    padding-top: 2vh;
+    height: 90vh;
+    width: 100vw;
+    font-family: $def-font;
+
+    & div {
+        width: fit-content;
+        margin: 0 auto;
+
+        &#review {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 4vw;
+            & div{
+                margin-left: 1vw;
+            }
+        }
+
+        &#temperature {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 4vw;
+
+            & div {
+                margin-left: 1vw;
+            }
+
+            & #tempArea {
+                border-radius: 3px;
+                border-style: solid;
+                border-width: 1px;
+                font-size: 16px;
+                line-height: 20px;
+                font-family: $def-font;
+                margin-bottom: 5px;
+                text-align: right;
+                border-color: #333;
+                transition-property: color, border-color, border-width;
+                transition-duration: 300ms;
+
+                &:focus-visible {
+                    outline-style: none;
+                    color: var(--accent-color);
+                    border-color: var(--accent-color);
+                    border-width: 2px;
+                    transition-property: color, border-color, border-width;
+                    transition-duration: 300ms;
+                }
+            }
+
+            & input[type="checkbox"] {
+                display: none;
+                &~label>i {
+                    &::before {
+                        color: #000;
+                        font-weight: 500;
+                        font-size: 25px;
+                        transition-property: color;
+                        transition-duration: 300ms;
+                    }
+                    &::after {
+                        content: "休日";
+                        font-family: $def-font;
+                        font-size: 18px;
+                        line-height: 25px;
+                        color: #000;
+                        transition-property: color;
+                        transition-duration: 300ms;
+                    }
+                }
+                &~label:hover {
+                    cursor: pointer;
+                }
+                &:checked~label>i{
+                    &::before{
+                        font-weight: 800;
+                        color: var(--accent-color);
+                    }
+                    &::after {
+                        content: "登校日";
+                        font-size: 18px;
+                        line-height: 25px;
+                        font-family: $def-font;
+                        color: var(--accent-color);
+                    }
+                }
+
+            }
+        }
+
+        &#save {
+            margin-left: 5vw;
+            display: flex;
+            @include sp {
+                flex-direction: column;
+            }
+            &>#savenotice {
+                margin-left: 1vw;
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                color: var(--accent-color);
+                opacity: 0;
+                transform: translateY(-10px);
+                font-size: calc(18em / 16);
+    
+                &>span{
+                    line-height: 50px;
+                }
+    
+                &>i{
+                    letter-spacing: 0.6em;
+                    line-height: 50px;
+                }
+    
+                &.visible{
+                    transform: translateY(0px);
+                    opacity: 1;
+                    transition: all 300ms linear 0ms;
+                }
+            }
+            &>button {
+                &#weekbtn{
+                    width: 10vw;
+                    min-width: 150px;
+                }
+                width: 5vw;
+                height: 50px;
+                background-color: var(--accent-color);
+                color: #fff;
+                border-style: solid;
+                border-width: 2px;
+                border-radius: 5px;
+                border-color: #ddd;
+                transition-property: box-shadow,transform;
+                transition-duration: 300ms;
+                box-shadow: 0px 5px 0px 0px rgba(0, 0, 0, 0.1);
+                font-size: 16px;
+                line-height: 16px;
+                font-family: $def-font;
+                user-select: none;
+                @include sp {
+                    width: 25vw;
+                }
+                &:hover {
+                    box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.1);
+                    transform: translateY(4px);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        & h2 {
+            margin: 0;
+            width: 90vw;
+            user-select: none;
+        }
+
+        & code {
+            display: block;
+            background-color: #ddd;
+            width: 90vw;
+            height: 15vh;
+            resize: none;
+            font-size: 20px;
+            font-family: $def-font;
+            border-radius: 5px;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #333;
+            transition-property: color, border-color, border-width;
+            transition-duration: 300ms;
+
+            &:focus-visible {
+                outline-style: none;
+                color: var(--accent-color);
+                border-color: var(--accent-color);
+                border-width: 2px;
+                transition-property: color, border-color, border-width;
+                transition-duration: 300ms;
+            }
+        }
+    }
+}
+
+#loadingCover {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    opacity: 1;
+    z-index: 1;
+    background-color: #fff8;
+    backdrop-filter: blur(10px);
+    transition-property: opacity;
+    transition-duration: 300ms;
+
+    & #loadingArea {
+        width: 150px;
+        height: 180px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        & h2 {
+            text-align: center;
+            font-family: $def-font;
+            font-size: 32px;
+        }
+    }
+
+    &.hidden {
+        opacity: 0;
+    }
+}
+
+
+.loader {
+    width: 150px;
+    height: 150px;
+}
+
+#feelingArea {
+    flex-direction: column;
+    display: table-row;
+    @include sp {
+        display: block;
+    }
+    height: 55px;
+    overflow: hidden;
+    & option {
+        font-size: 30px;
+        display: table-cell;
+        @include sp {
+            display: table-cell;
+        }
+        &:checked{
+            background: linear-gradient(var(--accent-color),var(--accent-color));
+            font-size: 35px;
+            filter:drop-shadow(0px 0px 2px #0008);
+            outline-style: none;
+            transition-property: background;
+            transition-duration: 300ms;
+        }
+    }
+}

@@ -1,0 +1,241 @@
+/*Font*/
+@font-face {
+    font-family: UpperEastSide;
+    src: url("../font/ttf/UpperEastSide.ttf");
+}
+@font-face {
+    font-family: LetsGoDigital;
+    src: url("../font/ttf/Let_s_go_Digital_Regular.ttf");
+}
+/*End of Font*/
+/*Keyframe*/
+@keyframes disappear {
+    0% {
+        display: unset;
+        transform: translateY(0px);
+    }
+    99% {
+        display: unset;
+    }
+    100% {
+        display: none;
+        transform: translateY(-300px);
+    }
+}
+@keyframes appear {
+    0% {
+        display: none;
+        transform: translateY(-300px);
+    }
+    1% {
+        display: block;
+    }
+    100% {
+        display: block;
+        transform: translateY(0px);
+    }
+}
+@keyframes cb_checked {
+    0% {
+        background: linear-gradient(90deg, limegreen 0%, transparent 0.01%, transparent 100%);
+        color: unset;
+    }
+    5% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 5%, transparent 5.01%, transparent 100%);
+    }
+    10% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 10%, transparent 10.01%, transparent 100%);
+    }
+    15% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 15%, transparent 15.01%, transparent 100%);
+    }
+    20% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 20%, transparent 20.01%, transparent 100%);
+    }
+    50% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 50%, transparent 50.01%, transparent 100%);
+    }
+    100% {
+        background: linear-gradient(90deg, limegreen 0%, limegreen 99.99%, transparent 100%);
+        color: white;
+    }
+}
+@keyframes cb_unchecked {
+    0% {
+        background: limegreen;
+        color: white;
+    }
+    100% {
+        background: transparent;
+        color: unset;
+    }
+}
+/*End of Keyframe*/
+body, input, select {
+    transition-property: all;
+    transition-duration: 800ms;
+}
+#c_hour, #c_minute, #c_second, #analog_base, #base_ring {
+    transition-property: background, color;
+    transition-duration: 800ms;
+}
+body.dark {
+    background-color: #333;
+    color: #fffefe;
+}
+body.light {
+    background-color: #fffefe;
+    color: #000;
+}
+.light select {
+    background-color: #fffefe;
+    color: #000;
+}
+.dark select {
+    background-color: #333;
+    color: #fff;
+}
+.light input {
+    background-color: #fffefe;
+    color: #000;
+}
+.dark input {
+    background-color: #333;
+    color: #fffefe;
+}
+.light #c_hour,.light #c_minute,.light #c_second {
+    color: gray;
+    background-color: gray;
+}
+.dark #c_hour,.dark #c_minute,.dark #c_second {
+    color: white;
+    background-color: lightgray;
+}
+.light #analog_base {
+    background-image: url("../img/base02.jpg");
+}
+.dark #analog_base {
+    background-image: url("../img/base01.jpg");
+}
+.light #base_ring {
+    background-image: url("../img/ring02.png");
+}
+.dark #base_ring {
+    background-image: url("../img/ring.png");
+}
+#expla
+#explain, #set_time, #control_button, #cd_result_time {
+    transition: all linear 300ms;
+}
+.compact #explain {
+    transform: scaleY(0);
+    height: 0;
+    opacity: 0;
+    animation: disappear 310ms linear 0ms 1 normal forwards running; 
+}
+.detail #explain {
+    transform: scaleY(1);
+    height: 144px;
+    opacity: 1;
+    animation: appear 310ms linear 0ms 1 normal forwards running; 
+}
+.compact #set_time {
+    transform: scaleY(0);
+    height: 0;
+    opacity: 0;
+    animation: disappear 310ms linear 0ms 1 normal forwards running; 
+}
+.detail #set_time {
+    transform:scaleY(1);
+    height: 27px;
+    opacity: 1;
+    animation: appear 310ms linear 0ms 1 normal forwards running; 
+}
+.compact #control_button {
+    transform: scaleY(0);
+    height: 0;
+    opacity: 0;
+    animation: disappear 310ms linear 0ms 1 normal forwards running;
+}
+.detail #control_button {
+    height: 38px;
+    transform: scaleY(1);
+    opacity: 1;
+    animation: appear 310ms linear 0ms 1 normal forwards running; 
+}
+.compact #cd_result_time {
+    font-size: 130px;
+    font-weight: bold;
+}
+.detail #cd_result_time {
+    font-size: 16px;
+    font-weight: lighter;
+}
+#analog_number p {
+    font-family: UpperEastSide;
+    color: white;
+    text-shadow: 2px 2px 2px #000000, -2px 2px 2px #000000, 2px -2px 2px #000000, -2px -2px 2px #000000, 2px 0px 2px #000000, 0px 2px 2px #000000, -2px 0px 2px #000000, 0px -2px 2px #000000;
+    font-size: 35px;
+    letter-spacing: 4px;
+    position: absolute;
+}
+#cd_result_progress progress {
+    -webkit-appearance: none;
+}
+#cd_result_progress progress::-webkit-progress-value {
+    background-image: url("../img/gradient.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#cd_result_progress progress::-webkit-progress-inner-element {
+    color: white;
+}
+#p_remain {
+    -webkit-appearance: none;
+}
+.light #p_remain {
+    border-color: #000;
+}
+.dark #p_remain {
+    border-color: #fffefe;
+}
+.light #p_remain::-webkit-progress-value {
+    background-color: #fffefe;
+}
+.dark #p_remain::-webkit-progress-value {
+    background-color: #333;
+}
+#p_remain::-webkit-progress-bar {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,21,143,1) 16.6%, rgba(136,121,57,1) 21%, rgba(86,123,193,1) 25.1%, rgba(0,217,255,1) 50%, rgba(0,217,255,1) 66%, rgba(219,178,0,1) 70.55%, rgba(0,68,140,1) 78%, rgba(0,0,0,1) 100%);
+}
+.dark #analog_needle p {
+    font-family: LetsGoDigital;
+    text-shadow: 2px 2px 2px #000000, -2px 2px 2px #000000, 2px -2px 2px #000000, -2px -2px 2px #000000, 2px 0px 2px #000000, 0px 2px 2px #000000, -2px 0px 2px #000000, 0px -2px 2px #000000;
+    transform: rotate(0deg);
+}
+.light #analog_needle p {
+    font-family: LetsGoDigital;
+    text-shadow: 2px 2px 2px #fff, -2px 2px 2px #fff, 2px -2px 2px #fff, -2px -2px 2px #fff, 2px 0px 2px #fff, 0px 2px 2px #fff, -2px 0px 2px #fff, 0px -2px 2px #fff;
+    transform: rotate(0deg);
+    z-index: 50;
+}
+.dark input.enable {
+    background-color: #fffefe;
+    color: #333;
+}
+.dark input.disable {
+    background-color: #333;
+    color: #fffefe;
+}
+.light input.disable {
+    background-color: #fffefe;
+    color: #333;
+}
+.light input.enable {
+    background-color: #333;
+    color: #fffefe;
+}
+#nowTime , #cd_result_time{
+    font-family: LetsGoDigital;
+}

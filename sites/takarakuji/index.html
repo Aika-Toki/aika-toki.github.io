@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Takarakuji Simulator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit/dist/css/uikit.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit-icons.min.js"></script>
+  <script src="./js/script.js"></script>
+  <style>
+    td.prizeClass::after {
+      content: "組";
+    }
+    td.prizeNumber::after {
+      content: "番";
+    }
+    td.prizeNumber, td.prizeClass {
+      font-family: monospace;
+    }
+    #tickets {
+      overflow: auto;
+      height: 26vh;
+    }
+    #allTotal::before {
+      content: "合計当選金額: ";
+    }
+    #bought::before {
+      content: "購入枚数: ";
+    }
+    #spent::before {
+      content: "消費金額: ";
+    }
+    #profit::before {
+      content: "儲け: ";
+    }
+    #allTotal::after,
+    #spent::after,
+    #profit::after {
+      content: "円"
+    }
+    #bought::after {
+      content: "枚";
+    }
+  </style>
+</head>
+<body style="width: 100vw;height: 100vh;">
+  <div id="table" class="uk-padding">
+    <table class="uk-table uk-table-striped">
+      <tbody>
+        <tr id="p1st"></tr>
+        <tr id="p1st-near-f"></tr>
+        <tr id="p1st-near-b"></tr>
+        <tr id="p1st-difclass"></tr>
+        <tr id="p2nd"></tr>
+        <tr id="p3rd"></tr>
+        <tr id="p4th-1"></tr>
+        <tr id="p4th-2"></tr>
+        <tr id="p4th-3"></tr>
+        <tr id="p4th-4"></tr>
+        <tr id="p4th-5"></tr>
+        <tr id="p4th-6"></tr>
+        <tr id="p4th-7"></tr>
+        <tr id="p5th"></tr>
+        <tr id="p6th"></tr>
+        <tr id="p7th"></tr>
+      </tbody>
+    </table>
+  </div>
+  <div id="tickets">
+    <table class="uk-table uk-table-middle uk-table-divider">
+      <thead>
+        <tr>
+          <th>組</th>
+          <th>番</th>
+          <th>当選賞</th>
+          <th>合計金額</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div class="uk-padding-small uk-flex">
+    <div>
+      <button class="uk-button uk-button-primary" onclick="getTicket();">Get Ticket</button>
+      <button class="uk-button uk-button-primary" onclick="ticketsJudge();">Lottery</button>
+    </div>
+    <div class="uk-margin-left">
+      <span class="uk-text-lead" id="allTotal">0</span>
+    </div>
+    <div class="uk-margin-left">
+      <span class="uk-text-lead" id="bought">0</span>
+    </div>
+    <div class="uk-margin-left">
+      <span class="uk-text-lead" id="spent">0</span>
+    </div>
+    <div class="uk-margin-left">
+      <span class="uk-text-lead" id="profit">0</span>
+    </div>
+  </div>
+  <script>
+    main();
+  </script>
+</body>
+</html>

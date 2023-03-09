@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Yomogi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap");
+body {
+  margin: 0;
+  background-color: #333;
+}
+
+html {
+  background-color: #333;
+}
+
+textarea {
+  font-family: "Fira Code", monospace;
+  background-color: black;
+  color: white;
+  font-size: 10pt;
+  width: 66vw;
+  height: 22vh;
+}
+
+div#resolution-cfg {
+  display: flex;
+}
+
+div#content {
+  display: flex;
+  width: 99vw;
+  height: 99vh;
+  padding: 0.5vh 0.5vw;
+}
+div#content > #left {
+  width: 67vw;
+  padding: 0.5vh 0.5vw;
+  height: 98vh;
+  border-right: 2px gray inset;
+}
+div#content > #left > #preview {
+  width: 66vw;
+  height: 74vh;
+  padding: 0.5vh 0.5vw;
+  border-bottom: 2px gray inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div#content > #left > #preview > canvas.widthfit {
+  width: 66vw;
+}
+div#content > #left > #preview > canvas.heightfit {
+  height: 74vh;
+}
+div#content > #left > #output {
+  width: 66vw;
+  height: 23vh;
+  padding: 0.5vh 0.5vw;
+}
+div#content > #right {
+  width: 30vw;
+  padding: 0.5vh 0.5vw;
+  height: 98vh;
+}
+div#content > #right > #control > #control-tabs {
+  height: 40px;
+  width: 29vw;
+  padding: 0.5vh 0.5vw;
+}
+div#content > #right > #control > #control-contents {
+  border-top: 2px gray inset;
+  height: 89vh;
+  width: 29vw;
+  padding: 0.5vh 0.5vw;
+}
+
+code#cfgdata {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

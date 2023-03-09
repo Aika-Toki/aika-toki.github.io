@@ -1,0 +1,1 @@
+javascript:(function(){var a='https://aika-toki.github.io/others/javascript/capture_page.js?'+(new Date()).getTime();var d=document;var e=d.createElement('script');e.charset='utf-8';e.src=a;d.getElementsByTagName('head')[0].appendChild(e);})();

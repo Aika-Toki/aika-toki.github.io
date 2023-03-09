@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Searcher</title>
+    <style>
+        #key1,#key2 {
+            display: inline-grid;
+        }
+        input[type="text"],input[type="date"] {
+            border-style: solid;
+            border-radius: 2px;
+            border-width: 1px;
+            padding: 2px 0;
+        }
+        input:hover {
+            opacity: 0.6;
+        }
+        input {
+            transition-property: opacity;
+            transition-duration: 300ms;
+        }
+        #keyword {
+            border-color: #37afff;
+            background-color: #bee1ff;
+        }
+        #ignore {
+            border-color: #a71b1b;
+            background-color: #e0a2a2;
+        }
+        input[type="button"] {
+            border-style: none;
+            border-radius: 50px;
+            background-color: #ccc;
+        }
+        #alert {
+            background-color: lightgray;
+            color: black;
+            width: 100vw;
+            height: 6vh;
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 600ms 0ms, transform 600ms 0ms;
+            transform: translateY(6vh);
+        }
+        #alert #alertContent {
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            position: absolute;
+            width: max-content;
+            height: max-content;
+            font-size: 2vh;
+        }
+        #alert.show {
+            opacity: 1;
+            transform: translateY(0vh);
+            transition: opacity 600ms 0ms, transform 600ms 0ms;
+        }
+        main {
+            margin: 8px;
+        }
+        body {
+            margin: 0;
+        }
+        #twitter {
+            color:#3EA8F1;
+            font-size: 5vw;
+            border-radius: 50px;
+            padding: 1vw;
+            transition-property: color, background-color;
+            transition-duration: 300ms;
+        }
+        #twitter:hover {
+            color: white;
+            background-color: #3EA8F1;
+        }
+    </style>
+    <script>
+        function addKeyword(){
+            let e=document.createElement('input');
+            e.type='text';
+            e.id='keyword';
+            if(qsval('#keyword','max')) {
+                qs('#keyword','max').after(e);
+            }
+            qs('#keyword','max').select();
+            reloadLink();
+        }
+        function addIgnoreKeyword(){
+            let e=document.createElement('input');
+            e.type='text';
+            e.id='ignore';
+            if(qsval('#ignore','max')) {
+                qs('#ignore','max').after(e);
+            }
+            qs('#ignore','max').select();
+            reloadLink();
+        }
+        function reloadLink(){
+            let te = [], i;
+            if(qsval('#keyword','max')) {
+                for(i=0;i<qsal('#keyword');i++){
+                    te.push(qsval('#keyword',i));
+                }
+            }
+            te = te.join(' ');
+            let t = 'https://www.twitter.com/search?q='+te;
+            gAlert(t,0);
+            console.log('reloaded.');
+            return t;
+        }
+        function qsa(sel=String()){
+            if(!document.querySelectorAll(sel)){
+                return false;
+            } else {
+                return document.querySelectorAll(sel);
+            }
+        }
+        function qs(sele=String(), pos){
+            if(!pos) {
+                pos=0;
+            }
+            if(qsa(sele) == false) {
+                return false;
+            } else {
+                if(pos!=='length'&&pos!=='max'){
+                    return qsa(sele)[pos];
+                } else {
+                    return qsa(sele)[qsal(sele)-1];
+                }
+            }
+        }
+        function qsval(selec=String(), pos){
+            if(!qs(selec, pos)) {
+                return false;
+            } else {
+                return qs(selec, pos).value;
+            }
+        }
+        function qsal(sell=String()){
+            if(!qsa(sell)) {
+                return false;
+            } else {
+                return qsa(sell).length;
+            }
+        }
+        function openTwitter(){
+            window.open(reloadLink());
+        }
+        function gAlert(content=String(),type=Number()) {
+            if(qs('div#alert')){
+                qs('div#alert').remove();
+                console.log(0);
+            }
+            let alep = document.createElement("p");
+            alep.id = 'alertContent';
+            let ale = document.createElement("div");
+            ale.id = "alert";
+            ale.appendChild(alep);
+            qs('main').after(ale);
+            switch(type){
+                case 1:
+                    qs('div#alert').style.backgroundColor = '#c00';
+                    qs('div#alert').style.color = 'white';
+                    qs('#alertContent').innerHTML = '<i class="fas fa-exclamation-circle"></i> ';
+                    break;
+                case 2:
+                    qs('div#alert').style.backgroundColor = '#cc0';
+                    qs('div#alert').style.color = 'white';
+                    qs('#alertContent').innerHTML = '<i class="fas fa-exclamation-triangle"></i> ';
+                    break;
+                case 0:
+                default:
+                    qs('div#alert').style.backgroundColor = '#0c0';
+                    qs('div#alert').style.color = 'white';
+                    qs('#alertContent').innerHTML = '<i class="fas fa-check-circle"></i> ';
+                    break;
+            }
+            qs('#alertContent').innerHTML = qs('#alertContent').innerHTML + content;
+            let alertt;
+            alertt = setInterval(function(){
+                if(!qs('div#alert')){
+                    clearInterval(alertt);
+                    return false;
+                }
+                qs('div#alert').classList.add('show');
+                let alert, alerttt;
+                if(alert) {
+                    clearInterval(alert);
+                }
+                alert = setInterval(function(){
+                    if(!qs('div#alert')){
+                        clearInterval(alert);
+                        clearInterval(alertt);
+                        clearInterval(alerttt);
+                        return false;
+                    }
+                    qs('div#alert').classList.remove('show');
+                    alerttt = setInterval(function(){
+                        if(!qs('div#alert')){
+                            clearInterval(alert);
+                            clearInterval(alertt);
+                            clearInterval(alerttt);
+                            return false;
+                        }
+                        qs('div#alert').remove();
+                        console.log(3);
+                        clearInterval(alerttt);
+                        return false;
+                    },600);
+                    clearInterval(alert);
+                },3000);
+                clearInterval(alertt);
+            },600);
+        }
+        </script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+<body>
+    <main>
+        <div id="navigation">
+            <a id="twitter" href="javascript:(function(){openTwitter();})();"><i class="fab fa-twitter"></i></a>
+            <a href="" id="ignoreKeyword"><i class="fas fa-search-minus"></i></a>
+        </div>
+        <div id="keywords">
+            <div id="key1">
+                <label>キーワード</label>
+                <input type="text" id="keyword">
+                <input type="button" value="+" onclick="addKeyword();">
+            </div>
+            <div id="key2">
+                <label>含まないキーワード</label>
+                <input type="text" id="ignore">
+                <input type="button" value="+" onclick="addIgnoreKeyword();">
+            </div>
+        </div>
+        <div id="user">
+            <input type="text" placeholder="From">
+            <label>⇒</label>
+            <input type="text" placeholder="To">
+        </div>
+        <div id="period">
+            <input type="date" placeholder="Since">
+            <label>~</label>
+            <input type="date" placeholder="Until">
+        </div>
+        <select id="filter">
+            <option value="0">(なし)</option>
+            <option value="1">画像</option>
+            <option value="2">動画</option>
+            <option value="3">リンク</option>
+            <option value="4">認証アカウント</option>
+        </select>
+        <div id="non"></div>
+    </main>
+    <div id="alert">
+        <p id="alertContent">
+            Alert!
+        </p>
+    </div>
+</body>
+</html>

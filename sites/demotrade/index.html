@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demotrade</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/marcelodolza/iziToast/dist/css/iziToast.min.css">
+  <link rel="stylesheet" href="./scss/style.css">
+</head>
+<body style="margin:0;">
+  <div id="chart">
+    <div id="main"></div>
+    <div id="volume"></div>
+    <div id="vue">
+      <trading-vue :data="this.data.ohlcv"></trading-vue>
+    </div>
+  </div>
+  <div id="terminal">
+    <pre id="console"></pre>
+    <button id="toggle" onclick="toggle();">START / STOP</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/trading-vue-js/dist/trading-vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/marcelodolza/iziToast/dist/js/iziToast.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/decimal.js/decimal.min.js"></script>
+  <script src="../coder/js/class.js" type="text/javascript"></script>
+  <script src="../coder/js/main.js" type="text/javascript"></script>
+  <script src="./js/script.js"></script>
+</body>
+</html>

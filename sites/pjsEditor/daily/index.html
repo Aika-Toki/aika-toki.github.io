@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PJS Editor</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+    <link rel="shortcut icon" href="../media/icon/favicon256.png" type="image/x-icon">
+    <link rel="stylesheet" href="./edit/scss/loaders.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Kaisei+Opti:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loadingCover">
+        <div id="loadingArea">
+            <div class="loader">
+                <div class="loader-inner ball-clip-rotate-multiple">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <h2>Loading...</h2>
+        </div>
+    </div>
+    <header>
+        <div id="menubar">
+            <a id="title" href="./">
+                <img src="../media/icon/icon256text.png" alt="">
+            </a>
+            <div id="account">
+                <div id="id"></div>
+                <div id="logout"><i class="fal fa-sign-out"></i></div>
+            </div>
+        </div>
+        <div id="datebar">
+            <div id="previousDate"><i class="fal fa-chevron-left"></i></div>
+            <div id="currentDate"><label for="currentInput"></label><input type="date" id="currentInput"></div>
+            <div id="nextDate"><i class="fal fa-chevron-right"></i></div>
+        </div>
+    </header>
+    <main>
+        <div id="target">
+            <h2>今日やること，やりたいこと，意気込み</h2>
+            <code id="targetArea"></code>
+        </div>
+        <div id="freespace">
+            <h2>今日できたこと，気づいたこと，思ったこと</h2>
+            <code id="reviewArea"></code>
+        </div>
+        <div id="review">
+            <div>
+                <h2>今日の気分</h2>
+                <select id="feelingArea" size="2" disabled>
+                    <option value="enjoy">😆</option>
+                    <option value="goingwell">🙂</option>
+                    <option value="holdout">💪</option>
+                    <option value="gentle">😌</option>
+                    <option value="love">😍</option>
+                    <option value="hard">😵</option>
+                    <option value="embarrassing">☹️</option>
+                    <option value="normal">😐</option>
+                </select>
+            </div>
+        </div>
+        <hr>
+        <div id="temperature">
+            <div>
+                <h2>体温</h2>
+                <input type="number" id="tempArea" step="0.1" disabled>
+            </div>
+        </div>
+        <hr>
+        <div id="save">
+            <button id="editbtn">編集</button>
+            <button id="weekbtn">この週を表示する</button>
+        </div>
+    </main>
+    <script src="./js/script.js"></script>
+</body>
+</html>

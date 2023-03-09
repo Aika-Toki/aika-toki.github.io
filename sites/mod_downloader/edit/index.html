@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Mods Downloader Editor</title>
+    <link rel="stylesheet" href="./scss/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/vs2015.min.css">
+</head>
+<body>
+    <div id="dlidForm">
+        <h2 id="formTitle">ID</h2>
+        <div id="formContent">
+            <input type="text" id="dlid" disabled>
+            <input type="button" value="生成" onclick="dlidChange();" id="dlidGenBtn">
+        </div>
+    </div>
+    <div id="dlNameForm">
+        <h2 id="formTitle">Name</h2>
+        <div id="formContent">
+            <input type="text" id="dlname">
+        </div>
+    </div>
+    <div id="dlListForm">
+        <h2 id="formTitle">Content Links</h2>
+        <div id="formContent">
+            <table>
+                <tbody id="dlLinkTableBody">
+                    <tr id="dllinkadd">
+                        <td colspan="2">
+                            <input type="button" value="+" onclick="dlLinkAdd();">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="submitForm">
+        <div id="formContent">
+            <input type="button" value="コードを生成" onclick="generateCode();" id="codeGen">
+            <input type="button" value="登録" onclick="submit();">
+        </div>
+    </div>
+    <div id="resultForm">
+        <h2 id="formTitle">コード</h2>
+        <div id="formContent">
+            <pre id="code">
+                <code class="language-javascript"></code>
+            </pre>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+</html>

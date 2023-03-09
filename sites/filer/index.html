@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content= "initial-scale=1">
+    
+    <title>簡易ファイラー</title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="scss/style.css">
+    <script src="fileapi.js"></script>
+    <script src="unzip.min.js"></script>
+    <script src="node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="column-left">
+          <input type="file" id="zipinput" accept=".zip" onchange="upload(this.files[0])">
+          <div id="foldertool">
+            <input type="button" value="すべて展開" onclick="allOpen()">
+            <input type="button" value="すべて縮小" onclick="allClose()">
+          </div>
+          <div id="explorer"></div>
+        </div>
+        <div id="column-right">
+          <div id="editor"></div>
+        </div>
+      </div>
+    <!-- <output id="result" ></output> -->
+    <!-- <form>
+      <textarea cols="20" rows="5" id="fsData"></textarea>
+    </form> -->
+    <!-- <script>
+      // ファイル一覧を取得しリストで出力する
+      viewFileList();
+      function viewFileList(){
+        window.fsapi.getFiles("/", function(list){
+          document.getElementById("result").innerHTML = "<ul>"; // リストで表示
+          var text = "";
+          for(var i=0; i<list.length; i++){ // ファイル／ディレクトリの数だけ繰り返し
+            if (list[i].isFile){  // ファイルの場合
+              text += '<li onclick=viewFile("'+list[i].name+'")>[F]';
+              text += '<span onclick=deleteFile("'+list[i].name+'")>[×]</span>'
+            }else{   // ディレクトリの場合
+              text += '<li>[D]';
+              text += '<span onclick=deleteDir("'+list[i].name+'")>[×]</span>'
+            }
+            text += list[i].name+"</li>";
+          }
+          document.getElementById("result").innerHTML = text+"</ul>";
+        });
+      }
+      // クリックされたらファイル内容を読み出す
+      function viewFile(filename){
+        window.fsapi.readText(filename, function(){
+          document.getElementById("fsData").value = this.result;
+        });
+      }
+      // クリックされたらファイルを削除
+      function deleteFile(filename){
+        var flag = confirm("本当に削除しますか？");
+        if (!flag){ return; }
+        window.fsapi.removeFile(filename, function(){
+          alert("ファイルを削除しました");
+          viewFileList();  // ファイル一覧を再表示
+        });
+      }
+      // クリックされたらディレクトリを削除
+      function deleteDir(dirname){
+        var flag = confirm("本当にディレクトリ内を全て削除しますか？");
+        if (!flag){ return; }
+        window.fsapi.removeDir(dirname, function(){
+          alert("ディレクトリ内を全て削除しました");
+          viewFileList();  // ファイル一覧を再表示
+        });
+      }
+    </script> -->
+    <script>
+      demo();
+    </script>
+  </body>
+</html>

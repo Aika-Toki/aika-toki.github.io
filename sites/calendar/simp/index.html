@@ -1,0 +1,385 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dtd HTML 4.0 Transitional//EN">
+<html dir="ltr" xml:lang="ja" xmlns="http://www.w3.org/1999/xhtml" lang="ja"><head>
+<meta http-equiv="content-language" content="ja">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta http-equiv="content-style-type" content="text/css">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<title>営業日・店休日・定休日カレンダーの作成支援（ネットショップ用カレンダーをプレーンhtmlタグで作成）</title>
+<meta content="無料,営業日,カレンダー,作成,自動,生成,暦,HTML,ソース,ネットショップ店長,カレンダーツール,カレンダー生成" name="keywords">
+<meta content="広告なし簡単＆無料営業日カレンダー作成ツールです。シンプルなhtmlタグのみでカレンダーのソースが作れます。クリックだけで簡単操作、広告表示なし＆リンク不要で商用利用可能。" name="Description">
+<meta content="index,follow" name="robots">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+<link media="screen,print" href="index_files/calendar.css" type="text/css" rel="stylesheet">
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+<script src="index_files/check.js" type="text/javascript"></script>
+<script src="index_files/colorselect.js" type="text/javascript"></script>
+<script src="index_files/calendar.js" type="text/javascript"></script>
+<script src="index_files/all.js" type="text/javascript"></script>
+
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="8.896.0" data-gr-ext-installed="">
+<div id="wrap">
+
+
+<div id="header">
+<img src="index_files/calendar_logo.gif" align="right">
+<h1><a href="http://calendar.syoukoukai.com/">営業日・店休日・定休日カレンダーの作成<br>[ネットショップ用のカレンダーの画像を手軽に生成]</a></h1>
+<br>
+カレンダーの画像が作れます。ホームページやCMSやブログ等へ貼り付けて下さい。
+画像編集の知識不要で簡単操作、もちろん無料＆コピーライトなし＆リンク不要で商用利用可能。
+<br>
+営業日・定休日・店休日カレンダーをクリックだけで作成します。
+</div>
+<br style="clear:both;">
+
+<form id="calForm" name="calForm">
+
+
+<div id="view">
+<table cellspacing="0" cellpadding="10" border="1">
+	<tbody><tr>
+	<td>完成プレビュー
+	</td>
+	</tr>
+	<tr>
+	<td align="center">
+	<div id="preview"><img src="index_files/calendar_mihon.gif"></div>
+	</td>
+	</tr>
+
+	<!-- <tr>
+	<td>HTMLタグプレビュー（htmlソースのプレビュー）
+	<input type="button" value="すべて選択" onclick="SelectAll()"><br>
+	<textarea name="DATA" rows="19" cols="50"></textarea><br>
+	<br>
+	出てきたHTMLタグをコピー＆ペーストして下さい。
+	</td>
+	</tr> -->
+	<tr>
+	<td>
+		<a href="" class="btn btn-tag btn-tag--bookmark" id="img-dl"><i class="fa-duotone fa-download"></i>画像ダウンロード</a>
+		<!-- <img src="" id="img-th" style="width:70%"> -->
+	</td>
+	</tr>
+</tbody></table>
+</div>
+
+
+<div id="panel">
+<h1>●たったの4ステップです。操作簡単、無料です。</h1>
+<br>
+<h2>[1]色を設定します。好きな＃カラーコードを入力します。</h2>
+<table cellspacing="0" cellpadding="0" border="0">
+
+
+<tbody><tr>
+	<td>カレンダー枠線の色<br>
+	<input maxlength="7" size="14" name="bgcolor02" oninput="color02upd()" value="#333333" type="color"><br>
+	</td>
+	<td style="padding:0px 30px;">[色見本]<br>
+	<select name="color02" onchange="ColorSelect02(this.form, this)">
+	<option value="" style="background-color:#EEEEEE">よく使われる色から選ぶ</option>
+	<option value="#333333" selected="selected" style="background-color:#333333">#333333</option>
+	<option value="#666666" style="background-color:#666666">#666666</option>
+	<option value="#999999" style="background-color:#999999">#999999</option>
+	<option value="#CCCCCC" style="background-color:#CCCCCC">#CCCCCC</option>
+	<option value="#660000" style="background-color:#660000">#660000</option>
+	<option value="#CC0033" style="background-color:#CC0033">#CC0033</option>
+	<option value="#000066" style="background-color:#000066">#000066</option>
+	<option value="#0000CC" style="background-color:#0000CC">#0000CC</option>
+	<option value="#663300" style="background-color:#663300">#663300</option>
+	<option value="#993300" style="background-color:#993300">#993300</option>
+	<option value="#FFFFFF" style="background-color: #FFFFFF">#FFFFFF</option>
+	</select>
+	</td>
+</tr>
+<tr>
+<td colspan="2"><hr size="1"></td>
+</tr>
+<tr>
+	<td>営業日の背景色<br>
+	<input maxlength="7" size="14" name="bgcolor04" oninput="color04upd()" value="#33CCFF" type="color"></td>
+	<td style="padding:0px 30px;">[色見本]<br>
+	<select name="color04" onchange="ColorSelect04(this.form, this)">
+	<option value="" style="background-color:#EEEEEE">よく使われる色から選ぶ</option>
+	<option value="#FF6666" style="background-color:#FF6666">#FF6666</option>
+	<option value="#FF9999" style="background-color:#FF9999">#FF9999</option>
+	<option value="#FFCCCC" style="background-color:#FFCCCC">#FFCCCC</option>
+	<option value="#99CCFF" style="background-color:#99CCFF">#99CCFF</option>
+	<option value="#66CCFF" style="background-color:#66CCFF">#66CCFF</option>
+	<option value="#33CCFF" selected="selected" style="background-color:#33CCFF">#33CCFF</option>
+	<option value="#FFCC99" style="background-color:#FFCC99">#FFCC99</option>
+	<option value="#FFCC66" style="background-color:#FFCC66">#FFCC66</option>
+	<option value="#FFCC33" style="background-color:#FFCC33">#FFCC33</option>
+	</select>
+	</td>
+</tr>
+<tr>
+<td colspan="2"><hr size="1"></td>
+</tr>
+<tr>
+	<td>休業日の背景色<br>
+	<input maxlength="7" size="14" name="bgcolor01" oninput="color01upd()" value="#FF6666" type="color"></td>
+	<td style="padding:0px 30px;">[色見本]<br>
+	<select name="color01" onchange="ColorSelect01(this.form, this)">
+	<option value="" style="background-color:#EEEEEE">よく使われる色から選ぶ</option>
+	<option value="#FF6666" selected="selected" style="background-color:#FF6666">#FF6666</option>
+	<option value="#FF9999" style="background-color:#FF9999">#FF9999</option>
+	<option value="#FFCCCC" style="background-color:#FFCCCC">#FFCCCC</option>
+	<option value="#99CCFF" style="background-color:#99CCFF">#99CCFF</option>
+	<option value="#66CCFF" style="background-color:#66CCFF">#66CCFF</option>
+	<option value="#33CCFF" style="background-color:#33CCFF">#33CCFF</option>
+	<option value="#FFCC99" style="background-color:#FFCC99">#FFCC99</option>
+	<option value="#FFCC66" style="background-color:#FFCC66">#FFCC66</option>
+	<option value="#FFCC33" style="background-color:#FFCC33">#FFCC33</option>
+	</select>
+	</td>
+</tr>
+<tr>
+<td colspan="2"><hr size="1"></td>
+</tr>
+<tr>
+	<td>曜日の行の背景色<br>
+	<input maxlength="7" size="14" name="bgcolor03" oninput="color03upd()" value="#CCCCCC" type="color"><br>
+	</td>
+	<td style="padding:0px 30px;">[色見本]<br>
+	<select name="color03" onchange="ColorSelect03(this.form, this)">
+	<option value="" style="background-color:#EEEEEE">よく使われる色から選ぶ</option>
+	<option value="#CCCCCC" selected="selected" style="background-color:#CCCCCC">#CCCCCC</option>
+	<option value="#999999" style="background-color:#999999">#999999</option>
+	<option value="#E6D7C9" style="background-color:#E6D7C9">#E6D7C9</option>
+	<option value="#E6E3C9" style="background-color:#E6E3C9">#E6E3C9</option>
+	<option value="#C9DFE8" style="background-color:#C9DFE8">#C9DFE8</option>
+	</select>
+	</td>
+</tr>
+
+</tbody></table>
+<br>
+
+
+<h2>[2]年月を設定します。</h2>
+<table border="0">
+<tbody><tr>
+	<td><select name="Y" onchange="ymupd()">
+	<option value="2020" selected="selected">2020</option>
+	<option value="2021">2021</option>
+	<option value="2022">2022</option>
+	<option value="2023">2023</option>
+	<option value="2024">2024</option>
+	<option value="2025">2025</option>
+	<option value="2026">2026</option>
+	<option value="2027">2027</option>
+	<option value="2028">2028</option>
+	<option value="2029">2029</option>
+	<option value="2030">2030</option>
+	<option value="2031">2031</option>
+	<option value="2032">2032</option>
+	<option value="2033">2033</option>
+	<option value="2034">2034</option>
+
+	</select>&nbsp;年&nbsp; 
+	<select name="M" onchange="ymupd()"> 
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7" selected="selected">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+	</select>&nbsp;月
+</td>
+</tr>
+</tbody></table>
+<br>
+
+
+<h2>[3]営業日をチェックします。</h2>
+<table width="320" cellspacing="0" cellpadding="0" border="0">
+<tbody id="salcb"><tr>
+    <td><label for="t1"><input type="checkbox" value="1" name="week1" onclick="w1()" id="t1"><span>↓</span></label></td>
+    <td><label for="t2"><input type="checkbox" value="1" name="week2" onclick="w2()" id="t2"><span>↓</span></label></td>
+    <td><label for="t3"><input type="checkbox" value="1" name="week3" onclick="w3()" id="t3"><span>↓</span></label></td>
+    <td><label for="t4"><input type="checkbox" value="1" name="week4" onclick="w4()" id="t4"><span>↓</span></label></td>
+    <td><label for="t5"><input type="checkbox" value="1" name="week5" onclick="w5()" id="t5"><span>↓</span></label></td>
+    <td><label for="t6"><input type="checkbox" value="1" name="week6" onclick="w6()" id="t6"><span>↓</span></label></td>
+    <td><label for="t7"><input type="checkbox" value="1" name="week7" onclick="w7()" id="t7"><span>↓</span></label></td>
+</tr>
+<tr>
+<td colspan="7"><hr size="1"></td>
+</tr>
+<tr>
+    <td><label for="d1"><input type="checkbox" value="1" name="D1" id="d1" class="datecb"> 1</label></td>
+    <td><label for="d2"><input type="checkbox" value="1" name="D2" id="d2" class="datecb"> 2</label></td>
+    <td><label for="d3"><input type="checkbox" value="1" name="D3" id="d3" class="datecb"> 3</label></td>
+    <td><label for="d4"><input type="checkbox" value="1" name="D4" id="d4" class="datecb"> 4</label></td>
+    <td><label for="d5"><input type="checkbox" value="1" name="D5" id="d5" class="datecb"> 5</label></td>
+    <td><label for="d6"><input type="checkbox" value="1" name="D6" id="d6" class="datecb"> 6</label></td>
+    <td><label for="d7"><input type="checkbox" value="1" name="D7" id="d7" class="datecb"> 7</label></td>
+</tr>
+<tr>
+    <td><label for="d8"><input type="checkbox" value="1" name="D8" id="d8" class="datecb"> 8</label></td>
+    <td><label for="d9"><input type="checkbox" value="1" name="D9" id="d9" class="datecb"> 9</label></td>
+    <td><label for="d10"><input type="checkbox" value="1" name="D10" id="d10" class="datecb">10</label></td>
+    <td><label for="d11"><input type="checkbox" value="1" name="D11" id="d11" class="datecb">11</label></td>
+    <td><label for="d12"><input type="checkbox" value="1" name="D12" id="d12" class="datecb">12</label></td>
+    <td><label for="d13"><input type="checkbox" value="1" name="D13" id="d13" class="datecb">13</label></td>
+    <td><label for="d14"><input type="checkbox" value="1" name="D14" id="d14" class="datecb">14</label></td>
+</tr>
+<tr>
+    <td><label for="d15"><input type="checkbox" value="1" name="D15" id="d15" class="datecb">15</label></td>
+    <td><label for="d16"><input type="checkbox" value="1" name="D16" id="d16" class="datecb">16</label></td>
+    <td><label for="d17"><input type="checkbox" value="1" name="D17" id="d17" class="datecb">17</label></td>
+    <td><label for="d18"><input type="checkbox" value="1" name="D18" id="d18" class="datecb">18</label></td>
+    <td><label for="d19"><input type="checkbox" value="1" name="D19" id="d19" class="datecb">19</label></td>
+    <td><label for="d20"><input type="checkbox" value="1" name="D20" id="d20" class="datecb">20</label></td>
+    <td><label for="d21"><input type="checkbox" value="1" name="D21" id="d21" class="datecb">21</label></td>
+</tr>
+<tr>
+    <td><label for="d22"><input type="checkbox" value="1" name="D22" id="d22" class="datecb">22</label></td>
+    <td><label for="d23"><input type="checkbox" value="1" name="D23" id="d23" class="datecb">23</label></td>
+    <td><label for="d24"><input type="checkbox" value="1" name="D24" id="d24" class="datecb">24</label></td>
+    <td><label for="d25"><input type="checkbox" value="1" name="D25" id="d25" class="datecb">25</label></td>
+    <td><label for="d26"><input type="checkbox" value="1" name="D26" id="d26" class="datecb">26</label></td>
+    <td><label for="d27"><input type="checkbox" value="1" name="D27" id="d27" class="datecb">27</label></td>
+    <td><label for="d28"><input type="checkbox" value="1" name="D28" id="d28" class="datecb">28</label></td>
+</tr>
+<tr>
+    <td><label for="d29"><input type="checkbox" value="1" name="D29" id="d29" class="datecb">29</label></td>
+    <td><label for="d30"><input type="checkbox" value="1" name="D30" id="d30" class="datecb">30</label></td>
+    <td><label for="d31"><input type="checkbox" value="1" name="D31" id="d31" class="datecb">31</label></td>
+	<td colspan="4" align="center"></td>
+</tr>
+<tr>
+	<td colspan="7"><hr size="1"></td>
+</tr>
+<tr>
+	<td colspan="4"><input type="button" value="すべてにチェックを入れる" onclick="chBxOn()"></td><td colspan="1"></td><td colspan="2"><input type="button" value="すべて外す" onclick="chBxOff()"></td>
+</tr>
+</tbody></table>
+<br>
+
+<h2>[４]休業日をチェックします。</h2>
+<table width="320" cellspacing="0" cellpadding="0" border="0">
+<tbody id="holcb"><tr>
+    <td><label for="t1h"><input type="checkbox" value="1" name="week1" onclick="w1h()" id="t1h"><span>↓</span></label></td>
+    <td><label for="t2h"><input type="checkbox" value="1" name="week2" onclick="w2h()" id="t2h"><span>↓</span></label></td>
+    <td><label for="t3h"><input type="checkbox" value="1" name="week3" onclick="w3h()" id="t3h"><span>↓</span></label></td>
+    <td><label for="t4h"><input type="checkbox" value="1" name="week4" onclick="w4h()" id="t4h"><span>↓</span></label></td>
+    <td><label for="t5h"><input type="checkbox" value="1" name="week5" onclick="w5h()" id="t5h"><span>↓</span></label></td>
+    <td><label for="t6h"><input type="checkbox" value="1" name="week6" onclick="w6h()" id="t6h"><span>↓</span></label></td>
+    <td><label for="t7h"><input type="checkbox" value="1" name="week7" onclick="w7h()" id="t7h"><span>↓</span></label></td>
+</tr>
+<tr>
+<td colspan="7"><hr size="1"></td>
+</tr>
+<tr>
+    <td><label for="d1"><input type="checkbox" value="1" name="D1" id="d1" class="datecb"> 1</label></td>
+    <td><label for="d2"><input type="checkbox" value="1" name="D2" id="d2" class="datecb"> 2</label></td>
+    <td><label for="d3"><input type="checkbox" value="1" name="D3" id="d3" class="datecb"> 3</label></td>
+    <td><label for="d4"><input type="checkbox" value="1" name="D4" id="d4" class="datecb"> 4</label></td>
+    <td><label for="d5"><input type="checkbox" value="1" name="D5" id="d5" class="datecb"> 5</label></td>
+    <td><label for="d6"><input type="checkbox" value="1" name="D6" id="d6" class="datecb"> 6</label></td>
+    <td><label for="d7"><input type="checkbox" value="1" name="D7" id="d7" class="datecb"> 7</label></td>
+</tr>
+<tr>
+    <td><label for="d8"><input type="checkbox" value="1" name="D8" id="d8" class="datecb"> 8</label></td>
+    <td><label for="d9"><input type="checkbox" value="1" name="D9" id="d9" class="datecb"> 9</label></td>
+    <td><label for="d10"><input type="checkbox" value="1" name="D10" id="d10" class="datecb">10</label></td>
+    <td><label for="d11"><input type="checkbox" value="1" name="D11" id="d11" class="datecb">11</label></td>
+    <td><label for="d12"><input type="checkbox" value="1" name="D12" id="d12" class="datecb">12</label></td>
+    <td><label for="d13"><input type="checkbox" value="1" name="D13" id="d13" class="datecb">13</label></td>
+    <td><label for="d14"><input type="checkbox" value="1" name="D14" id="d14" class="datecb">14</label></td>
+</tr>
+<tr>
+    <td><label for="d15"><input type="checkbox" value="1" name="D15" id="d15" class="datecb">15</label></td>
+    <td><label for="d16"><input type="checkbox" value="1" name="D16" id="d16" class="datecb">16</label></td>
+    <td><label for="d17"><input type="checkbox" value="1" name="D17" id="d17" class="datecb">17</label></td>
+    <td><label for="d18"><input type="checkbox" value="1" name="D18" id="d18" class="datecb">18</label></td>
+    <td><label for="d19"><input type="checkbox" value="1" name="D19" id="d19" class="datecb">19</label></td>
+    <td><label for="d20"><input type="checkbox" value="1" name="D20" id="d20" class="datecb">20</label></td>
+    <td><label for="d21"><input type="checkbox" value="1" name="D21" id="d21" class="datecb">21</label></td>
+</tr>
+<tr>
+    <td><label for="d22"><input type="checkbox" value="1" name="D22" id="d22" class="datecb">22</label></td>
+    <td><label for="d23"><input type="checkbox" value="1" name="D23" id="d23" class="datecb">23</label></td>
+    <td><label for="d24"><input type="checkbox" value="1" name="D24" id="d24" class="datecb">24</label></td>
+    <td><label for="d25"><input type="checkbox" value="1" name="D25" id="d25" class="datecb">25</label></td>
+    <td><label for="d26"><input type="checkbox" value="1" name="D26" id="d26" class="datecb">26</label></td>
+    <td><label for="d27"><input type="checkbox" value="1" name="D27" id="d27" class="datecb">27</label></td>
+    <td><label for="d28"><input type="checkbox" value="1" name="D28" id="d28" class="datecb">28</label></td>
+</tr>
+<tr>
+    <td><label for="d29"><input type="checkbox" value="1" name="D29" id="d29" class="datecb">29</label></td>
+    <td><label for="d30"><input type="checkbox" value="1" name="D30" id="d30" class="datecb">30</label></td>
+    <td><label for="d31"><input type="checkbox" value="1" name="D31" id="d31" class="datecb">31</label></td>
+	<td colspan="4" align="center"></td>
+</tr>
+<tr>
+	<td colspan="7"><hr size="1"></td>
+</tr>
+<tr>
+	<td colspan="4"><input type="button" value="すべてにチェックを入れる" onclick="chBxOnh()"></td><td colspan="1"></td><td colspan="2"><input type="button" value="すべて外す" onclick="chBxOffh()"></td>
+</tr>
+</tbody></table>
+<br>
+
+
+<h2>[5]カレンダーの横幅を設定します。数値を入力します。</h2>
+<table border="0">
+<tbody><tr>
+	<td>※空欄でも可。<br>
+	<input maxlength="3" size="12" name="wdh01" value="150"><br>
+	</td>
+	<td style="padding:0px 30px;">[参考サイズ]<br>
+	<select name="width01" onchange="WidthSelect(this.form, this)">
+	<!-- <option value="" style="background-color:#EEEEEE">よくわからない場合は・・・</option> -->
+	<option value="150" selected="selected">150</option>
+	<option value="160">160</option>
+	<option value="170">170</option>
+	<option value="180">180</option>
+	<option value="190">190</option>
+	<option value="200">200</option>
+	<option value="220">220</option>
+	<option value="240">240</option>
+	<option value="250">250</option>
+	<option value="270">270</option>
+	<option value="290">290</option>
+	<option value="300">300</option>
+	<option value="100%">100%</option>
+	<option value="95%">95%</option>
+	<option value="90%">90%</option>
+	<option value="85%">85%</option>
+	<option value="">指定しない</option>
+	</select>
+	</td>
+</tr>
+</tbody></table>
+<br>
+
+<input onclick="alter()" type="button" value="カレンダーを作成する（再作成）" style="width:330px;height:35px;background-color:#FF9999;"> 
+
+
+</div></form>
+
+
+
+<br style="clear:both;">
+<br><br><br>
+<div id="footer">
+ネットショップ店長向け「営業日カレンダー作成ツール」はご自由にご利用ください。リンク不要・報告無用・商用利用可能。
+<br>
+カレンダーのhtmlソースは、コピーして必要な所に貼り付けてご使用ください。出力後のタグも変更しても構いません。<br>Since2010-2016. (Forked by Aika-Toki 2022)
+</div>
+</div>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

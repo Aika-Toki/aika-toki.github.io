@@ -1,0 +1,61 @@
+#copyFAE, #copyFPS, #copyINP, #copyD{
+    border-radius: 50%;
+    border-color: cornflowerblue;
+    border-style: double;
+    background-color: transparent;
+    color: cornflowerblue;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    position: absolute;
+    transition: all 400ms;
+}
+#copyFAE:hover, #copyFPS:hover, #copyINP:hover, #copyD:hover{
+    background-color: cornflowerblue;
+    color: white;
+    transform: scale(1.2) translate(10px, 0px);
+    transition: all 400ms;
+}
+#functionPlaysound{
+    width: 1000px;
+    border-style: double;
+}
+#functionAudioEnded{
+    width: 1000px;
+    border-style: double;
+}
+#inNotePlay{
+    width: 1000px;
+    border-style: double;
+}
+#definition{
+    width: 1000px;
+    border-style: double;
+}
+div#infobar{
+    display: block;
+    bottom: -10%;
+    position: absolute;
+    background-color: lightgreen;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    color: white;
+    font-family: monospace;
+    font-size: 130%;
+    height: 0;
+    opacity: 0;
+    transition: transform 600ms ease-out;
+}
+div.open{
+    transform: translate(0%,-190%);
+    height: auto !important;
+    opacity: 1 !important;
+    transition: transform 600ms ease-out;
+}
+input#audioThreadNum {
+    background-color: transparent;
+}
+input#audioThreadNum::-webkit-inner-spin-button,
+input#audioThreadNum::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}

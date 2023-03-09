@@ -1,0 +1,122 @@
+@font-face {
+    font-family: Azuki;
+    src: url("../font/azukiL.ttf");
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/bg0.gif");
+    backdrop-filter: blur(8px);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    background: #04BBD3;
+    position: absolute;
+    filter: blur(3px) brightness(0.8);
+}
+#content {
+    width: 100%;
+    height: 40%;
+}
+#main-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    background-color: white;
+    height: 100%;
+}
+#downloadID {
+    border-radius: 40px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    text-align: center;
+    height: 25%;
+    border-style: solid;
+    font-family: Azuki;
+    font-size: 120%;
+    background-color: #feffb6;
+    color: lightsalmon;
+    transition: all 300ms linear;
+    &:focus {
+        background-color: lightsalmon;
+        color: white;
+    }
+}
+#downloadbtn {
+    background-color: white;
+    border-radius: 60px;
+    border-style: solid;
+    color: lightsalmon;
+    width: 50%;
+    height: 25%;
+    font-size: 130%;
+    font-family: Azuki;
+    transition: all 300ms linear;
+    &:hover {
+        background-color: lightsalmon !important;
+        color: white !important;
+        cursor: pointer;
+        font-weight: bold;
+    }
+}
+#poptestbtn {
+    border-style: none;
+    background-color: white;
+    color: lightsalmon;
+    text-decoration-line: underline;
+    text-decoration-color: #ffa07a00;
+    transition: all 300ms linear;
+    font-size: 15px;
+    margin-left: 40%;
+    font-family: sans;
+    &:hover {
+        cursor: pointer;
+        text-decoration-line: underline;
+        text-decoration-color: #ffa07aff !important;
+    }
+}
+#title {
+    font-family: Azuki;
+    font-size: 50px;
+    background-image: url("../img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    padding-top: 20%;
+    filter: blur(1px) brightness(1.3);
+    color: white;
+    &:hover {
+        filter: brightness(1.5) blur(1px);
+    }
+}
+#main-gui {
+    height: 13%;
+    position: absolute;
+    width: 40%;
+    padding-top: 2%;
+    padding-left: 20%;
+    background-color: white;
+}
+#footer {
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    left: 0%;
+    color: white;
+    text-align: center;
+}
