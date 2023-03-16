@@ -14,7 +14,21 @@ function again(){
     run();
 }
 function addlist(){
+    let _strict = false;
+    if(location.search == "?strict=t"){
+        _strict = true;
+    }
     let v = d.querySelector('input#nameinput').value;
+    if(_strict){
+        if(v.includes('<')&&v.includes('>')){
+            d.querySelector('input#nameinput').value = '';
+            return alert('名前に使用できない文字が含まれています');
+        }
+        if(v.length>15){
+            d.querySelector('input#nameinput').value = '';
+            return alert('Riotアカウント名に使用できない文字数です');
+        }
+    }
     if(v == ""||v.replaceAll(' ','') == ""){
         let numm = String("000" + Math.floor(Math.random()*10000)).substr(-4);
         v = "NoName#"+numm;
