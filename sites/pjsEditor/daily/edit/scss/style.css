@@ -35,7 +35,7 @@ header #menubar #title img {
 header #menubar #account {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 40vw;
 }
 header #menubar #account #logout {
@@ -59,7 +59,7 @@ header #menubar #account #id {
   text-overflow: ellipsis;
   white-space: nowrap;
   line-break: break-all;
-  width: 1vw;
+  width: 20vw;
 }
 @media (max-width: 920px) {
   header #menubar #account #id {
