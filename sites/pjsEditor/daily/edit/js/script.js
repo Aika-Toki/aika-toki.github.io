@@ -33,7 +33,6 @@ if (location.search !== '') {
     let wd = "日月火水木金土";
     let datedata = new Date(year, month - 1, date);
     d.querySelector("#currentDate").innerText = `${year}年${month}月${date}日(${wd.charAt(datedata.getDay())})`;
-    d.querySelector("#id").innerText = id;
     $.getJSON(jsonUrl, (data) => {
         let jsondata = data;
         console.log(JSON.stringify(jsondata));
@@ -43,8 +42,9 @@ if (location.search !== '') {
             d.querySelector("#feelingArea").querySelector(`option[value=${jsondata[1]}]`).setAttribute('selected','');
         }
         d.querySelector("#tempArea").value = jsondata[3];
+        d.querySelector("#id").innerText = jsondata[4];
         tempfix();
-
+        
         d.querySelector("#loadingCover").classList.add("hidden");
         setTimeout(()=>{
             d.querySelector("#loadingCover").style.overflow = "hidden";
