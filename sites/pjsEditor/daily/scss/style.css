@@ -60,6 +60,7 @@ header #menubar #account #id {
   white-space: nowrap;
   line-break: break-all;
   width: 20vw;
+  text-align: right;
 }
 @media (max-width: 920px) {
   header #menubar #account #id {

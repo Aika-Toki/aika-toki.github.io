@@ -82,6 +82,7 @@ header {
                 white-space: nowrap;
                 line-break: break-all;
                 width: 20vw;
+                text-align: right;
 
                 @include sp {
                     display: none;
