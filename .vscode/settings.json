@@ -1,0 +1,22 @@
+{
+  "cssvar.files": [
+    "/scss/sites/style.scss",
+    "/node_modules/open-props/open-props.min.css"
+  ],
+  "cssvar.ignore": [],
+  "cssvar.extensions": [
+    "css",
+    "scss",
+    "tsx",
+    "jsx",
+    "postcss"
+  ],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": null,
+      "savePathReplacementPairs": null
+    }
+  ]
+}

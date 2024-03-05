@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Sites List | Aikatoki homepage</title>
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="color-scheme" content="light dark" />
+		<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+		<link rel="stylesheet" href="/dist/sites.min.css" />
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5061432372830167" crossorigin="anonymous"></script>
+	</head>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Sites List | Aikatoki homepage</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit/dist/css/uikit.min.css"/>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5061432372830167" crossorigin="anonymous"></script>
-</head>
-
-<body id="top">
-  <!-- Header -->
-  <nav class="uk-navbar-container" uk-navbar="mode: click">
-    <div class="uk-navbar-left uk-padding-small uk-padding-remove-vertical">
-      <a href="/" class="uk-navbar-item uk-logo">秋鹿朱鷺のホームページ</a>
-      <ul class="uk-navbar-nav">
-        <li class="uk-active"><a href="/sites/">サイト一覧</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- *Header* -->
-  <div>
-  <main class="uk-padding-small">
-    <nav aria-label="Breadcrumb">
-      <ul class="uk-breadcrumb">
-        <li><a href="/">Home</a></li>
-        <li><span>サイト一覧</span></li>
-      </ul>
-    </nav>
-    <div class="uk-child-width-1-2 uk-grid-small" id="linklist" uk-grid></div>
-  </main>
-  <script src="./script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit-icons.min.js"></script>
-  </div>
-</body>
-
+	<body id="top">
+		<main class="container-fluid">
+			<!-- Navbar -->
+			<nav class="ak-navbar surface-4">
+				<ul>
+					<li>
+						<strong>
+							<a href="/" class="uk-navbar-item uk-logo">秋鹿朱鷺のホームページ</a>
+						</strong>
+					</li>
+				</ul>
+				<ul class="uk-navbar-nav">
+					<li class="uk-active">
+						<a href="/sites/">
+							<div>サイト一覧</div>
+						</a>
+					</li>
+				</ul>
+			</nav>
+			<!-- *Navbar* -->
+			<div class="content surface-2">
+				<nav aria-label="breadcrumb">
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><span>サイト一覧</span></li>
+					</ul>
+				</nav>
+				<!-- Site List -->
+				<div class="container" id="linklist"></div>
+				<!-- *Site List* -->
+			</div>
+		</main>
+		<script src="/js/sites/script.js"></script>
+	</body>
 </html>
