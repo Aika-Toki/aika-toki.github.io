@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>bot用お知らせエディタ</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css" />
     <style>
-        textarea {
-            resize: none;
-            height: 20em !important;
-        }
+      textarea {
+        resize: none;
+        height: 20em !important;
+      }
     </style>
     <script src="../../others/library/SimplyfiedJS/0.0.1/SimplyfiedJS.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/zlibjs@0.3.1/bin/gzip.min.js" integrity="sha256-ABGKPd6HJIfEN2NFX3xHSkVxxYzklv9mEEybrCI4aBY=" crossorigin="anonymous"></script>
@@ -18,88 +18,82 @@
     <script src="../shorten/d.js"></script>
     <script src="../shorten/e.js"></script>
     <script src="../shorten/script.js"></script>
-    <script src="../DiscordBotAnnouncement/js/script.js"></script>
+    <script src="../../DiscordBotAnnouncement/js/script.js"></script>
     <script src="./script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <h1>bot用お知らせエディタ</h1>
-    <hr>
+    <hr />
     <h3>タイトル</h3>
-    <input type="text" id="title">
+    <input type="text" id="title" />
     <h3>カテゴリー</h3>
-    <input type="text" id="categ">
+    <input type="text" id="categ" />
     <h3>日時</h3>
-    <input type="datetime-local" id="datetime">
-    <hr>
+    <input type="datetime-local" id="datetime" />
+    <hr />
     <h3>内容</h3>
     <textarea id="content"></textarea>
-    <div id="table" style="display: flex;">
-        <input type="text" id="target" placeholder="対象">
-        <input type="text" id="ucontent" placeholder="アップデート内容">
+    <div id="table" style="display: flex">
+      <input type="text" id="target" placeholder="対象" />
+      <input type="text" id="ucontent" placeholder="アップデート内容" />
     </div>
     <button id="add">追加</button>
-    <hr>
+    <hr />
     <button id="generate">生成</button>
-    <hr>
-    <textarea id="result" style="display:none;"></textarea>
-    <textarea id="resultm" style="display:none;"></textarea>
-    <textarea id="resultmdl" style="display:none;"></textarea>
-    <button id="mdlcopy" style="display: none;">copy</button>
+    <hr />
+    <textarea id="result" style="display: none"></textarea>
+    <textarea id="resultm" style="display: none"></textarea>
+    <textarea id="resultmdl" style="display: none"></textarea>
+    <button id="mdlcopy" style="display: none">copy</button>
     <textarea id="postmdpre"></textarea>
     <script>
-        function first(){
-            let now = new Date();
-            now = [
-                now.getFullYear(),
-                now.getMonth()+1,
-                now.getDate(),
-                now.getHours(),
-                now.getMinutes()
-            ];
-            let now_month = String("0"+now[1]).substr(-2);
-            let now_date = String("0"+now[2]).substr(-2);
-            let now_hour = String("0"+now[3]).substr(-2);
-            let now_min = String("0"+now[4]).substr(-2);
-            dqs('#datetime').value = now[0]+"-"+now_month+"-"+now_date+"T"+now_hour+":"+now_min;
+      function first() {
+        let now = new Date();
+        now = [now.getFullYear(), now.getMonth() + 1, now.getDate(), now.getHours(), now.getMinutes()];
+        let now_month = String("0" + now[1]).substr(-2);
+        let now_date = String("0" + now[2]).substr(-2);
+        let now_hour = String("0" + now[3]).substr(-2);
+        let now_min = String("0" + now[4]).substr(-2);
+        dqs("#datetime").value = now[0] + "-" + now_month + "-" + now_date + "T" + now_hour + ":" + now_min;
+      }
+      dqs("#generate").addEventListener("click", () => {
+        // first();
+        let time = new Date(dqs("#datetime").value);
+        time = time.getTime();
+        time = Math.floor(time / 1000);
+        let timesolve = new Date(dqs("#datetime").value);
+        timesolve = [
+          timesolve.getFullYear(),
+          String("0" + (timesolve.getMonth() + 1)).substr(-2),
+          String("0" + timesolve.getDate()).substr(-2),
+          String("0" + timesolve.getHours()).substr(-2),
+          String("0" + timesolve.getMinutes()).substr(-2),
+          String(timesolve.getTime()),
+        ];
+        let title = dqs("#title").value;
+        let text = dqs("#content").value;
+        let marpcontent = `---\nmarp: true\nsize: 16:9\ntheme: gaia\n---\n\n## :loudspeaker:${title}\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}\n───────────────────────────────────────────\n${text}`;
+        let textcontent = `@_.お知らせ希望 \n**📢【${title}】**|\|<t:${time}:d><t:${time}:t>\n\`\`\`\n${text}\n\`\`\``;
+        dqs("#result").value = textcontent;
+        dqs("#resultm").value = marpcontent;
+        let c = `## 📢${title}\n\n<div style="text-align:right">@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}</div>\n\n---\n\n${text}`;
+        mdlgen(c, title);
+        post(timesolve, title, text, dqs("#categ").value);
+      });
+      dqs("#add").addEventListener("click", () => {
+        if (!dqs("#content").value.includes(":-:")) {
+          dqs("#content").value += "\n|対象|アップデート内容|\n|:-:|:-:|\n";
         }
-        dqs('#generate').addEventListener('click',()=>{
-            // first();
-            let time = new Date(dqs('#datetime').value);
-            time = time.getTime();
-            time = Math.floor(time/1000);
-            let timesolve = new Date(dqs('#datetime').value);
-            timesolve = [
-                timesolve.getFullYear(),
-                String("0"+(timesolve.getMonth()+1)).substr(-2),
-                String("0"+timesolve.getDate()).substr(-2),
-                String("0"+timesolve.getHours()).substr(-2),
-                String("0"+timesolve.getMinutes()).substr(-2),
-                String(timesolve.getTime())
-            ]
-            let title = dqs("#title").value;
-            let text = dqs("#content").value;
-            let marpcontent = `---\nmarp: true\nsize: 16:9\ntheme: gaia\n---\n\n## :loudspeaker:${title}\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}\n───────────────────────────────────────────\n${text}`;
-            let textcontent = `@_.お知らせ希望 \n**📢【${title}】**|\|<t:${time}:d><t:${time}:t>\n\`\`\`\n${text}\n\`\`\``;
-            dqs('#result').value = textcontent;
-            dqs('#resultm').value = marpcontent;
-            let c = `## 📢${title}\n\n<div style="text-align:right">@${timesolve[0]}-${timesolve[1]}-${timesolve[2]} ${timesolve[3]}:${timesolve[4]}</div>\n\n---\n\n${text}`;
-            mdlgen(c,title);
-            post(timesolve,title,text,dqs('#categ').value);
-        });
-        dqs('#add').addEventListener('click',()=>{
-            if(!dqs('#content').value.includes(':-:')){
-                dqs('#content').value += "\n|対象|アップデート内容|\n|:-:|:-:|\n";
-            }
-            dqs('#content').value += `|${dqs('#target').value}|${dqs('#ucontent').value}|\n`;
-            dqs('#target').value = "";
-            dqs('#ucontent').value = "";
-        });
-        dqs('#mdlcopy').addEventListener('click',()=>{
-            navigator.clipboard.writeText(dqs('#resultmdl').value);
-        });
+        dqs("#content").value += `|${dqs("#target").value}|${dqs("#ucontent").value}|\n`;
+        dqs("#target").value = "";
+        dqs("#ucontent").value = "";
+      });
+      dqs("#mdlcopy").addEventListener("click", () => {
+        navigator.clipboard.writeText(dqs("#resultmdl").value);
+      });
     </script>
     <script>
-        first();
+      first();
     </script>
-</body>
+  </body>
 </html>
